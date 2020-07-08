@@ -33,14 +33,14 @@ public class te2 {
 
         Credential credential = new GoogleCredential.Builder().setTransport(HTTP_TRANSPORT)
                 .setJsonFactory(JSON_FACTORY)
-                .setServiceAccountId("test-689@pmsproject-282602.iam.gserviceaccount.com") // ¼­ºñ½º °èÁ¤ »ı¼º ´ç½ÃÀÇ Á¤º¸
+                .setServiceAccountId("test-689@pmsproject-282602.iam.gserviceaccount.com") // ì„œë¹„ìŠ¤ ê³„ì • ìƒì„± ë‹¹ì‹œì˜ ì •ë³´
                 .setTokenServerEncodedUrl("https://accounts.google.com/o/oauth2/token")
                 .setServiceAccountScopes(Arrays.asList("https://www.googleapis.com/auth/drive", "https://spreadsheets.google.com/feeds", "https://docs.google.com/feeds"))
                 .setServiceAccountPrivateKeyFromP12File(file).build();
 
-        // ¹öÀüÀÌ v1ºÎÅÍ v3±îÁö ÀÖ¾ú´Âµ¥ »ç½Ç ±× Â÷ÀÌ¿¡´ëÇØ¼± ¾ÆÁ÷ ¾Ë¾Æº¸Áö¸øÇß´Ù
+        // ë²„ì „ì´ v1ë¶€í„° v3ê¹Œì§€ ìˆì—ˆëŠ”ë° ì‚¬ì‹¤ ê·¸ ì°¨ì´ì—ëŒ€í•´ì„  ì•„ì§ ì•Œì•„ë³´ì§€ëª»í–ˆë‹¤
         SpreadsheetService service = new SpreadsheetService("MySpreadsheetIntegration-v1");
-        service.setOAuth2Credentials(credential); // ÀÌ°Å ÇÏ·Á°í À§¿¡ Àú·¸°Ô ÄÚµù ÇÑ°Å´Ù. ÀÌ°Ô ÀÎÁõÀÇ ÇÙ½É
+        service.setOAuth2Credentials(credential); // ì´ê±° í•˜ë ¤ê³  ìœ„ì— ì €ë ‡ê²Œ ì½”ë”© í•œê±°ë‹¤. ì´ê²Œ ì¸ì¦ì˜ í•µì‹¬
         SpreadsheetFeed feed = service.getFeed(new URL("https://spreadsheets.google.com/feeds/spreadsheets/private/full"), SpreadsheetFeed.class);
 
         List<SpreadsheetEntry> spreadsheets = feed.getEntries();
@@ -50,38 +50,38 @@ public class te2 {
         
         if(spreadsheets.get(0) != null)
         
-        //³»¿ë °¡Á®¿À±â
+        //ë‚´ìš© ê°€ì ¸ì˜¤ê¸°
         for(int i=0; i< spreadsheets.size(); i++) 
         {
             SpreadsheetEntry entry = spreadsheets.get(i);
-            if(entry.getTitle().getPlainText().equals("pms_test")) // ÆÄÀÏ Å¸ÀÌÆ²
+            if(entry.getTitle().getPlainText().equals("pms_test")) // íŒŒì¼ íƒ€ì´í‹€
             {
-                List<WorksheetEntry> worksheets = entry.getWorksheets(); // ½ÃÆ® Å¸ÀÌÆ²
+                List<WorksheetEntry> worksheets = entry.getWorksheets(); // ì‹œíŠ¸ íƒ€ì´í‹€
                 for(int k=0;k< worksheets.size();k++)
                 {
-                     WorksheetEntry worksheet = worksheets.get(k); //pms_test¿¡¼­ k¹øÂ° ½ÃÆ® °¡Á®¿À±â
+                     WorksheetEntry worksheet = worksheets.get(k); //pms_testì—ì„œ kë²ˆì§¸ ì‹œíŠ¸ ê°€ì ¸ì˜¤ê¸°
                      /*System.out.println(worksheet.getTitle().getPlainText());
                      
                      URL cellFeedUrl = worksheet.getCellFeedUrl();
                      CellFeed cellFeed = service.getFeed(cellFeedUrl, CellFeed.class);
                      for (CellEntry cell : cellFeed.getEntries()) 
                      {
-                         System.out.println("getPlainText : "+cell.getTitle().getPlainText()); // valueÀÇ À§Ä¡
-                         System.out.println("getValue : "+cell.getCell().getValue()); // valueÀÇ ³»¿ë
+                         System.out.println("getPlainText : "+cell.getTitle().getPlainText()); // valueì˜ ìœ„ì¹˜
+                         System.out.println("getValue : "+cell.getCell().getValue()); // valueì˜ ë‚´ìš©
                      }*/
-                     if(worksheet.getTitle().getPlainText().equals("#ÀÎ·Â")) {
+                     if(worksheet.getTitle().getPlainText().equals("#ì¸ë ¥")) {
                     	 URL cellFeedUrl = worksheet.getCellFeedUrl();
                          CellFeed cellFeed = service.getFeed(cellFeedUrl, CellFeed.class);
                          int num =1;
                          for (CellEntry cell : cellFeed.getEntries()) 
                          {
-                            //System.out.println("getPlainText : "+cell.getTitle().getPlainText()); // valueÀÇ À§Ä¡
-                           //½ÃÆ® ³»¿ë update
+                            //System.out.println("getPlainText : "+cell.getTitle().getPlainText()); // valueì˜ ìœ„ì¹˜
+                           //ì‹œíŠ¸ ë‚´ìš© update
                         	 /*if(cell.getTitle().getPlainText().equals("F2")) {
-                            	cell.changeInputValueLocal("½ÅÇı¸²");
+                            	cell.changeInputValueLocal("ì‹ í˜œë¦¼");
                             	cell.update();
                             }*/
-                        	System.out.printf(cell.getCell().getValue()+"|"); // valueÀÇ ³»¿ë
+                        	System.out.printf(cell.getCell().getValue()+"|"); // valueì˜ ë‚´ìš©
                             if(num==11) {
                             	System.out.printf("\n");}
                             num++;
