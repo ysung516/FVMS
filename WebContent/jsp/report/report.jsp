@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Project</title>
+  <title>Sure FVMS - report</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,12 +41,7 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-    
-
-      <!-- Heading -->
-    
-
-    
+	
 	<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
@@ -56,7 +53,7 @@
 	     	</li>
       
        		<!-- Nav Item - project -->
-      		<li class="nav-item active">
+      		<li class="nav-item">
      	     <a class="nav-link" href="../project/project.html">
              <i class="fas fa-fw fa-clipboard-list"></i>
              <span>프로젝트</span></a>
@@ -77,14 +74,11 @@
 	      </li>
 		
 		  <!-- Nav Item - report -->
-			<li class="nav-item">
+			<li class="nav-item active">
 			  <a class="nav-link" href="../report/report.html">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
-      
-     
-
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -124,11 +118,7 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-          
-
             <div class="topbar-divider d-none d-sm-block"></div>
-
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -166,65 +156,43 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Project</h1>
-          <p class="mb-4"> 프로젝트정보</a></p>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <div class="col-xl-8 col-lg-7">
-
-              <!-- Area Chart -->
+          <h1 class="h3 mb-2 text-gray-800">주간보고서 목록</h1>
+          <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
+          
+           <!-- Area Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
                 </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
-                </div>
+                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr height="5"><td width="5"></td></tr>
+ <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
+   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
+   <td width="73">번호</td>
+   <td width="379">제목</td>
+   <td width="73">작성자</td>
+   <td width="164">작성일</td>
+   <td width="58">조회수</td>
+   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
+  </tr>
+<tr height="25" align="center">
+</tr>
+  <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
+
+ <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
+ </table>
+ 
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td colspan="4" height="5"></td></tr>
+  <tr align="center">
+   <td><div class="card-body">
+            
+                	 <a href="report_write.html" class="btn btn-primary">보고서 작성하기</a>
               </div>
-
-              <!-- Bar Chart -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-bar">
-                    <canvas id="myBarChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Donut Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.container-fluid -->
+          </td>
+  </tr>
+</table>
+                   <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -268,9 +236,12 @@
       </div>
     </div>
   </div>
+                
+                
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
+  
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

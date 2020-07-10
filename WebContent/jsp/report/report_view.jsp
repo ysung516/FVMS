@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Project</title>
+  <title>Sure FVMS - Report_view</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -41,48 +43,14 @@
 
     
 
-      <!-- Heading -->
-    
+	<!-- Nav Item - report -->
+      <li class="nav-item active">
+        <a class="nav-link" href="report.html">
+          <i class="fas fa-fw fa-clipboard-list"></i>
+          <span>주간보고서</span></a>
+      </li>
 
-    
-	<!-- Divider -->
-			<hr class="sidebar-divider my-0">
 
-			<!-- Nav Item - summary -->
-		    <li class="nav-item">
-	          <a class="nav-link" href="../summary/summary.html">
-	          <i class="fas fa-fw fa-table"></i>
-	          <span>요약정보</span></a>
-	     	</li>
-      
-       		<!-- Nav Item - project -->
-      		<li class="nav-item active">
-     	     <a class="nav-link" href="../project/project.html">
-             <i class="fas fa-fw fa-clipboard-list"></i>
-             <span>프로젝트</span></a>
-     	    </li>
-      
-		    <!-- Nav Item - rowdata -->
-		    <li class="nav-item">
-		      <a class="nav-link" href="../rowdata/rowdata.html">
-		      <i class="fas fa-fw fa-chart-area"></i>
-		      <span>인력</span></a>
-     		</li>
-     		
-	      <!-- Nav Item - schedule -->
-	      <li class="nav-item">
-	        <a class="nav-link" href="../schedule/schedule.html">
-	        <i class="fas fa-fw fa-calendar"></i>
-	        <span>스케줄</span></a>
-	      </li>
-		
-		  <!-- Nav Item - report -->
-			<li class="nav-item">
-			  <a class="nav-link" href="../report/report.html">
-			  <i class="fas fa-fw fa-clipboard-list"></i> 
-			  <span>주간보고서</span></a>
-			</li>
-      
      
 
       <!-- Divider -->
@@ -125,8 +93,7 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-          
-
+           
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
@@ -166,65 +133,10 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Project</h1>
-          <p class="mb-4"> 프로젝트정보</a></p>
+          <h1 class="h3 mb-2 text-gray-800">주간보고서</h1>
+          <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
 
-          <!-- Content Row -->
-          <div class="row">
-
-            <div class="col-xl-8 col-lg-7">
-
-              <!-- Area Chart -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
-                </div>
-              </div>
-
-              <!-- Bar Chart -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-bar">
-                    <canvas id="myBarChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Donut Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <hr>
-                  Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.container-fluid -->
+             <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -268,6 +180,7 @@
       </div>
     </div>
   </div>
+          
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
