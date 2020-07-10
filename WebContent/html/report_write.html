@@ -180,7 +180,7 @@
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center ">제목</td>
-      <td><input name="title"  style=width:100%; maxlength="100"></td>
+      <td><input name="TITLE"  style=width:100%; maxlength="100"></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td>
@@ -191,14 +191,14 @@
     <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">작성일</td>
-      <td><input type="date" name="date" style=width:100%; maxlength="50"></td>
+      <td><input type="WRITE_DATE" name="date" style=width:100%; maxlength="50"></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">내용</td>
-      <td><textarea name="memo" cols="51" rows="13"></textarea></td>
+      <td><textarea name="CONTENT" cols="51" rows="13"></textarea></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
@@ -206,9 +206,8 @@
      <tr align="center">
       <td>&nbsp;</td>
       <td colspan="2">
-      <a href="report.html" class="btn btn-primary">완료</a>
-      <a href="report.html" class="btn btn-primary">취소</a>
-     
+      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary">
+       <input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
       <td>&nbsp;</td>
      </tr>
     </table>
