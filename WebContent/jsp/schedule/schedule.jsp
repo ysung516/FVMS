@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="summary.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="summary.jsp">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -47,35 +47,35 @@
 
 			<!-- Nav Item - summary -->
 		    <li class="nav-item">
-	          <a class="nav-link" href="../summary/summary.html">
+	          <a class="nav-link" href="../summary/summary.jsp">
 	          <i class="fas fa-fw fa-table"></i>
 	          <span>요약정보</span></a>
 	     	</li>
       
        		<!-- Nav Item - project -->
       		<li class="nav-item">
-     	     <a class="nav-link" href="../project/project.html">
+     	     <a class="nav-link" href="../project/project.jsp">
              <i class="fas fa-fw fa-clipboard-list"></i>
              <span>프로젝트</span></a>
      	    </li>
       
 		    <!-- Nav Item - rowdata -->
 		    <li class="nav-item">
-		      <a class="nav-link" href="../rowdata/rowdata.html">
+		      <a class="nav-link" href="../rowdata/rowdata.jsp">
 		      <i class="fas fa-fw fa-chart-area"></i>
 		      <span>인력</span></a>
      		</li>
      		
 	      <!-- Nav Item - schedule -->
 	      <li class="nav-item active">
-	        <a class="nav-link" href="../schedule/schedule.html">
+	        <a class="nav-link" href="../schedule/schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
 	      </li>
 		
 		  <!-- Nav Item - report -->
 			<li class="nav-item">
-			  <a class="nav-link" href="../report/report.html">
+			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
@@ -173,8 +173,8 @@
                 </div>
                 <div class="card-body">
             		개인 스케줄(user_schedule) -> 달력 형식/ 전체 스케줄(all_schedule) -> 그래프(표) 형식</br>
-                	 <a href="schedule.html" class="btn btn-primary">개인 스케줄</a>
-                	 <a href="schedule.html" class="btn btn-primary">전체 스케줄</a>
+                	 <a href="schedule.jsp" class="btn btn-primary">개인 스케줄</a>
+                	 <a href="schedule.jsp" class="btn btn-primary">전체 스케줄</a>
               </div>
                    
 
@@ -218,7 +218,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="../../html/login.html">Logout</a>
         </div>
       </div>
     </div>
