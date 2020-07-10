@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import = "jsp.sheet.method.*"
+    import = "java.io.PrintWriter"
     %>
     
     
@@ -13,16 +14,17 @@
 <body>
 
 	<%
-	    String id= request.getParameter("id");
-    	String pw = request.getParameter("pw");
-   
+	    String ID = request.getParameter("ID");
+    	String PW = request.getParameter("PW");
+   		PrintWriter script =  response.getWriter();
     	
     	sheetMethod method = new sheetMethod();
 
-   	if (method.loginCheck(id, pw) == 1){
-    		out.print("alert('로그인 성공')");
+   	if (method.loginCheck(ID, PW) == 1){
+    		script.print("<script> location.href = '../index.html'; </script>");
+    		session.setAttribute("sessionID", ID);
     	} else 
-    		out.print("alert('로그인 실패')");
+    		script.print("<script> alert('아이디 혹은 비밀번호가 틀립니다.'); history.back(); </script>");
 		
 	%>
 
