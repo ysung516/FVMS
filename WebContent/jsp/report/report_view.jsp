@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="summary.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="summary.jsp">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -45,7 +45,7 @@
 
 	<!-- Nav Item - report -->
       <li class="nav-item active">
-        <a class="nav-link" href="report.html">
+        <a class="nav-link" href="report.jsp">
           <i class="fas fa-fw fa-clipboard-list"></i>
           <span>주간보고서</span></a>
       </li>
