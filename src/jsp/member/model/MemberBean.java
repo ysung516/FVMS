@@ -15,15 +15,16 @@ public class MemberBean
 	 private String MOBILE;        // 전화
 	 private String ADDRESS;        // 주소
 	 private String NOTE;	//비고
-	 private int check;
+	 private String RANK;	//직급
 	 
-	 
-	 public int getCheck() {
-		return check;
+	 public String getRANK() {
+		return RANK;
 	}
-	public void setCheck(int check) {
-		this.check = check;
+	public void setRANK(String rANK) {
+		RANK = rANK;
 	}
+	
+
 	public String getID() {
 		return ID;
 	}
