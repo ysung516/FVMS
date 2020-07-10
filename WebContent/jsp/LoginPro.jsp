@@ -21,7 +21,7 @@
     	sheetMethod method = new sheetMethod();
 
    	if (method.loginCheck(ID, PW) == 1){
-    		script.print("<script> location.href = '../index.html'; </script>");
+    		script.print("<script> location.href = '../html/summary.html'; </script>");
     		session.setAttribute("sessionID", ID);
     	} else 
     		script.print("<script> alert('아이디 혹은 비밀번호가 틀립니다.'); history.back(); </script>");

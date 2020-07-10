@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="summary.html">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -39,22 +39,6 @@
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-  
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-     
 	
 	<!-- Nav Item - summary -->
       <li class="nav-item">
@@ -78,32 +62,17 @@
       </li>
       
       <!-- Nav Item - schedule -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="schedule.html">
           <i class="fas fa-fw fa-calendar"></i>
           <span>스케줄</span></a>
       </li>
      
 	<!-- Nav Item - report -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="report.html">
           <i class="fas fa-fw fa-clipboard-list"></i>
           <span>주간보고서</span></a>
-      </li>
-
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
       </li>
 
       <!-- Divider -->
@@ -145,10 +114,7 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-
             <div class="topbar-divider d-none d-sm-block"></div>
-
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -186,24 +152,42 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Schedule</h1>
-          <p class="mb-4">스케줄</p>
+          <h1 class="h3 mb-2 text-gray-800">주간보고서 목록</h1>
+          <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
           
-       
-
            <!-- Area Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Schedule</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
                 </div>
-                <div class="card-body">
-            		개인 스케줄(user_schedule) -> 달력 형식/ 전체 스케줄(all_schedule) -> 그래프(표) 형식</br>
-                	 <a href="schedule.html" class="btn btn-primary">개인 스케줄</a>
-                	 <a href="schedule.html" class="btn btn-primary">전체 스케줄</a>
-              </div>
-                   
+                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr height="5"><td width="5"></td></tr>
+ <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
+   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
+   <td width="73">번호</td>
+   <td width="379">제목</td>
+   <td width="73">작성자</td>
+   <td width="164">작성일</td>
+   <td width="58">조회수</td>
+   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
+  </tr>
+<tr height="25" align="center">
+</tr>
+  <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
 
-                
+ <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
+ </table>
+ 
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr><td colspan="4" height="5"></td></tr>
+  <tr align="center">
+   <td><div class="card-body">
+            
+                	 <a href="report_write.html" class="btn btn-primary">보고서 작성하기</a>
+              </div>
+          </td>
+  </tr>
+</table>
                    <!-- /.container-fluid -->
 
       </div>
@@ -248,6 +232,7 @@
       </div>
     </div>
   </div>
+                
                 
 
   <!-- Bootstrap core JavaScript-->
