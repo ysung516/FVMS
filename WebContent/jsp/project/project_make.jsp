@@ -164,14 +164,14 @@
  		<!-- Begin Page Content -->
         <div class="container-fluid">
 
-<!--프로젝트 조회 테이블 시작 *********************************************************** -->
+<!--프로젝트 생성 테이블 시작 *********************************************************** -->
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">프로젝트 정보</h6>
+              <h6 class="m-0 font-weight-bold text-primary">프로젝트 생성</h6>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
+            <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -201,96 +201,123 @@
 						<th>채용수요</th> 
 						<th>외주수요</th>  
                     </tr>
-                  </thead>  
+                  </thead>    
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                       <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                       <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                       <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td> 
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td> 
-                      <td>Ashton Cox</td>
-	                   </tr>             
-                  </tbody>    
-                </table>
-                
+                  	<tr>
+                  		<th>
+                      	<select id="team" name="team">
+                      		<option value="바디힐스">팀</option>
+                      		<option value="기능안전">기능안전</option>
+                      		<option value="자율주행">자율주행</option>
+                      		<option value="제어로직">제어로직</option>
+                      		<option value="샤시힐스">샤시힐스</option>
+                      	</select>
+                      	</th>
+
+                      	<th>
+                      	<select id="PROJECT_CODE" name="PROJECT_CODE">
+                      		<option value="1">프로젝트 코드</option>
+                      		<option value="2">2</option>
+                      		<option value="3">3</option>
+                      		<option value="4">4</option>
+                      		<option value="5">5</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PROJECT_NAME" name="PROJECT_NAME">
+                      		<option value="프로젝트 명">프로젝트 명</option>
+                      		<option value="기능안전">기능안전</option>
+                      		<option value="자율주행">자율주행</option>
+                      		<option value="제어로직">제어로직</option>
+                      		<option value="샤시힐스">샤시힐스</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="STATE" name="STATE">
+                      		<option value="상태">상태</option>
+                      		<option value="예산확보">1.예산확보</option>
+                      		<option value="고객의사">2.고객의사</option>
+                      		<option value="제안단계">3.제안단계</option>
+                      		<option value="업체선정">4.업체선정</option>
+                      		<option value="진행예정">5.진행예정</option>
+                      		<option value="진행중">6.진행중</option>
+                      		<option value="종료">7.종료</option>
+                      		<option value="Dropped">8.Dropped</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PART" name="PART">
+                      		<option value="실">실</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="CLIENT" name="CLIENT">
+                      		<option value="고객사">고객사</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="CLINET_PART" name="CLINET_PART">
+                      		<option value="고객부서">고객부서</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PART" name="PART">
+                      		<option value="실">실</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PART" name="PART">
+                      		<option value="실">실</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	
+                  	</tr>
+                  
+                  </tbody> 
+                </table>       
               </div>
+              		 팀 TAEM
+					프로젝트 코드 PROJECT_CODE
+					프로젝트 명 PROJECT_NAME
+					상태 STATE
+					실 PART
+					고객사 CLIENT
+					고객부서 CLINET_PART
+					M/N MODEL_NUMBER
+					프로젝트계약금액 PROJECT_DESOPIT
+					상반기수주 FH_ORDER 
+					상반기예상매출 FH_SALES_PROJECTIONS
+					상반기매출 FH_SALES
+					하반기수주 SH_ORDER
+					하반기예상매출 SH_SALES_PROJECTIONS
+					하반기매출 SH_SALES
+					착수 PROJECT_START
+					종료 PROJECT_END
+					고객담당자 CLIENT_PTB
+					근무지 WORK_PLACE
+					업무 WORK
+					PM PROJECT_MANAGER
+					투입 명단 WORKER_LIST
+					2020(상)평가유형 ASSESSMENT_TYPE
+					채용수요 EMPLOY_DEMAND
+					외주수요 OUTSOURCE_DEMAND
             </div>
               <div class="card-body" style="margin: 0 auto;">
-                	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 생성하기</a>
+                	<input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary">
+       				<input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
               </div>
           </div>
         </div>
