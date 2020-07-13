@@ -194,6 +194,7 @@ public class sheetMethod {
          } else return 0;
 	}
 	
+	// 주간보고서 리스트 목록 가져오기
 	public ArrayList<BoardBean> getBoardList()throws GeneralSecurityException, IOException, ServiceException{
 		
 		ArrayList<BoardBean> boardList = new ArrayList<BoardBean>();
@@ -228,6 +229,36 @@ public class sheetMethod {
 		
 	}
 	
+	// 넘버별 주간보고서 데이터 가져오기
+	public BoardBean getBoard(String NO)throws GeneralSecurityException, IOException, ServiceException{
+		connect();
+		access();
+		findSheet("주간보고서");
+		// 주간보고서
+        URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        BoardBean board = new BoardBean();
+		for(int i = 0; i < list.size(); i++) {
+			ListEntry li = list.get(i);
+			if(li.getCustomElements().getValue("no").equals(NO)) {
+				
+	        	board.setNo(li.getCustomElements().getValue("no"));
+	        	board.setId(li.getCustomElements().getValue("id"));
+	        	board.setName(li.getCustomElements().getValue("이름"));
+	        	board.setRank(li.getCustomElements().getValue("직급"));
+	        	board.setTeam(li.getCustomElements().getValue("팀"));
+	        	board.setTitle(li.getCustomElements().getValue("제목"));
+	        	board.setDate(li.getCustomElements().getValue("작성일"));
+	        	board.setWeekPlan(li.getCustomElements().getValue("금주계획"));
+	        	board.setWeekPro(li.getCustomElements().getValue("금주진행"));
+	        	board.setNextPlan(li.getCustomElements().getValue("차주계획"));
+				break;
+			}
+		}
+		
+		return board;
+	}
 	
 
 }	// end
