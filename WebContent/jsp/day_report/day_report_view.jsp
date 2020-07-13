@@ -257,7 +257,7 @@
      <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
      
      <tr align="center">
-      <<td height="100">&nbsp;</td>
+      <td height="100">&nbsp;</td>
       <td colspan="2">
       <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
        <input id="List" type="button" name="List" value="목록"  class="btn btn-primary">
