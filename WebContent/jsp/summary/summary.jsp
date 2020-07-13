@@ -4,7 +4,7 @@
     import = "jsp.sheet.method.*"
     import = "jsp.member.model.*"
     %>
-    <jsp:useBean id="userInfo" class = "jsp.member.model.MemberBean" scope = "session"/>
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +15,7 @@
 	String sessionID = "";
 	PrintWriter script =  response.getWriter();
 	sheetMethod method = new sheetMethod();
-	sessionID = (String)session.getAttribute("sessionID");	
+	sessionID = (String)session.getAttribute("sessionID");
 	if (sessionID == null || sessionID.equals("") ){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}

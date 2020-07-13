@@ -156,13 +156,41 @@ public class sheetMethod {
     			
     		}
     	}
-//    	String [] userInfo = {member.getID(),member.getNAME(),member.getNO()
-//				,member.getPART(),member.getTEAM(),member.getGMAIL()
-//				,member.getRANK(),member.getMOBILE(),member.getADDRESS()};
-		
-//		return userInfo;
 		
     }
+	
+	public int saveReport (String title, String writeDate,
+			 String weekPlan, String weekPro, String nextPlan, String user_id, 
+			 String name, String rank, String team) throws GeneralSecurityException, IOException, ServiceException {
+		connect();
+		access();
+    	findSheet("주간보고서");
+    	
+        // 주간보고서
+         URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+         ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+         List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+         ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
+
+         if (title != null && writeDate != null) {
+        	//방법2
+             li.getCustomElements().setValueLocal("no", Integer.toString(list.size() + 1));
+             li.getCustomElements().setValueLocal("제목", title);
+             li.getCustomElements().setValueLocal("작성일", writeDate);
+             li.getCustomElements().setValueLocal("금주계획", weekPlan);
+             li.getCustomElements().setValueLocal("금주진행", weekPro);
+             li.getCustomElements().setValueLocal("차주계획", nextPlan);
+             li.getCustomElements().setValueLocal("id", user_id);
+             li.getCustomElements().setValueLocal("이름", name);
+             li.getCustomElements().setValueLocal("직급", rank);
+             li.getCustomElements().setValueLocal("팀", team);
+             listFeed.insert(li);
+             
+             return 1;
+
+         } else return 0;
+	}
+	
 	
 	
 
