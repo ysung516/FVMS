@@ -7,23 +7,24 @@ public class MemberBean
 	
 	private String ID;            // 아이디
 	 private String PASSWORD;     // 비밀번호
-	 private int NO;	//사원번호
+	 private String NO;	//사원번호
 	 private String PART;	//소속
 	 private String TEAM;	//팀
-	 private String NAME;        // 이름
+	 private String name;        // 이름
 	 private String GMAIL;        // 이메일 
 	 private String MOBILE;        // 전화
 	 private String ADDRESS;        // 주소
 	 private String NOTE;	//비고
-	 private int check;
+	 private String RANK;	//직급
 	 
-	 
-	 public int getCheck() {
-		return check;
+	 public String getRANK() {
+		return RANK;
 	}
-	public void setCheck(int check) {
-		this.check = check;
+	public void setRANK(String rANK) {
+		RANK = rANK;
 	}
+	
+
 	public String getID() {
 		return ID;
 	}
@@ -38,10 +39,10 @@ public class MemberBean
 		PASSWORD = pASSWORD;
 	}
 	
-	public int getNO() {
+	public String getNO() {
 		return NO;
 	}
-	public void setNO(int nO) {
+	public void setNO(String nO) {
 		NO = nO;
 	}
 	
@@ -59,11 +60,11 @@ public class MemberBean
 		TEAM = tEAM;
 	}
 	
-	public String getNAME() {
-		return NAME;
+	public String getNAME() { 
+		return name;
 	}
-	public void setNAME(String nAME) {
-		NAME = nAME;
+	public void setNAME(String name) {
+		this.name = name;
 	}
 	
 	public String getGMAIL() {

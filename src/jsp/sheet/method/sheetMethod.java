@@ -23,8 +23,17 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.util.ServiceException;
 
+import jsp.member.model.MemberBean;
+
 public class sheetMethod {
 	sheetBean sheet = new sheetBean();
+	MemberBean member = new MemberBean();
+	
+	
+	public MemberBean getMember() {
+		return member;
+	}
+
 	// 싱글톤 패턴
 	public sheetMethod() {
 	
@@ -95,7 +104,6 @@ public class sheetMethod {
 		access();
     	findSheet("#인력");
     	
-    	//System.out.println(sheet.getWorksheet().getRowCount());
     	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
     	ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
     	List<ListEntry> list = listFeed.getEntries();	// 모든 행 가져오기
@@ -106,8 +114,6 @@ public class sheetMethod {
     		if(li.getCustomElements().getValue("id").equals(id)) {
     			if(li.getCustomElements().getValue("pw").equals(pw)) {
     				check = 1;
-//    				member.setID(id);
-//    				member.setPASSWORD(pw);
     				break;
     			} else
     				check = 0;
@@ -118,31 +124,46 @@ public class sheetMethod {
     	}
     	return check;
     }
-//	// 업데이트
-//	public void update() throws GeneralSecurityException, IOException, ServiceException {
-//
-//		for (int k = 0; k < sheet.getWorksheets().size(); k++) {
-//			WorksheetEntry worksheet = sheet.getWorksheets().get(k); // pms_test에서 k번째 시트 가져오기
-//			System.out.println(worksheet.getContent());
-//			if (worksheet.getTitle().getPlainText().equals("#인력")) {
-//				URL cellFeedUrl = worksheet.getCellFeedUrl();
-//				CellFeed cellFeed = sheet.getService().getFeed(cellFeedUrl, CellFeed.class);
-//				int num = 1;
-//				for (CellEntry cell : cellFeed.getEntries()) {
-//					if (cell.getTitle().getPlainText().equals("F2")) {
-//						cell.changeInputValueLocal("신혜림");
-//						cell.update();
-//					}
-//					System.out.printf(cell.getCell().getValue() + "|"); // value의 내용
-//					if (num == 11) {
-//						System.out.printf("\n");
-//					}
-//					num++;
-//				}
-//				break;
-//			}	
-	//	} // end for
+	
+	
+	// 세션 ID를 받아 회원정보 bean 클래스에 저장
+	public void saveUser_info(String id)throws GeneralSecurityException, IOException, ServiceException {
+		connect();
+		access();
+    	findSheet("#인력");
+    	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+    	ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+    	List<ListEntry> list = listFeed.getEntries();	// 모든 행 가져오기
+    	//List userInfo = new ArrayList()
+    	for(int a = 0; a < list.size(); a++) {
+    		ListEntry li = list.get(a);
+    		
+    		if(li.getCustomElements().getValue("id").equals(id)) {
+    			System.out.println("34");
+    			member.setID(id);
+    			member.setNAME(li.getCustomElements().getValue("이름"));
+    			member.setNO(li.getCustomElements().getValue("no"));
+    			member.setPART(li.getCustomElements().getValue("소속"));
+    			member.setTEAM(li.getCustomElements().getValue("팀"));
+    			member.setGMAIL(li.getCustomElements().getValue("gmail"));
+    			member.setRANK(li.getCustomElements().getValue("직급"));
+    			member.setMOBILE(li.getCustomElements().getValue("mobile"));
+    			member.setADDRESS(li.getCustomElements().getValue("주소"));
+    			//member.setNOTE(li.getCustomElements().getValue("이름"));
+    			//member.setPASSWORD(li.getCustomElements().getValue(""));
+    			
+    			break;
+    			
+    		}
+    	}
+//    	String [] userInfo = {member.getID(),member.getNAME(),member.getNO()
+//				,member.getPART(),member.getTEAM(),member.getGMAIL()
+//				,member.getRANK(),member.getMOBILE(),member.getADDRESS()};
+		
+//		return userInfo;
+		
+    }
+	
+	
 
-	//} // end update
-
-}
+}	// end
