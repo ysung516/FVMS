@@ -64,7 +64,7 @@
                     <input type="pwd" class="form-control form-control-user" id="exampleRepeatPwd" placeholder="Repeat Password">
                   </div>
                 </div>
-                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                <a href="../html/login.html" class="btn btn-primary btn-user btn-block">
                   	가입하기
                 </a>
                <!--  <hr>
@@ -77,7 +77,7 @@
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                <a class="small" href="forgot-password.jsp">Forgot Password?</a>
               </div>
               <div class="text-center">
                 <a class="small" href="../html/login.html">Already have an account? Login!</a>

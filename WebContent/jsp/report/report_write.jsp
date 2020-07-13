@@ -31,49 +31,50 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="summary.jsp">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../summary/summary.jsp">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
         <div class="sidebar-brand-text mx-3">Sure FVMS</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
+   <!-- Divider -->
+			<hr class="sidebar-divider my-0">
 
+			<!-- Nav Item - summary -->
+		    <li class="nav-item">
+	          <a class="nav-link" href="../summary/summary.jsp">
+	          <i class="fas fa-fw fa-table"></i>
+	          <span>요약정보</span></a>
+	     	</li>
       
-	<!-- Nav Item - summary -->
-      <li class="nav-item">
-        <a class="nav-link" href="summary.jsp">
-          <i class="fas fa-fw fa-clipboard-list"></i>
-          <span>요약정보</span></a>
-      </li>
+       		<!-- Nav Item - project -->
+      		<li class="nav-item">
+     	     <a class="nav-link" href="../project/project.jsp">
+             <i class="fas fa-fw fa-clipboard-list"></i>
+             <span>프로젝트</span></a>
+     	    </li>
       
-      <!-- Nav Item - project -->
-      <li class="nav-item">
-        <a class="nav-link" href="project.jsp">
-          <i class="fas fa-fw fa-clipboard-list"></i>
-          <span>프로젝트</span></a>
-      </li>
-      
-      <!-- Nav Item - rowdata -->
-      <li class="nav-item">
-        <a class="nav-link" href="rowdata.jsp">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>인력</span></a>
-      </li>
-       <!-- Nav Item - schedule -->
-      <li class="nav-item">
-        <a class="nav-link" href="schedule.jsp">
-          <i class="fas fa-fw fa-calendar"></i>
-          <span>스케줄</span></a>
-      </li>
-      <!-- Nav Item - report -->
-      <li class="nav-item active">
-        <a class="nav-link" href="report.jsp">
-          <i class="fas fa-fw fa-table"></i>
-          <span >주간보고서</span></a>
-      </li>
+		    <!-- Nav Item - rowdata -->
+		    <li class="nav-item">
+		      <a class="nav-link" href="../rowdata/rowdata.jsp">
+		      <i class="fas fa-fw fa-chart-area"></i>
+		      <span>인력</span></a>
+     		</li>
+     		
+	      <!-- Nav Item - schedule -->
+	      <li class="nav-item">
+	        <a class="nav-link" href="../schedule/schedule.jsp">
+	        <i class="fas fa-fw fa-calendar"></i>
+	        <span>스케줄</span></a>
+	      </li>
+		
+		  <!-- Nav Item - report -->
+			<li class="nav-item active">
+			  <a class="nav-link" href="../report/report.jsp">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>주간보고서</span></a>
+			</li>
       
 
 
@@ -199,8 +200,20 @@
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">내용</td>
-      <td><textarea name="CONTENT" cols="51" rows="13"></textarea></td>
+      <td class="m-0 text-primary" align="center">금주계획</td>
+      <td><textarea name="WeekPlan" cols="51" rows="13"></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">금주진행</td>
+      <td><textarea name="WeekPro" cols="51" rows="13"></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">차주계획</td>
+      <td><textarea name="NextPlan" cols="51" rows="13"></textarea></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
@@ -255,7 +268,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="../../html/login.html">Logout</a>
         </div>
       </div>
     </div>
