@@ -3,6 +3,8 @@
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
     import = "jsp.Bean.model.*"
+    import = "java.util.ArrayList"
+    import = "java.util.List"
     %>
 
 <!DOCTYPE html>
@@ -16,6 +18,10 @@
 	if (sessionID == null || sessionID.equals("") ){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
+	
+	sheetMethod method = new sheetMethod();
+	
+	ArrayList<BoardBean> list = method.getBoardList();
 %>
 
   <meta charset="utf-8">
@@ -187,6 +193,26 @@
    <td width="164">작성일</td>
    <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
   </tr>
+  <%
+	if(list != null){
+		for(int i=0; i < list.size(); i++){
+			%>
+			<tr style="text-align:center;">
+				<td></td>
+				<td><%=list.get(i).getNo()%></td>
+				<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
+				<td><%=list.get(i).getName()%></td>
+				<td><%=list.get(i).getDate()%></td>
+			</tr>
+			<%
+		}
+	} else {
+		%>
+			<tr><td>등록된 주간 보고가 없습니다.</td></tr>
+		<%
+	} 
+  %>
+  
 <tr height="25" align="center">
 </tr>
   <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>

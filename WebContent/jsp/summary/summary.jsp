@@ -17,7 +17,7 @@
 	PrintWriter script =  response.getWriter();
 	if (sessionID == null || sessionID.equals("") ){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
-	
+	}
 %>
 
 <meta charset="utf-8">
