@@ -270,15 +270,43 @@
                       	</th>
                       	
                       	<th>
-                      	<select id="PART" name="PART">
-                      		<option value="실">실</option>
+                      	<select id="MODEL_NUMBER" name="MODEL_NUMBER">
+                      		<option value="M/N">M/N</option>
                       		<option value="VT">VT</option>	
                       	</select>
                       	</th>
                       	
                       	<th>
-                      	<select id="PART" name="PART">
-                      		<option value="실">실</option>
+                      	<select id="PROJECT_DESOPIT" name="PROJECT_DESOPIT">
+                      		<option value="프로젝트계약금액">프로젝트계약금액</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="FH_ORDER " name="FH_ORDER ">
+                      		<option value="상반기수주">프로젝트계약금액</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PROJECT_DESOPIT" name="PROJECT_DESOPIT">
+                      		<option value="프로젝트계약금액">프로젝트계약금액</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PROJECT_DESOPIT" name="PROJECT_DESOPIT">
+                      		<option value="프로젝트계약금액">프로젝트계약금액</option>
+                      		<option value="VT">VT</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PROJECT_DESOPIT" name="PROJECT_DESOPIT">
+                      		<option value="프로젝트계약금액">프로젝트계약금액</option>
                       		<option value="VT">VT</option>	
                       	</select>
                       	</th>

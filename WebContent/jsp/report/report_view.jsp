@@ -156,10 +156,106 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+        
+        
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">주간보고서</h1>
-          <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
+          <h1 class="h3 mb-2 text-gray-800">View Page</h1>
+          <p class="mb-4">주간보고서 조회 페이지</p>
+          
+            <!-- Content Row -->
+     <div class="row">
+
+      <div class="col-xl-8 col-lg-7">
+
+       <!-- Area Chart -->
+       <div class="card shadow mb-4">
+        <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary">주간보고서 조회</h6>
+        </div>
+        
+         <div style="margin: 0 auto" class="card-body report_write">
+ <table>
+  <tr>
+   <td>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
+      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
+      <td class="m-0 font-weight-bold text-primary">주간보고서</td>
+      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
+     </tr>
+    </table>
+    
+   <table>
+     <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">제목</td>
+      <td>제목 들어갈 자리</td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td>
+     </tr>
+  
+      <tr height="1" bgcolor="#fff"><td colspan="4"></td>
+      </tr>
+   
+   <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">작성자</td>
+      <td>작성자 들어갈 자리</td>
+      <td>&nbsp;</td>
+     </tr>
+     
+    <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">작성일</td>
+      <td>작성일 들어갈 자리</td>
+      <td>&nbsp;</td>
+     </tr>
+     
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     
+     <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">금주계획</td>
+      <td>금주계획 둘어갈자리</td>
+      <td>&nbsp;</td>
+     </tr>
+     
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">금주진행</td>
+      <td>금주진행 들어갈자리</td>
+      <td>&nbsp;</td>
+     </tr>
+     
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">차주계획</td>
+      <td>차주계획 들어갈자리</td>
+      <td>&nbsp;</td>
+     </tr>
+     
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     
+     <tr align="center">
+      <td>&nbsp;</td>
+      <td colspan="2">
+      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
+       <input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
+      <td>&nbsp;</td>
+     </tr>
+     
+    </table>
+    </form>
+  </tr>
+ </table>
+        <div class="card-body">
+        
+       
+        </div>
+       </div>
 
              <!-- /.container-fluid -->
 
