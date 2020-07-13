@@ -189,7 +189,7 @@
                       <th>실</th>
                       <th>고객사</th>
                       <th>고객부서</th>
-                      <th>M/N</th>
+                      <th>M/M</th>
 						<th>프로젝트계약금액</th> 
 						<th>상반기수주</th>  
 						<th>상반기예상매출</th> 
@@ -298,6 +298,7 @@
             </div>
               <div class="card-body" style="margin: 0 auto;">
                 	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 생성하기</a>
+                	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 수정하기</a>
               </div>
           </div>
         </div>

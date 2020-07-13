@@ -189,7 +189,7 @@
                       <th>실</th>
                       <th>고객사</th>
                       <th>고객부서</th>
-                      <th>M/N</th>
+                      <th>M/M</th>
 						<th>프로젝트계약금액</th> 
 						<th>상반기수주</th>  
 						<th>상반기예상매출</th> 
@@ -280,8 +280,8 @@
                       	</th>
                       	
                       	<th>
-                      	<select id="MODEL_NUMBER" name="MODEL_NUMBER">
-                      		<option value="M/N">M/N</option>
+                      	<select id="MAN_MONTH" name="MAN_MONTH">
+                      		<option value="M/M">M/M</option>
                       		<option value="6">6</option>
                       		<option value="20">20</option>		
                       	</select>
@@ -413,6 +413,7 @@
               </div>
           </div>
         </div>
+        **셀 추가 셀 삭제 기능(+,-), 줄 선택 기능(옆에 체크박스, 번호 설정)**
         <!-- /.container-fluid -->
         
       </div>

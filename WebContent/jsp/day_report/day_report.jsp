@@ -99,7 +99,7 @@
 			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
-			  <span>일간보고서</span></a>
+			  <span>주간보고서</span></a>
 			</li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
