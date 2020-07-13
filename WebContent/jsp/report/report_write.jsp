@@ -182,7 +182,7 @@
    <table>
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center ">제목</td>
+      <td class="m-0 text-primary" align="center">제목</td>
       <td><input name="TITLE"  style=width:100%; maxlength="100"></td>
       <td>&nbsp;</td>
      </tr>
@@ -194,7 +194,7 @@
     <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">작성일</td>
-      <td><input type="WRITE_DATE" name="date" style=width:100%; maxlength="50"></td>
+      <td><input type="date" name="WRITE_DATE" style=width:100%; maxlength="50"></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
