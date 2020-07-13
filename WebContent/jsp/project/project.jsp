@@ -171,6 +171,10 @@
  		<!-- Begin Page Content -->
         <div class="container-fluid">
 
+		  <div class="row">
+
+      <div class="col-xl-8 col-lg-7">
+		
 <!--프로젝트 조회 테이블 시작 *********************************************************** -->
           <!-- DataTales Example -->
           <div class="card shadow mb-4">

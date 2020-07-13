@@ -181,32 +181,23 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-        
-        
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">View Page</h1>
           <p class="mb-4">주간보고서 조회 페이지</p>
           
-            <!-- Content Row -->
-     <div class="row">
-
-      <div class="col-xl-8 col-lg-7">
-
-       <!-- Area Chart -->
        <div class="card shadow mb-4">
         <div class="card-header py-3">
          <h6 class="m-0 font-weight-bold text-primary">주간보고서 조회</h6>
         </div>
-        
-         <div style="margin: 0 auto" class="card-body report_write">
- <table>
+         <div class="card-body">
+ <table style="margin: 0 auto;">
   <tr>
    <td>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <table width="100%"; cellpadding="0"; cellspacing="0"; border="0";>
      <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
       <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td class="m-0 font-weight-bold text-primary">주간보고서</td>
+      <td class="m-0 font-weight-bold text-primary"></td>
       <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
      </tr>
     </table>
@@ -214,61 +205,60 @@
    <table>
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">제목</td> 
+      <td class="m-0 text-primary" align="center" width="400" height="50">제목</td> 
       <td><%=board.getTitle()%></td>
       <td>&nbsp;</td>
      </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td>
-     </tr>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="4" width="1000"></td></tr>
   
       <tr height="1" bgcolor="#fff"><td colspan="4"></td>
       </tr>
    
-   <tr>
+   <tr height="1" border-top-color="#82B5DF">
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">작성자</td>
+      <td class="m-0 text-primary" align="center" height="50">작성자</td>
       <td><%=board.getName()%></td>
       <td>&nbsp;</td>
      </tr>
      
-    <tr>
+    <tr height="1" border-top-color="#82B5DF">
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">작성일</td>
+      <td class="m-0 text-primary" align="center" height="50">작성일</td>
       <td><%=board.getDate()%></td>
       <td>&nbsp;</td>
      </tr>
      
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
      
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주계획</td>
-      <td><%=board.getWeekPlan()%></td>
+      <td width="950" height="100"><%=board.getWeekPlan()%></td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주진행</td>
-      <td><%=board.getWeekPro()%></td>
+      <td width="950" height="100"><%=board.getWeekPro()%></td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">차주계획</td>
-      <td><%=board.getNextPlan()%></td>
+      <td width="950" height="100"><%=board.getNextPlan()%></td>
       <td>&nbsp;</td>
      </tr>
      
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+      <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
      
      <tr align="center">
-      <td>&nbsp;</td>
+      <td height="100">&nbsp;</td>
       <td colspan="2">
-      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
-       <input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
+      <input id=Delete type="button" name="Delete" value="삭제"  class="btn btn-primary" >
+       <input id="List" type="button" name="List" value="목록"  class="btn btn-primary">
       <td>&nbsp;</td>
      </tr>
      
@@ -276,11 +266,8 @@
     </form>
   </tr>
  </table>
-        <div class="card-body">
-        
        
         </div>
-       </div>
 
              <!-- /.container-fluid -->
 
