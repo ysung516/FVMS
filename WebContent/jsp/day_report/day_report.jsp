@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    import = "jsp.Bean.model.*"
-    import = "java.util.ArrayList"
-    import = "java.util.List"
+    import = "jsp.member.model.*"
     %>
 
 <!DOCTYPE html>
@@ -12,16 +10,14 @@
 
 <head>
 <%
-	String sessionID = session.getAttribute("sessionID").toString();
-	String sessionName = session.getAttribute("sessionName").toString();
+	String sessionID = "";
 	PrintWriter script =  response.getWriter();
+	sheetMethod method = new sheetMethod();
+	sessionID = (String)session.getAttribute("sessionID");	
 	if (sessionID == null || sessionID.equals("") ){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
-	
-	sheetMethod method = new sheetMethod();
-	
-	ArrayList<BoardBean> list = method.getBoardList();
+	method.saveUser_info(sessionID);
 %>
 
   <meta charset="utf-8">
@@ -93,14 +89,14 @@
 	      </li>
 	      
 	      <!-- Nav Item - dayreport -->
-			<li class="nav-item">
+			<li class="nav-item active">
 			  <a class="nav-link" href="../day_report/day_report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>일간보고서</span></a>
 			</li>
 		
 		  <!-- Nav Item - report -->
-			<li class="nav-item active">
+			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
@@ -148,7 +144,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=method.getMember().getNAME() %></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -182,13 +178,13 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">주간보고서 목록</h1>
-          <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
+          <h1 class="h3 mb-2 text-gray-800">일간보고서 목록</h1>
+          <p class="mb-4">일간보고서 목록</p>
           
            <!-- Area Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">일간보고서 작성</h6>
                 </div>
                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr height="5"><td width="5"></td></tr>
@@ -198,28 +194,9 @@
    <td width="379">제목</td>
    <td width="73">작성자</td>
    <td width="164">작성일</td>
+   <td width="58">조회수</td>
    <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
   </tr>
-  <%
-	if(list != null){
-		for(int i=0; i < list.size(); i++){
-			%>
-			<tr style="text-align:center;">
-				<td></td>
-				<td><%=list.get(i).getNo()%></td>
-				<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-				<td><%=list.get(i).getName()%></td>
-				<td><%=list.get(i).getDate()%></td>
-			</tr>
-			<%
-		}
-	} else {
-		%>
-			<tr><td>등록된 주간 보고가 없습니다.</td></tr>
-		<%
-	} 
-  %>
-  
 <tr height="25" align="center">
 </tr>
   <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
@@ -232,7 +209,7 @@
   <tr align="center">
    <td><div class="card-body">
             
-                	 <a href="report_write.jsp" class="btn btn-primary">보고서 작성하기</a>
+                	 <a href="day_report_write.jsp" class="btn btn-primary">일간보고서 작성하기</a>
               </div>
           </td>
   </tr>
@@ -280,8 +257,6 @@
         </div>
       </div>
     </div>
-  </div>
-  </div>
   </div>
                 
                 

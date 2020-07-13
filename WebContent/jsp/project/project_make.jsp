@@ -78,6 +78,13 @@
 	        <span>스케줄</span></a>
 	      </li>
 		
+		<!-- Nav Item - dayreport -->
+			<li class="nav-item">
+			  <a class="nav-link" href="../day_report/day_report.jsp">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>일간보고서</span></a>
+			</li>
+			
 		  <!-- Nav Item - report -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
@@ -182,7 +189,7 @@
                       <th>실</th>
                       <th>고객사</th>
                       <th>고객부서</th>
-                      <th>M/N</th>
+                      <th>M/M</th>
 						<th>프로젝트계약금액</th> 
 						<th>상반기수주</th>  
 						<th>상반기예상매출</th> 
@@ -227,10 +234,10 @@
                       	<th>
                       	<select id="PROJECT_NAME" name="PROJECT_NAME">
                       		<option value="프로젝트 명">프로젝트 명</option>
-                      		<option value="기능안전">기능안전</option>
-                      		<option value="자율주행">자율주행</option>
-                      		<option value="제어로직">제어로직</option>
-                      		<option value="샤시힐스">샤시힐스</option>
+                      		<option value="A">A</option>
+                      		<option value="B">B</option>
+                      		<option value="C">C</option>
+                      		<option value="D">D</option>
                       	</select>
                       	</th>
                       	
@@ -258,62 +265,147 @@
                       	<th>
                       	<select id="CLIENT" name="CLIENT">
                       		<option value="고객사">고객사</option>
-                      		<option value="VT">VT</option>	
+                      		<option value="SMR">SMR</option>	
+                      		<option value="오트론">오트론</option>	
+                      		<option value="현대자동차">현대자동차</option>	
                       	</select>
                       	</th>
                       	
                       	<th>
                       	<select id="CLINET_PART" name="CLINET_PART">
                       		<option value="고객부서">고객부서</option>
-                      		<option value="VT">VT</option>	
+                      		<option value="변속제어개발팀">변속제어팀</option>
+                      		<option value="엔진제어개발팀">엔진제어개발팀</option>	
                       	</select>
                       	</th>
                       	
                       	<th>
-                      	<select id="PART" name="PART">
-                      		<option value="실">실</option>
-                      		<option value="VT">VT</option>	
+                      	<select id="MAN_MONTH" name="MAN_MONTH">
+                      		<option value="M/M">M/M</option>
+                      		<option value="6">6</option>
+                      		<option value="20">20</option>		
                       	</select>
                       	</th>
                       	
                       	<th>
-                      	<select id="PART" name="PART">
-                      		<option value="실">실</option>
-                      		<option value="VT">VT</option>	
+                      	<select id="PROJECT_DESOPIT" name="PROJECT_DESOPIT">
+                      		<option value="프로젝트계약금액">프로젝트계약금액</option>
+                      		<option value="242">242</option>	
                       	</select>
                       	</th>
                       	
+                      	<th>
+                      	<select id="FH_ORDER " name="FH_ORDER ">
+                      		<option value="상반기수주">상반기수주</option>	
+                      	</select>
+                      	</th>
                       	
-                  	</tr>
-                  
+                      	<th>
+                      	<select id="FH_SALES_PROJECTIONS" name="FH_SALES_PROJECTIONS">
+                      		<option value="상반기예상매출">상반기예상매출</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="FH_SALES" name="FH_SALES">
+                      		<option value="상반기매출">상반기매출</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="SH_ORDER" name="SH_ORDER">
+                      		<option value="하반기수주">하반기수주</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="SH_SALES_PROJECTIONS" name="SH_SALES_PROJECTIONS">
+                      		<option value="하반기예상매출">하반기예상매출</option>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="SH_SALES" name="SH_SALES">
+                      		<option value="하반기매출">하반기매출</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PROJECT_START" name="PROJECT_START">
+                      		<option value="착수">착수</option>
+                      		<option value="2020-07-">2020-07-</option>
+                      		<option value="2020-11-">2020-11-</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PROJECT_END" name="PROJECT_END">
+                      		<option value="종료">종료</option>
+                      		<option value="2021-04-">2021-04-</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="CLIENT_PTB" name="CLIENT_PTB">
+                      		<option value="착수">고객담당자</option>
+                      		<option value="김">김</option>
+                      		<option value="이">이</option>	
+                      		<option value="박">박</option>		
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="WORK_PLACE" name="WORK_PLACE">
+                      		<option value="근무지">근무지</option>
+                      		<option value="본사">본사</option>	
+                      		<option value="삼성">삼성</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="WORK" name="WORK">
+                      		<option value="업무">업무</option>
+                      		<option value="A검증">A검증</option>
+                      		<option value="B검증">B검증</option>
+                      		<option value="C검증">C검증</option>
+                      		<option value="D검증">D검증</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="PROJECT_MANAGER" name="PROJECT_MANAGER">
+                      		<option value="PM">PM</option>
+                      		<option value="김김김">김김김</option>
+                      		<option value="최최최">최최최</option>
+                      		<option value="박박박">박박박</option>	
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="WORKER_LIST" name="WORKER_LIST">
+                      		<option value="투입명단">투입명단</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="ASSESSMENT_TYPE" name="ASSESSMENT_TYPE">
+                      		<option value="2020(상)평가유형">2020(상)평가유형</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="EMPLOY_DEMAND" name="EMPLOY_DEMAND">
+                      		<option value="채용수요">채용수요</option>
+                      	</select>
+                      	</th>
+                      	
+                      	<th>
+                      	<select id="OUTSOURCE_DEMAND" name="OUTSOURCE_DEMAND">
+                      		<option value="외주수요">외주수요</option>
+                      	</th>
+                  	</tr>                 
                   </tbody> 
                 </table>       
-              </div>
-              		 팀 TAEM
-					프로젝트 코드 PROJECT_CODE
-					프로젝트 명 PROJECT_NAME
-					상태 STATE
-					실 PART
-					고객사 CLIENT
-					고객부서 CLINET_PART
-					M/N MODEL_NUMBER
-					프로젝트계약금액 PROJECT_DESOPIT
-					상반기수주 FH_ORDER 
-					상반기예상매출 FH_SALES_PROJECTIONS
-					상반기매출 FH_SALES
-					하반기수주 SH_ORDER
-					하반기예상매출 SH_SALES_PROJECTIONS
-					하반기매출 SH_SALES
-					착수 PROJECT_START
-					종료 PROJECT_END
-					고객담당자 CLIENT_PTB
-					근무지 WORK_PLACE
-					업무 WORK
-					PM PROJECT_MANAGER
-					투입 명단 WORKER_LIST
-					2020(상)평가유형 ASSESSMENT_TYPE
-					채용수요 EMPLOY_DEMAND
-					외주수요 OUTSOURCE_DEMAND
+              </div>     		
             </div>
               <div class="card-body" style="margin: 0 auto;">
                 	<input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary">
@@ -321,9 +413,9 @@
               </div>
           </div>
         </div>
+        **셀 추가 셀 삭제 기능(+,-), 줄 선택 기능(옆에 체크박스, 번호 설정)**
         <!-- /.container-fluid -->
-<!--프로젝트 조회 테이블 끝        *********************************************************** -->
-
+        
       </div>
       <!-- End of Main Content -->
        

@@ -82,6 +82,13 @@
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
 	      </li>
+	      
+	      <!-- Nav Item - dayreport -->
+			<li class="nav-item">
+			  <a class="nav-link" href="../day_report/day_report.jsp">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>일간보고서</span></a>
+			</li>
 		
 		  <!-- Nav Item - report -->
 			<li class="nav-item active">
@@ -176,8 +183,7 @@
           <h1 class="h3 mb-2 text-gray-800">주간보고서 작성</h1>
           <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
           
-       
-           <!-- Area Chart -->
+ 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
@@ -236,7 +242,7 @@
      <tr align="center">
       <td>&nbsp;</td>
       <td colspan="2">
-      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary">
+      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
        <input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
       <td>&nbsp;</td>
      </tr>
