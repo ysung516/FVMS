@@ -70,14 +70,14 @@
 	      </li>
 		
 		<!-- Nav Item - dayreport -->
-			<li class="nav-item">
+			<li class="nav-item active">
 			  <a class="nav-link" href="../day_report/day_report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>일간보고서</span></a>
 			</li>
 			
 		  <!-- Nav Item - report -->
-			<li class="nav-item active">
+			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
@@ -168,7 +168,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">View Page</h1>
-          <p class="mb-4">주간보고서 조회 페이지</p>
+          <p class="mb-4">일간보고서 조회 페이지</p>
           
             <!-- Content Row -->
      <div class="row">
@@ -178,7 +178,7 @@
        <!-- Area Chart -->
        <div class="card shadow mb-4">
         <div class="card-header py-3">
-         <h6 class="m-0 font-weight-bold text-primary">주간보고서 조회</h6>
+         <h6 class="m-0 font-weight-bold text-primary">일간보고서 조회</h6>
         </div>
         
          <div style="margin: 0 auto" class="card-body report_write">
@@ -188,7 +188,7 @@
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
      <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
       <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td class="m-0 font-weight-bold text-primary">주간보고서</td>
+      <td class="m-0 font-weight-bold text-primary">일간보고서</td>
       <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
      </tr>
     </table>
@@ -224,22 +224,22 @@
      
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">금주계획</td>
-      <td>금주계획 둘어갈자리</td>
+      <td class="m-0 text-primary" align="center">금일계획</td>
+      <td>금일계획 둘어갈자리</td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">금주진행</td>
-      <td>금주진행 들어갈자리</td>
+      <td class="m-0 text-primary" align="center">금일진행</td>
+      <td>금일진행 들어갈자리</td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">차주계획</td>
-      <td>차주계획 들어갈자리</td>
+      <td class="m-0 text-primary" align="center">차일계획</td>
+      <td>차일계획 들어갈자리</td>
       <td>&nbsp;</td>
      </tr>
      
