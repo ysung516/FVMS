@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    import = "jsp.member.model.*"
+    import = "jsp.Bean.model.*"
+    import = "java.util.ArrayList"
+    import = "java.util.List"
     %>
 
 <!DOCTYPE html>
@@ -10,14 +12,16 @@
 
 <head>
 <%
-	String sessionID = "";
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
 	PrintWriter script =  response.getWriter();
-	sheetMethod method = new sheetMethod();
-	sessionID = (String)session.getAttribute("sessionID");	
 	if (sessionID == null || sessionID.equals("") ){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
-	method.saveUser_info(sessionID);
+
+	sheetMethod method = new sheetMethod();
+
+	ArrayList<BoardBean> list = method.getBoardList();
 %>
 
   <meta charset="utf-8">
