@@ -28,6 +28,12 @@ import jsp.member.model.MemberBean;
 public class sheetMethod {
 	sheetBean sheet = new sheetBean();
 	MemberBean member = new MemberBean();
+	
+	
+	public MemberBean getMember() {
+		return member;
+	}
+
 	// 싱글톤 패턴
 	public sheetMethod() {
 	
@@ -128,14 +134,15 @@ public class sheetMethod {
     	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
     	ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
     	List<ListEntry> list = listFeed.getEntries();	// 모든 행 가져오기
-    	
+    	//List userInfo = new ArrayList()
     	for(int a = 0; a < list.size(); a++) {
     		ListEntry li = list.get(a);
     		
     		if(li.getCustomElements().getValue("id").equals(id)) {
+    			System.out.println("34");
     			member.setID(id);
     			member.setNAME(li.getCustomElements().getValue("이름"));
-    			member.setNO(Integer.parseInt(li.getCustomElements().getValue("no")));
+    			member.setNO(li.getCustomElements().getValue("no"));
     			member.setPART(li.getCustomElements().getValue("소속"));
     			member.setTEAM(li.getCustomElements().getValue("팀"));
     			member.setGMAIL(li.getCustomElements().getValue("gmail"));
@@ -144,10 +151,17 @@ public class sheetMethod {
     			member.setADDRESS(li.getCustomElements().getValue("주소"));
     			//member.setNOTE(li.getCustomElements().getValue("이름"));
     			//member.setPASSWORD(li.getCustomElements().getValue(""));
+    			
     			break;
     			
     		}
     	}
+//    	String [] userInfo = {member.getID(),member.getNAME(),member.getNO()
+//				,member.getPART(),member.getTEAM(),member.getGMAIL()
+//				,member.getRANK(),member.getMOBILE(),member.getADDRESS()};
+		
+//		return userInfo;
+		
     }
 	
 	
