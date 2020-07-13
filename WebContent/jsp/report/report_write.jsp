@@ -200,8 +200,20 @@
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">내용</td>
-      <td><textarea name="CONTENT" cols="51" rows="13"></textarea></td>
+      <td class="m-0 text-primary" align="center">금주계획</td>
+      <td><textarea name="WeekPlan" cols="51" rows="13"></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">금주진행</td>
+      <td><textarea name="WeekPro" cols="51" rows="13"></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">차주계획</td>
+      <td><textarea name="NextPlan" cols="51" rows="13"></textarea></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
