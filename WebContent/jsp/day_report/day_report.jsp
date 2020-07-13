@@ -20,8 +20,8 @@
 	}
 
 	sheetMethod method = new sheetMethod();
-
-	ArrayList<BoardBean> list = method.getBoardList();
+	
+	ArrayList<BoardBean> list = method.get_DayBoardList();
 %>
 
   <meta charset="utf-8">
@@ -148,7 +148,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=method.getMember().getNAME() %></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -198,9 +198,27 @@
    <td width="379">제목</td>
    <td width="73">작성자</td>
    <td width="164">작성일</td>
-   <td width="58">조회수</td>
    <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
   </tr>
+   <%
+	if(list != null){
+		for(int i=0; i < list.size(); i++){
+			%>
+			<tr style="text-align:center;">
+				<td></td>
+				<td><%=list.get(i).getNo()%></td>
+				<td><a href="day_report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
+				<td><%=list.get(i).getName()%></td>
+				<td><%=list.get(i).getDate()%></td>
+			</tr>
+			<%
+		}
+	} else {
+		%>
+			<tr><td>등록된 일간 보고가 없습니다.</td></tr>
+		<%
+	} 
+  %>
 <tr height="25" align="center">
 </tr>
   <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>

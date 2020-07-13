@@ -1,10 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "java.io.PrintWriter"
+    import = "jsp.sheet.method.*"
+    import = "jsp.Bean.model.*"
+    import = "java.util.ArrayList"
+    import = "java.util.List"
+    %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+	<%
+		String sessionID = session.getAttribute("sessionID").toString();
+		String sessionName = session.getAttribute("sessionName").toString();
+		PrintWriter script =  response.getWriter();
+		if (sessionID == null || sessionID.equals("") ){
+			script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+		}
+		String NO = request.getParameter("no");
+		sheetMethod method = new sheetMethod();
+		BoardBean board = method.get_DayBoard(NO);
+		
+	%>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -131,7 +148,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">홍길동</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -197,7 +214,7 @@
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">제목</td>
-      <td>제목 들어갈 자리</td>
+      <td><%=board.getTitle() %></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td>
@@ -209,14 +226,14 @@
    <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">작성자</td>
-      <td>작성자 들어갈 자리</td>
+      <td><%=board.getName()%></td>
       <td>&nbsp;</td>
      </tr>
      
     <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">작성일</td>
-      <td>작성일 들어갈 자리</td>
+      <td><%=board.getDate()%></td>
       <td>&nbsp;</td>
      </tr>
      
@@ -225,21 +242,21 @@
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금일계획</td>
-      <td>금일계획 둘어갈자리</td>
+      <td><%=board.getWeekPlan()%></td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금일진행</td>
-      <td>금일진행 들어갈자리</td>
+      <td><%=board.getWeekPro()%></td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">차일계획</td>
-      <td>차일계획 들어갈자리</td>
+      <td><%=board.getNextPlan()%></td>
       <td>&nbsp;</td>
      </tr>
      

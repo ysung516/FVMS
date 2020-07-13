@@ -161,6 +161,7 @@ public class sheetMethod {
 		
     }
 	
+	// 주간
 	// 보고서 작성
 	public int saveReport (String title, String writeDate,
 			 String weekPlan, String weekPro, String nextPlan, String user_id, 
@@ -253,6 +254,107 @@ public class sheetMethod {
 	        	board.setWeekPlan(li.getCustomElements().getValue("금주계획"));
 	        	board.setWeekPro(li.getCustomElements().getValue("금주진행"));
 	        	board.setNextPlan(li.getCustomElements().getValue("차주계획"));
+				break;
+			}
+		}
+		
+		return board;
+	}
+	
+	
+	// 일간
+	// 보고서 작성
+	public int save_DayReport (String title, String writeDate,
+			 String weekPlan, String weekPro, String nextPlan, String user_id, 
+			 String name, String rank, String team) throws GeneralSecurityException, IOException, ServiceException {
+		connect();
+		access();
+    	findSheet("일간보고서");
+    	
+        // 주간보고서
+         URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+         ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+         List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+         ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
+
+         if (title != null && writeDate != null) {
+        	//방법2
+             li.getCustomElements().setValueLocal("no", Integer.toString(list.size() + 1));
+             li.getCustomElements().setValueLocal("제목", title);
+             li.getCustomElements().setValueLocal("작성일", writeDate);
+             li.getCustomElements().setValueLocal("금일계획", weekPlan);
+             li.getCustomElements().setValueLocal("금일진행", weekPro);
+             li.getCustomElements().setValueLocal("내일계획", nextPlan);
+             li.getCustomElements().setValueLocal("id", user_id);
+             li.getCustomElements().setValueLocal("이름", name);
+             li.getCustomElements().setValueLocal("직급", rank);
+             li.getCustomElements().setValueLocal("팀", team);
+             listFeed.insert(li);
+             
+             return 1;
+
+         } else return 0;
+	}
+	
+	// 주간보고서 리스트 목록 가져오기
+	public ArrayList<BoardBean> get_DayBoardList()throws GeneralSecurityException, IOException, ServiceException{
+		
+		ArrayList<BoardBean> boardList = new ArrayList<BoardBean>();
+		connect();
+		access();
+    	findSheet("일간보고서");
+    	
+        // 주간보고서
+        URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        
+        for(int i=0; i < list.size(); i++) {
+        	ListEntry li = list.get(i);
+        	BoardBean board = new BoardBean();
+        	board.setNo(li.getCustomElements().getValue("no"));
+        	board.setId(li.getCustomElements().getValue("id"));
+        	board.setName(li.getCustomElements().getValue("이름"));
+        	board.setRank(li.getCustomElements().getValue("직급"));
+        	board.setTeam(li.getCustomElements().getValue("팀"));
+        	board.setTitle(li.getCustomElements().getValue("제목"));
+        	board.setDate(li.getCustomElements().getValue("작성일"));
+        	board.setWeekPlan(li.getCustomElements().getValue("금일계획"));
+        	board.setWeekPro(li.getCustomElements().getValue("금일진행"));
+        	board.setNextPlan(li.getCustomElements().getValue("내일계획"));
+        	boardList.add(board);
+        }
+        
+		
+		return boardList;
+		
+	}
+	
+	// 넘버별 주간보고서 데이터 가져오기
+	public BoardBean get_DayBoard(String NO)throws GeneralSecurityException, IOException, ServiceException{
+		connect();
+		access();
+		findSheet("일간보고서");
+		// 주간보고서
+        URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        BoardBean board = new BoardBean();
+		for(int i = 0; i < list.size(); i++) {
+			ListEntry li = list.get(i);
+			if(li.getCustomElements().getValue("no").equals(NO)) {
+				
+	        	board.setNo(li.getCustomElements().getValue("no"));
+	        	board.setId(li.getCustomElements().getValue("id"));
+	        	board.setName(li.getCustomElements().getValue("이름"));
+	        	board.setRank(li.getCustomElements().getValue("직급"));
+	        	board.setTeam(li.getCustomElements().getValue("팀"));
+	        	board.setTitle(li.getCustomElements().getValue("제목"));
+	        	board.setDate(li.getCustomElements().getValue("작성일"));
+	        	board.setWeekPlan(li.getCustomElements().getValue("금일계획"));
+	        	board.setWeekPro(li.getCustomElements().getValue("금일진행"));
+	        	board.setNextPlan(li.getCustomElements().getValue("내일계획"));
 				break;
 			}
 		}
