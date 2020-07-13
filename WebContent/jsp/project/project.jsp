@@ -284,14 +284,13 @@
                       <td>$86,000</td> 
                       <td>Ashton Cox</td>
                     </tr>
-                    <tr align="center">
-   <td><div class="card-body">
+                   
+                  </tbody>    
+ <div class="card-body" style="align:center;">
             
                 	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 생성하기</a>
               </div>
           </td>
-  </tr>
-                  </tbody>
                 </table>
               </div>
             </div>
