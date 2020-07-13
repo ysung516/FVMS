@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    import = "jsp.member.model.*"
+    import = "jsp.Bean.model.*"
     %>
 
 <!DOCTYPE html>
@@ -10,14 +10,12 @@
 
 <head>
 <%
-	String sessionID = "";
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
 	PrintWriter script =  response.getWriter();
-	sheetMethod method = new sheetMethod();
-	sessionID = (String)session.getAttribute("sessionID");	
 	if (sessionID == null || sessionID.equals("") ){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
-	method.saveUser_info(sessionID);
 %>
 
   <meta charset="utf-8">
@@ -137,7 +135,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=method.getMember().getNAME() %></span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -187,7 +185,6 @@
    <td width="379">제목</td>
    <td width="73">작성자</td>
    <td width="164">작성일</td>
-   <td width="58">조회수</td>
    <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
   </tr>
 <tr height="25" align="center">

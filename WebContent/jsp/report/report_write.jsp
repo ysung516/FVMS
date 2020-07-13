@@ -1,9 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "java.io.PrintWriter"
+    import = "jsp.sheet.method.*"
+    %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+<%
+
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
+	PrintWriter script =  response.getWriter();
+	if (sessionID == null || sessionID.equals("") ){
+		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+	}
+	
+%>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -125,7 +139,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">홍길동</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->

@@ -1,4 +1,4 @@
-package jsp.member.model;
+package jsp.Bean.model;
 import java.sql.Timestamp;
 
 //데이터의 전달을 담당하는 클래스 - DTO

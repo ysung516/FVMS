@@ -21,6 +21,9 @@
     if (method.loginCheck(ID, PW) == 1){
       script.print("<script> location.href = '../jsp/summary/summary.jsp'; </script>");
       session.setAttribute("sessionID", ID);
+      method.saveUser_info(ID);
+      String sessionName = method.getMember().getNAME();
+      session.setAttribute("sessionName", sessionName);
      
      } else 
       script.print("<script> alert('아이디 혹은 비밀번호가 틀립니다.'); history.back(); </script>");

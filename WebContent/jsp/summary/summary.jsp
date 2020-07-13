@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    import = "jsp.member.model.*"
-    %>
+    import = "jsp.Bean.model.*"
     
+    %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,14 +12,11 @@
 
 <%
 
-	String sessionID = "";
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
 	PrintWriter script =  response.getWriter();
-	sheetMethod method = new sheetMethod();
-	sessionID = (String)session.getAttribute("sessionID");
 	if (sessionID == null || sessionID.equals("") ){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
-	}
-	method.saveUser_info(sessionID);
 	
 %>
 
@@ -151,9 +148,8 @@
       <li class="nav-item dropdown no-arrow"><a
        class="nav-link dropdown-toggle" href="#" id="userDropdown"
        role="button" data-toggle="dropdown" aria-haspopup="true"
-       aria-expanded="false"> <span
-        class="mr-2 d-none d-lg-inline text-gray-600 small"><%=method.getMember().getNAME()%> <img class="img-profile rounded-circle"
-        src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+       aria-expanded="false"> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=sessionName%> 
+       <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
       </a> <!-- Dropdown - User Information -->
        <div
         class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

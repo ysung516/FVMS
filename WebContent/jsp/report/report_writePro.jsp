@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import = "jsp.sheet.method.*"
-    import = "jsp.member.model.*"
+    import = "jsp.Bean.model.*"
     import = "java.io.PrintWriter"%>
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,8 @@
 </head>
 <body>
 	<%
+	
+		request.setCharacterEncoding("UTF-8");
 		String sessionID = "";
 		sheetMethod method = new sheetMethod();
 		PrintWriter script =  response.getWriter();

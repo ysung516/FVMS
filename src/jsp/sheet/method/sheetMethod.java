@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,7 +24,8 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.util.ServiceException;
 
-import jsp.member.model.MemberBean;
+import jsp.Bean.model.BoardBean;
+import jsp.Bean.model.MemberBean;
 
 public class sheetMethod {
 	sheetBean sheet = new sheetBean();
@@ -159,6 +161,7 @@ public class sheetMethod {
 		
     }
 	
+	// 보고서 작성
 	public int saveReport (String title, String writeDate,
 			 String weekPlan, String weekPro, String nextPlan, String user_id, 
 			 String name, String rank, String team) throws GeneralSecurityException, IOException, ServiceException {
@@ -191,6 +194,39 @@ public class sheetMethod {
          } else return 0;
 	}
 	
+	public ArrayList<BoardBean> getBoardList()throws GeneralSecurityException, IOException, ServiceException{
+		
+		ArrayList<BoardBean> boardList = new ArrayList<BoardBean>();
+		connect();
+		access();
+    	findSheet("주간보고서");
+    	
+        // 주간보고서
+        URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        
+        for(int i=0; i < list.size(); i++) {
+        	ListEntry li = list.get(i);
+        	BoardBean board = new BoardBean();
+        	board.setNo(li.getCustomElements().getValue("no"));
+        	board.setId(li.getCustomElements().getValue("id"));
+        	board.setName(li.getCustomElements().getValue("이름"));
+        	board.setRank(li.getCustomElements().getValue("직급"));
+        	board.setTeam(li.getCustomElements().getValue("팀"));
+        	board.setTitle(li.getCustomElements().getValue("제목"));
+        	board.setDate(li.getCustomElements().getValue("작성일"));
+        	board.setWeekPlan(li.getCustomElements().getValue("금주계획"));
+        	board.setWeekPro(li.getCustomElements().getValue("금주진행"));
+        	board.setNextPlan(li.getCustomElements().getValue("차주계획"));
+        	boardList.add(board);
+        }
+        
+		
+		return boardList;
+		
+	}
 	
 	
 
