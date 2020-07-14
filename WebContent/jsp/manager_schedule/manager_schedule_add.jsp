@@ -7,7 +7,6 @@
 <html lang="en">
 
 <head>
-
 <%
 
 	String sessionID = session.getAttribute("sessionID").toString();
@@ -206,7 +205,7 @@
       <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
      </tr>
     </table>
-    <form method = "post" action = "manager_schedule_addPro.jsp">
+    <form method = "post" action = "MSC_AddPro.jsp">
    <table>
      <tr>
       <td>&nbsp;</td>
