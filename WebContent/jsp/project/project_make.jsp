@@ -312,7 +312,7 @@
 						<th>종료</th> 
 							<th>
                       	<input id="PROJECT_END" name="PROJECT_END"></input>
-                      	</th>
+                      	</th> 
 						</tr>
 						
 						<tr>
