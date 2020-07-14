@@ -247,13 +247,13 @@
                     </tr> 
                     </tbody>                           
                 </table>
-              </div>        
+              </div>   
+              </div>     
    				<div class="card-body" style="margin: 0 auto;">
-                   	 <input id="pro_make" type="button" name="pro_make" class="btn btn-primary">프로젝트 생성하기</input>
+                   	 <input id="pro_make" type="button" name="pro_make" class="btn btn-primary" value="프로젝트 생성하기">
                 	 <a href="project_change.jsp" class="btn btn-primary">프로젝트 수정하기</a>
              	   </div>   
              	   
-         </div>
          </div>
         <!-- /.container-fluid -->
 <!--프로젝트 조회 테이블 끝        *********************************************************** -->
