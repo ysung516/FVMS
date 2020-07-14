@@ -1,9 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "java.io.PrintWriter"
+    import = "jsp.sheet.method.*"
+    %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
+<%
+
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
+	PrintWriter script =  response.getWriter();
+	if (sessionID == null || sessionID.equals("") ){
+		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+	}
+	
+%>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,17 +25,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Rowdata</title>
+  <title>Sure FVMS - Manager_Schedule_add</title>
 
-  <!-- Custom fonts for this template -->
+  <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="../../https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -41,11 +52,7 @@
         <div class="sidebar-brand-text mx-3">Sure FVMS</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-     
-	<!-- Divider -->
+   <!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - summary -->
@@ -63,21 +70,21 @@
      	    </li>
       
 		    <!-- Nav Item - rowdata -->
-		    <li class="nav-item active">
+		    <li class="nav-item">
 		      <a class="nav-link" href="../rowdata/rowdata.jsp">
 		      <i class="fas fa-fw fa-chart-area"></i>
 		      <span>인력</span></a>
      		</li>
      		
 	      <!-- Nav Item - schedule -->
-	      <li class="nav-item">
+	      <li class="nav-item ">
 	        <a class="nav-link" href="../schedule/schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
 	      </li>
 	      
-	       <!-- Nav Item - manager schedule -->
-	      <li class="nav-item">
+	      <!-- Nav Item - manager schedule -->
+	      <li class="nav-item active">
 	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
@@ -96,6 +103,8 @@
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
+      
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -118,11 +127,9 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
-          <form class="form-inline">
-            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-              <i class="fa fa-bars"></i>
-            </button>
-          </form>
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
 
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -139,14 +146,14 @@
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-          
+        
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">홍길동</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
@@ -180,65 +187,60 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Rowdata</h1>
-          <p class="mb-4">인력데이터</a></p>
-
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Rowdata</h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>No.</th>
-                      <th>소속</th>
-                      <th>팀</th>
-                      <th>이름</th>
-                      <th>직급</th>
-                      <th>직책</th>
-                      <th>Mobile</th>
-                      <th>gmail</th>
-                      <th>주거지</th>
-                      <th>비고</th>
-                      <th>코드</th>
-                      <th>시작</th>
-                      <th>종료</th>
-                      <th>코드</th>
-                      <th>시작</th>
-                      <th>종료</th> 
-                    </tr>
-                  </thead>
-                 
-                  <tbody>
-                    <tr>
-                      <td>예시라인</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                    </tr> 
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.container-fluid -->
+          <h1 class="h3 mb-2 text-gray-800">일정추가</h1>
+          <p class="mb-4"></p>
+          
+ 
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">일정추가</h6>
+                </div>
+                <div style="margin: 0 auto" class="card-body">
+                   <table>
+  <tr>
+   <td>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
+      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
+      <td class="m-0 font-weight-bold text-primary">일정추가</td>
+      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
+     </tr>
+    </table>
+    <form method = "post" action = "manager_schedule_addPro.jsp">
+   <table>
+     <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">시작날짜</td>
+      <td><input type="date" name="START_DATE" style=width:100%; maxlength="50"></td>
+      <td>&nbsp;</td>
+     </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">종료날짜</td>
+      <td><input type="date" name="END_DATE" style=width:100%; maxlength="50"></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">장소</td>
+      <td><input name="place"></input></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr align="center">
+      <td>&nbsp;</td>
+      <td colspan="2">
+      <input id="COMPLETE" type="submit" name="COMPLETE" value="등록"  class="btn btn-primary" >
+       <input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
+      <td>&nbsp;</td>
+     </tr>
+    </table>
+    </form>
+  </tr>
+ </table>
+    <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -282,6 +284,7 @@
       </div>
     </div>
   </div>
+ 
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
@@ -294,11 +297,12 @@
   <script src="../../js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="../../vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="../../js/demo/datatables-demo.js"></script>
+  <script src="../../js/demo/chart-area-demo.js"></script>
+  <script src="../../js/demo/chart-pie-demo.js"></script>
+  <script src="../../js/demo/chart-bar-demo.js"></script>
 
 </body>
 

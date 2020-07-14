@@ -89,12 +89,20 @@
          <span>스케줄</span></a>
        </li>
        
+        <!-- Nav Item - manager schedule -->
+	      <li class="nav-item">
+	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
+	        <i class="fas fa-fw fa-calendar"></i>
+	        <span>관리자 스케줄</span></a>
+	      </li>
+       
        <!-- Nav Item - dayreport -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../day_report/day_report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>일간보고서</span></a>
 			</li>
+			
   
     <!-- Nav Item - report -->
    <li class="nav-item">

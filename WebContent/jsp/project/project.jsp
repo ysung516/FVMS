@@ -77,6 +77,13 @@
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
 	      </li>
+	      
+	       <!-- Nav Item - manager schedule -->
+	      <li class="nav-item">
+	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
+	        <i class="fas fa-fw fa-calendar"></i>
+	        <span>관리자 스케줄</span></a>
+	      </li>
 		
 		<!-- Nav Item - dayreport -->
 			<li class="nav-item">
@@ -237,21 +244,22 @@
                       <td>System Architect</td>
                       <td>Edinburgh</td>
                       <td>61</td>
-                    </tr>        
-                  </tbody>    
+                    </tr> 
+                    </tbody>                           
                 </table>
-              </div>
-            </div>
-              <div class="card-body" style="margin: 0 auto;">
-                	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 생성하기</a>
+              </div>        
+   				<div class="card-body" style="margin: 0 auto;">
+                   	 <input id="pro_make" type="button" name="pro_make" class="btn btn-primary">프로젝트 생성하기</input>
                 	 <a href="project_change.jsp" class="btn btn-primary">프로젝트 수정하기</a>
-              </div>
-          </div>
+             	   </div>   
+             	   
+         </div>
+         </div>
         <!-- /.container-fluid -->
 <!--프로젝트 조회 테이블 끝        *********************************************************** -->
       </div>
       <!-- End of Main Content -->
-       </div>
+      
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">

@@ -77,6 +77,13 @@
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
 	      </li>
+	      
+	       <!-- Nav Item - manager schedule -->
+	      <li class="nav-item">
+	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
+	        <i class="fas fa-fw fa-calendar"></i>
+	        <span>관리자 스케줄</span></a>
+	      </li>
 		
 		<!-- Nav Item - dayreport -->
 			<li class="nav-item">
@@ -177,10 +184,9 @@
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">프로젝트 생성</h6>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="width: 75%; margin: 0 auto;">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
                     <tr>
                       <th>팀</th>
                       <th>
@@ -261,8 +267,7 @@
 					  <tr>
 					  <th>상반기수주</th> 
 					  <th>
-                      	<input id="FH_ORDER " name="FH_ORDER ">
-                      	</input>
+                      	<input id="FH_ORDER " name="FH_ORDER "></input>
                       	</th> 
 						</tr>
 						
@@ -371,8 +376,7 @@
 						<th>
                       	<input id="OUTSOURCE_DEMAND" name="OUTSOURCE_DEMAND"></input>
                       	</th>
-                        </tr>
-                  </thead>    
+                        </tr>   
                 </table>       
               </div>     		
             </div>
@@ -382,7 +386,6 @@
               </div>
           </div>
         </div>
-        **셀 추가 셀 삭제 기능(+,-), 줄 선택 기능(옆에 체크박스, 번호 설정)**
         <!-- /.container-fluid -->
         
       </div>
