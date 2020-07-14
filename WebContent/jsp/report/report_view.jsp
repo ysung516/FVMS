@@ -21,6 +21,9 @@
 		sheetMethod method = new sheetMethod();
 		BoardBean board = method.getBoard(NO);
 		
+		// 출력
+		String [] line;
+		
 	%>
 
   <meta charset="utf-8">
@@ -233,21 +236,36 @@
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주계획</td>
-      <td width="950" height="100"><%=board.getWeekPlan()%></td>
+      <td width="950" height="100"><%
+      	line = board.getP_weekPlan();
+      	for(String li : line){
+      		%><pre><%=li%></pre><%
+      	}
+      %></td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주진행</td>
-      <td width="950" height="100"><%=board.getWeekPro()%></td>
+      <td width="950" height="100"><%
+      	line = board.getP_weekPro();
+      	for(String li : line){
+      		%><pre><%=li%></pre><%
+      	}
+      %></td>
       <td>&nbsp;</td>
      </tr>
      
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">차주계획</td>
-      <td width="950" height="100"><%=board.getNextPlan()%></td>
+      <td width="950" height="100"><%
+      	line = board.getP_nextPlan();
+      	for(String li : line){
+      		%><pre><%=li%></pre><%
+      	}
+      %></td>
       <td>&nbsp;</td>
      </tr>
      
