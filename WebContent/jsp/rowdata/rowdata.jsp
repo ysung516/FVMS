@@ -196,11 +196,16 @@
                       <th>gmail</th>
                       <th>주거지</th>
                       <th>비고</th>
+                      <th>코드</th>
+                      <th>시작</th>
+                      <th>종료</th>
+                      <th>코드</th>
+                      <th>시작</th>
+                      <th>종료</th> 
                     </tr>
                   </thead>
                  
                   <tbody>
-                  
                     <tr>
                       <td>예시라인</td>
                       <td>Accountant</td>
@@ -209,6 +214,12 @@
                       <td>2011/07/25</td>
                       <td>$170,750</td>
                       <td>Garrett Winters</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
+                      <td>Accountant</td>
+                      <td>Tokyo</td>
+                      <td>63</td>
                       <td>Accountant</td>
                       <td>Tokyo</td>
                       <td>63</td>

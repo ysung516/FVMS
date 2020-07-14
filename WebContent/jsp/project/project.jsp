@@ -182,14 +182,14 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>팀</th>
-                      <th>프로젝트 코드</th>
-                      <th>프로젝트 명</th>
-                      <th>상태</th>
-                      <th>실</th>
-                      <th>고객사</th>
-                      <th>고객부서</th>
-                      <th>M/M</th>
+	                    <th>팀</th>
+	                    <th>프로젝트 코드</th>
+	                    <th>프로젝트 명</th>
+	                    <th>상태</th>
+	                    <th>실</th>
+	                    <th>고객사</th>
+	                    <th>고객부서</th>
+	                    <th>M/M</th>
 						<th>프로젝트계약금액</th> 
 						<th>상반기수주</th>  
 						<th>상반기예상매출</th> 
@@ -209,6 +209,7 @@
 						<th>외주수요</th>  
                     </tr>
                   </thead>  
+                  
                   <tbody>
                     <tr>
                       <td>예시</td>
@@ -239,7 +240,6 @@
                     </tr>        
                   </tbody>    
                 </table>
-                
               </div>
             </div>
               <div class="card-body" style="margin: 0 auto;">
@@ -247,13 +247,11 @@
                 	 <a href="project_change.jsp" class="btn btn-primary">프로젝트 수정하기</a>
               </div>
           </div>
-        </div>
         <!-- /.container-fluid -->
 <!--프로젝트 조회 테이블 끝        *********************************************************** -->
-
       </div>
       <!-- End of Main Content -->
-       
+       </div>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -267,7 +265,6 @@
     </div>
     <!-- End of Content Wrapper -->
 
-  </div>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
