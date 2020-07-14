@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Project_Make</title>
+  <title>Sure FVMS - Project_Change</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -175,7 +175,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">프로젝트 생성</h6>
+              <h6 class="m-0 font-weight-bold text-primary">프로젝트 수정</h6>
             </div>
             <div class="card-body">
             <div class="table-responsive">

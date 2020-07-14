@@ -170,10 +170,6 @@
         
  		<!-- Begin Page Content -->
         <div class="container-fluid">
-
-		  <div class="row">
-
-      <div class="col-xl-8 col-lg-7">
 		
 <!--프로젝트 조회 테이블 시작 *********************************************************** -->
           <!-- DataTales Example -->
@@ -215,7 +211,7 @@
                   </thead>  
                   <tbody>
                     <tr>
-                      <td>Tiger Nixon</td>
+                      <td>예시</td>
                       <td>System Architect</td>
                       <td>Edinburgh</td>
                       <td>61</td>
@@ -240,61 +236,7 @@
                       <td>System Architect</td>
                       <td>Edinburgh</td>
                       <td>61</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                      <td>Garrett Winters</td> 
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td> 
-                      <td>Ashton Cox</td>
-	                   </tr>             
+                    </tr>        
                   </tbody>    
                 </table>
                 
@@ -302,7 +244,7 @@
             </div>
               <div class="card-body" style="margin: 0 auto;">
                 	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 생성하기</a>
-                	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 수정하기</a>
+                	 <a href="project_change.jsp" class="btn btn-primary">프로젝트 수정하기</a>
               </div>
           </div>
         </div>
