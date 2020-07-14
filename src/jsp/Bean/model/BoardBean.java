@@ -11,7 +11,24 @@ public class BoardBean {
 	private String weekPro;
 	private String nextPlan;
 	private String no;
+	private String [] P_weekPlan;
+	private String [] P_weekPro;
+	private String [] P_nextPlan;
 	
+	
+	
+	public String[] getP_weekPlan() {
+		String [] P_weekPlan = weekPlan.split("\n");
+		return P_weekPlan;
+	}
+	public String[] getP_weekPro() {
+		String [] P_weekPro = weekPro.split("\n");
+		return P_weekPro;
+	}
+	public String[] getP_nextPlan() {
+		String [] P_nextPlan = nextPlan.split("\n");
+		return P_nextPlan;
+	}
 	
 	public String getNo() {
 		return no;
@@ -73,6 +90,7 @@ public class BoardBean {
 	public void setNextPlan(String nextPlan) {
 		this.nextPlan = nextPlan;
 	}
+	
 
 
 }
