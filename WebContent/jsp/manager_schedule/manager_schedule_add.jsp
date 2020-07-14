@@ -210,36 +210,37 @@
    <table>
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">시작날짜</td>
+      <td class="m-0 text-primary" align="center">시작날짜 </td>
+      <td>&nbsp;</td>
       <td><input type="date" name="START_DATE" style=width:100%; maxlength="50"></td>
       <td>&nbsp;</td>
      </tr>
       <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">종료날짜</td>
+      <td class="m-0 text-primary" align="center">종료날짜 </td>
+      <td>&nbsp;</td>
       <td><input type="date" name="END_DATE" style=width:100%; maxlength="50"></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">장소</td>
+      <td class="m-0 text-primary" align="center">장소 </td>
+      <td>&nbsp;</td>
       <td><input name="place"></input></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
-     <tr align="center">
-      <td>&nbsp;</td>
-      <td colspan="2">
-      <input id="COMPLETE" type="submit" name="COMPLETE" value="등록"  class="btn btn-primary" >
-       <input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
-      <td>&nbsp;</td>
-     </tr>
-    </table>
-    </form>
-  </tr>
- </table>
+    
+     </table>
+ 	 </table>
+ 	    </div>
+ <div class="card-body" style="margin: 0 auto;">
+   <input id="COMPLETE" type="submit" name="COMPLETE" value="등록"  class="btn btn-primary" >
+       <a href="manager_schedule.jsp" class="btn btn-primary">취소</a>
+       </div>
+
     <!-- /.container-fluid -->
 
       </div>
