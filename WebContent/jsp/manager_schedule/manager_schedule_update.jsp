@@ -240,6 +240,7 @@
  <div class="card-body" style="margin: 0 auto;">
    <input id="Update" type="submit" name="COMPLETE" value="수정"  class="btn btn-primary" >
        <a href="manager_schedule.jsp" class="btn btn-primary">취소</a>
+       <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
        </div>
 
     <!-- /.container-fluid -->

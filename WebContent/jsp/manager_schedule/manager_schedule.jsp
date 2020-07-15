@@ -257,13 +257,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-    <a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
+     <div class="card shadow mb-4">
+     <div class="card-header py-3">
     <!-- /.container-fluid -->
 		<div id='calendar'></div>
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
  			<input id="jsvar" type="hidden" name = "num" value="" />
  		</form>
+ 		 <div class="card-body" style="margin-left: 35%;">
+      		<a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
+      	</div>
       </div>
+     
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -275,7 +280,8 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </footer>
       <!-- End of Footer -->
-
+      </div>
+		</div>
     </div>
     <!-- End of Content Wrapper -->
 
