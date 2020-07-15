@@ -2,10 +2,18 @@ package jsp.Bean.model;
 
 public class MSC_Bean {
 	private String ID;
+	private String no;
 	private String place;
 	private String startDate;
 	private String endDate;
 	private String name;
+	
+	public String getNo() {
+		return no;
+	}
+	public void setNo(String no) {
+		this.no = no;
+	}
 	public String getName() {
 		return name;
 	}

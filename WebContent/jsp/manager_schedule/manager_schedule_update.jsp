@@ -37,7 +37,11 @@
 </head>
 
 <body id="page-top">
-
+	
+	<%
+		String num = request.getParameter("num");
+		
+	%>
   <!-- Page Wrapper -->
   <div id="wrapper">
 

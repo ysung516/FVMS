@@ -20,8 +20,13 @@
 	
 %>
 <link href='./lib/main.css' rel='stylesheet' />
+<script type="text/javascript" src="./fullcalendar-2.9.1/lib/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src='./lib/main.js'></script>
 <script>
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
@@ -42,12 +47,14 @@ document.addEventListener('DOMContentLoaded', function() {
       %>
       events: [
       <%
-      
+      	
       	for(MSC_Bean li : MSCList){
-      		
+      		String id = li.getNo()+ " " + li.getID();
          	 %> 
          	    	  {
+         	    		  id : '<%=id%>',
          	    		  title: '<%out.print(li.getTeam()+" "+li.getName()+" "+li.getPlace());%>',
+
          	    		  start: '<%=li.getStartDate()%>',
          	    		  end: '<%=li.getEndDate()%>',
          	    		  <%for(int i = 0; i < managerID.length; i++){
@@ -59,6 +66,21 @@ document.addEventListener('DOMContentLoaded', function() {
          	    	  },
          <%}%>
          ]
+      , eventClick: function(arg) {
+    		var str = arg.event.id.split(' ');
+    		var no = str[0];
+    		var id = str[1];
+    		
+        	if(id == '<%=sessionID%>'){
+        		if(confirm("일정을 수정하시겠습니까?") == true){
+        			  var el = document.getElementById("jsvar");
+        			  el.value = no;
+        			  document.jsvarform.submit();
+        		}
+        	}	// end if
+      }	//end eventClick
+      	
+
        });
     calendar.render();
   });
@@ -79,20 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 <style>
-
-  body {
-    margin: 40px 10px;
-    padding: 0;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 14px;
-  }
-
   #calendar {
     max-width: 1100px;
-    margin: 0 auto;
-  }
-
-</style>
+    margin: 0 auto;} 
+    </style>
+  
 </head>
 
 <body id="page-top">
@@ -246,7 +259,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container-fluid">
     <a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
     <!-- /.container-fluid -->
-			<div id='calendar'></div>
+		<div id='calendar'></div>
+		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
+ 			<input id="jsvar" type="hidden" name = "num" value="" />
+ 		</form>
       </div>
       <!-- End of Main Content -->
 
