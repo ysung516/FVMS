@@ -154,7 +154,6 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -186,6 +185,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
     <a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
+    <a href="manager_schedule_update.jsp" class="btn btn-primary">일정수정</a>
     <!-- /.container-fluid -->
 
       </div>
