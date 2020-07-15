@@ -192,8 +192,6 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">View Page</h1>
-          <p class="mb-4">주간보고서 조회 페이지</p>
           
        <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -282,7 +280,7 @@
       <td height="100">&nbsp;</td>
       <td colspan="2">
       <input id=Delete type="button" name="Delete" value="삭제"  class="btn btn-primary" >
-       <input id="List" type="button" name="List" value="목록"  class="btn btn-primary">
+      <a href="report.jsp" class="btn btn-primary">목록</a>
       <td>&nbsp;</td>
      </tr>
      

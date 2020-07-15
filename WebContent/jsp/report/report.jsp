@@ -186,15 +186,10 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">주간보고서 목록</h1>
-          <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
-          
-           <!-- Area Chart -->
+         
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">주간보고서 목록</h6>
                 </div>
                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr height="5"><td width="5"></td></tr>
@@ -238,7 +233,7 @@
   <tr align="center">
    <td><div class="card-body">
             
-                	 <a href="report_write.jsp" class="btn btn-primary">보고서 작성하기</a>
+                	 <a href="report_write.jsp" class="btn btn-primary">주간보고서 작성</a>
               </div>
           </td>
   </tr>

@@ -182,11 +182,6 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">일간보고서 작성</h1>
-          <p class="mb-4">일간보고서 작성</p>
-          
- 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">일간보고서 작성</h6>
@@ -198,7 +193,7 @@
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
      <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
       <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td class="m-0 font-weight-bold text-primary">글쓰기</td>
+      <td class="m-0 font-weight-bold text-primary">일간 보고서</td>
       <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
      </tr>
     </table>
@@ -207,7 +202,7 @@
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">제목</td>
-      <td><input name="TITLE"  style=width:100%; maxlength="100"></td>
+      <td><input name="TITLE"  style=width:100%; maxlength="100"  placeholder="일간보고서_이름"></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td>
@@ -246,7 +241,7 @@
       <td>&nbsp;</td>
       <td colspan="2">
       <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
-       <input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
+       <a href="day_report.jsp" class="btn btn-primary">취소</a>
       <td>&nbsp;</td>
      </tr>
     </table>
