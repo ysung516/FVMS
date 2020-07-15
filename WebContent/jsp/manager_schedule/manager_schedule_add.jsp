@@ -7,7 +7,6 @@
 <html lang="en">
 
 <head>
-
 <%
 
 	String sessionID = session.getAttribute("sessionID").toString();
@@ -154,6 +153,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -205,7 +205,7 @@
       <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
      </tr>
     </table>
-    <form method = "post" action = "manager_schedule_addPro.jsp">
+    <form method = "post" action = "MSC_AddPro.jsp">
    <table>
      <tr>
       <td>&nbsp;</td>

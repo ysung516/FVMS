@@ -51,6 +51,7 @@ public class backUp extends TimerTask{
         HSSFSheet sheet = workbook.createSheet();
         // 행 생성
         HSSFRow row = sheet.createRow(0);
+        
         // 쎌 생성
         HSSFCell cell;
         
@@ -77,7 +78,7 @@ public class backUp extends TimerTask{
         cell.setCellValue("내일계확");
         CellStyle cs = workbook.createCellStyle();
         cs.setWrapText(true);
-        
+   
         BoardBean board;
         for(int i=0; i < boardList.size(); i++) {
         	
@@ -112,8 +113,15 @@ public class backUp extends TimerTask{
              
         }
         
+        
+        for(int i=0; i < row.getPhysicalNumberOfCells(); i++) {
+       	 sheet.autoSizeColumn(i);
+       	 sheet.setColumnWidth(i, (sheet.getColumnWidth(i))+1024);
+       }
+       
+        
         // 입력된 내용 파일로 쓰기
-        File file = new File("C:\\test/"+fileName+"-일간보고서6.xls");
+        File file = new File("C:\\test/"+fileName+"-일간보고서.xls");
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(file);
@@ -132,7 +140,9 @@ public class backUp extends TimerTask{
                 e.printStackTrace();
             }
         }
-    }
+    
+
+	}
 
 
 

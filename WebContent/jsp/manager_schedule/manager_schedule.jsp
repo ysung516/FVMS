@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    %>
+    import = "jsp.Bean.model.MSC_Bean"
+    import = "java.util.ArrayList"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +19,50 @@
 	}
 	
 %>
+<link href='./lib/main.css' rel='stylesheet' />
+<script src='./lib/main.js'></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      editable: true,
+      selectable: true,
+      businessHours: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+     
+      <%
+    	sheetMethod method = new sheetMethod();
+		ArrayList<MSC_Bean> MSCList = new ArrayList<MSC_Bean>();
+		MSCList = method.getMSCList();
+ 		
+		String [] color = {"RED","BLUE","GREEN","BLACK","PINK","GRAY","ORANGE","PURPLE"};
+		String [] managerID = {"ymyou","ysung516","hlshin"};
+		
+      %>
+      events: [
+      <%
+      
+      	for(MSC_Bean li : MSCList){
+      		
+         	 %> 
+         	    	  {
+         	    		  title: '<%out.print(li.getTeam()+" "+li.getName()+" "+li.getPlace());%>',
+         	    		  start: '<%=li.getStartDate()%>',
+         	    		  end: '<%=li.getEndDate()%>',
+         	    		  <%for(int i = 0; i < managerID.length; i++){
+         	    			  if (li.getID().equals(managerID[i])){
+         	    				  %>color: '<%=color[i]%>'<%
+         	    			  }
+         	    		  }%> 
+         	    		   
+         	    	  },
+         <%}%>
+         ]
+       });
+    calendar.render();
+  });
+</script>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +78,21 @@
 
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+<style>
 
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+</style>
 </head>
 
 <body id="page-top">
@@ -121,8 +180,8 @@
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content">
-
+      
+      <div id="content">      
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -154,6 +213,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -185,9 +245,8 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
     <a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
-    <a href="manager_schedule_update.jsp" class="btn btn-primary">일정수정</a>
     <!-- /.container-fluid -->
-
+			<div id='calendar'></div>
       </div>
       <!-- End of Main Content -->
 

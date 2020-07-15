@@ -25,7 +25,9 @@ import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.util.ServiceException;
 
 import jsp.Bean.model.BoardBean;
+import jsp.Bean.model.MSC_Bean;
 import jsp.Bean.model.MemberBean;
+import jsp.Bean.model.ProjectBean;
 
 public class sheetMethod {
 	sheetBean sheet = new sheetBean();
@@ -108,11 +110,11 @@ public class sheetMethod {
     	
     	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
     	ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+    	
     	List<ListEntry> list = listFeed.getEntries();	// 모든 행 가져오기
   
     	for(int a = 0; a < list.size(); a++)	{
     		ListEntry li = list.get(a);	// 첫 번째 행 데이터 부터 가져옴
-    		
     		if(li.getCustomElements().getValue("id").equals(id)) {
     			if(li.getCustomElements().getValue("pw").equals(pw)) {
     				check = 1;
@@ -296,7 +298,7 @@ public class sheetMethod {
          } else return 0;
 	}
 	
-	// 주간보고서 리스트 목록 가져오기
+	// 일간보고서 리스트 목록 가져오기
 	public ArrayList<BoardBean> get_DayBoardList()throws GeneralSecurityException, IOException, ServiceException{
 		
 		ArrayList<BoardBean> boardList = new ArrayList<BoardBean>();
@@ -331,7 +333,7 @@ public class sheetMethod {
 		
 	}
 	
-	// 넘버별 주간보고서 데이터 가져오기
+	// 넘버별 일간보고서 데이터 가져오기
 	public BoardBean get_DayBoard(String NO)throws GeneralSecurityException, IOException, ServiceException{
 		connect();
 		access();
@@ -343,8 +345,7 @@ public class sheetMethod {
         BoardBean board = new BoardBean();
 		for(int i = 0; i < list.size(); i++) {
 			ListEntry li = list.get(i);
-			if(li.getCustomElements().getValue("no").equals(NO)) {
-				
+			if(li.getCustomElements().getValue("no").equals(NO)) {				
 	        	board.setNo(li.getCustomElements().getValue("no"));
 	        	board.setId(li.getCustomElements().getValue("id"));
 	        	board.setName(li.getCustomElements().getValue("이름"));
@@ -360,6 +361,101 @@ public class sheetMethod {
 		}
 		
 		return board;
+	}
+	
+	// 프로젝트 가져오기
+	public ArrayList<ProjectBean> getProjectList()throws GeneralSecurityException, IOException, ServiceException{
+		ArrayList<ProjectBean> projectList = new ArrayList<ProjectBean>();
+		connect();
+		access();
+    	findSheet("#PRJ");
+    	
+    	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        for(int i=0; i<list.size(); i++) {
+        	ListEntry li = list.get(i);
+        	ProjectBean pj = new ProjectBean();
+        	pj.setTEAM(li.getCustomElements().getValue("팀"));
+        	pj.setPROJECT_CODE(li.getCustomElements().getValue("프로젝트 코드"));
+        	pj.setPROJECT_NAME(li.getCustomElements().getValue("프로젝트 명"));
+        	pj.setSTATE(li.getCustomElements().getValue("상태"));
+        	pj.setPART(li.getCustomElements().getValue("실"));
+        	pj.setCLIENT(li.getCustomElements().getValue("고객사"));
+        	pj.setClIENT_PART(li.getCustomElements().getValue("고객부서"));
+        	pj.setMAN_MONTH(li.getCustomElements().getValue("M/N"));
+        	pj.setPROJECT_DESOPIT(li.getCustomElements().getValue("프로젝트계약금액(백만)"));
+        	pj.setFH_ORDER(li.getCustomElements().getValue("상반기수주"));
+        	pj.setFH_SALES_PROJECTIONS(li.getCustomElements().getValue("상반기예상매출"));
+        	pj.setFH_SALES(li.getCustomElements().getValue("상반기매출"));
+        	pj.setSH_ORDER(li.getCustomElements().getValue("하반기수주"));
+        	pj.setSH_SALES_PROJECTIONS(li.getCustomElements().getValue("하반기예상매출"));
+        	pj.setSH_SALES(li.getCustomElements().getValue("하반기매출"));
+        	pj.setPROJECT_START(li.getCustomElements().getValue("착수"));
+        	pj.setPROJECT_END(li.getCustomElements().getValue("종료"));
+        	pj.setCLIENT_PTB(li.getCustomElements().getValue("고객담당자"));
+        	pj.setWORK_PLACE(li.getCustomElements().getValue("근무지"));
+        	pj.setWORK(li.getCustomElements().getValue("업무"));
+        	pj.setPROJECT_MANAGER(li.getCustomElements().getValue("PM"));
+        	pj.setWORKER_LIST(li.getCustomElements().getValue("투입명단"));
+        	pj.setASSESSMENT_TYPE(li.getCustomElements().getValue("평가유형"));
+        	pj.setEMPLOY_DEMAND(li.getCustomElements().getValue("채용수요"));
+        	pj.setOUTSOURCE_DEMAND(li.getCustomElements().getValue("외주수요"));
+        	projectList.add(pj);
+        	
+        }
+		return projectList;
+	}
+	
+	// 관리자 일정 가져오기
+	public ArrayList<MSC_Bean> getMSCList()throws GeneralSecurityException, IOException, ServiceException{
+		ArrayList<MSC_Bean> MSCList = new ArrayList<MSC_Bean>();
+		connect();
+		access();
+    	findSheet("관리자일정");
+    	
+    	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        for(int i=0; i<list.size(); i++) {
+        	ListEntry li = list.get(i);
+        	MSC_Bean mb = new MSC_Bean();
+        	mb.setID(li.getCustomElements().getValue("ID"));
+        	mb.setPlace(li.getCustomElements().getValue("장소"));
+        	mb.setStartDate(li.getCustomElements().getValue("시작날짜"));
+        	mb.setEndDate(li.getCustomElements().getValue("종료날짜"));
+        	mb.setName(li.getCustomElements().getValue("이름"));
+        	mb.setTeam(li.getCustomElements().getValue("팀"));
+        	MSCList.add(mb);
+        }
+        
+		return MSCList;
+	}
+	
+	// 관리자 일정 추가
+	public int insert_MSC(String id, String place, String startDate, String endDate, String team, String name)throws GeneralSecurityException, IOException, ServiceException {
+		connect();
+		access();
+    	findSheet("관리자일정");
+    	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        ListEntry li = new ListEntry(); 
+        
+        if (id != null && place != null && startDate != null && endDate != null) {
+        	li.getCustomElements().setValueLocal("ID",id);
+        	li.getCustomElements().setValueLocal("장소",place);
+        	li.getCustomElements().setValueLocal("시작날짜",startDate);
+        	li.getCustomElements().setValueLocal("종료날짜",endDate);
+        	li.getCustomElements().setValueLocal("팀",team);
+        	li.getCustomElements().setValueLocal("이름",name);
+        	listFeed.insert(li);
+        	
+        	return 1;
+        }
+        else return 0;
 	}
 	
 	
