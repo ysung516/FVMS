@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
  			<input id="jsvar" type="hidden" name = "num" value="" />
  		</form>
- 		 <div class="card-body" style="margin-left: 35%;">
+ 		 <div class="card-body" style="margin: 0 auto; width: 50%;">
       		<a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
       	</div>
       </div>

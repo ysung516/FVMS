@@ -176,13 +176,10 @@
         
  		<!-- Begin Page Content -->
         <div class="container-fluid">
-		
 <!--프로젝트 조회 테이블 시작 *********************************************************** -->
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">프로젝트 정보</h6>
-            </div>
+            
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" style="white-space: nowrap;">
