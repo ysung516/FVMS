@@ -146,7 +146,6 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">홍길동</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -251,7 +250,7 @@
               </div>     
    				<div class="card-body" style="margin: 0 auto;">
                    	 <input id="pro_make" type="button" name="pro_make" class="btn btn-primary" value="프로젝트 생성하기">
-                	 <a href="project_change.jsp" class="btn btn-primary">프로젝트 수정하기</a>
+                   	 <input id="pro_update" type="button" name="pro_make" class="btn btn-primary" value="프로젝트 생성하기">
              	   </div>   
              	   
          </div>

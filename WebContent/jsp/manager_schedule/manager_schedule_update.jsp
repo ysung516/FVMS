@@ -2,16 +2,14 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    import = "jsp.Bean.model.*"
-    import = "java.util.ArrayList"
-    import = "java.util.List"
     %>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 <%
+
 	String sessionID = session.getAttribute("sessionID").toString();
 	String sessionName = session.getAttribute("sessionName").toString();
 	PrintWriter script =  response.getWriter();
@@ -19,9 +17,6 @@
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
 	
-	sheetMethod method = new sheetMethod();
-	
-	ArrayList<BoardBean> list = method.getBoardList();
 %>
 
   <meta charset="utf-8">
@@ -30,7 +25,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - report</title>
+  <title>Sure FVMS - Manager_Schedule_Update</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -57,11 +52,7 @@
         <div class="sidebar-brand-text mx-3">Sure FVMS</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-	
-	<!-- Divider -->
+   <!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - summary -->
@@ -86,14 +77,14 @@
      		</li>
      		
 	      <!-- Nav Item - schedule -->
-	      <li class="nav-item">
+	      <li class="nav-item ">
 	        <a class="nav-link" href="../schedule/schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
 	      </li>
 	      
-	       <!-- Nav Item - manager schedule -->
-	      <li class="nav-item">
+	      <!-- Nav Item - manager schedule -->
+	      <li class="nav-item active">
 	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
@@ -107,11 +98,14 @@
 			</li>
 		
 		  <!-- Nav Item - report -->
-			<li class="nav-item active">
+			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
+      
+
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -151,7 +145,11 @@
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+
+        
+
             <div class="topbar-divider d-none d-sm-block"></div>
+
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -188,62 +186,59 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">주간보고서 목록</h1>
-          <p class="mb-4">주간보고서 목록, 주간보고서 작성, 주간보고서 목록 클릭후 조회 페이지.</p>
+          <p class="mb-4"></p>
           
-           <!-- Area Chart -->
+ 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">일정수정</h6>
                 </div>
-                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr height="5"><td width="5"></td></tr>
- <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-   <td width="73">번호</td>
-   <td width="379">제목</td>
-   <td width="73">작성자</td>
-   <td width="164">작성일</td>
-   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
-  </tr>
-  <%
-	if(list != null){
-		for(int i=0; i < list.size(); i++){
-			%>
-			<tr style="text-align:center;">
-				<td></td>
-				<td><%=list.get(i).getNo()%></td>
-				<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-				<td><%=list.get(i).getName()%></td>
-				<td><%=list.get(i).getDate()%></td>
-			</tr>
-			<%
-		}
-	} else {
-		%>
-			<tr><td>등록된 주간 보고가 없습니다.</td></tr>
-		<%
-	} 
-  %>
-  
-<tr height="25" align="center">
-</tr>
-  <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
+                <div style="margin: 0 auto" class="card-body">
+                   <table>
+  <tr>
+   <td>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
+      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
+      <td class="m-0 font-weight-bold text-primary">일정수정</td>
+      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
+     </tr>
+    </table>
+   <table>
+     <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">시작날짜 </td>
+      <td>&nbsp;</td>
+      <td><input type="date" name="START_DATE" style=width:100%; maxlength="50"></td>
+      <td>&nbsp;</td>
+     </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">종료날짜 </td>
+      <td>&nbsp;</td>
+      <td><input type="date" name="END_DATE" style=width:100%; maxlength="50"></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">장소 </td>
+      <td>&nbsp;</td>
+      <td><input name="place"></input></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+    
+     </table>
+ 	 </table>
+ 	    </div>
+ <div class="card-body" style="margin: 0 auto;">
+   <input id="Update" type="submit" name="COMPLETE" value="수정"  class="btn btn-primary" >
+       <a href="manager_schedule.jsp" class="btn btn-primary">취소</a>
+       </div>
 
- <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
- </table>
- 
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr><td colspan="4" height="5"></td></tr>
-  <tr align="center">
-   <td><div class="card-body">
-            
-                	 <a href="report_write.jsp" class="btn btn-primary">보고서 작성하기</a>
-              </div>
-          </td>
-  </tr>
-</table>
-                   <!-- /.container-fluid -->
+    <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -287,14 +282,10 @@
       </div>
     </div>
   </div>
-  </div>
-  </div>
-                
-                
+ 
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
-  
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

@@ -146,7 +146,6 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">홍길동</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -382,7 +381,7 @@
             </div>
               <div class="card-body" style="margin: 0 auto;">
                 	<input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary">
-       				<input id="CANCEL" type="reset" name="CANCEL" value="취소"  class="btn btn-primary">
+       				 <a href="project.jsp" class="btn btn-primary">취소</a>
               </div>
           </div>
         </div>
