@@ -422,6 +422,7 @@ public class sheetMethod {
         for(int i=0; i<list.size(); i++) {
         	ListEntry li = list.get(i);
         	MSC_Bean mb = new MSC_Bean();
+        	mb.setNo(li.getCustomElements().getValue("no"));
         	mb.setID(li.getCustomElements().getValue("ID"));
         	mb.setPlace(li.getCustomElements().getValue("장소"));
         	mb.setStartDate(li.getCustomElements().getValue("시작날짜"));
@@ -445,6 +446,7 @@ public class sheetMethod {
         ListEntry li = new ListEntry(); 
         
         if (id != null && place != null && startDate != null && endDate != null) {
+        	li.getCustomElements().setValueLocal("no", Integer.toString(list.size()+1));
         	li.getCustomElements().setValueLocal("ID",id);
         	li.getCustomElements().setValueLocal("장소",place);
         	li.getCustomElements().setValueLocal("시작날짜",startDate);

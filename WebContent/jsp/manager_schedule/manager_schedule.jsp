@@ -20,6 +20,7 @@
 	
 %>
 <link href='./lib/main.css' rel='stylesheet' />
+<script type="text/javascript" src="./fullcalendar-2.9.1/lib/jquery.min.js"></script>
 <script src='./lib/main.js'></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -44,10 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
       <%
       
       	for(MSC_Bean li : MSCList){
-      		
+      		String id = li.getNo()+ " " + li.getID();
          	 %> 
          	    	  {
+         	    		  id : '<%=id%>',
          	    		  title: '<%out.print(li.getTeam()+" "+li.getName()+" "+li.getPlace());%>',
+
          	    		  start: '<%=li.getStartDate()%>',
          	    		  end: '<%=li.getEndDate()%>',
          	    		  <%for(int i = 0; i < managerID.length; i++){
@@ -59,6 +62,46 @@ document.addEventListener('DOMContentLoaded', function() {
          	    	  },
          <%}%>
          ]
+      	, eventClick: function(arg) {
+      		var str = arg.event.id.split(' ');
+      		var no = str[0];
+      		var id = str[1];
+      		
+          	if(id == '<%=sessionID%>'){
+          		$( "#dialog" ).dialog({ 
+          			//이벤트 발생했을때 보여주려면 autoOpen : false로 지정해줘야 한다. 
+          			autoOpen: false, 
+          			//레이어팝업 넓이 
+          			width: 400, 
+          			//뒷배경을 disable 시키고싶다면 true 
+          			modal: true, 
+          			//버튼종류
+          			buttons: [ 
+          				{ 
+          					//버튼텍스트 
+          					text: "Ok", 
+          					//클릭이벤트발생시 동작 
+          					click: function() { 
+          						$( this ).dialog( "close" ); 
+          						} 
+          				}, 
+          				{ 
+          					//버튼텍스트 
+          					text: "Cancel", 
+          					//클릭이벤트발생시 동작 
+          					click: function() {
+          						$( this ).dialog( "close" ); 
+          						} 
+          				} 
+          				] 
+          			});
+
+          			
+          		
+          	}	// end if
+          }
+    	
+
        });
     calendar.render();
   });
@@ -79,13 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 <style>
-
-  body {
-    margin: 40px 10px;
-    padding: 0;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 14px;
-  }
 
   #calendar {
     max-width: 1100px;
