@@ -21,8 +21,12 @@
 %>
 <link href='./lib/main.css' rel='stylesheet' />
 <script type="text/javascript" src="./fullcalendar-2.9.1/lib/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src='./lib/main.js'></script>
 <script>
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
@@ -43,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
       %>
       events: [
       <%
-      
+      	
       	for(MSC_Bean li : MSCList){
       		String id = li.getNo()+ " " + li.getID();
          	 %> 
@@ -62,45 +66,20 @@ document.addEventListener('DOMContentLoaded', function() {
          	    	  },
          <%}%>
          ]
-      	, eventClick: function(arg) {
-      		var str = arg.event.id.split(' ');
-      		var no = str[0];
-      		var id = str[1];
-      		
-          	if(id == '<%=sessionID%>'){
-          		$( "#dialog" ).dialog({ 
-          			//이벤트 발생했을때 보여주려면 autoOpen : false로 지정해줘야 한다. 
-          			autoOpen: false, 
-          			//레이어팝업 넓이 
-          			width: 400, 
-          			//뒷배경을 disable 시키고싶다면 true 
-          			modal: true, 
-          			//버튼종류
-          			buttons: [ 
-          				{ 
-          					//버튼텍스트 
-          					text: "Ok", 
-          					//클릭이벤트발생시 동작 
-          					click: function() { 
-          						$( this ).dialog( "close" ); 
-          						} 
-          				}, 
-          				{ 
-          					//버튼텍스트 
-          					text: "Cancel", 
-          					//클릭이벤트발생시 동작 
-          					click: function() {
-          						$( this ).dialog( "close" ); 
-          						} 
-          				} 
-          				] 
-          			});
-
-          			
-          		
-          	}	// end if
-          }
-    	
+      , eventClick: function(arg) {
+    		var str = arg.event.id.split(' ');
+    		var no = str[0];
+    		var id = str[1];
+    		
+        	if(id == '<%=sessionID%>'){
+        		if(confirm("일정을 수정하시겠습니까?") == true){
+        			  var el = document.getElementById("jsvar");
+        			  el.value = no;
+        			  document.jsvarform.submit();
+        		}
+        	}	// end if
+      }	//end eventClick
+      	
 
        });
     calendar.render();
@@ -122,13 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 <style>
-
   #calendar {
     max-width: 1100px;
-    margin: 0 auto;
-  }
-
-</style>
+    margin: 0 auto;} 
+    </style>
+  
 </head>
 
 <body id="page-top">
@@ -282,7 +259,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container-fluid">
     <a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
     <!-- /.container-fluid -->
-			<div id='calendar'></div>
+		<div id='calendar'></div>
+		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
+ 			<input id="jsvar" type="hidden" name = "num" value="" />
+ 		</form>
       </div>
       <!-- End of Main Content -->
 
