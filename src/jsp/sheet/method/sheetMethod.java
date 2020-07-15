@@ -460,5 +460,41 @@ public class sheetMethod {
         else return 0;
 	}
 	
+	//관리자 일정 삭제
+	public void delete_MSC(String no) throws GeneralSecurityException, IOException, ServiceException{
+		connect();
+		access();
+		findSheet("관리자일정");
+		URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        for(int i=0; i<list.size();i++) {
+        	if(list.get(i).getCustomElements().getValue("no").equals(no)) {
+        		list.get(i).delete();
+        		break;
+        	}
+        }
+	}
+	
+	//관리자 일정 수정
+	public void update_MSC(String no, String place, String startDate, String endDate) throws GeneralSecurityException, IOException, ServiceException{
+		connect();
+		access();
+		findSheet("관리자일정");
+		URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        for(int i=0; i<list.size();i++) {
+        	if(list.get(i).getCustomElements().getValue("no").equals(no)) {
+        		list.get(i).getCustomElements().setValueLocal("장소", place);
+        		list.get(i).getCustomElements().setValueLocal("시작날짜", startDate);
+        		list.get(i).getCustomElements().setValueLocal("종료날짜", endDate);
+        		list.get(i).update();
+        		break;
+        	}
+        }
+	}
 	
 }	// end
