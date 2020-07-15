@@ -208,6 +208,8 @@
       <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
      </tr>
     </table>
+   <form method ="post" action = "manager_schedule_updatePro.jsp?"> 
+
    <table>
      <tr>
       <td>&nbsp;</td>
@@ -238,7 +240,13 @@
  	 </table>
  	    </div>
  <div class="card-body" style="margin: 0 auto;">
+ 	<input type="hidden" name = "num" value="<%=num%>">
    <input id="Update" type="submit" name="COMPLETE" value="수정"  class="btn btn-primary" >
+ </form>
+ <form method="post" action="manager_schedule_deletePro.jsp">
+ 	<input type="hidden" name = "num" value="<%=num%>">
+ 	<input id="Delete" type="submit" name="Delete" value="삭제"  class="btn btn-primary" >
+ </form>
        <a href="manager_schedule.jsp" class="btn btn-primary">취소</a>
        <input id="Delete" type="button" name="delete" value="삭제"  class="btn btn-primary" >
        </div>

@@ -3,9 +3,9 @@ package jsp.Bean.model;
 public class MSC_Bean {
 	private String ID;
 	private String no;
-	private String place;
-	private String startDate;
-	private String endDate;
+	private String AMplace;
+	private String PMplace;
+	private String Date;
 	private String name;
 	
 	public String getNo() {
@@ -34,24 +34,22 @@ public class MSC_Bean {
 	public void setID(String iD) {
 		ID = iD;
 	}
-	public String getPlace() {
-		return place;
+	public String getAMplace() {
+		return AMplace;
 	}
-	public void setPlace(String place) {
-		this.place = place;
+	public void setAMplace(String aMplace) {
+		AMplace = aMplace;
 	}
-	public String getStartDate() {
-		return startDate;
+	public String getPMplace() {
+		return PMplace;
 	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setPMplace(String pMplace) {
+		PMplace = pMplace;
 	}
-	public String getEndDate() {
-		return endDate;
+	public String getDate() {
+		return Date;
 	}
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
+	public void setDate(String date) {
+		Date = date;
 	}
-	
-	
 }

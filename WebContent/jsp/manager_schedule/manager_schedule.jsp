@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
+    	initialView: 'dayGridWeek',
+    	navLinks: true,
       editable: true,
-      selectable: true,
-      businessHours: true,
       dayMaxEvents: true, // allow "more" link when too many events
      
       <%
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		MSCList = method.getMSCList();
  		
 		String [] color = {"RED","BLUE","GREEN","BLACK","PINK","GRAY","ORANGE","PURPLE"};
-		String [] managerID = {"ymyou","ysung516","hlshin"};
+		String [] managerID = {"ymyou","ysung516","hlshin", "hykim"};
 		
       %>
       events: [

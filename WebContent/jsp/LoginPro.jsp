@@ -20,7 +20,7 @@
      PrintWriter script =  response.getWriter();
      sheetMethod method = new sheetMethod();
     if (method.loginCheck(ID, PW) == 1){
-	      script.print("<script> location.href = '../jsp/summary/summary.jsp'; </script>");
+	      script.print("<script> location.href = '../jsp/manager_schedule/manager_schedule.jsp'; </script>");
 	      session.setAttribute("sessionID", ID);
 	      method.saveUser_info(ID);
 	      sessionName = method.getMember().getNAME();
