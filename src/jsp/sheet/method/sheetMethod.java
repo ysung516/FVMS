@@ -434,6 +434,34 @@ public class sheetMethod {
         
 		return MSCList;
 	}
+
+	// 특정 관리자 일정 가져오기
+	public MSC_Bean getMSCList_set(String no)throws GeneralSecurityException, IOException, ServiceException{
+		MSC_Bean MSCList = new MSC_Bean();
+		connect();
+		access();
+    	findSheet("관리자일정");
+    	
+    	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        for(int i=0; i<list.size(); i++) {
+        	ListEntry li = list.get(i);
+			if (list.get(i).getCustomElements().getValue("no").equals(no)) {
+				MSC_Bean mb = new MSC_Bean();
+				mb.setNo(li.getCustomElements().getValue("no"));
+				mb.setID(li.getCustomElements().getValue("ID"));
+				mb.setPlace(li.getCustomElements().getValue("장소"));
+				mb.setStartDate(li.getCustomElements().getValue("시작날짜"));
+				mb.setEndDate(li.getCustomElements().getValue("종료날짜"));
+				mb.setName(li.getCustomElements().getValue("이름"));
+				mb.setTeam(li.getCustomElements().getValue("팀"));
+			}
+        }
+        
+		return MSCList;
+	}
 	
 	// 관리자 일정 추가
 	public int insert_MSC(String id, String place, String startDate, String endDate, String team, String name)throws GeneralSecurityException, IOException, ServiceException {
@@ -461,7 +489,7 @@ public class sheetMethod {
 	}
 	
 	//관리자 일정 삭제
-	public void delete_MSC(String no) throws GeneralSecurityException, IOException, ServiceException{
+	public int delete_MSC(String no) throws GeneralSecurityException, IOException, ServiceException{
 		connect();
 		access();
 		findSheet("관리자일정");
@@ -472,13 +500,14 @@ public class sheetMethod {
         for(int i=0; i<list.size();i++) {
         	if(list.get(i).getCustomElements().getValue("no").equals(no)) {
         		list.get(i).delete();
-        		break;
+        		return 1;
         	}
         }
+        return 0;
 	}
 	
 	//관리자 일정 수정
-	public void update_MSC(String no, String place, String startDate, String endDate) throws GeneralSecurityException, IOException, ServiceException{
+	public int update_MSC(String no, String place, String startDate, String endDate) throws GeneralSecurityException, IOException, ServiceException{
 		connect();
 		access();
 		findSheet("관리자일정");
@@ -492,9 +521,10 @@ public class sheetMethod {
         		list.get(i).getCustomElements().setValueLocal("시작날짜", startDate);
         		list.get(i).getCustomElements().setValueLocal("종료날짜", endDate);
         		list.get(i).update();
-        		break;
+        		return 1;
         	}
         }
+        return 0;
 	}
 	
 }	// end
