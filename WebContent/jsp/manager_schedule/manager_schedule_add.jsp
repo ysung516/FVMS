@@ -184,62 +184,50 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">일정추가</h1>
-          <p class="mb-4"></p>
-          
- 
+       
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">일정추가</h6>
                 </div>
                 <div style="margin: 0 auto" class="card-body">
-                   <table>
-  <tr>
-   <td>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td class="m-0 font-weight-bold text-primary">일정추가</td>
-      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
-     </tr>
-    </table>
-    <form method = "post" action = "MSC_AddPro.jsp">
+ 
+<form method = "post" action = "MSC_AddPro.jsp">
    <table>
      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">시작날짜 </td>
-      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">날짜 </td>
       <td><input type="date" name="START_DATE" style=width:100%; maxlength="50"></td>
-      <td>&nbsp;</td>
      </tr>
-      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">종료날짜 </td>
-      <td>&nbsp;</td>
-      <td><input type="date" name="END_DATE" style=width:100%; maxlength="50"></td>
-      <td>&nbsp;</td>
-     </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">장소 </td>
-      <td>&nbsp;</td>
-      <td><input name="place"></input></td>
-      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">오전장소 </td>
+      <td>
+      	<label><input type="radio" name="radio" value="강남">강남</label>
+    	<label><input type="radio" name="radio" value="남양">남양</label>
+    	<label><input type="radio" name="radio" value="대전">대전</label>
+    	<label><input type="radio" name="radio" value="대전">오트론</label>
+    	<label><input type="radio" name="radio" value="기타">기타</label><input type="text" name="other" placeholder="Write In">
+      </td>
      </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
-    
+      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
+     <tr>
+      <td class="m-0 text-primary" align="center">오후장소</td>
+		<td>
+      	<label><input type="radio" name="radio" value="강남">강남</label>
+    	<label><input type="radio" name="radio" value="남양">남양</label>
+    	<label><input type="radio" name="radio" value="대전">대전</label>
+    	<label><input type="radio" name="radio" value="대전">오트론</label>
+    	<label><input type="radio" name="radio" value="기타">기타</label><input type="text" name="other" placeholder="Write In">
+      </td>
+     </tr>
+     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
      </table>
- 	 </table>
- 	    </div>
- <div class="card-body" style="margin: 0 auto;">
+     <div class="card-body" style="margin: 0 auto;">
    <input id="COMPLETE" type="submit" name="COMPLETE" value="등록"  class="btn btn-primary" >
        <a href="manager_schedule.jsp" class="btn btn-primary">취소</a>
        </div>
-
+</form>
+ 	    </div>
+ 
     <!-- /.container-fluid -->
 
       </div>
