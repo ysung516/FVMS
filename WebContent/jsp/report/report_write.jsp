@@ -189,6 +189,7 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
                 </div>
+                 <div style="margin: 0 auto" class="card-body">
                  <div class="table-responsive">
                   
     <form method = "post" action = "report_writePro.jsp">
@@ -247,7 +248,7 @@
 
       </div>
       <!-- End of Main Content -->
-
+</div>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
