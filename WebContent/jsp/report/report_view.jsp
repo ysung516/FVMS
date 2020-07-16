@@ -190,47 +190,35 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
           
        <div class="card shadow mb-4">
         <div class="card-header py-3">
          <h6 class="m-0 font-weight-bold text-primary">주간보고서 조회</h6>
         </div>
          <div class="card-body">
- <table style="margin: 0 auto;">
-  <tr>
-   <td>
-    <table width="100%"; cellpadding="0"; cellspacing="0"; border="0";>
-     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td class="m-0 font-weight-bold text-primary"></td>
-      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
-     </tr>
-    </table>
-    
+          <div class="table-responsive"> 
    <table>
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center" width="400" height="50">제목</td> 
+      <td class="m-0 text-primary" align="center">제목</td> 
       <td><%=board.getTitle()%></td>
       <td>&nbsp;</td>
      </tr>
-     <tr height="1" bgcolor="#82B5DF"><td colspan="4" width="1000"></td></tr>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
   
       <tr height="1" bgcolor="#fff"><td colspan="4"></td>
       </tr>
    
    <tr height="1" border-top-color="#82B5DF">
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center" height="50">작성자</td>
+      <td class="m-0 text-primary" align="center">작성자</td>
       <td><%=board.getName()%></td>
       <td>&nbsp;</td>
      </tr>
      
     <tr height="1" border-top-color="#82B5DF">
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center" height="50">작성일</td>
+      <td class="m-0 text-primary" align="center">작성일</td>
       <td><%=board.getDate()%></td>
       <td>&nbsp;</td>
      </tr>
@@ -240,7 +228,7 @@
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주계획</td>
-      <td width="950" height="100"><%
+      <td><%
       	line = board.getP_weekPlan();
       	for(String li : line){
       		%><pre><%=li%></pre><%
@@ -252,7 +240,7 @@
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주진행</td>
-      <td width="950" height="100"><%
+      <td ><%
       	line = board.getP_weekPro();
       	for(String li : line){
       		%><pre><%=li%></pre><%
@@ -264,7 +252,7 @@
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">차주계획</td>
-      <td width="950" height="100"><%
+      <td ><%
       	line = board.getP_nextPlan();
       	for(String li : line){
       		%><pre><%=li%></pre><%
@@ -277,17 +265,15 @@
       <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
      
      <tr align="center">
-      <td height="100">&nbsp;</td>
+      <td >&nbsp;</td>
       <td colspan="2">
       <input id=Delete type="button" name="Delete" value="삭제"  class="btn btn-primary" >
       <a href="report.jsp" class="btn btn-primary">목록</a>
       <td>&nbsp;</td>
-     </tr>
-     
+     </tr>   
     </table>
+    </div>
     </form>
-  </tr>
- </table>
        
         </div>
 
