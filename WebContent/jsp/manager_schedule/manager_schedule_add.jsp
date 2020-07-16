@@ -201,10 +201,14 @@
      <tr>
       <td class="m-0 text-primary" align="center">오전장소 </td>
       <td>
-      	<label><input type="radio" name="AMradio" value="강남">강남</label>
-    	<label><input type="radio" name="AMradio" value="남양">남양</label>
-    	<label><input type="radio" name="AMradio" value="대전">대전</label>
-    	<label><input type="radio" name="AMradio" value="대전">오트론</label>
+      	<label><input type="radio" name="AMradio" value="슈어소프트(본사, 삼성)">슈어소프트(본사, 삼성)</label>
+    	<label><input type="radio" name="AMradio" value="슈어소프트(남양사무실)">슈어소프트(남양사무실)</label>
+    	<label><input type="radio" name="AMradio" value="HMC(남양연구소)">HMC(남양연구소)</label>
+    	<label><input type="radio" name="AMradio" value="오트론(삼성)">오트론(삼성)</label>
+    	<label><input type="radio" name="AMradio" value="모비스(의왕)">모비스(의왕)</label>
+    	<label><input type="radio" name="AMradio" value="모비스(마북)">모비스(마북)</label>
+    	<label><input type="radio" name="AMradio" value="엠엔소프트(용산)">엠엔소프트(용산)</label>
+    	<label><input type="radio" name="AMradio" value="트랜시스(남양)">트랜시스(남양)</label>
     	<label><input type="radio" name="AMradio" value="기타">기타</label><input type="text" name="AMother" placeholder="Write In">
       </td>
      </tr>
@@ -212,11 +216,15 @@
      <tr>
       <td class="m-0 text-primary" align="center">오후장소</td>
 		<td>
-      	<label><input type="radio" name="PMradio" value="강남">강남</label>
-    	<label><input type="radio" name="PMradio" value="남양">남양</label>
-    	<label><input type="radio" name="PMradio" value="대전">대전</label>
-    	<label><input type="radio" name="PMradio" value="대전">오트론</label>
-    	<label><input type="radio" name="PMradio" value="기타">기타</label><input type="text" name="PMother" placeholder="Write In">
+	      	<label><input type="radio" name="PMradio" value="슈어소프트(본사, 삼성)">슈어소프트(본사, 삼성)</label>
+	    	<label><input type="radio" name="PMradio" value="슈어소프트(남양사무실)">슈어소프트(남양사무실)</label>
+	    	<label><input type="radio" name="PMradio" value="HMC(남양연구소)">HMC(남양연구소)</label>
+	    	<label><input type="radio" name="PMradio" value="오트론(삼성)">오트론(삼성)</label>
+	    	<label><input type="radio" name="PMradio" value="모비스(의왕)">모비스(의왕)</label>
+	    	<label><input type="radio" name="PMradio" value="모비스(마북)">모비스(마북)</label>
+	    	<label><input type="radio" name="PMradio" value="엠엔소프트(용산)">엠엔소프트(용산)</label>
+	    	<label><input type="radio" name="PMradio" value="트랜시스(남양)">트랜시스(남양)</label>
+	    	<label><input type="radio" name="PMradio" value="기타">기타</label><input type="text" name="PMother" placeholder="Write In">
       </td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>

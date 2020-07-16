@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
     	headerToolbar: {
             left: 'prevYear,prev,next,nextYear today', 
             center: 'title',
-            right: 'dayGridWeek,dayGridDay'
+            right: 'dayGridWeek,dayGridMonth'
           },
-        initialView: 'dayGridDay',
+        initialView: 'dayGridWeek',
     	navLinks: true,
       	editable: true,
       	dayMaxEvents: true, // allow "more" link when too many events
@@ -132,7 +132,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	white-space:pre;
 }
   #calendar {
-  	padding : 50px;
+  	padding: 5px;
+  	
+  	width: 250px;
+  	height: 300px;
     max-width: 1100px;
     margin: 0 auto;} 
     </style>
