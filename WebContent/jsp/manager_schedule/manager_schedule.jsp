@@ -26,12 +26,27 @@
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src='./lib/main.js'></script>
 <script>
+function formatDate(date) { 
+		var d = new Date(date), 
+		month = '' + (d.getMonth() + 1), 
+		day = '' + d.getDate(), year = d.getFullYear(); 
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day; 
+		return [year, month, day].join('-'); 
+	}
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
-    	initialView: 'dayGridWeek',
+    	headerToolbar: {
+            left: 'prevYear,prev,next,nextYear today', 
+            center: 'title',
+            right: 'dayGridWeek,dayGridDay'
+          },
+        initialView: 'dayGridDay',
     	navLinks: true,
       	editable: true,
       	dayMaxEvents: true, // allow "more" link when too many events
@@ -50,13 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
       %>
       events: [
       <%
-      	
       	for(MSC_Bean li : MSCList){
       		String id = li.getNo()+ " " + li.getID();
          	 %> 
          	    	  {
          	    		  id : '<%=id%>',
-         	    		  title: '<%=li.getTeam()%>\n<%=li.getName()%>\n오전: <%=li.getAMplace()%>\n오후: <%=li.getPMplace()%>',
+         	    		  title: '<%=li.getTeam()%>\n<%=li.getName()%>\n오전: <%=li.getAMplace()%> \n오후: <%=li.getPMplace()%>',
          	    		  start: '<%=li.getDate()%>',
          	    		  <%for(int i = 0; i < managerID.length; i++){
          	    			  if (li.getID().equals(managerID[i])){
@@ -71,13 +85,14 @@ document.addEventListener('DOMContentLoaded', function() {
     		var str = arg.event.id.split(' ');
     		var no = str[0];
     		var id = str[1];
-    		var date = arg.event.start;
-    		var str2 = arg.event.title.split(' \n');
-    		var amPlace = str2[3];
-    		var pmPlace = str2[5];
+    		var date = formatDate(arg.event.start);
+    		var str2 = arg.event.title.split(' ');
+    		var amPlace = str2[1];
+    		var pmPlace = str2[3];
     		
         	if(id == '<%=sessionID%>'){
         		if(confirm("일정을 수정하시겠습니까?") == true){
+            		
         			var setNo = document.getElementById("number");
         			var setDate = document.getElementById("setDate");
         			var setAm = document.getElementById("setAm");
@@ -87,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         			setAm.value = amPlace;
         			setPm.value = pmPlace;
         			document.jsvarform.submit();
+        			
         		}
         	}	// end if
       }	//end eventClick

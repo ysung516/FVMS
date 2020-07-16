@@ -177,10 +177,12 @@ public class sheetMethod {
          ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
          List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
          ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
-
+         String no = list.get(list.size()-1).getCustomElements().getValue("no");
+         int num = Integer.parseInt(no);
+         
          if (title != null && writeDate != null) {
         	//방법2
-             li.getCustomElements().setValueLocal("no", Integer.toString(list.size() + 1));
+        	 li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
              li.getCustomElements().setValueLocal("제목", title);
              li.getCustomElements().setValueLocal("작성일", writeDate);
              li.getCustomElements().setValueLocal("금주계획", weekPlan);
@@ -278,10 +280,12 @@ public class sheetMethod {
          ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
          List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
          ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
-
+         String no = list.get(list.size()-1).getCustomElements().getValue("no");
+         int num = Integer.parseInt(no);
+         
          if (title != null && writeDate != null) {
         	//방법2
-             li.getCustomElements().setValueLocal("no", Integer.toString(list.size() + 1));
+        	 li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
              li.getCustomElements().setValueLocal("제목", title);
              li.getCustomElements().setValueLocal("작성일", writeDate);
              li.getCustomElements().setValueLocal("금일계획", weekPlan);
@@ -472,9 +476,10 @@ public class sheetMethod {
         ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
         List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
         ListEntry li = new ListEntry(); 
-        
+        String no = list.get(list.size()-1).getCustomElements().getValue("no");
+        int num = Integer.parseInt(no);
         if (id != null && pmPlace != null && amPlace != null && date != null) {
-        	li.getCustomElements().setValueLocal("no", Integer.toString(list.size()+1));
+        	li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
         	li.getCustomElements().setValueLocal("ID",id);
         	li.getCustomElements().setValueLocal("오전장소",amPlace);
         	li.getCustomElements().setValueLocal("오후장소",pmPlace);
@@ -482,7 +487,7 @@ public class sheetMethod {
         	li.getCustomElements().setValueLocal("팀",team);
         	li.getCustomElements().setValueLocal("이름",name);
         	listFeed.insert(li);
-        	
+        	System.out.println(Integer.toString(list.size()+1));
         	return 1;
         }
         else return 0;

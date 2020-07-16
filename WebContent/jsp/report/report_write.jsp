@@ -193,13 +193,14 @@
                   
     <form method = "post" action = "report_writePro.jsp">
    <table style="width:100%">
+    <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">제목</td>
       <td><input name="TITLE"  style=width:100%; placeholder="○주차보고서"></td>
       <td>&nbsp;</td>
      </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td>
+     <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td>
      </tr>
   
       <tr height="1" bgcolor="#fff"><td colspan="4"></td>
@@ -210,7 +211,7 @@
       <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
       <td>&nbsp;</td>
      </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주계획</td>
@@ -233,15 +234,14 @@
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr align="center">
       <td>&nbsp;</td>
-      <td colspan="2">
+      <td colspan="2"> 
       <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
        <a href="report.jsp" class="btn btn-primary">취소</a>
       <td>&nbsp;</td>
      </tr>
+      <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
     </table>
     </form>
-  </tr>
- </table>
  </div>
     <!-- /.container-fluid -->
 

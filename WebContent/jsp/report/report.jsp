@@ -191,7 +191,7 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">주간보고서 목록</h6>
                 </div>
-                   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="white-space: nowrap;">
+                   <table style="white-space: nowrap; overflow:hidden;width:100%;">
   <tr height="5"><td width="5"></td></tr>
  <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
    <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
@@ -219,7 +219,7 @@
 			<tr><td>등록된 주간 보고가 없습니다.</td></tr>
 		<%
 	} 
-  %>
+  %> 
   
 <tr height="25" align="center">
 </tr>

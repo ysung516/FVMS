@@ -195,28 +195,28 @@
    <table>
      <tr>
       <td class="m-0 text-primary" align="center">날짜 </td>
-      <td><input type="date" name="START_DATE" style=width:100%; maxlength="50"></td>
+      <td><input type="date" name="DATE" style=width:100%; maxlength="50"></td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
      <tr>
       <td class="m-0 text-primary" align="center">오전장소 </td>
       <td>
-      	<label><input type="radio" name="radio" value="강남">강남</label>
-    	<label><input type="radio" name="radio" value="남양">남양</label>
-    	<label><input type="radio" name="radio" value="대전">대전</label>
-    	<label><input type="radio" name="radio" value="대전">오트론</label>
-    	<label><input type="radio" name="radio" value="기타">기타</label><input type="text" name="other" placeholder="Write In">
+      	<label><input type="radio" name="AMradio" value="강남">강남</label>
+    	<label><input type="radio" name="AMradio" value="남양">남양</label>
+    	<label><input type="radio" name="AMradio" value="대전">대전</label>
+    	<label><input type="radio" name="AMradio" value="대전">오트론</label>
+    	<label><input type="radio" name="AMradio" value="기타">기타</label><input type="text" name="AMother" placeholder="Write In">
       </td>
      </tr>
       <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
      <tr>
       <td class="m-0 text-primary" align="center">오후장소</td>
 		<td>
-      	<label><input type="radio" name="radio" value="강남">강남</label>
-    	<label><input type="radio" name="radio" value="남양">남양</label>
-    	<label><input type="radio" name="radio" value="대전">대전</label>
-    	<label><input type="radio" name="radio" value="대전">오트론</label>
-    	<label><input type="radio" name="radio" value="기타">기타</label><input type="text" name="other" placeholder="Write In">
+      	<label><input type="radio" name="PMradio" value="강남">강남</label>
+    	<label><input type="radio" name="PMradio" value="남양">남양</label>
+    	<label><input type="radio" name="PMradio" value="대전">대전</label>
+    	<label><input type="radio" name="PMradio" value="대전">오트론</label>
+    	<label><input type="radio" name="PMradio" value="기타">기타</label><input type="text" name="PMother" placeholder="Write In">
       </td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>

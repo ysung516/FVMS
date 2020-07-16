@@ -191,6 +191,7 @@
                  
     <form method = "post" action = "day_report_writePro.jsp">
    <table style="width:100%">
+    <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">제목</td>
@@ -212,13 +213,13 @@
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금일계획</td>
-      <td><textarea name="WeekPlan" cols="51" rows="13"style=width:100%;></textarea></td>
+      <td><textarea name="WeekPlan" cols="20" rows="13"style="width:100%;"></textarea></td>
       <td>&nbsp;</td>
      </tr>
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금일진행</td>
-      <td><textarea name="WeekPro" cols="51" rows="13"style=width:100%;></textarea></td>
+      <td><textarea name="WeekPro" cols="51" rows="13"style=width:100%; ></textarea></td>
       <td>&nbsp;</td>
      </tr>
       <tr>
@@ -258,7 +259,7 @@
 
     </div>
     <!-- End of Content Wrapper -->
-
+ 
   </div>
   <!-- End of Page Wrapper -->
 

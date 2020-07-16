@@ -197,7 +197,7 @@
         </div>
          <div class="card-body">
           <div class="table-responsive"> 
-   <table width="100%">
+   <table  style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">제목</td> 
@@ -259,22 +259,20 @@
       	}
       %></td>
       <td>&nbsp;</td>
-     </tr>
+     </tr> 
      
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
       <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
-     
-     <tr align="center">
-      <td >&nbsp;</td>
-      <td colspan="2">
-      <input id=Delete type="button" name="Delete" value="삭제"  class="btn btn-primary" >
-      <a href="report.jsp" class="btn btn-primary">목록</a>
-      <td>&nbsp;</td>
-     </tr>   
-    </table>
-    </div>
-    </form>
-       
+      </table>
+      </div>
+     <table style="margin: 0 auto;">
+     <tr>
+     <td colspan="2">
+     <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
+       <a href="report.jsp" class="btn btn-primary">목록</a>
+       </td>
+     </tr>
+       </table>   
         </div>
 
              <!-- /.container-fluid -->
