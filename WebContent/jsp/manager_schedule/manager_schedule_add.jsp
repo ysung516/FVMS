@@ -32,7 +32,7 @@
 
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-
+	
 </head>
 
 <body id="page-top">
@@ -195,7 +195,7 @@
    <table>
      <tr>
       <td class="m-0 text-primary" align="center">날짜 </td>
-      <td><input type="date" name="DATE" style=width:100%; maxlength="50"></td>
+      <td><input type="date" id="nowDate" name="DATE" style=width:100%; maxlength="50"></td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
      <tr>
@@ -235,7 +235,7 @@
        </div>
 </form>
  	    </div>
- 
+
     <!-- /.container-fluid -->
 
       </div>
@@ -281,6 +281,10 @@
     </div>
   </div>
  
+ <!-- 날짜창에 오늘 날짜 추가 -->
+  <script>
+	document.getElementById('nowDate').value = new Date().toISOString().substring(0, 10);;
+	</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
