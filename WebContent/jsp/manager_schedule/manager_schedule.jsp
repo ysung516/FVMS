@@ -71,12 +71,22 @@ document.addEventListener('DOMContentLoaded', function() {
     		var str = arg.event.id.split(' ');
     		var no = str[0];
     		var id = str[1];
+    		var date = arg.event.start;
+    		var str2 = arg.event.title.split(' \n');
+    		var amPlace = str2[3];
+    		var pmPlace = str2[5];
     		
         	if(id == '<%=sessionID%>'){
         		if(confirm("일정을 수정하시겠습니까?") == true){
-        			  var el = document.getElementById("jsvar");
-        			  el.value = no;
-        			  document.jsvarform.submit();
+        			var setNo = document.getElementById("number");
+        			var setDate = document.getElementById("setDate");
+        			var setAm = document.getElementById("setAm");
+        			var setPm = document.getElementById("setPm");
+        			setNo.value = no;
+        			setDate.value = date;
+        			setAm.value = amPlace;
+        			setPm.value = pmPlace;
+        			document.jsvarform.submit();
         		}
         	}	// end if
       }	//end eventClick
@@ -266,8 +276,11 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- /.container-fluid -->
 		<div id='calendar'></div>
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
- 			<input id="jsvar" type="hidden" name = "num" value="" />
- 		</form>
+			<input id="number" type="hidden" name = "num" value="" />
+			<input id="setDate" type="hidden" name = "date" value="" />
+			<input id="setAm" type="hidden" name = "amPlace" value="" />
+			<input id="setPm" type="hidden" name = "pmPlace" value="" />
+		</form>
  		 <div class="card-body" style="margin: 0 auto; width: 50%;">
       		<a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
       	</div>
