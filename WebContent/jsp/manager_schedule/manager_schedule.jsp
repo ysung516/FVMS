@@ -53,10 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
          	 %> 
          	    	  {
          	    		  id : '<%=id%>',
-         	    		  title: '<%out.print(li.getTeam()+" "+li.getName()+" "+li.getPlace());%>',
-
-         	    		  start: '<%=li.getStartDate()%>',
-         	    		  end: '<%=li.getEndDate()%>',
+         	    		  title: '<%=li.getTeam()%>\n<%=li.getName()%>\n오전: <%=li.getAMplace()%>\n오후: <%=li.getPMplace()%>',
+         	    		  start: '<%=li.getDate()%>',
          	    		  <%for(int i = 0; i < managerID.length; i++){
          	    			  if (li.getID().equals(managerID[i])){
          	    				  %>color: '<%=color[i]%>'<%
