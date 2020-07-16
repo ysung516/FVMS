@@ -33,15 +33,18 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	initialView: 'dayGridWeek',
     	navLinks: true,
-      editable: true,
-      dayMaxEvents: true, // allow "more" link when too many events
+      	editable: true,
+      	dayMaxEvents: true, // allow "more" link when too many events
      
       <%
     	sheetMethod method = new sheetMethod();
 		ArrayList<MSC_Bean> MSCList = new ArrayList<MSC_Bean>();
 		MSCList = method.getMSCList();
  		
-		String [] color = {"RED","BLUE","GREEN","BLACK","PINK","GRAY","ORANGE","PURPLE"};
+		String [] color = {"#000000", "#FF0000", "#FFCC00", "#999900", "#336633", "#0000FF",
+				"#660066", "#FF0099", "#666666", "#663333", "#996600", "#FFFF00", "#66CC66", 
+				"#6666FF", "#CC33CC", "#CC0099", "#CCCCCC", "#CC6666", "#663300", "#000066", 
+				"#66FF66", "#CCCCFF", "#9966CC", "#FF00CC"};
 		String [] managerID = {"ymyou","ysung516","hlshin", "hykim"};
 		
       %>
@@ -99,7 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 <style>
+.fc-daygrid-event{
+	white-space:pre;
+}
   #calendar {
+  	padding : 50px;
     max-width: 1100px;
     margin: 0 auto;} 
     </style>
@@ -107,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </head>
 
 <body id="page-top">
-
   <!-- Page Wrapper -->
   <div id="wrapper">
 
