@@ -267,10 +267,9 @@
       <td height="10%">&nbsp;</td>
       <td colspan="2">
       <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
-       <input id="List" type="button" name="List" value="목록"  class="btn btn-primary">
+       <a href="day_report.jsp" class="btn btn-primary">목록</a>
       <td>&nbsp;</td>
      </tr>
-     
     </table>
     </div>
     </form>

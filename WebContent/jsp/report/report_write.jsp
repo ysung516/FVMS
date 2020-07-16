@@ -189,23 +189,14 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
                 </div>
-                <div style="margin: 0 auto" class="card-body report_write">
-                   <table>
-  <tr>
-   <td>
-    <table width="100%" cellpadding="0" cellspacing="0" border="0">
-     <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-      <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-      <td class="m-0 font-weight-bold text-primary">주간 보고서</td>
-      <td width="5"><img src="img/table_right.gif" width="5" height="30" /></td>
-     </tr>
-    </table>
+                 <div class="table-responsive">
+                  
     <form method = "post" action = "report_writePro.jsp">
-   <table>
+   <table style="width:100%">
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">제목</td>
-      <td><input name="TITLE"  style=width:100%; maxlength="100"  placeholder="주간보고서_이름"></td>
+      <td><input name="TITLE"  style=width:100%; placeholder="○주차보고서"></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td>
@@ -216,26 +207,26 @@
     <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">작성일</td>
-      <td><input type="date" name="WRITE_DATE" style=width:100%; maxlength="50"></td>
+      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주계획</td>
-      <td><textarea name="WeekPlan" cols="51" rows="13"></textarea></td>
+      <td><textarea name="WeekPlan"cols="51" rows="13"style=width:100%;></textarea></td>
       <td>&nbsp;</td>
      </tr>
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">금주진행</td>
-      <td><textarea name="WeekPro" cols="51" rows="13"></textarea></td>
+      <td><textarea name="WeekPro"cols="51" rows="13"style=width:100%;></textarea></td>
       <td>&nbsp;</td>
      </tr>
       <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">차주계획</td>
-      <td><textarea name="NextPlan" cols="51" rows="13"></textarea></td>
+      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
@@ -251,6 +242,7 @@
     </form>
   </tr>
  </table>
+ </div>
     <!-- /.container-fluid -->
 
       </div>

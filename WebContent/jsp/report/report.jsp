@@ -191,7 +191,7 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">주간보고서 목록</h6>
                 </div>
-                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="white-space: nowrap;">
   <tr height="5"><td width="5"></td></tr>
  <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
    <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>

@@ -197,7 +197,7 @@
         </div>
          <div class="card-body">
           <div class="table-responsive"> 
-   <table>
+   <table width="100%">
      <tr>
       <td>&nbsp;</td>
       <td class="m-0 text-primary" align="center">제목</td> 
