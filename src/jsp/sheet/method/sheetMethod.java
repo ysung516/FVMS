@@ -424,9 +424,9 @@ public class sheetMethod {
         	MSC_Bean mb = new MSC_Bean();
         	mb.setNo(li.getCustomElements().getValue("no"));
         	mb.setID(li.getCustomElements().getValue("ID"));
-        	mb.setPlace(li.getCustomElements().getValue("장소"));
-        	mb.setStartDate(li.getCustomElements().getValue("시작날짜"));
-        	mb.setEndDate(li.getCustomElements().getValue("종료날짜"));
+			mb.setAMplace(li.getCustomElements().getValue("오전장소"));
+			mb.setPMplace(li.getCustomElements().getValue("오후장소"));
+			mb.setDate(li.getCustomElements().getValue("날짜"));
         	mb.setName(li.getCustomElements().getValue("이름"));
         	mb.setTeam(li.getCustomElements().getValue("팀"));
         	MSCList.add(mb);
@@ -452,9 +452,9 @@ public class sheetMethod {
 				MSC_Bean mb = new MSC_Bean();
 				mb.setNo(li.getCustomElements().getValue("no"));
 				mb.setID(li.getCustomElements().getValue("ID"));
-				mb.setPlace(li.getCustomElements().getValue("장소"));
-				mb.setStartDate(li.getCustomElements().getValue("시작날짜"));
-				mb.setEndDate(li.getCustomElements().getValue("종료날짜"));
+				mb.setAMplace(li.getCustomElements().getValue("오전장소"));
+				mb.setPMplace(li.getCustomElements().getValue("오후장소"));
+				mb.setDate(li.getCustomElements().getValue("날짜"));
 				mb.setName(li.getCustomElements().getValue("이름"));
 				mb.setTeam(li.getCustomElements().getValue("팀"));
 			}
@@ -464,7 +464,7 @@ public class sheetMethod {
 	}
 	
 	// 관리자 일정 추가
-	public int insert_MSC(String id, String place, String startDate, String endDate, String team, String name)throws GeneralSecurityException, IOException, ServiceException {
+	public int insert_MSC(String id, String amPlace, String pmPlace, String date, String team, String name)throws GeneralSecurityException, IOException, ServiceException {
 		connect();
 		access();
     	findSheet("관리자일정");
@@ -473,12 +473,12 @@ public class sheetMethod {
         List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
         ListEntry li = new ListEntry(); 
         
-        if (id != null && place != null && startDate != null && endDate != null) {
+        if (id != null && pmPlace != null && amPlace != null && date != null) {
         	li.getCustomElements().setValueLocal("no", Integer.toString(list.size()+1));
         	li.getCustomElements().setValueLocal("ID",id);
-        	li.getCustomElements().setValueLocal("장소",place);
-        	li.getCustomElements().setValueLocal("시작날짜",startDate);
-        	li.getCustomElements().setValueLocal("종료날짜",endDate);
+        	li.getCustomElements().setValueLocal("오전장소",amPlace);
+        	li.getCustomElements().setValueLocal("오후장소",pmPlace);
+        	li.getCustomElements().setValueLocal("날짜",date);
         	li.getCustomElements().setValueLocal("팀",team);
         	li.getCustomElements().setValueLocal("이름",name);
         	listFeed.insert(li);
@@ -507,7 +507,7 @@ public class sheetMethod {
 	}
 	
 	//관리자 일정 수정
-	public int update_MSC(String no, String place, String startDate, String endDate) throws GeneralSecurityException, IOException, ServiceException{
+	public int update_MSC(String no, String amPlace, String pmPlace, String date) throws GeneralSecurityException, IOException, ServiceException{
 		connect();
 		access();
 		findSheet("관리자일정");
@@ -517,9 +517,9 @@ public class sheetMethod {
         
         for(int i=0; i<list.size();i++) {
         	if(list.get(i).getCustomElements().getValue("no").equals(no)) {
-        		list.get(i).getCustomElements().setValueLocal("장소", place);
-        		list.get(i).getCustomElements().setValueLocal("시작날짜", startDate);
-        		list.get(i).getCustomElements().setValueLocal("종료날짜", endDate);
+        		list.get(i).getCustomElements().setValueLocal("오전장소", amPlace);
+        		list.get(i).getCustomElements().setValueLocal("오후장소", pmPlace);
+        		list.get(i).getCustomElements().setValueLocal("날짜", date);
         		list.get(i).update();
         		return 1;
         	}
