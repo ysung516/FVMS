@@ -163,10 +163,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #calendar {
 	padding: 5px;
-	overflow: scroll;
-	height:800px;
 	max-width: 1100px;
 	margin: 0 auto;
+}
+
+@media(max-width:800px){
+#calendar{
+	overflow: scroll;
+	height:800px;
 }
 
 .fc-dayGridWeek-view{
@@ -180,6 +184,9 @@ document.addEventListener('DOMContentLoaded', function() {
     background-color: #858796;
     }
     
+
+}
+
 
 </style>
 
@@ -326,7 +333,10 @@ document.addEventListener('DOMContentLoaded', function() {
      <div class="card-header py-3">
      
     <!-- /.container-fluid -->
-		<div id='calendar'></div>
+     <div class="card-body"style="float: right;">
+      		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
+      	</div>
+		<div id='calendar' ></div>
 		
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
 			<input id="number" type="hidden" name = "num" value="" />
@@ -334,9 +344,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<input id="setAm" type="hidden" name = "amPlace" value="" />
 			<input id="setPm" type="hidden" name = "pmPlace" value="" />
 		</form>
-		 <div class="card-body" style="margin: 0 auto;display: table;">
-      		<a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
-      	</div>
+		
  		
       </div>
      </div>
