@@ -3,7 +3,9 @@
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
     import = "jsp.Bean.model.MSC_Bean"
-    import = "java.util.ArrayList"%>
+    import = "java.util.ArrayList"
+    import = "java.util.Date"
+    import = "java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,12 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
 		ArrayList<MSC_Bean> MSCList = new ArrayList<MSC_Bean>();
 		MSCList = method.getMSCList();
  		
-		String [] color = {"#000000", "#FF0000", "#FFCC00", "#999900", "#336633", "#0000FF",
-				"#660066", "#FF0099", "#666666", "#663333", "#996600", "#FFFF00", "#66CC66", 
-				"#6666FF", "#CC33CC", "#CC0099", "#CCCCCC", "#CC6666", "#663300", "#000066", 
-				"#66FF66", "#CCCCFF", "#9966CC", "#FF00CC"};
-		String [] managerID = {"ymyou","ysung516","hlshin", "hykim"};
-		
+		String [] color = {"RED", "ORANGE", "BROWN", "GREEN", "BLACK", "PURPLE", "GRAY", "PINK"};
+		String [] place = {"슈어소프트(본사, 삼성)", "슈어소프트(남양사무실)", "HMC(남양연구소)", "오트론(삼성)", 
+				"모비스(의왕)", "모비스(마북)", "엠엔소프트(용산)", "트랜시스(남양)"};
+		SimpleDateFormat format = new SimpleDateFormat("HH");
+		Date time = new Date();
+		int nowTime = Integer.parseInt(format.format(time));
       %>
       events: [
       <%
@@ -72,9 +74,15 @@ document.addEventListener('DOMContentLoaded', function() {
          	    		  id : '<%=id%>',
          	    		  title: '<%=li.getTeam()%>\n<%=li.getName()%>\n오전: <%=li.getAMplace()%> \n오후: <%=li.getPMplace()%>',
          	    		  start: '<%=li.getDate()%>',
-         	    		  <%for(int i = 0; i < managerID.length; i++){
-         	    			  if (li.getID().equals(managerID[i])){
-         	    				  %>color: '<%=color[i]%>'<%
+         	    		  <%for(int i = 0; i < place.length; i++){
+         	    			  if (nowTime >= 12){
+         	    				  if(li.getPMplace().equals(place[i])){
+         	    					 %>color: '<%=color[i]%>'<%  
+         	    				  }
+         	    			  } else {
+         	    				  if(li.getAMplace().equals(place[i])){
+           	    				  	%>color: '<%=color[i]%>'<%         	    					  
+         	    				  }
          	    			  }
          	    		  }%> 
          	    		   
@@ -92,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
     		
         	if(id == '<%=sessionID%>'){
         		if(confirm("일정을 수정하시겠습니까?") == true){
-            		
         			var setNo = document.getElementById("number");
         			var setDate = document.getElementById("setDate");
         			var setAm = document.getElementById("setAm");
@@ -133,9 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
 }
   #calendar {
   	padding: 5px;
-  	
-  	width: 250px;
-  	height: 300px;
     max-width: 1100px;
     margin: 0 auto;} 
     </style>
@@ -259,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
