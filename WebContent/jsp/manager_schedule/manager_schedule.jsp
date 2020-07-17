@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initialView: 'dayGridWeek',
     	navLinks: true,
       	editable: true,
+      	hiddenDays: [0,6],
       	dayMaxEvents: true, // allow "more" link when too many events
      
       <%
@@ -85,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
          	    		  }%> 
          	    		   
          	    	  },
+         	   
          <%}%>
          ]
       , eventClick: function(arg) {
@@ -161,8 +163,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 #calendar {
 	padding: 5px;
+	overflow: scroll;
+	height:800px;
 	max-width: 1100px;
 	margin: 0 auto;
+}
+
+.fc-dayGridWeek-view{
+	width:1000px;
+	overflow:scoll;
 }
 
 .fc .fc-button-group > .fc-button {
@@ -170,6 +179,8 @@ document.addEventListener('DOMContentLoaded', function() {
     flex: 1 1 auto;
     background-color: #858796;
     }
+    
+
 </style>
 
 </head>
