@@ -532,4 +532,26 @@ public class sheetMethod {
         return 0;
 	}
 	
+	//관리자 일정 같은 날짜에 ID가 중복되는지 확인
+	public String doubleCheck(String id, String date)throws GeneralSecurityException, IOException, ServiceException {
+		connect();
+		access();
+		findSheet("관리자일정");
+		URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        String num = "";
+        for(int i=0; i<list.size(); i++) {
+        	if(date.equals(list.get(i).getCustomElements().getValue("날짜"))) {
+        		if(id.equals(list.get(i).getCustomElements().getValue("ID"))) {
+        			num = list.get(i).getCustomElements().getValue("no");
+        			break;
+        		}
+        	}
+        } 
+		return num;
+	}
+	
+	
+	
 }	// end
