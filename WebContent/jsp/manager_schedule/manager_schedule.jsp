@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	headerToolbar: {
             center: 'title',
-            left: 'prevYear,prev,next,nextYear,today',
-            right: 'dayGridWeek,dayGridMonth'
+            left: 'prev,next',
+            right: 'today,dayGridWeek,dayGridMonth'
           },
         initialView: 'dayGridWeek',
     	navLinks: true,
@@ -148,11 +148,28 @@ document.addEventListener('DOMContentLoaded', function() {
 	background-color: var(- -fc-today-bg-color, rgb(153, 153, 255));
 }
 
+.fc .fc-toolbar{
+	display: inline;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fc-direction-ltr{
+	direction: lrt;
+	text-align: center;
+}
+
 #calendar {
 	padding: 5px;
 	max-width: 1100px;
 	margin: 0 auto;
 }
+
+.fc .fc-button-group > .fc-button {
+    position: relative;
+    flex: 1 1 auto;
+    background-color: #858796;
+    }
 </style>
 
 </head>

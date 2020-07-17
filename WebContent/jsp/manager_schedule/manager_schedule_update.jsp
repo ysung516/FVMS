@@ -196,11 +196,9 @@
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block;">일정수정</h6>
-                  
                   <form method="post" action="manager_schedule_deletePro.jsp" style="display: inline !important;">
 				 	<input type="hidden" name = "num" value="<%=num%>">
-				 	<input id="Delete" type="submit" name="Delete" value=삭제 class="btn btn-secondary btn-icon-split" style="float:right;width: 50px;height: 30px;" >
-                   
+				 	<input id="Delete" type="submit" name="Delete" value=삭제 class="btn btn-secondary btn-icon-split" style="float:right;width: 50px;height: 30px;">
 				 </form>
                 </div>
                <div class="card-body">
