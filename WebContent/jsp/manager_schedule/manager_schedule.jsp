@@ -322,19 +322,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+        
      <div class="card shadow mb-4">
+     
      <div class="card-header py-3">
+     
     <!-- /.container-fluid -->
 		<div id='calendar'></div>
+		
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
 			<input id="number" type="hidden" name = "num" value="" />
 			<input id="setDate" type="hidden" name = "date" value="" />
 			<input id="setAm" type="hidden" name = "amPlace" value="" />
 			<input id="setPm" type="hidden" name = "pmPlace" value="" />
 		</form>
- 		 <div class="card-body" style="margin: 0 auto; width: 50%;">
+		 <div class="card-body" style="margin: 0 auto;display: table;">
       		<a href="manager_schedule_add.jsp" class="btn btn-primary">일정등록</a>
       	</div>
+ 		
       </div>
      
       <!-- End of Main Content -->
