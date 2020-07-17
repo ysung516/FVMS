@@ -191,68 +191,67 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <p class="mb-4"></p>
           
  
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">일정수정</h6>
                 </div>
-                <div style="margin: 0 auto" class="card-body">
-   <form method ="post" action = "manager_schedule_updatePro.jsp?"> 
-   <table>
+               <div class="card-body">
+  		<div class="table-responsive"> 
+   <form method ="post" action = "manager_schedule_updatePro.jsp?" style="display: inline;"> 
+   <table style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>
       <td class="m-0 text-primary" align="center">날짜 </td>
-      <td><input type="date" name="DATE" style=width:100%; maxlength="50" value ="<%=setDate%>"></td>
+      <td style="padding: 15px 0;"><input type="date" name="DATE" style=width:100%; maxlength="50" value ="<%=setDate%>"></td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
      <tr>
-      <td class="m-0 text-primary" align="center">오전장소 </td>
-     <td>
-      	<label><input type="radio" name="AMradio" value="강남" onClick="this.form.AMother.value=''"
-      		<% if(setAm.equals("강남")){%>checked<%}%>>강남</label>
-    	<label><input type="radio" name="AMradio" value="남양" onClick="this.form.AMother.value=''"
-    	<% if(setAm.equals("남양")){%>checked<%}%>>남양</label>
-    	<label><input type="radio" name="AMradio" value="대전" onClick="this.form.AMother.value=''"
-    	<% if(setAm.equals("대전")){%>checked<%}%>>대전</label>
-    	<label><input type="radio" name="AMradio" value="오트론" onClick="this.form.AMother.value=''"
-    	<% if(setAm.equals("오트론")){%>checked<%}%>>오트론</label>
-    	<label><input type="radio" name="AMradio" value="기타" 
+      <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오전장소 </td>
+     <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
+      	<input type="radio" name="AMradio" value="강남" onClick="this.form.AMother.value=''"
+      		<% if(setAm.equals("강남")){%>checked<%}%>><label>강남</label></br>
+    	<input type="radio" name="AMradio" value="남양" onClick="this.form.AMother.value=''"
+    	<% if(setAm.equals("남양")){%>checked<%}%>><label>남양</label></br>
+    	<input type="radio" name="AMradio" value="대전" onClick="this.form.AMother.value=''"
+    	<% if(setAm.equals("대전")){%>checked<%}%>><label>대전</label></br>
+    	<input type="radio" name="AMradio" value="오트론" onClick="this.form.AMother.value=''"
+    	<% if(setAm.equals("오트론")){%>checked<%}%>><label>오트론</label></br>
+    	<input type="radio" name="AMradio" value="기타" 
     	<% if(!(setAm.equals("강남") || setAm.equals("남양") || setAm.equals("대전") || setAm.equals("오트론")))
-    	{%>checked<%}%>>기타</label>
+    	{%>checked<%}%>><label>기타</label>
     	<input type="text" name="AMother" <% if(!(setAm.equals("강남") || setAm.equals("남양") || setAm.equals("대전") || setAm.equals("오트론")))
     	{%>value = "<%=setAm%>"<%}%>>
       </td>
      </tr>
+       <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
       <tr>
-      <td class="m-0 text-primary" align="center">오후장소 </td>
-      <td>
-      	<label><input type="radio" name="PMradio" value="강남" onClick="this.form.PMother.value=''"
-      		<% if(setPm.equals("강남")){%>checked<%}%>>강남</label>
-    	<label><input type="radio" name="PMradio" value="남양" onClick="this.form.PMother.value=''"
-    	<% if(setPm.equals("남양")){%>checked<%}%>>남양</label>
-    	<label><input type="radio" name="PMradio" value="대전" onClick="this.form.PMother.value=''"
-    	<% if(setPm.equals("대전")){%>checked<%}%>>대전</label>
-    	<label><input type="radio" name="PMradio" value="오트론" onClick="this.form.PMother.value=''"
-    	<% if(setPm.equals("오트론")){%>checked<%}%>>오트론</label>
-    	<label><input type="radio" name="PMradio" value="기타"
+      <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오후장소</td>
+      <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
+      	<input type="radio" name="PMradio" value="강남" onClick="this.form.PMother.value=''"
+      		<% if(setPm.equals("강남")){%>checked<%}%>><label>강남</label></br>
+    	<input type="radio" name="PMradio" value="남양" onClick="this.form.PMother.value=''"
+    	<% if(setPm.equals("남양")){%>checked<%}%>><label>남양</label></br>
+    	<input type="radio" name="PMradio" value="대전" onClick="this.form.PMother.value=''"
+    	<% if(setPm.equals("대전")){%>checked<%}%>><label>대전</label></br>
+    	<input type="radio" name="PMradio" value="오트론" onClick="this.form.PMother.value=''"
+    	<% if(setPm.equals("오트론")){%>checked<%}%>><label>오트론</label></br>
+    	<input type="radio" name="PMradio" value="기타"
     	<% if(!(setPm.equals("강남") || setPm.equals("남양") || setPm.equals("대전") || setPm.equals("오트론")))
-    	{%>checked<%}%>>기타</label>
+    	{%>checked<%}%>><label>기타</label>
     	<input type="text" name="PMother" <% if(!(setPm.equals("강남") || setPm.equals("남양") || setPm.equals("대전") || setPm.equals("오트론")))
     	{%>value = "<%=setPm%>"<%}%>>
       </td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-    
      </table>
-     <div class="card-body" style="margin: 0 auto;">
+     
  	<input type="hidden" name = "num" value="<%=num%>">
    	<input id="Update" type="submit" name="COMPLETE" value="수정"  class="btn btn-primary" >
 </form>
-	 <form method="post" action="manager_schedule_deletePro.jsp">
+
+	 <form method="post" action="manager_schedule_deletePro.jsp" style="display: inline !important;">
 	 	<input type="hidden" name = "num" value="<%=num%>">
 	 	<input id="Delete" type="submit" name="Delete" value="삭제"  class="btn btn-primary" >
 	 </form>
