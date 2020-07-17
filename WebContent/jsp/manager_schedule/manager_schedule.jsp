@@ -37,7 +37,6 @@ function formatDate(date) {
 		return [year, month, day].join('-'); 
 	}
 
-
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
