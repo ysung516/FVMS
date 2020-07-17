@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	headerToolbar: {
-            left: 'prevYear,prev,next,nextYear today', 
             center: 'title',
+            left: 'prevYear,prev,next,nextYear,today',
             right: 'dayGridWeek,dayGridMonth'
           },
         initialView: 'dayGridWeek',
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		ArrayList<MSC_Bean> MSCList = new ArrayList<MSC_Bean>();
 		MSCList = method.getMSCList();
  		
-		String [] color = {"RED", "ORANGE", "BROWN", "GREEN", "BLACK", "PURPLE", "GRAY", "PINK"};
+		String [] color = {"RED", "ORANGE", "BROWN", "GREEN", "BLACK", "PURPLE", "GRAY", "#FF0099"};
 		String [] place = {"슈어소프트(본사, 삼성)", "슈어소프트(남양사무실)", "HMC(남양연구소)", "오트론(삼성)", 
 				"모비스(의왕)", "모비스(마북)", "엠엔소프트(용산)", "트랜시스(남양)"};
 		SimpleDateFormat format = new SimpleDateFormat("HH");
@@ -134,16 +134,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-<style>
-.fc-daygrid-event{
-	white-space:pre;
-}
-  #calendar {
-  	padding: 5px;
-    max-width: 1100px;
-    margin: 0 auto;} 
-    </style>
   
+<style>
+.fc-daygrid-event {
+	white-space: pre;
+}
+
+.fc .fc-col-header-cell.fc-day-today {
+	background-color: rgb(153, 153, 255);
+	background-color: var(- -fc-today-bg-color, rgb(153, 153, 255));
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+	background-color: rgb(153, 153, 255);
+	background-color: var(- -fc-today-bg-color, rgb(153, 153, 255));
+}
+
+#calendar {
+	padding: 5px;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+</style>
+
 </head>
 
 <body id="page-top">
