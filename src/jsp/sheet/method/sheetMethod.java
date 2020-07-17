@@ -177,8 +177,13 @@ public class sheetMethod {
          ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
          List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
          ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
-         String no = list.get(list.size()-1).getCustomElements().getValue("no");
-         int num = Integer.parseInt(no);
+         int num;
+         if (list.isEmpty() == true) {
+         	num = 0;
+         } else {
+         	String no = list.get(list.size()-1).getCustomElements().getValue("no");
+         	num = Integer.parseInt(no);
+         }
          
          if (title != null && writeDate != null) {
         	//방법2
@@ -280,8 +285,13 @@ public class sheetMethod {
          ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
          List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
          ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
-         String no = list.get(list.size()-1).getCustomElements().getValue("no");
-         int num = Integer.parseInt(no);
+         int num;
+         if (list.isEmpty() == true) {
+         	num = 0;
+         } else {
+         	String no = list.get(list.size()-1).getCustomElements().getValue("no");
+         	num = Integer.parseInt(no);
+         }
          
          if (title != null && writeDate != null) {
         	//방법2
