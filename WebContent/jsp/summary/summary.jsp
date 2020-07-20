@@ -139,66 +139,392 @@
       <i class="fa fa-bars"></i>
      </button>
 
-     <!-- Topbar Search -->
-     <form
-      class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-      <div class="input-group">
-       <input type="text" class="form-control bg-light border-0 small"
-        placeholder="Search for..." aria-label="Search"
-        aria-describedby="basic-addon2">
-       <div class="input-group-append">
-        <button class="btn btn-primary" type="button">
-         <i class="fas fa-search fa-sm"></i>
-        </button>
-       </div>
-      </div>
-     </form>
-
      <!-- Topbar Navbar -->
      <ul class="navbar-nav ml-auto">
 
       <div class="topbar-divider d-none d-sm-block"></div>
 
       <!-- Nav Item - User Information -->
-      <li class="nav-item dropdown no-arrow"><a
-       class="nav-link dropdown-toggle" href="#" id="userDropdown"
-       role="button" data-toggle="dropdown" aria-haspopup="true"
-       aria-expanded="false"> <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%=sessionName%> 
-       <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-      </a> <!-- Dropdown - User Information -->
-       <div
-        class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-        aria-labelledby="userDropdown">
-        <a class="dropdown-item" href="#"> <i
-         class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
-        </a> <a class="dropdown-item" href="#"> <i
-         class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-         Settings
-        </a> <a class="dropdown-item" href="#"> <i
-         class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-         Activity Log
-        </a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#" data-toggle="modal"
-         data-target="#logoutModal"> <i
-         class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-         Logout
-        </a>
-       </div></li>
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
+                <i class="fas fa-info-circle"></i>
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
 
-     </ul>
+          </ul>
 
-    </nav>
+        </nav>
     <!-- End of Topbar -->
 
-    <!-- Begin Page Content -->
+  
     <div class="container-fluid">
-
-     <!-- Page Heading -->
-     <h1 class="h3 mb-2 text-gray-800">Summary</h1>
-     <p class="mb-4">
-      요약정보
-     </p>
+     
+      <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary">프로젝트 현황</h6>
+        </div>
+            <div class="card-body"> 
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" style="white-space: nowrap;">
+                  <thead>
+                   <tr>
+                    	<td colspan="3" style="border:0px;"></td>
+                    	<td colspan="5" bgcolor="skyblue" style="text-align:center;">상세내역</td>
+                    </tr>  
+                    <tr bgcolor="skyblue" style="text-align:center;">
+	                    <th>구분</th>
+	                    <th>상태</th>
+	                    <th>Total</th>
+	                    <th>샤시힐스</th>
+	                    <th>바디힐스</th>
+	                    <th>제어로직</th>
+	                    <th>기능안전</th>
+	                    <th>자율주행</th>
+                    </tr>
+                  </thead>  
+                  
+                  <tbody>
+                    <tr>
+                    	<td rowspan="3" style="text-align:center;">불확실</td>
+                    	<td style="text-align:center;">1. 예산확보</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                    	<td>2. 고객의사</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>3. 제안단계</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td rowspan="2">유력</td>
+                    	<td>4. 업체선정</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>5. 진행예정</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                    	<td>진행</td>
+                    	<td>6. 진행중</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                    	<td rowspan="2">종료</td>
+                    	<td>7. 종료</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                    	<td>8. Dropped</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr>
+                    	<td colspan="2" style="border:0px; bgcolor:#fff;"></td>
+                    	<td bgcolor="yellow"></td>
+                    	<td bgcolor="yellow"></td>
+                    	<td bgcolor="yellow"></td>
+                    	<td bgcolor="yellow"></td>
+                    	<td bgcolor="yellow"></td>
+                    	<td bgcolor="yellow"></td>
+                    </tr>  
+                    </tbody>                           
+                </table>
+              </div>   
+              </div>     
+         </div>
+     
+      <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary">수주 & 매출</h6>
+        </div>
+            <div class="card-body"> 
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" style="white-space: nowrap;">
+                  <thead>
+                   <tr>
+                    	<td colspan="3" style="border:0px;"></td>
+                    	<td colspan="5" bgcolor="skyblue" style="text-align:center;">상세내역(단위: 백만)</td>
+                    </tr>  
+                    <tr bgcolor="skyblue" style="text-align:center;">
+	                    <th>구분</th>
+	                    <th>항목</th>
+	                    <th>Total</th>
+	                    <th>샤시힐스</th>
+	                    <th>바디힐스</th>
+	                    <th>제어로직</th>
+	                    <th>기능안전</th>
+	                    <th>자율주행</th>
+                    </tr>
+                  </thead>  
+                  
+                  <tbody>
+                    <tr>
+                    	<td rowspan="10" style="text-align:center;">상반기</td>
+                    	<td style="text-align:center;">목표 수주</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                    	<td>예상 수주</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>예상 수주%</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>수주</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>수주 달성률</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>목표 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>예상 매츨</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>예상 매출%</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>현재 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>매출 달성률</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td rowspan="6">하반기</td>
+                    	<td>목표수주</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>수주</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>예상 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>현재 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>잔여 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>달성률</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                    	<td rowspan="7">연간</td>
+                    	<td>목표수주</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>수주</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    <tr style="text-align:center;">
+                    	<td>수주 달성률</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>예상 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>현재 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>잔여 매출</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                     <tr style="text-align:center;">
+                    	<td>매출 달성률</td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    	<td></td>
+                    </tr>
+                    </tbody>                           
+                </table>
+              </div>   
+              </div>     
+         </div>
 
      <!-- Content Row -->
      <div class="row">
@@ -287,7 +613,6 @@
   class="fas fa-angle-up"></i>
  </a>
 
-<<<<<<< HEAD
  <!-- Logout Modal-->
  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -310,7 +635,7 @@
    </div>
   </div>
  </div>
-=======
+
 	<!-- Logout Modal-->
 	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -333,7 +658,6 @@
 			</div>
 		</div>
 	</div>
->>>>>>> branch 'master' of https://github.com/ysung516/FVMS.git
 
  <!-- Bootstrap core JavaScript-->
  <script src="../../vendor/jquery/jquery.min.js"></script>
