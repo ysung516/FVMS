@@ -177,8 +177,13 @@ public class sheetMethod {
          ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
          List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
          ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
-         String no = list.get(list.size()-1).getCustomElements().getValue("no");
-         int num = Integer.parseInt(no);
+         int num;
+         if (list.isEmpty() == true) {
+         	num = 0;
+         } else {
+         	String no = list.get(list.size()-1).getCustomElements().getValue("no");
+         	num = Integer.parseInt(no);
+         }
          
          if (title != null && writeDate != null) {
         	//방법2
@@ -280,8 +285,13 @@ public class sheetMethod {
          ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
          List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
          ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
-         String no = list.get(list.size()-1).getCustomElements().getValue("no");
-         int num = Integer.parseInt(no);
+         int num;
+         if (list.isEmpty() == true) {
+         	num = 0;
+         } else {
+         	String no = list.get(list.size()-1).getCustomElements().getValue("no");
+         	num = Integer.parseInt(no);
+         }
          
          if (title != null && writeDate != null) {
         	//방법2
@@ -475,9 +485,16 @@ public class sheetMethod {
     	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
         ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
         List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
-        ListEntry li = new ListEntry(); 
-        String no = list.get(list.size()-1).getCustomElements().getValue("no");
-        int num = Integer.parseInt(no);
+        ListEntry li = new ListEntry();
+        int num;
+        if (list.isEmpty() == true) {
+        	num = 0;
+        } else {
+        	String no = list.get(list.size()-1).getCustomElements().getValue("no");
+        	num = Integer.parseInt(no);
+        }
+        
+        System.out.println("test"+num);
         if (id != null && pmPlace != null && amPlace != null && date != null) {
         	li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
         	li.getCustomElements().setValueLocal("ID",id);
