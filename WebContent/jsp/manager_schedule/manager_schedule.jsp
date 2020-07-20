@@ -13,13 +13,15 @@
 
 <%
 
-	String sessionID = session.getAttribute("sessionID").toString();
-	String sessionName = session.getAttribute("sessionName").toString();
 	PrintWriter script =  response.getWriter();
-	if (sessionID == null || sessionID.equals("") ){
+	if (session.getAttribute("sessionID") == null){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
+
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
 	
+
 %>
 <link href='./lib/main.css' rel='stylesheet' />
 <script type="text/javascript" src="./fullcalendar-2.9.1/lib/jquery.min.js"></script>
@@ -46,10 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
             left: 'prev,next',
             right: 'today,dayGridWeek,dayGridMonth'
           },
+          
+          
         initialView: 'dayGridWeek',
     	navLinks: true,
-      	editable: true,
-      	hiddenDays: [0,6],
+      	editable: false,
+      	
+      	hiddenDays: [6],
       	dayMaxEvents: true, // allow "more" link when too many events
      
       <%
@@ -58,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		MSCList = method.getMSCList();
  		
 		String [] color = {"RED", "ORANGE", "BROWN", "GREEN", "BLACK", "PURPLE", "GRAY", "#FF0099"};
-		String [] place = {"슈어소프트(본사, 삼성)", "슈어소프트(남양사무실)", "HMC(남양연구소)", "오트론(삼성)", 
+		String [] place = {"슈어소프트(본사,삼성)", "슈어소프트(남양사무실)", "HMC(남양연구소)", "오트론(삼성)", 
 				"모비스(의왕)", "모비스(마북)", "엠엔소프트(용산)", "트랜시스(남양)"};
 		SimpleDateFormat format = new SimpleDateFormat("HH");
 		Date time = new Date();
@@ -70,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
       		String id = li.getNo()+ " " + li.getID();
          	 %> 
          	    	  {
+         	    		  groupId: '<%=li.getName()%>',
          	    		  id : '<%=id%>',
          	    		  title: '<%=li.getTeam()%>\n<%=li.getName()%>\n오전: <%=li.getAMplace()%> \n오후: <%=li.getPMplace()%>',
          	    		  start: '<%=li.getDate()%>',
@@ -87,8 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
          	    		   
          	    	  },
          	   
-         <%}%>
+         	<%}%>
          ]
+     
+
+      	
       , eventClick: function(arg) {
     		var str = arg.event.id.split(' ');
     		var no = str[0];

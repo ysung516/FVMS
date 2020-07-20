@@ -190,7 +190,7 @@
      <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오전장소 </td>
       <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
-      	<input type="radio" name="AMradio" value="슈어소프트(본사, 삼성)"><label>슈어소프트(본사, 삼성)</label></br>
+      	<input type="radio" name="AMradio" value="슈어소프트(본사,삼성)"><label>슈어소프트(본사,삼성)</label></br>
     	<input type="radio" name="AMradio" value="슈어소프트(남양사무실)"><label>슈어소프트(남양사무실)</label></br>
     	<input type="radio" name="AMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></br>
     	<input type="radio" name="AMradio" value="오트론(삼성)"><label>오트론(삼성)</label></br>
@@ -206,7 +206,7 @@
      <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오후장소</td>
 		<td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
-	      	<input type="radio" name="PMradio" value="슈어소프트(본사, 삼성)"><label>슈어소프트(본사, 삼성)</label></br>
+	      	<input type="radio" name="PMradio" value="슈어소프트(본사,삼성)"><label>슈어소프트(본사,삼성)</label></br>
     	<input type="radio" name="PMradio" value="슈어소프트(남양사무실)"><label>슈어소프트(남양사무실)</label></br>
     	<input type="radio" name="PMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></br>
     	<input type="radio" name="PMradio" value="오트론(삼성)"><label>오트론(삼성)</label></br>
@@ -274,8 +274,8 @@
  
  <!-- 날짜창에 오늘 날짜 추가 -->
   <script>
-	document.getElementById('nowDate').value = new Date().toISOString().substring(0, 10);;
-	</script>
+		document.getElementById('nowDate').valueAsDate = new Date();
+</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
