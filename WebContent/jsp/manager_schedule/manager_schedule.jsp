@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     	navLinks: true,
       	editable: false,
       	
-      	hiddenDays: [6],
+      	hiddenDays: [0,6],
       	dayMaxEvents: true, // allow "more" link when too many events
       	
      
@@ -337,19 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- /.container-fluid -->
      <div class="card-body"style="float: right;">
       		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
-      		
       	</div>
-      	<table>
-      	<tr><td style="background-color:red; color:#fff">슈어소프트 (본사, 삼성)</td></tr>
-      	<tr><td style="background-color:orange; color:#fff;">슈어소프트(남양사무실)</td></tr>
-      	<tr><td style="background-color:brown; color:#fff;">HMC(남양연구소)</td></tr>
-      	<tr><td style="background-color:green; color:#fff;">오트론(삼성)</td></tr>
-      	<tr><td style="background-color:black; color:#fff;">모비스(의왕)</td></tr>
-      	<tr><td style="background-color:purple; color:#fff;">모비스(마북)</td></tr>
-      	<tr><td style="background-color:gray; color:#fff;">엠엔소프트(용산)</td></tr>
-      	<tr><td style="background-color:#ff0099; color:#fff;">트랜시스(남양)</td></tr>
-      	<tr><td style="background-color:blue; color:#fff;">기타</td></tr>
-      	</table>
       	
 		<div id='calendar' ></div>
 		

@@ -202,7 +202,7 @@
     	<input type="radio" name="PMradio" value="모비스(마북)"><label>모비스(마북)</label></br>
     	<input type="radio" name="PMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></br>
     	<input type="radio" name="PMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></br>
-    	<input type="radio" name="PMradio" value="기타"><label>기타</label><input type="text" name="AMother" placeholder="Write In">
+    	<input type="radio" name="PMradio" value="기타"><label>기타</label><input type="text" name="PMother" placeholder="Write In">
       </td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>

@@ -15,16 +15,30 @@
 		String sessionID = session.getAttribute("sessionID").toString();
 		String sessionName = session.getAttribute("sessionName").toString();
 		PrintWriter script =  response.getWriter();
+		String date = request.getParameter("DATE");
+		
+		String AMother = "미입력";
+		String PMother = "미입력";
+		
+		if(!(request.getParameter("AMother") == "")){
+			AMother = request.getParameter("AMother");	
+		}
+		
+		if(!(request.getParameter("PMother") == "")){
+			PMother = request.getParameter("PMother");	
+		}
+		
+		
 		String AmPlace = request.getParameter("AMradio");
 		if(AmPlace.equals("기타")){
-			AmPlace = request.getParameter("AMother");
+			AmPlace = AMother;
 		}
 		
 		String PmPlace = request.getParameter("PMradio");
 		if(PmPlace.equals("기타")){
-			PmPlace = request.getParameter("PMother");
+			PmPlace = PMother;
 		}
-		String date = request.getParameter("DATE");
+		
 		
 		sheetMethod method = new sheetMethod();
 		String num = method.doubleCheck(sessionID, date);
