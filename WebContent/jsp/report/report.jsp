@@ -199,10 +199,7 @@
 	} 
   %> 
   
-<tr height="25" align="center">
-</tr>
-  <tr height="1" bgcolor="#D2D2D2"><td colspan="6"></td></tr>
-
+<tr height="15" align="center"></tr>
  <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
  </table>
  
