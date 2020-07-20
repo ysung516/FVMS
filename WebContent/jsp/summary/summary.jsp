@@ -178,7 +178,7 @@
                   <thead>
                    <tr>
                     	<td colspan="3" style="border:0px;"></td>
-                    	<td colspan="5" bgcolor="skyblue" style="text-align:center;">상세내역</td>
+                    	<td colspan="6" bgcolor="skyblue" style="text-align:center;">상세내역</td>
                     </tr>  
                     <tr bgcolor="skyblue" style="text-align:center;">
 	                    <th>구분</th>
@@ -189,13 +189,15 @@
 	                    <th>제어로직</th>
 	                    <th>기능안전</th>
 	                    <th>자율주행</th>
+	                    <th>실</th>
                     </tr>
                   </thead>  
                   
                   <tbody>
                     <tr>
-                    	<td rowspan="3" style="text-align:center;">불확실</td>
+                    	<td rowspan="3" style="text-align:center; vertical-align: middle;">불확실</td>
                     	<td style="text-align:center;">1. 예산확보</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -211,6 +213,7 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>3. 제안단계</td>
@@ -220,10 +223,12 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
-                    	<td rowspan="2">유력</td>
+                    	<td rowspan="2" style=" vertical-align: middle;">유력</td>
                     	<td>4. 업체선정</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -233,6 +238,7 @@
                     </tr>
                      <tr style="text-align:center;">
                     	<td>5. 진행예정</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -249,10 +255,12 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                     <tr style="text-align:center;">
-                    	<td rowspan="2">종료</td>
+                    	<td rowspan="2" style=" vertical-align: middle;">종료</td>
                     	<td>7. 종료</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -268,9 +276,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                     <tr>
                     	<td colspan="2" style="border:0px; bgcolor:#fff;"></td>
+                    	<td bgcolor="yellow"></td>
                     	<td bgcolor="yellow"></td>
                     	<td bgcolor="yellow"></td>
                     	<td bgcolor="yellow"></td>
@@ -295,7 +305,7 @@
                   <thead>
                    <tr>
                     	<td colspan="3" style="border:0px;"></td>
-                    	<td colspan="5" bgcolor="skyblue" style="text-align:center;">상세내역(단위: 백만)</td>
+                    	<td colspan="6" bgcolor="skyblue" style="text-align:center;">상세내역(단위: 백만)</td>
                     </tr>  
                     <tr bgcolor="skyblue" style="text-align:center;">
 	                    <th>구분</th>
@@ -306,12 +316,13 @@
 	                    <th>제어로직</th>
 	                    <th>기능안전</th>
 	                    <th>자율주행</th>
+	                    <th>실</th>
                     </tr>
                   </thead>  
                   
                   <tbody>
                     <tr>
-                    	<td rowspan="10" style="text-align:center;">상반기</td>
+                    	<td rowspan="10" style="text-align:center; vertical-align: middle;">상반기</td>
                     	<td style="text-align:center;">목표 수주</td>
                     	<td></td>
                     	<td></td>
@@ -319,9 +330,12 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
+                    	
                     </tr>
                     <tr style="text-align:center;">
                     	<td>예상 수주</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -337,9 +351,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>수주</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -355,9 +371,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>목표 매출</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -373,6 +391,7 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>예상 매출%</td>
@@ -382,9 +401,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>현재 매출</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -400,10 +421,12 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
-                    	<td rowspan="6">하반기</td>
+                    	<td rowspan="6" style=" vertical-align: middle;">하반기</td>
                     	<td>목표수주</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -419,9 +442,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>예상 매출</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -437,9 +462,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>잔여 매출</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -457,8 +484,9 @@
                     	<td></td>
                     </tr>
                     <tr style="text-align:center;">
-                    	<td rowspan="7">연간</td>
+                    	<td rowspan="7" style=" vertical-align: middle;" >연간</td>
                     	<td>목표수주</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -474,9 +502,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                     <tr style="text-align:center;">
                     	<td>수주 달성률</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -492,9 +522,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>현재 매출</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
@@ -510,9 +542,11 @@
                     	<td></td>
                     	<td></td>
                     	<td></td>
+                    	<td></td>
                     </tr>
                      <tr style="text-align:center;">
                     	<td>매출 달성률</td>
+                    	<td></td>
                     	<td></td>
                     	<td></td>
                     	<td></td>
