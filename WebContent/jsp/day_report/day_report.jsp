@@ -47,7 +47,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../summary/summary.jsp">
@@ -160,7 +160,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+      
 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -225,7 +225,7 @@
       </footer>
       <!-- End of Footer -->
 
-    </div>
+    
     <!-- End of Content Wrapper -->
 
   </div>

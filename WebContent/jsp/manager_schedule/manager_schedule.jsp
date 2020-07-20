@@ -209,8 +209,9 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../summary/summary.jsp">
@@ -285,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </ul>
     <!-- End of Sidebar -->
 
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -301,8 +303,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-        
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+
         
      <div class="card shadow mb-4">
      
@@ -362,7 +362,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </footer>
       <!-- End of Footer -->
-      </div>
 		</div>
     </div>
     <!-- End of Content Wrapper -->
