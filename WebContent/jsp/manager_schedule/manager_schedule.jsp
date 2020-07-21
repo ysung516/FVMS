@@ -183,6 +183,9 @@ function fnMove(){
     justify-content: space-between;
     align-items: center;
     margin-right:10px;
+    top: 0;
+    left: 0;
+    position: sticky;
 }
 
 .fc-direction-ltr{
