@@ -360,7 +360,7 @@ function fnMove(){
      
       	<div class="card-body" style="float:right;right: 0;padding: 0px;">
       		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
-      		<button onclick="fnMove()" id="button1">이동</button>
+      		<button onclick="fnMove()" id="button1" class="btn btn-primary">이동</button>
       	</div>
      
 		<div id='calendar' ></div>
@@ -377,15 +377,6 @@ function fnMove(){
      </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
 		</div>
     </div>
     <!-- End of Content Wrapper -->
