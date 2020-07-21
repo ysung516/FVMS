@@ -145,6 +145,7 @@ function fnMove(){
     $('html, body').animate({scrollTop : offset.top}, 400);
 }
 
+$( "#calendar" ).scrollLeft( 300 );
 
 </script>
 
@@ -195,7 +196,7 @@ function fnMove(){
 
 #calendar {
 	padding: 5px;
-	max-width: 1100px;
+	width:100%;
 	margin: 0 auto;
 }
 
@@ -216,11 +217,16 @@ function fnMove(){
     background-color: #858796;
     }
 
+	#button1{
+	visibility: visible !important;
+}
 }
 
 #fc-day-mon #fc-event-main-frame #fc-event-title #fc-sticky{
 	top:400px;
 }
+
+
 
 
 </style>
@@ -358,10 +364,10 @@ function fnMove(){
      
     <!-- /.container-fluid -->
      
-      	<div class="card-body" style="float:right;right: 0;padding: 0px;">
-      		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
-      		<button onclick="fnMove()" id="button1" class="btn btn-primary">이동</button>
-      	</div>
+    
+      		<a href="manager_schedule_add.jsp" class="btn btn-primary"style="float:right;right: 0;" >+</a>
+      		<button onclick="fnMove()" id="button1" class="btn btn-primary" style="visibility: hidden;float:right;right: 0;margin-right: 2px;">오늘</button>
+     
      
 		<div id='calendar' ></div>
 		
