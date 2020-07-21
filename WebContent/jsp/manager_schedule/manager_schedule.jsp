@@ -29,6 +29,9 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src='./lib/main.js'></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 <script>
 function formatDate(date) { 
 		var d = new Date(date), 
@@ -128,6 +131,21 @@ document.addEventListener('DOMContentLoaded', function() {
        });
     calendar.render();
   });
+  
+  
+$("#button").click(function() {
+    $([]).animate({
+        scrollTop: $("#elementtoScrollToID").offset().top
+    }, 2000);
+});
+
+
+function fnMove(){
+    var offset = $(".fc-day-today").offset();
+    $('html, body').animate({scrollTop : offset.top}, 400);
+}
+
+
 </script>
 
   <meta charset="utf-8">
@@ -164,6 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	display: inline;
     justify-content: space-between;
     align-items: center;
+    margin-right:10px;
 }
 
 .fc-direction-ltr{
@@ -179,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 @media(max-width:800px){
 #calendar{
-	overflow: scroll;
+	overflow: auto;
 	height:800px;
 }
 
@@ -335,10 +354,12 @@ document.addEventListener('DOMContentLoaded', function() {
        
      
     <!-- /.container-fluid -->
-     <div class="card-body"style="float: right;">
+     
+      	<div class="card-body" style="float:right;">
       		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
+      		<button onclick="fnMove()" id="button1">이동</button>
       	</div>
-      	
+     
 		<div id='calendar' ></div>
 		
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">

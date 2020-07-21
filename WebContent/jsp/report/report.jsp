@@ -163,8 +163,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-         
+
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">주간보고서 목록</h6>
@@ -218,7 +217,6 @@
       </div>
       <!-- End of Main Content -->
 
-    </div>
     <!-- End of Content Wrapper -->
 
   </div>

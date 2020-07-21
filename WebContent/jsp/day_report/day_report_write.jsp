@@ -156,7 +156,6 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -225,8 +224,7 @@
 
     </div>
     <!-- End of Content Wrapper -->
- 
-  </div>
+
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->
