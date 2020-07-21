@@ -209,6 +209,12 @@
       <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
       <td>&nbsp;</td>
      </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">비고</td>
+      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr align="center">
@@ -227,15 +233,7 @@
       </div>
       <!-- End of Main Content -->
 </div>
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
+     
 
     </div>
     <!-- End of Content Wrapper -->
