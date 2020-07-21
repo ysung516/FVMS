@@ -355,7 +355,7 @@ function fnMove(){
      
     <!-- /.container-fluid -->
      
-      	<div class="card-body" style="float:right;">
+      	<div class="card-body" style="float:right;right: 0;padding: 0px;">
       		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
       		<button onclick="fnMove()" id="button1">이동</button>
       	</div>

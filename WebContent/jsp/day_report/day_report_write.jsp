@@ -214,8 +214,6 @@
      </tr>
     </table>
     </form>
-  </tr>
- </table>
  </div>
     <!-- /.container-fluid -->
 
