@@ -31,6 +31,7 @@
 <script src='./lib/main.js'></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 
 <script>
 function formatDate(date) { 
@@ -140,12 +141,19 @@ $("#button").click(function() {
 });
 
 
-function fnMove(){
-    var offset = $(".fc-day-today").offset();
-    $('html, body').animate({scrollTop : offset.top}, 400);
+window.onload = function (){
+	fnMove();
 }
 
-$( "#calendar" ).scrollLeft( 300 );
+function fnMove(){
+    var offset = $(".fc .fc-col-header-cell.fc-day-today").offset();
+    $('#calendar').animate({scrollLeft : offset.left}, 200);
+}
+
+function moveScrollLeft(){
+	var _scrollX = $('#calendar').scrollLeft();
+	$('#calendar').scrollLeft(_scrollX + 100);
+}
 
 </script>
 
@@ -171,12 +179,12 @@ $( "#calendar" ).scrollLeft( 300 );
 
 .fc .fc-col-header-cell.fc-day-today {
 	background-color: rgb(153, 153, 255);
-	background-color: var(- -fc-today-bg-color, rgb(153, 153, 255));
+	background-color: var(- -fc-today-bg-color, rgba(120, 223, 202, 0.46));
 }
 
 .fc .fc-daygrid-day.fc-day-today {
 	background-color: rgb(153, 153, 255);
-	background-color: var(- -fc-today-bg-color, rgb(153, 153, 255));
+	background-color: var(- -fc-today-bg-color, rgba(120, 223, 202, 0.46));
 }
 
 .fc .fc-toolbar{
@@ -198,12 +206,14 @@ $( "#calendar" ).scrollLeft( 300 );
 	padding: 5px;
 	width:100%;
 	margin: 0 auto;
+	display:flex;
 }
 
 @media(max-width:800px){
 #calendar{
 	overflow: auto;
 	height:800px;
+	display:flex;
 }
 
 .fc-dayGridWeek-view{
@@ -218,8 +228,8 @@ $( "#calendar" ).scrollLeft( 300 );
     }
 
 	#button1{
-	visibility: visible !important;
-}
+	visibility: visible !important;}
+	
 }
 
 #fc-day-mon #fc-event-main-frame #fc-event-title #fc-sticky{
@@ -282,7 +292,7 @@ $( "#calendar" ).scrollLeft( 300 );
 	      
 	      <!-- Nav Item - manager schedule -->
 	      <li class="nav-item active">
-	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
+	        <a class="nav-link" onclick="fnMove()" href="../manager_schedule/manager_schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
 	      </li>
@@ -366,9 +376,7 @@ $( "#calendar" ).scrollLeft( 300 );
      
     
       		<a href="manager_schedule_add.jsp" class="btn btn-primary"style="float:right;right: 0;" >+</a>
-      		<button onclick="fnMove()" id="button1" class="btn btn-primary" style="visibility: hidden;float:right;right: 0;margin-right: 2px;">오늘</button>
-     
-     
+      		<!-- <button onclick="fnMove()" id="button1" class="btn btn-primary" style="visibility:hidden;float:right;right: 0;margin-right: 2px;">오늘</button> -->
 		<div id='calendar' ></div>
 		
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
