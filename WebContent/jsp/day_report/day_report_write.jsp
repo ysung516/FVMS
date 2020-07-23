@@ -7,13 +7,13 @@
 
 <head>
 <%
-
-	String sessionID = session.getAttribute("sessionID").toString();
-	String sessionName = session.getAttribute("sessionName").toString();
-	PrintWriter script =  response.getWriter();
-	if (sessionID == null || sessionID.equals("") ){
-		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
-	}
+		PrintWriter script =  response.getWriter();
+		if (session.getAttribute("sessionID") == null){
+			script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+		}
+		
+		String sessionID = session.getAttribute("sessionID").toString();
+		String sessionName = session.getAttribute("sessionName").toString();
 	
 %>
   <meta charset="utf-8">
@@ -39,7 +39,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../summary/summary.jsp">
@@ -156,6 +156,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+        <div class="container-fluid">
 
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -214,15 +215,28 @@
      </tr>
     </table>
     </form>
+  </tr>
+ </table>
  </div>
     <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
 
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
     </div>
     <!-- End of Content Wrapper -->
-
+ 
+  </div>
   <!-- End of Page Wrapper -->
 
   <!-- Scroll to Top Button-->

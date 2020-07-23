@@ -11,13 +11,13 @@
 <head>
 
 <%
-
-	String sessionID = session.getAttribute("sessionID").toString();
-	String sessionName = session.getAttribute("sessionName").toString();
 	PrintWriter script =  response.getWriter();
-	if (sessionID == null || sessionID.equals("") ){
+	if (session.getAttribute("sessionID") == null){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
+	
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
 %>
 
 <meta charset="utf-8">
@@ -45,7 +45,8 @@
 
   <!-- Sidebar -->
   <ul
-   class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+   class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
+   id="accordionSidebar">
 
    <!-- Sidebar - Brand -->
    <a
@@ -90,7 +91,7 @@
        
         <!-- Nav Item - manager schedule -->
 	      <li class="nav-item">
-	        <a class="nav-link" onclick="fnMove()" href="../manager_schedule/manager_schedule.jsp">
+	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
 	      </li>
@@ -163,6 +164,9 @@
         </nav>
     <!-- End of Topbar -->
 
+  
+    <div class="container-fluid">
+     
       <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -616,10 +620,21 @@
       </div>
      </div>
 
+    </div>
     <!-- /.container-fluid -->
 
    </div>
    <!-- End of Main Content -->
+
+   <!-- Footer -->
+   <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+     <div class="copyright text-center my-auto">
+      <span>Copyright &copy; Your Website 2020</span>
+     </div>
+    </div>
+   </footer>
+   <!-- End of Footer -->
 
   </div>
   <!-- End of Content Wrapper -->

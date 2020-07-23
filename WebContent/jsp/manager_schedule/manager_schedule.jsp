@@ -28,11 +28,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src='./lib/main.js'></script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-
+<script src='./lib/main.js'></script>
 <script>
 function formatDate(date) { 
 		var d = new Date(date), 
@@ -52,12 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
             left: 'prev,next',
             right: 'today,dayGridWeek,dayGridMonth'
           },
-          
-          
+                  
         initialView: 'dayGridWeek',
     	navLinks: true,
       	editable: false,
-      	
       	hiddenDays: [0,6],
       	dayMaxEvents: true, // allow "more" link when too many events
       	
@@ -67,42 +62,58 @@ document.addEventListener('DOMContentLoaded', function() {
 		ArrayList<MSC_Bean> MSCList = new ArrayList<MSC_Bean>();
 		MSCList = method.getMSCList();
  		
-		String [] color = {"RED", "ORANGE", "BROWN", "GREEN", "BLACK", "PURPLE", "GRAY", "#FF0099"};
-		String [] place = {"슈어소프트(본사,삼성)", "슈어소프트(남양사무실)", "HMC(남양연구소)", "오트론(삼성)", 
-				"모비스(의왕)", "모비스(마북)", "엠엔소프트(용산)", "트랜시스(남양)"};
+		//String [] color = {"RED", "ORANGE", "BROWN", "GREEN", "BLACK", "PURPLE", "GRAY", "#FF0099"};
+		//String [] level = {"1","2","3","4","5","6"};
 		SimpleDateFormat format = new SimpleDateFormat("HH");
 		Date time = new Date();
 		int nowTime = Integer.parseInt(format.format(time));
       %>
-      events: [
+      
+      eventOrder: 'level',
+      events: [ 	  
       <%
       	for(MSC_Bean li : MSCList){
       		String id = li.getNo()+ " " + li.getID();
          	 %> 
          	    	  {
          	    		  groupId: '<%=li.getName()%>',
+         	    		  level: <%=li.getLevel()%>,
+         	    		  <%if(li.getLevel().equals("1")){
+         	    			  %>className: "layout-1",
+         	    			  
+       	    			 <%} else if(li.getLevel().equals("2")){
+           	    			 %>className: "layout-2",
+           	    			 
+         	    		  <%} else if(li.getLevel().equals("3")){
+         	    			 %>className: "layout-3",
+         	    		  <%
+         	    		  	} else if(li.getLevel().equals("4")){
+         	    		  	%>className: "layout-4",
+         	    		  	
+         	    		  <%} else if(li.getLevel().equals("5")){
+         	    			 %>className: "layout-5",
+         	    			 
+         	    		  <%} else if(li.getLevel().equals("6")){
+         	    			 %>className: "layout-6",
+         	    		  <%}%>
+         	    		  
          	    		  id : '<%=id%>',
-         	    		  title: '<%=li.getTeam()%>\n<%=li.getName()%>\n오전: <%=li.getAMplace()%> \n오후: <%=li.getPMplace()%>',
+         	    		  title: '<%=li.getName()%>\n오전: <%=li.getAMplace()%> \n오후: <%=li.getPMplace()%>',
          	    		  start: '<%=li.getDate()%>',
-         	    		  <%for(int i = 0; i < place.length; i++){
-         	    			  if (nowTime >= 12){
-         	    				  if(li.getPMplace().equals(place[i])){
-         	    					 %>color: '<%=color[i]%>'<%  
-         	    				  }
-         	    			  } else {
-         	    				  if(li.getAMplace().equals(place[i])){
-           	    				  	%>color: '<%=color[i]%>'<%         	    					  
-         	    				  }
+         	    		  backgroundColor: 'white',
+         	    		  textColor: 'black',
+         	    		  
+         	    		 <%--  <%for(int i = 0; i < level.length; i++){
+         	    			  if(li.getLevel().equals(level[i])){
+         	    				 %>borderColor: '<%=color[i]%>'<%
          	    			  }
          	    		  }%> 
-         	    		   
+         	    		--%>
          	    	  },
-         	   
+         	    	
          	<%}%>
          ]
-     
-
-      	
+      
       , eventClick: function(arg) {
     		var str = arg.event.id.split(' ');
     		var no = str[0];
@@ -131,30 +142,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
        });
     calendar.render();
+    //var event = calendar.getEvents();
+    	
   });
   
-  
-$("#button").click(function() {
-    $([]).animate({
-        scrollTop: $("#elementtoScrollToID").offset().top
-    }, 2000);
-});
-
-
-window.onload = function (){
-	fnMove();
-}
-
-function fnMove(){
-    var offset = $(".fc .fc-col-header-cell.fc-day-today").offset();
-    $('#calendar').animate({scrollLeft : offset.left}, 200);
-}
-
-function moveScrollLeft(){
-	var _scrollX = $('#calendar').scrollLeft();
-	$('#calendar').scrollLeft(_scrollX + 100);
-}
-
+  	// ui 바뀐것들
+	window.onload = function (){
+		fnMove();
+	}
+	function fnMove(){
+	    var offset = $(".fc .fc-col-header-cell.fc-day-today").offset();
+	    $('#calendar').animate({scrollLeft : offset.left}, 200);
+	}
+	
+	$( "#calendar" ).scrollLeft( 300 );
+	function moveScrollLeft(){
+		var _scrollX = $('#calendar').scrollLeft();
+		$('#calendar').scrollLeft(_scrollX + 100);
+	}
+	
 </script>
 
   <meta charset="utf-8">
@@ -173,6 +179,32 @@ function moveScrollLeft(){
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
   
 <style>
+
+.layout-1{
+	border-color: red;
+}
+.layout-2{
+	top: 20px;
+	border-color: orange;
+}
+.layout-3{
+	top: 40px;
+	border-color: brown;
+}
+.layout-4{
+	top: 60px;
+	border-color: green;
+}
+.layout-5{
+	top: 80px;
+	border-color: black;
+}
+.layout-6{
+	top: 100px;
+	border-color: purple;
+}
+
+
 .fc-daygrid-event {
 	white-space: pre;
 }
@@ -188,7 +220,7 @@ function moveScrollLeft(){
 }
 
 .fc .fc-toolbar{
-	display: inline;
+ 	display: inline;
     justify-content: space-between;
     align-items: center;
     margin-right:10px;
@@ -204,16 +236,25 @@ function moveScrollLeft(){
 
 #calendar {
 	padding: 5px;
-	width:100%;
+	max-width: 1100px;
 	margin: 0 auto;
 	display:flex;
 }
 
+
 @media(max-width:800px){
+.container-fluid{
+	padding: 0;
+}
+.card-header:first-child{
+	padding: 0;
+}
+
 #calendar{
 	overflow: auto;
 	height:800px;
 	display:flex;
+	clear: both;
 }
 
 .fc-dayGridWeek-view{
@@ -226,15 +267,13 @@ function moveScrollLeft(){
     flex: 1 1 auto;
     background-color: #858796;
     }
-
-	#button1{
-	visibility: visible !important;}
-	
 }
 
 #fc-day-mon #fc-event-main-frame #fc-event-title #fc-sticky{
 	top:400px;
 }
+
+
 
 
 
@@ -247,9 +286,8 @@ function moveScrollLeft(){
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-      <!-- Sidebar -->
+    <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
-
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../summary/summary.jsp">
@@ -292,7 +330,8 @@ function moveScrollLeft(){
 	      
 	      <!-- Nav Item - manager schedule -->
 	      <li class="nav-item active">
-	        <a class="nav-link" onclick="fnMove()" href="../manager_schedule/manager_schedule.jsp">
+	      	<a class="nav-link" onclick="fnMove()" href="../manager_schedule/manager_schedule.jsp">
+	        
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
 	      </li>
@@ -324,7 +363,6 @@ function moveScrollLeft(){
     </ul>
     <!-- End of Sidebar -->
 
-
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -341,6 +379,8 @@ function moveScrollLeft(){
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+
+        
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -365,7 +405,7 @@ function moveScrollLeft(){
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-
+        <div class="container-fluid">
         
      <div class="card shadow mb-4">
      
@@ -373,11 +413,11 @@ function moveScrollLeft(){
        
      
     <!-- /.container-fluid -->
-     
-    
-      		<a href="manager_schedule_add.jsp" class="btn btn-primary"style="float:right;right: 0;" >+</a>
-      		<!-- <button onclick="fnMove()" id="button1" class="btn btn-primary" style="visibility:hidden;float:right;right: 0;margin-right: 2px;">오늘</button> -->
-		<div id='calendar' ></div>
+     <div class="card-body"style="float: right;">
+      		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
+      	</div>
+      	
+		<div id='calendar'></div>
 		
 		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
 			<input id="number" type="hidden" name = "num" value="" />
@@ -391,6 +431,16 @@ function moveScrollLeft(){
      </div>
       <!-- End of Main Content -->
 
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+      </div>
 		</div>
     </div>
     <!-- End of Content Wrapper -->

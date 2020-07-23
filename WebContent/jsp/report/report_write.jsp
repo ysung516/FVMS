@@ -9,14 +9,13 @@
 <head>
 
 <%
-
-	String sessionID = session.getAttribute("sessionID").toString();
-	String sessionName = session.getAttribute("sessionName").toString();
 	PrintWriter script =  response.getWriter();
-	if (sessionID == null || sessionID.equals("") ){
+	if (session.getAttribute("sessionID") == null){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
 	
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();	
 %>
 
   <meta charset="utf-8">
@@ -42,7 +41,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../summary/summary.jsp">
@@ -161,6 +160,8 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
+        <div class="container-fluid">
+
 	   <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">주간보고서 작성</h6>
@@ -207,12 +208,6 @@
       <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
       <td>&nbsp;</td>
      </tr>
-      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">비고</td>
-      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
-      <td>&nbsp;</td>
-     </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr align="center">
@@ -231,7 +226,17 @@
       </div>
       <!-- End of Main Content -->
 </div>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
 
+    </div>
     <!-- End of Content Wrapper -->
 
   </div>

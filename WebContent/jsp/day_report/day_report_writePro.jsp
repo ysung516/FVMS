@@ -12,13 +12,14 @@
 <body>
 	<%
 		request.setCharacterEncoding("UTF-8");
-		String sessionID = "";
 		sheetMethod method = new sheetMethod();
 		PrintWriter script =  response.getWriter();
-		sessionID = (String)session.getAttribute("sessionID");
-		if (sessionID == null || sessionID.equals("") ){
+		if (session.getAttribute("sessionID") == null){
 			script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 		}
+	
+		String sessionID = session.getAttribute("sessionID").toString();
+		String sessionName = session.getAttribute("sessionName").toString();
 		method.saveUser_info(sessionID);
 		MemberBean member = method.getMember();
 		

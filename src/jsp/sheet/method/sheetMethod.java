@@ -443,6 +443,7 @@ public class sheetMethod {
 			mb.setDate(li.getCustomElements().getValue("날짜"));
         	mb.setName(li.getCustomElements().getValue("이름"));
         	mb.setTeam(li.getCustomElements().getValue("팀"));
+        	mb.setLevel(li.getCustomElements().getValue("level"));
         	MSCList.add(mb);
         }
         
@@ -471,6 +472,7 @@ public class sheetMethod {
 				mb.setDate(li.getCustomElements().getValue("날짜"));
 				mb.setName(li.getCustomElements().getValue("이름"));
 				mb.setTeam(li.getCustomElements().getValue("팀"));
+				mb.setLevel(li.getCustomElements().getValue("level"));
 			}
         }
         
@@ -478,7 +480,7 @@ public class sheetMethod {
 	}
 	
 	// 관리자 일정 추가
-	public int insert_MSC(String id, String amPlace, String pmPlace, String date, String team, String name)throws GeneralSecurityException, IOException, ServiceException {
+	public int insert_MSC(String id, String amPlace, String pmPlace, String date, String team, String name, String level)throws GeneralSecurityException, IOException, ServiceException {
 		connect();
 		access();
     	findSheet("관리자일정");
@@ -503,6 +505,7 @@ public class sheetMethod {
         	li.getCustomElements().setValueLocal("날짜",date);
         	li.getCustomElements().setValueLocal("팀",team);
         	li.getCustomElements().setValueLocal("이름",name);
+        	li.getCustomElements().setValueLocal("level",level);
         	listFeed.insert(li);
         	System.out.println(Integer.toString(list.size()+1));
         	return 1;

@@ -7,7 +7,14 @@ public class MSC_Bean {
 	private String PMplace;
 	private String Date;
 	private String name;
+	private String level;
 	
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
 	public String getNo() {
 		return no;
 	}

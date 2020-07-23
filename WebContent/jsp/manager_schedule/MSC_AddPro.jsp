@@ -38,6 +38,23 @@
 		if(PmPlace.equals("기타")){
 			PmPlace = PMother;
 		}
+	
+		String level;
+		if(sessionName.equals("유영민")){
+			level = "1";
+		} else if (sessionName.equals("송우람")){
+			level = "2";
+		} else if (sessionName.equals("최인석")){
+			level = "3";
+		} else if (sessionName.equals("이창우")){
+			level = "4";
+		} else if (sessionName.equals("윤영산")){
+			level = "5";
+		} else if (sessionName.equals("이창수")){
+			level = "6";
+		} else {
+			level = "0";
+		}
 		
 		
 		sheetMethod method = new sheetMethod();
@@ -45,7 +62,7 @@
 		method.saveUser_info(sessionID);
 		String team = method.getMember().getTEAM();
 		if(num.equals("")){
-			if (method.insert_MSC(sessionID, AmPlace, PmPlace, date, team, sessionName) == 1){
+			if (method.insert_MSC(sessionID, AmPlace, PmPlace, date, team, sessionName, level) == 1){
 				script.print("<script> alert('일정이 추가 됬습니다.'); location.href = 'manager_schedule.jsp'</script>");
 			} else script.print("<script> alert('빈칸을 모두 작성해주세요.'); history.back(); </script>");
 		}
