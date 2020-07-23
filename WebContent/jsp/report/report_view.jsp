@@ -186,10 +186,10 @@
          <div class="card-body">
           <div class="table-responsive"> 
           
-   		<table style="/* white-space: nowrap; */width:100%;word-break: keep-all;margin-bottom: 10px;">
+   		<table style="/* white-space: nowrap; */width:100%;word-break: break-all;margin-bottom: 10px;">
     	 <tr>
-	      <td class="m-0 text-primary" align="center">프로젝트</td> 
-	      <td style="padding: 15px;"><%=board.getTitle()%></td>
+	      <td class="m-0 text-primary" align="center" style="white-space: nowrap; ">프로젝트</td> 
+	      <td style="padding: 15px; "><%=board.getTitle()%></td>
 	     </tr>
 	     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
 	
