@@ -182,72 +182,62 @@
         </div>
         <div class="card-body">
  <div class="table-responsive">
-   <table style="white-space: nowrap;width:100%;">
+   <table style="/* white-space: nowrap; */width:100%;word-break: keep-all;margin-bottom: 10px;">
      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">제목</td>
-      <td><%=board.getTitle() %></td>
-      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center";>제목</td>
+      <td style="padding: 15px;"><%=board.getTitle() %></td>
      </tr>
-     <tr height="1" bgcolor="#82B5DF"><td colspan="4" ></td>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="2" ></td>
      </tr>
   
-      <tr height="1" bgcolor="#fff"><td colspan="4"></td>
-      </tr>
+  
    
    <tr height="1" border-top-color="#82B5DF">
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">작성자</td>
-      <td><%=board.getName()%></td>
-      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center";>작성자</td>
+      <td style="padding: 15px;"><%=board.getName()%></td>
      </tr>
      
     <tr height="1" border-top-color="#82B5DF">
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">작성일</td>
-      <td><%=board.getDate()%></td>
-      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center";>작성일</td>
+      <td style="padding: 15px;"><%=board.getDate()%></td>
      </tr>
      
-     <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
      
      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">금일계획</td>
-      <td><%
+      <td class="m-0 text-primary" align="center";>금일계획</td>
+      <td style="padding: 15px;"><%
       	line = board.getP_weekPlan();
       	for(String li : line){
-      		%><pre><%=li%></pre><%
+      		%><p><%=li%></p><%
       	}
       %></td>
-      <td>&nbsp;</td>
      </tr>
-      <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
+      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
       <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">금일진행</td>
-      <td><%
+   
+      <td class="m-0 text-primary" align="center";>금일진행</td>
+      <td style="padding: 15px;"><%
       	line = board.getP_weekPro();
       	for(String li : line){
-      		%><pre><%=li%></pre><%
+      		%><p><%=li%></p><%
       	}
       %></td>
-      <td>&nbsp;</td>
+
      </tr>
-      <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
+      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
       <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">차일계획</td>
-      <td><%
+      <td class="m-0 text-primary" align="center";>차일계획</td>
+      <td style="padding: 15px;"><%
       	line = board.getP_nextPlan();
       	for(String li : line){
-      		%><pre><%=li%></pre><%
+      		%><p><%=li%></p><%
       	} 
       %></td>
-      <td>&nbsp;</td>
+     
      </tr>  
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
-     <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
     </table>
     </div>
      <table style="margin: 0 auto;">
