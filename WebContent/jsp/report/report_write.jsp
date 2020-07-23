@@ -217,6 +217,18 @@
       <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
       <td>&nbsp;</td>
      </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">특이사항</td>
+      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">비고</td>
+      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
      <tr align="center">

@@ -248,6 +248,30 @@
       %></td>
       <td>&nbsp;</td>
      </tr> 
+      <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">특이사항</td>
+      <td ><%
+      	line = board.getP_nextPlan();
+      	for(String li : line){
+      		%><pre><%=li%></pre><%
+      	}
+      %></td>
+      <td>&nbsp;</td>
+     </tr> 
+      <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
+      <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">비고</td>
+      <td ><%
+      	line = board.getP_nextPlan();
+      	for(String li : line){
+      		%><pre><%=li%></pre><%
+      	}
+      %></td>
+      <td>&nbsp;</td>
+     </tr> 
      
      <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
       <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
