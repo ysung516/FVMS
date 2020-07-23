@@ -172,83 +172,80 @@
 
         </nav>
         <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-        
-       <div class="card shadow mb-4">
-        <div class="card-header py-3">
-         <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">일간보고서 조회</h6>
-        </div>
-        <div class="card-body">
- <div class="table-responsive">
-   <table style="/* white-space: nowrap; */width:100%;word-break: keep-all;margin-bottom: 10px;">
-     <tr>
-      <td class="m-0 text-primary" align="center";>제목</td>
-      <td style="padding: 15px;"><%=board.getTitle() %></td>
-     </tr>
-     <tr height="1" bgcolor="#82B5DF"><td colspan="2" ></td>
-     </tr>
-  
-  
-   
-   <tr height="1" border-top-color="#82B5DF">
-      <td class="m-0 text-primary" align="center";>작성자</td>
-      <td style="padding: 15px;"><%=board.getName()%></td>
-     </tr>
-     
-    <tr height="1" border-top-color="#82B5DF">
-      <td class="m-0 text-primary" align="center";>작성일</td>
-      <td style="padding: 15px;"><%=board.getDate()%></td>
-     </tr>
-     
-     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-     
-     <tr>
-      <td class="m-0 text-primary" align="center";>금일계획</td>
-      <td style="padding: 15px;"><%
-      	line = board.getP_weekPlan();
-      	for(String li : line){
-      		%><p><%=li%></p><%
-      	}
-      %></td>
-     </tr>
-      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-      <tr>
-   
-      <td class="m-0 text-primary" align="center";>금일진행</td>
-      <td style="padding: 15px;"><%
-      	line = board.getP_weekPro();
-      	for(String li : line){
-      		%><p><%=li%></p><%
-      	}
-      %></td>
-
-     </tr>
-      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-      <tr>
-      <td class="m-0 text-primary" align="center";>차일계획</td>
-      <td style="padding: 15px;"><%
-      	line = board.getP_nextPlan();
-      	for(String li : line){
-      		%><p><%=li%></p><%
-      	} 
-      %></td>
-     
-     </tr>  
-     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-    </table>
-    </div>
-     <table style="margin: 0 auto;">
-     <tr>
-     <td colspan="2">
-     <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
-       <a href="day_report.jsp" class="btn btn-primary">목록</a>
-       </td>
-     </tr>
-   
-       </table>
+	
+	        <!-- Begin Page Content -->
+	        <div class="container-fluid">
+	        
+	       <div class="card shadow mb-4">
+	        <div class="card-header py-3">
+	         <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">일간보고서 조회</h6>
+	        </div>
+	        <div class="card-body">
+ 		<div class="table-responsive">
+   			<table style="/* white-space: nowrap; */width:100%;word-break: keep-all;margin-bottom: 10px;">
+		     <tr>
+		      <td class="m-0 text-primary" align="center">제목</td>
+		      <td style="padding: 15px;"><%=board.getTitle() %></td>
+		     </tr>
+		     <tr height="1" bgcolor="#82B5DF"><td colspan="2" ></td>
+		     </tr>
+		  
+		   <tr height="1" border-top-color="#82B5DF">
+		      <td class="m-0 text-primary" align="center">작성자</td>
+		      <td style="padding: 15px;"><%=board.getName()%></td>
+		     </tr>
+		     
+		    <tr height="1" border-top-color="#82B5DF">
+		      <td class="m-0 text-primary" align="center">작성일</td>
+		      <td style="padding: 15px;"><%=board.getDate()%></td>
+		     </tr>
+		     
+		     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
+		     
+		     <tr>
+		      <td class="m-0 text-primary" align="center">금일계획</td>
+		      <td style="padding: 15px;"><%
+		      	line = board.getP_weekPlan();
+		      	for(String li : line){
+		      		%><p><%=li%></p><%
+		      	}
+		      %></td>
+		     </tr>
+		      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
+		      <tr>
+		   
+		      <td class="m-0 text-primary" align="center">금일진행</td>
+		      <td style="padding: 15px;"><%
+		      	line = board.getP_weekPro();
+		      	for(String li : line){
+		      		%><p><%=li%></p><%
+		      	}
+		      %></td>
+		
+		     </tr>
+		      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
+		      <tr>
+		      <td class="m-0 text-primary" align="center";>차일계획</td>
+		      <td style="padding: 15px;"><%
+		      	line = board.getP_nextPlan();
+		      	for(String li : line){
+		      		%><p><%=li%></p><%
+		      	} 
+		      %></td>
+		     
+		     </tr>  
+		     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
+		    </table>
+		    </div>
+		     <table style="margin: 0 auto;">
+		     <tr>
+		     <td colspan="2">
+		     <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
+		       <a href="day_report.jsp" class="btn btn-primary">목록</a>
+		       </td>
+		     </tr>
+		   
+		       </table>
      </div>
              <!-- /.container-fluid -->
 
