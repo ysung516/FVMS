@@ -34,6 +34,16 @@
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 	
 </head>
+<style>
+	@media(max-width:800px){
+		.container-fluid{
+			padding: 0;
+		}
+		.card-header:first-child{
+			padding: 0;
+		}
+}
+</style>
 
 <body id="page-top">
 
@@ -163,7 +173,7 @@
        
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">일정추가</h6>
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">일정추가</h6>
                 </div>
                 <div class="card-body">
   		<div class="table-responsive"> 
@@ -221,15 +231,6 @@
       </div>
       <!-- End of Main Content -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->

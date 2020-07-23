@@ -36,6 +36,19 @@
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<style>
+	@media(max-width:800px){
+		.container-fluid{
+			padding: 0;
+		}
+		.card-header:first-child{
+			padding: 0;
+		}
+		#Delete{
+		margin-right: 15px;
+		}
+}
+</style>
 
 <body id="page-top">
 	
@@ -50,7 +63,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../summary/summary.jsp">
@@ -172,7 +185,7 @@
  
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block;">일정수정</h6>
+                  <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block;padding-left: 17px;vertical-align: middle;">일정수정</h6>
                   <form method="post" action="manager_schedule_deletePro.jsp" style="display: inline !important;">
 				 	<input type="hidden" name = "num" value="<%=num%>">
 				 	<input id="Delete" type="submit" name="Delete" value=삭제 class="btn btn-secondary btn-icon-split" style="float:right;width: 50px;height: 30px;">
@@ -285,16 +298,6 @@
 
       </div>
       <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
 
     </div>
     <!-- End of Content Wrapper -->
