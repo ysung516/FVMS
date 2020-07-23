@@ -188,7 +188,7 @@ public class sheetMethod {
          if (title != null && writeDate != null) {
         	//방법2
         	 li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
-             li.getCustomElements().setValueLocal("제목", title);
+             li.getCustomElements().setValueLocal("프로젝트명", title);
              li.getCustomElements().setValueLocal("작성일", writeDate);
              li.getCustomElements().setValueLocal("금주계획", weekPlan);
              li.getCustomElements().setValueLocal("금주진행", weekPro);
@@ -226,7 +226,7 @@ public class sheetMethod {
         	board.setName(li.getCustomElements().getValue("이름"));
         	board.setRank(li.getCustomElements().getValue("직급"));
         	board.setTeam(li.getCustomElements().getValue("팀"));
-        	board.setTitle(li.getCustomElements().getValue("제목"));
+        	board.setTitle(li.getCustomElements().getValue("프로젝트명"));
         	board.setDate(li.getCustomElements().getValue("작성일"));
         	board.setWeekPlan(li.getCustomElements().getValue("금주계획"));
         	board.setWeekPro(li.getCustomElements().getValue("금주진행"));
@@ -258,7 +258,7 @@ public class sheetMethod {
 	        	board.setName(li.getCustomElements().getValue("이름"));
 	        	board.setRank(li.getCustomElements().getValue("직급"));
 	        	board.setTeam(li.getCustomElements().getValue("팀"));
-	        	board.setTitle(li.getCustomElements().getValue("제목"));
+	        	board.setTitle(li.getCustomElements().getValue("프로젝트명"));
 	        	board.setDate(li.getCustomElements().getValue("작성일"));
 	        	board.setWeekPlan(li.getCustomElements().getValue("금주계획"));
 	        	board.setWeekPro(li.getCustomElements().getValue("금주진행"));
@@ -393,7 +393,7 @@ public class sheetMethod {
         	ProjectBean pj = new ProjectBean();
         	pj.setTEAM(li.getCustomElements().getValue("팀"));
         	pj.setPROJECT_CODE(li.getCustomElements().getValue("프로젝트 코드"));
-        	pj.setPROJECT_NAME(li.getCustomElements().getValue("프로젝트 명"));
+        	pj.setPROJECT_NAME(li.getCustomElements().getValue("프로젝트명"));
         	pj.setSTATE(li.getCustomElements().getValue("상태"));
         	pj.setPART(li.getCustomElements().getValue("실"));
         	pj.setCLIENT(li.getCustomElements().getValue("고객사"));
@@ -417,7 +417,6 @@ public class sheetMethod {
         	pj.setEMPLOY_DEMAND(li.getCustomElements().getValue("채용수요"));
         	pj.setOUTSOURCE_DEMAND(li.getCustomElements().getValue("외주수요"));
         	projectList.add(pj);
-        	
         }
 		return projectList;
 	}

@@ -23,7 +23,8 @@
 	sheetMethod method = new sheetMethod();
 	
 	ArrayList<BoardBean> list = method.getBoardList();
-%>
+	ArrayList<ProjectBean> pjList = method.getProjectList();
+ %>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,6 +52,66 @@
 		}
 }
 </style>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+<script>
+	function categoryChange(){
+		var itemSelect = document.getElementById("option");
+		var itemID = itemSelect.options[itemSelect.selectedIndex].value;
+		var tmp = "";
+		$("#reportList").empty();
+		if(itemID == "All"){
+		<%	for(int i=0; i < list.size(); i++){ %>
+			  tmp += 
+			     "<tr style='text-align:center;'>"
+			    + "<td></td>"
+			    + "<td>"
+			    + "<%=list.get(i).getNo()%>"
+			    + "</td>"
+			    + "<td>"
+			    + "<a href='report_view.jsp?no="
+			    + "<%=list.get(i).getNo()%>"
+			    + "'>"
+			    + "<%=list.get(i).getTitle()%>"
+			    + "</a></td>"
+			    + "<td>"
+			    + "<%=list.get(i).getName()%>"
+			    + "</td>"
+			    + "<td>"
+			    + "<%=list.get(i).getDate()%>"
+			    + "</td>"
+			    + "</tr>";
+			<%}%>
+				$("#reportList").append(tmp);
+			}
+		
+		else if(itemID == "ASPICE level1 대응 트랜시스 모델검증"){
+			<%	for(int i=0; i < list.size(); i++){ %>
+			  tmp += 
+			     "<tr style='text-align:center;'>"
+			    + "<td></td>"
+			    + "<td>"
+			    + "<%=list.get(i).getNo()%>"
+			    + "</td>"
+			    + "<td>"
+			    + "<a href='report_view.jsp?no="
+			    + "<%=list.get(i).getNo()%>"
+			    + "'>"
+			    + "<%=list.get(i).getTitle()%>"
+			    + "</a></td>"
+			    + "<td>"
+			    + "<%=list.get(i).getName()%>"
+			    + "</td>"
+			    + "<td>"
+			    + "123"
+			    + "</td>"
+			    + "</tr>";
+			<%}%>
+				$("#reportList").append(tmp);
+			}	
+	}
+	
+</script>
 
 <body id="page-top">
 
@@ -180,17 +241,29 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 목록</h6>
                 </div>
-                   <table style="white-space: nowrap; overflow:hidden;width:100%;">
+<table style="white-space: nowrap; overflow:hidden;width:100%;">
+<thead>
   <tr height="5"><td width="5"></td></tr>
  <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
    <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
    <td width="73">번호</td>
-   <td width="379">제목</td>
+   <td width="379">프로젝트 명 :
+   		<select id ="option" onchange="categoryChange()">
+   			<option value="All" selected="selected">All</option>
+   			<%for(int i=0; i < pjList.size(); i++){
+   				%><option value = "<%=pjList.get(i).getPROJECT_NAME()%>"><%=pjList.get(i).getPROJECT_NAME()%></option><%
+   			}
+   			%>
+   		</select>
+   </td>
+   		
    <td width="73">작성자</td>
    <td width="164">작성일</td>
    <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
   </tr>
-  <%
+  </thead>  
+  <tbody id ="reportList" name="reportList" class="reportList">
+  		 <%
 	if(list != null){
 		for(int i=0; i < list.size(); i++){
 			%>
@@ -203,14 +276,10 @@
 			</tr>
 			<%
 		}
-	} else {
-		%>
-			<tr><td>등록된 주간 보고가 없습니다.</td></tr>
-		<%
 	} 
-  %> 
+  %>
+  </tbody>
   
-
  <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
  </table>
  
