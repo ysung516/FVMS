@@ -188,7 +188,7 @@
    <table  style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>
       <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">제목</td> 
+      <td class="m-0 text-primary" align="center">프로젝트</td> 
       <td><%=board.getTitle()%></td>
       <td>&nbsp;</td>
      </tr>
