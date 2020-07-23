@@ -43,6 +43,13 @@
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+	function fnMove(seq){
+		var offset = $("#move" + seq).offset();
+        $('html, body').animate({scrollTop : offset.top}, 400);
+	}
+</script>
 <style>
 	@media(max-width:800px){
 		.container-fluid{
@@ -183,6 +190,13 @@
         <div class="card-header py-3">
          <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 조회</h6>
         </div>
+                 <div style= "position: fixed; top: 100px; right:100px">
+ <input type="radio" name="chk_info" value="금일계획" onclick="fnMove('1')">금일계획 <br>
+ <input type="radio" name="chk_info" value="금일진행" onclick="fnMove('2')">금일진행 <br>
+ <input type="radio" name="chk_info" value="차일계획" onclick="fnMove('3')">차일계획<br>
+ <input type="radio" name="chk_info" value="특이사항">특이사항<br>
+ <input type="radio" name="chk_info" value="비고">비고
+ </div>
          <div class="card-body">
           <div class="table-responsive"> 
           
@@ -206,7 +220,7 @@
 	     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
 	     
 	     <tr>
-	      <td class="m-0 text-primary" align="center">금주계획</td>
+	      <td class="m-0 text-primary" align="center" id = "move1">금주계획</td>
 	      <td style="padding: 15px;"><%
 	      	line = board.getP_weekPlan();
 	      	for(String li : line){
@@ -218,7 +232,7 @@
 	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
 	     
 	      <tr>
-	      <td class="m-0 text-primary" align="center">금주진행</td>
+	      <td class="m-0 text-primary" align="center" id = "move2">금주진행</td>
 	      <td style="padding: 15px;"><%
 	      	line = board.getP_weekPro();
 	      	for(String li : line){
@@ -229,7 +243,7 @@
 	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
 	     
 	      <tr>
-	      <td class="m-0 text-primary" align="center">차주계획</td>
+	      <td class="m-0 text-primary" align="center" id = "move3">차주계획</td>
 	      <td style="padding: 15px;"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
@@ -241,7 +255,7 @@
 	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
 	      
 	      <tr>
-	      <td class="m-0 text-primary" align="center">특이사항</td>
+	      <td class="m-0 text-primary" align="center" id = "move4">특이사항</td>
 	      <td style="padding: 15px;"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
@@ -253,7 +267,7 @@
 	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
 	      
 	      <tr>
-	      <td class="m-0 text-primary" align="center">비고</td>
+	      <td class="m-0 text-primary" align="center" id = "move5">비고</td>
 	      <td style="padding: 15px;"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
