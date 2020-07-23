@@ -194,8 +194,8 @@
  <input type="radio" name="chk_info" value="금일계획" onclick="fnMove('1')">금일계획 <br>
  <input type="radio" name="chk_info" value="금일진행" onclick="fnMove('2')">금일진행 <br>
  <input type="radio" name="chk_info" value="차일계획" onclick="fnMove('3')">차일계획<br>
- <input type="radio" name="chk_info" value="특이사항">특이사항<br>
- <input type="radio" name="chk_info" value="비고">비고
+ <input type="radio" name="chk_info" value="특이사항" onclick="fnMove('4')">특이사항<br>
+ <input type="radio" name="chk_info" value="비고" onclick="fnMove('5')">비고
  </div>
          <div class="card-body">
           <div class="table-responsive"> 
