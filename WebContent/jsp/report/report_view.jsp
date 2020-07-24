@@ -219,12 +219,7 @@
           	<legend>프로젝트</legend>
           		
           </fieldset>
-          
-          <fieldset>
-          	<legend>프로젝트 코드</legend>
-          		
-          </fieldset>
-          
+         
           <fieldset>
           	<LEGEND>작성자</legend>
           	
