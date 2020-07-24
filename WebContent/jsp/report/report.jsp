@@ -53,64 +53,174 @@
 }
 </style>
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
+function sortingNumber( a , b ){  
 
-<script>
-	function categoryChange(){
-		var itemSelect = document.getElementById("option");
-		var itemID = itemSelect.options[itemSelect.selectedIndex].value;
-		var tmp = "";
-		$("#reportList").empty();
-		if(itemID == "All"){
-		<%	for(int i=0; i < list.size(); i++){ %>
-			  tmp += 
-			     "<tr style='text-align:center;'>"
-			    + "<td></td>"
-			    + "<td>"
-			    + "<%=list.get(i).getNo()%>"
-			    + "</td>"
-			    + "<td>"
-			    + "<a href='report_view.jsp?no="
-			    + "<%=list.get(i).getNo()%>"
-			    + "'>"
-			    + "<%=list.get(i).getTitle()%>"
-			    + "</a></td>"
-			    + "<td>"
-			    + "<%=list.get(i).getName()%>"
-			    + "</td>"
-			    + "<td>"
-			    + "<%=list.get(i).getDate()%>"
-			    + "</td>"
-			    + "</tr>";
-			<%}%>
-				$("#reportList").append(tmp);
-			}
-		
-		else if(itemID == "ASPICE level1 대응 트랜시스 모델검증"){
-			<%	for(int i=0; i < list.size(); i++){ %>
-			  tmp += 
-			     "<tr style='text-align:center;'>"
-			    + "<td></td>"
-			    + "<td>"
-			    + "<%=list.get(i).getNo()%>"
-			    + "</td>"
-			    + "<td>"
-			    + "<a href='report_view.jsp?no="
-			    + "<%=list.get(i).getNo()%>"
-			    + "'>"
-			    + "<%=list.get(i).getTitle()%>"
-			    + "</a></td>"
-			    + "<td>"
-			    + "<%=list.get(i).getName()%>"
-			    + "</td>"
-			    + "<td>"
-			    + "123"
-			    + "</td>"
-			    + "</tr>";
-			<%}%>
-				$("#reportList").append(tmp);
-			}	
-	}
-	
+        if ( typeof a == "number" && typeof b == "number" ) return a - b; 
+
+        // 천단위 쉼표와 공백문자만 삭제하기.  
+        var a = ( a + "" ).replace( /[,\s\xA0]+/g , "" ); 
+        var b = ( b + "" ).replace( /[,\s\xA0]+/g , "" ); 
+
+        var numA = parseFloat( a ) + ""; 
+        var numB = parseFloat( b ) + ""; 
+
+        if ( numA == "NaN" || numB == "NaN" || a != numA || b != numB ) return false; 
+
+        return parseFloat( a ) - parseFloat( b ); 
+} 
+
+/* changeForSorting() : 문자열 바꾸기. */ 
+
+function changeForSorting( first , second ){  
+
+        // 문자열의 복사본 만들기. 
+        var a = first.toString().replace( /[\s\xA0]+/g , " " ); 
+        var b = second.toString().replace( /[\s\xA0]+/g , " " ); 
+
+        var change = { first : a, second : b }; 
+
+        if ( a.search( /\d/ ) < 0 || b.search( /\d/ ) < 0 || a.length == 0 || b.length == 0 ) return change; 
+
+        var regExp = /(\d),(\d)/g; // 천단위 쉼표를 찾기 위한 정규식. 
+
+        a = a.replace( regExp , "$1" + "$2" ); 
+        b = b.replace( regExp , "$1" + "$2" ); 
+
+        var unit = 0; 
+        var aNb = a + " " + b; 
+        var numbers = aNb.match( /\d+/g ); // 문자열에 들어있는 숫자 찾기 
+
+        for ( var x = 0; x < numbers.length; x++ ){ 
+
+                var length = numbers[ x ].length; 
+                if ( unit < length ) unit = length; 
+        } 
+
+        var addZero = function( string ){ // 숫자들의 단위 맞추기 
+
+                var match = string.match( /^0+/ ); 
+
+                if ( string.length == unit ) return ( match == null ) ? string : match + string; 
+
+                var zero = "0"; 
+
+                for ( var x = string.length; x < unit; x++ ) string = zero + string; 
+
+                return ( match == null ) ? string : match + string; 
+        }; 
+
+        change.first = a.replace( /\d+/g, addZero ); 
+        change.second = b.replace( /\d+/g, addZero ); 
+
+        return change; 
+} 
+
+/* byLocale() */ 
+
+function byLocale(){ 
+
+        var compare = function( a , b ){ 
+
+                var sorting = sortingNumber( a , b ); 
+
+                if ( typeof sorting == "number" ) return sorting; 
+
+                var change = changeForSorting( a , b ); 
+
+                var a = change.first; 
+                var b = change.second; 
+
+                return a.localeCompare( b ); 
+        }; 
+
+        var ascendingOrder = function( a , b ){  return compare( a , b );  }; 
+        var descendingOrder = function( a , b ){  return compare( b , a );  }; 
+
+        return { ascending : ascendingOrder, descending : descendingOrder }; 
+} 
+
+/* replacement() */ 
+ 
+function replacement( parent ){  
+        var tagName = parent.tagName.toLowerCase(); 
+        if ( tagName == "table" ) parent = parent.tBodies[ 0 ]; 
+        tagName = parent.tagName.toLowerCase(); 
+        if ( tagName == "tbody" ) var children = parent.rows; 
+        else var children = parent.getElementsByTagName( "li" ); 
+
+        var replace = { 
+                order : byLocale(), 
+                index : false, 
+                array : function(){ 
+                        var array = [ ]; 
+                        for ( var x = 0; x < children.length; x++ ) array[ x ] = children[ x ]; 
+                        return array; 
+                }(), 
+                checkIndex : function( index ){ 
+                        if ( index ) this.index = parseInt( index, 10 ); 
+                        var tagName = parent.tagName.toLowerCase(); 
+                        if ( tagName == "tbody" && ! index ) this.index = 0; 
+                }, 
+                getText : function( child ){ 
+                        if ( this.index ) child = child.cells[ this.index ]; 
+                        return getTextByClone( child ); 
+                }, 
+                setChildren : function(){ 
+                        var array = this.array; 
+                        while ( parent.hasChildNodes() ) parent.removeChild( parent.firstChild ); 
+                        for ( var x = 0; x < array.length; x++ ) parent.appendChild( array[ x ] ); 
+                }, 
+                ascending : function( index ){ // 오름차순 
+                        this.checkIndex( index ); 
+                        var _self = this; 
+                        var order = this.order; 
+                        var ascending = function( a, b ){ 
+                                var a = _self.getText( a ); 
+                                var b = _self.getText( b ); 
+                                return order.ascending( a, b ); 
+                        }; 
+                        this.array.sort( ascending ); 
+                        this.setChildren(); 
+                }, 
+                descending : function( index ){ // 내림차순
+                        this.checkIndex( index ); 
+                        var _self = this; 
+                        var order = this.order; 
+                        var descending = function( a, b ){ 
+                                var a = _self.getText( a ); 
+                                var b = _self.getText( b ); 
+                                return order.descending( a, b ); 
+                        }; 
+                        this.array.sort( descending ); 
+                        this.setChildren(); 
+                } 
+        }; 
+        return replace; 
+} 
+
+function getTextByClone( tag ){  
+        var clone = tag.cloneNode( true ); // 태그의 복사본 만들기. 
+        var br = clone.getElementsByTagName( "br" ); 
+        while ( br[0] ){ 
+                var blank = document.createTextNode( " " ); 
+                clone.insertBefore( blank , br[0] ); 
+                clone.removeChild( br[0] ); 
+        } 
+        var isBlock = function( tag ){ 
+                var display = ""; 
+                if ( window.getComputedStyle ) display = window.getComputedStyle ( tag, "" )[ "display" ]; 
+                else display = tag.currentStyle[ "display" ]; 
+                return ( display == "block" ) ? true : false; 
+        }; 
+        var children = clone.getElementsByTagName( "*" ); 
+        for ( var x = 0; x < children.length; x++){ 
+                var child = children[ x ]; 
+                if ( ! ("value" in child) && isBlock(child) ) child.innerHTML = child.innerHTML + " "; 
+        } 
+        var textContent = ( "textContent" in clone ) ? clone.textContent : clone.innerText; 
+        return textContent; 
+} 
 </script>
 
 <body id="page-top">
@@ -241,25 +351,17 @@
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 목록</h6>
                 </div>
-<table style="white-space: nowrap; overflow:hidden;width:100%;">
+<table style="white-space: nowrap; overflow:hidden;width:100%;" id ="reportTable">
 <thead>
-  <tr height="5"><td width="5"></td></tr>
- <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-   <td width="73">번호</td>
-   <td width="379">프로젝트 명 :
-   		<select id ="option" onchange="categoryChange()">
-   			<option value="All" selected="selected">All</option>
-   			<%for(int i=0; i < pjList.size(); i++){
-   				%><option value = "<%=pjList.get(i).getPROJECT_NAME()%>"><%=pjList.get(i).getPROJECT_NAME()%></option><%
-   			}
-   			%>
-   		</select>
-   </td>
-   		
-   <td width="73">작성자</td>
-   <td width="164">작성일</td>
-   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
+ <tr style= text-align:center;">
+   <th width="73">번호</th>
+   <th width="379">프로젝트</th>
+   <th width="379">상태
+   		<button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>		
+   <th width="73">작성자
+   		<button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+   <th width="164">작성일
+   		<button onclick="sortTD ( 4 )">▲</button><button onclick="reverseTD ( 4 )">▼</button></th>
   </tr>
   </thead>  
   <tbody id ="reportList" name="reportList" class="reportList">
@@ -268,9 +370,17 @@
 		for(int i=0; i < list.size(); i++){
 			%>
 			<tr style="text-align:center;">
-				<td></td>
 				<td><%=list.get(i).getNo()%></td>
 				<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
+				<td>
+				<%
+					for(int j=0; j < pjList.size(); j++){
+						if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
+							%><%=pjList.get(j).getSTATE()%><%
+						}
+					}
+				%>
+				</td>
 				<td><%=list.get(i).getName()%></td>
 				<td><%=list.get(i).getDate()%></td>
 			</tr>
@@ -279,9 +389,16 @@
 	} 
   %>
   </tbody>
-  
- <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
+  <tfoot><tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr></tfoot>
  </table>
+ 
+<script type="text/javascript">
+	var myTable = document.getElementById( "reportTable" ); 
+	var replace = replacement( myTable ); 
+	function sortTD( index ){replace.ascending( index );} 
+	function reverseTD( index ){replace.descending( index );} 
+</script>
+ 
  
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr><td colspan="4" height="5"></td></tr>
