@@ -203,6 +203,13 @@
       <td><input name="TITLE"  style=width:100%; placeholder="프로젝트 명"></td>
       <td>&nbsp;</td>
      </tr>
+       <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td class="m-0 text-primary" align="center">프로젝트 코드</td>
+      <td><input name="Pro_Code"  style=width:100%; placeholder="프로젝트 코드"></td>
+      <td>&nbsp;</td>
+     </tr>
      <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td>
      </tr>
   
