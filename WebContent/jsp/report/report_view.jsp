@@ -61,9 +61,8 @@
 }
 
   fieldset{
-	  border: 3px inset;
-	  border-color: #5d7ace;  
-	  margin-bottom: 15px;        	
+	  border-top: 3px inset;
+	  border-color: #5d7ace;        	
   }
   
   legend{
@@ -73,6 +72,12 @@
   	width: auto;
   	padding: 5px;
   }
+  
+  #report_div
+  {
+	  padding-left: 15px;
+	  padding-bottom: 15px;
+	  }
 
 </style>
 
@@ -217,23 +222,23 @@
          <!-- 필드셋 시작 -->
           <fieldset>
           	<legend>프로젝트</legend>
-          		<div style="margin-left: 15px;margin-bottom: 15px;"><%=board.getTitle()%></div>
+          		<div id="report_div"><%=board.getTitle()%></div>
           </fieldset>
          
           <fieldset>
           	<LEGEND>작성자</legend>
-          	<div style="margin-left: 15px;margin-bottom: 15px;"><%=board.getName()%></div>
+          	<div id="report_div"><%=board.getName()%></div>
           	
           </fieldset>
          
           <fieldset>
           	<legend>작성일</legend>
-          	<div style="margin-left: 15px;margin-bottom: 15px;"><%=board.getDate()%></div>
+          	<div id="report_div"><%=board.getDate()%></div>
           </fieldset>
           
           <fieldset>
           	<legend>금주계획</legend>
-          	<div style="margin-left: 15px;"><%
+          	<div id="report_div"><%
 	      	line = board.getP_weekPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -244,7 +249,7 @@
           
           <fieldset>
           	<legend>금주진행</legend>
-          	<div style="margin-left: 15px;"><%
+          	<div id="report_div"><%
 	      	line = board.getP_weekPro();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -255,7 +260,7 @@
           
           <fieldset>
           	<legend>차주계획</legend>
-          	<div style="margin-left: 15px;"><%
+          	<div id="report_div"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -266,7 +271,7 @@
           
           <fieldset>
           	<legend>특이사항</legend>
-          	<div style="margin-left: 15px;"><%
+          	<div id="report_div"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -277,7 +282,7 @@
           
           <fieldset>
           	<legend>비고</legend>
-          	<div style="margin-left: 15px;"><%
+          	<div id="report_div"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -287,87 +292,6 @@
           </fieldset>
            <!-- 필드셋 끝 -->
           
-          <div class="table-responsive"> 
-   		<table style="/* white-space: nowrap; */width:100%;word-break: break-all;margin-bottom: 10px;">
-    	 <tr>
-	      <td class="m-0 text-primary" align="center" style="white-space: nowrap; ">프로젝트</td> 
-	      <td style="padding: 15px; "><%=board.getTitle()%></td>
-	     </tr>
-	     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-	
-	   <tr height="1" border-top-color="#82B5DF">
-	      <td class="m-0 text-primary" align="center">작성자</td>
-	      <td style="padding: 15px;"><%=board.getName()%></td>
-	      </tr>
-	     
-	    <tr height="1" border-top-color="#82B5DF">
-	      <td class="m-0 text-primary" align="center">작성일</td>
-	      <td style="padding: 15px;"><%=board.getDate()%></td>
-	     </tr>
-	     
-	     <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-	     
-	     <tr>
-	      <td class="m-0 text-primary" align="center" id = "move1">금주계획</td>
-	      <td style="padding: 15px;"><%
-	      	line = board.getP_weekPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %></td>
-	     </tr>
-	     
-	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-	     
-	      <tr>
-	      <td class="m-0 text-primary" align="center" id = "move2">금주진행</td>
-	      <td style="padding: 15px;"><%
-	      	line = board.getP_weekPro();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %></td>
-	     </tr>
-	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-	     
-	      <tr>
-	      <td class="m-0 text-primary" align="center" id = "move3">차주계획</td>
-	      <td style="padding: 15px;"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %></td>
-	     </tr> 
-	     
-	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-	      
-	      <tr>
-	      <td class="m-0 text-primary" align="center" id = "move4">특이사항</td>
-	      <td style="padding: 15px;"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %></td>
-	     </tr> 
-	     
-	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-	      
-	      <tr>
-	      <td class="m-0 text-primary" align="center" id = "move5">비고</td>
-	      <td style="padding: 15px;"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %></td>
-	     </tr> 
-	     
-	     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-	      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
-	      </table>
-	      </div>
 	     <table style="margin: 0 auto;">
 	     <tr>
 	     <td colspan="2">
