@@ -240,7 +240,120 @@ document.addEventListener('DOMContentLoaded', function() {
 	margin: 0 auto;
 	display:flex;
 }
+@media(max-width:320px){
+	
+	.container-fluid{
+		padding: 0;
+	}
+	.card-header:first-child{
+		padding: 0;
+	}
+	
+	#calendar{
+		overflow: auto;
+		height:788px;
+		display:flex;
+		clear: both;
+	}
+	
+	.fc-scrollgrid-sync-table{
+		width:788px !important;
+	}
+	.fc-col-header{
+	width:788px !important;
+	}
+	.fc .fc-scrollgrid-liquid
+	{
+	width:788px;
+	
+	}
+	.fc-dayGridWeek-view{
+		width:788px !important;
+		overflow:scoll;
+	}
+	
+	.fc .fc-button-group > .fc-button {
+    position: relative;
+    flex: 1 1 auto;
+    background-color: #858796;
+    }
+}
 
+@media(max-width:360px) and (min-width:321px){
+	
+		.container-fluid{
+		padding: 0;
+	}
+	.card-header:first-child{
+		padding: 0;
+	}
+	
+	#calendar{
+		overflow: auto;
+		height:800px;
+		display:flex;
+		clear: both;
+	}
+	
+	.fc-scrollgrid-sync-table{
+		width:880px !important;
+	}
+	.fc-col-header{
+	width:880px !important;
+	}
+	.fc .fc-scrollgrid-liquid
+	{
+	width:880px;
+	
+	}
+	.fc-dayGridWeek-view{
+		width:880px !important;
+		overflow:scoll;
+	}
+	
+	.fc .fc-button-group > .fc-button {
+    position: relative;
+    flex: 1 1 auto;
+    background-color: #858796;
+    }
+}
+@media(max-width:380px) and (min-width:361px){
+		.container-fluid{
+		padding: 0;
+	}
+	.card-header:first-child{
+		padding: 0;
+	}
+	
+	#calendar{
+		overflow: auto;
+		height:800px;
+		display:flex;
+		clear: both;
+	}
+	
+	.fc-scrollgrid-sync-table{
+		width:910px !important;
+	}
+	.fc-col-header{
+	width:910px !important;
+	}
+	.fc .fc-scrollgrid-liquid
+	{
+	width:910px;
+	
+	}
+	.fc-dayGridWeek-view{
+		width:910px !important;
+		overflow:scoll;
+	}
+	
+	.fc .fc-button-group > .fc-button {
+    position: relative;
+    flex: 1 1 auto;
+    background-color: #858796;
+    }
+}
 
 @media(max-width:800px){
 .container-fluid{
