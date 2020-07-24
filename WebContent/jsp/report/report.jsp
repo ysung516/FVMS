@@ -380,46 +380,50 @@ function getTextByClone( tag ){
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 목록</h6>
                 </div>
-<table style="white-space: nowrap; overflow:hidden;width:100%;" id ="reportTable">
-<thead>
- <tr style= text-align:center;">
-   <th width="73">번호</th>
-   <th width="379">프로젝트</th>
-   <th width="379">상태
-   		<button class="report_btn" onclick="sortTD ( 2 )">▲</button><button class="report_btn" onclick="reverseTD ( 2 )">▼</button></th>		
-   <th width="73">작성자
-   		<button class="report_btn" onclick="sortTD ( 3 )">▲</button><button class="report_btn" onclick="reverseTD ( 3 )">▼</button></th>
-   <th width="164">작성일
-   		<button class="report_btn" onclick="sortTD ( 4 )">▲</button><button class="report_btn" onclick="reverseTD ( 4 )">▼</button></th>
-  </tr>
-  </thead>  
-  <tbody id ="reportList" name="reportList" class="reportList">
-  		 <%
-	if(list != null){
-		for(int i=0; i < list.size(); i++){
-			%>
-			<tr style="text-align:center;">
-				<td><%=list.get(i).getNo()%></td>
-				<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-				<td>
-				<%
-					for(int j=0; j < pjList.size(); j++){
-						if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
-							%><%=pjList.get(j).getSTATE()%><%
-						}
-					}
-				%>
-				</td>
-				<td><%=list.get(i).getName()%></td>
-				<td><%=list.get(i).getDate()%></td>
-			</tr>
-			<%
-		}
-	} 
-  %>
-  </tbody>
-  <tfoot><tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr></tfoot>
- </table>
+                
+	<table style="white-space: nowrap; overflow:auto;width:100%;" id ="reportTable">
+		<thead>
+		 <tr style= text-align:center;">
+		   <th>번호</th>
+		   <th>프로젝트</th>
+		   <th>
+		   		<div><label style="display:grid">상태</label><button class="report_btn" onclick="sortTD ( 2 )">▲</button><button class="report_btn" onclick="reverseTD ( 2 )">▼</button></div></th>	
+		   		
+		   		
+		   <th>
+		   		<div><label style="display:grid">작성자</label><button class="report_btn" onclick="sortTD ( 3 )">▲</button><button class="report_btn" onclick="reverseTD ( 3 )">▼</button></div></th>
+		   
+		   <th>
+		   		<div><label style="display:grid">작성일</label><button class="report_btn" onclick="sortTD ( 4 )">▲</button><button class="report_btn" onclick="reverseTD ( 4 )">▼</button></div></th>
+		  </tr>
+		  </thead>  
+		  <tbody id ="reportList" name="reportList" class="reportList" style="white-space: initial;">
+		  		 <%
+			if(list != null){
+				for(int i=0; i < list.size(); i++){
+					%>
+					<tr style="text-align:center;">
+						<td><%=list.get(i).getNo()%></td>
+						<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
+						<td>
+						<%
+							for(int j=0; j < pjList.size(); j++){
+								if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
+									%><%=pjList.get(j).getSTATE()%><%
+								}
+							}
+						%>
+						</td>
+						<td><%=list.get(i).getName()%></td>
+						<td><%=list.get(i).getDate()%></td>
+					</tr>
+					<%
+				}
+			} 
+		  %>
+		  </tbody>
+		  <tfoot><tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr></tfoot>
+		 </table>
  
 <script type="text/javascript">
 	var myTable = document.getElementById( "reportTable" ); 

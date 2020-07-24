@@ -177,58 +177,58 @@
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 목록</h6>
                 </div>
                    <table style="white-space: nowrap; overflow:hidden; width:100%;">
-  <tr height="5"><td width="5"></td></tr>
- <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
-   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
-   <td width="73">번호</td>
-   
-   <td width="379">프로젝트 명 : 
-     <select name="projectName">
-      <option value="all">all</option>
-      <option value="일간보고서">1번</option>
-      <option value="2">2번</option>
-      <option value="3">3번</option>
-      <option value="4">4번</option>
-     </select>
-   </td>
-   <td width="73">작성자</td>
-   <td width="164">작성일</td>
-   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
-  </tr>
-   <%
-	if(list != null){
-		for(int i=0; i < list.size(); i++){
-			%>
-			<tr style="text-align:center;">
-				<td></td>
-				<td><%=list.get(i).getNo()%></td>
-				<td><a href="day_report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-				<td><%=list.get(i).getName()%></td>
-				<td><%=list.get(i).getDate()%></td>
-			</tr>
-			<%
-		}
-	} else {
-		%>
-			<tr><td>등록된 일간 보고가 없습니다.</td></tr>
-		<%
-	} 
-  %>
-<tr height="15" align="center"></tr>
-
- <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
- </table>
- 
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr><td colspan="4" height="5"></td></tr>
-  <tr align="center">
-   <td><div class="card-body">
-            
-                	 <a href="day_report_write.jsp" class="btn btn-primary">일간보고서 작성</a>
-              </div>
-          </td>
-  </tr>
-</table>
+		  <tr height="5"><td width="5"></td></tr>
+		 <tr style="background:url('img/table_mid.gif') repeat-x; text-align:center;">
+		   <td width="5"><img src="img/table_left.gif" width="5" height="30" /></td>
+		   <td width="73">번호</td>
+		   
+		   <td width="379">프로젝트 명 : 
+		     <select name="projectName">
+		      <option value="all">all</option>
+		      <option value="일간보고서">1번</option>
+		      <option value="2">2번</option>
+		      <option value="3">3번</option>
+		      <option value="4">4번</option>
+		     </select>
+		   </td>
+		   <td width="73">작성자</td>
+		   <td width="164">작성일</td>
+		   <td width="7"><img src="img/table_right.gif" width="5" height="30" /></td>
+		  </tr>
+		   <%
+			if(list != null){
+				for(int i=0; i < list.size(); i++){
+					%>
+					<tr style="text-align:center;">
+						<td></td>
+						<td><%=list.get(i).getNo()%></td>
+						<td><a href="day_report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
+						<td><%=list.get(i).getName()%></td>
+						<td><%=list.get(i).getDate()%></td>
+					</tr>
+					<%
+				}
+			} else {
+				%>
+					<tr><td>등록된 일간 보고가 없습니다.</td></tr>
+				<%
+			} 
+		  %>
+		<tr height="15" align="center"></tr>
+		
+		 <tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr>
+		 </table>
+		 
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		  <tr><td colspan="4" height="5"></td></tr>
+		  <tr align="center">
+		   <td><div class="card-body">
+		            
+		                	 <a href="day_report_write.jsp" class="btn btn-primary">일간보고서 작성</a>
+		              </div>
+		          </td>
+		  </tr>
+		</table>
                    <!-- /.container-fluid -->
 
       </div> 
