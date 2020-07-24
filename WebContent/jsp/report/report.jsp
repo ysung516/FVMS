@@ -70,7 +70,7 @@
 	.report_btn:active{
 	 	background-color: #929ae385;
 	 	 border:2px solid #505dd3;
-	 	 color:4e73df
+	 	 color:#4e73df;
 	 	
 	}
 	
@@ -252,7 +252,7 @@ function getTextByClone( tag ){
 
 </script>
 
-<body id="page-top">
+<body id="page-top" style="color:#4c5280 !important">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -401,7 +401,7 @@ function getTextByClone( tag ){
 			if(list != null){
 				for(int i=0; i < list.size(); i++){
 					%>
-					<tr style="text-align:center;">
+					<tr style="text-align:center; border-bottom: 1px solid #d1d3e2;">
 						
 						<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
 						<td>
@@ -414,14 +414,15 @@ function getTextByClone( tag ){
 						%>
 						</td>
 						<td><%=list.get(i).getName()%></td>
-						<td><%=list.get(i).getDate()%></td>
+						<td style="white-space:nowrap;"><%=list.get(i).getDate()%></td>
 					</tr>
 					<%
 				}
 			} 
 		  %>
+		  
 		  </tbody>
-		  <tfoot><tr height="1" bgcolor="#82B5DF"><td colspan="6" width="752"></td></tr></tfoot>
+		  <tfoot><tr><td colspan="6" width="752"></td></tr></tfoot>
 		 </table>
  
 <script type="text/javascript">
