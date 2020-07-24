@@ -43,6 +43,21 @@
 			padding: 0;
 		}
 }
+
+ fieldset{
+	  border: 3px inset;
+	  border-color: #5d7ace;  
+	  margin-bottom: 15px;        	
+  }
+  
+  legend{
+  	color:#1b3787!important;
+  	font-size: 18px;
+  	font-weight: 600;
+  	width: auto;
+  	padding: 5px;
+  }
+
 </style>
 <body id="page-top">
 
@@ -176,6 +191,7 @@
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 작성</h6>
                 </div>
                  <div style="margin: 0 auto" class="card-body">
+           
                  <div class="table-responsive">
                   
     <form method = "post" action = "report_writePro.jsp">

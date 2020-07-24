@@ -59,6 +59,21 @@
 			padding: 0;
 		}
 }
+
+  fieldset{
+	  border: 3px inset;
+	  border-color: #5d7ace;  
+	  margin-bottom: 15px;        	
+  }
+  
+  legend{
+  	color:#1b3787!important;
+  	font-size: 18px;
+  	font-weight: 600;
+  	width: auto;
+  	padding: 5px;
+  }
+
 </style>
 
 <body id="page-top">
@@ -198,8 +213,50 @@
  <input type="radio" name="chk_info" value="비고" onclick="fnMove('5')">비고
  </div>
          <div class="card-body">
-          <div class="table-responsive"> 
+         
+         <!-- 필드셋 시작 -->
+          <fieldset>
+          	<legend>프로젝트</legend>
+          		
+          </fieldset>
           
+          <fieldset>
+          	<LEGEND>작성자</legend>
+          	
+          </fieldset>
+         
+          <fieldset>
+          	<legend>작성일</legend>
+          	
+          </fieldset>
+          
+          <fieldset>
+          	<legend>금주계획</legend>
+          	
+          </fieldset>
+          
+          <fieldset>
+          	<legend>금주진행</legend>
+          	
+          </fieldset>
+          
+          <fieldset>
+          	<legend>차주계획</legend>
+          	
+          </fieldset>
+          
+          <fieldset>
+          	<legend>특이사항</legend>
+          	
+          </fieldset>
+          
+          <fieldset>
+          	<legend>비고</legend>
+          	
+          </fieldset>
+           <!-- 필드셋 끝 -->
+          
+          <div class="table-responsive"> 
    		<table style="/* white-space: nowrap; */width:100%;word-break: break-all;margin-bottom: 10px;">
     	 <tr>
 	      <td class="m-0 text-primary" align="center" style="white-space: nowrap; ">프로젝트</td> 
