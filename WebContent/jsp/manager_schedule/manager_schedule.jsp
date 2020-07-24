@@ -157,16 +157,28 @@ document.addEventListener('DOMContentLoaded', function() {
 	
      //다음주 버튼 누르면 월요일로 가게 할 함수
 	function nextMove(){
-	    var offset = $(".fc-col-header-cell .fc-day .fc-day-mon").offset();
+	    var offset = $(".fc .fc-col-header-cell.fc-day.fc-day-mon").offset();
 	    $('#calendar').animate({scrollLeft : offset.left}, 200);
 	}
      
 	 //지난주 버튼 누르면 금요일로 가게 할 함수
 	function preMove(){
-	    var offset = $(".fc-col-header-cell .fc-day .fc-day-fri").offset();
+	    var offset = $(".fc .fc-col-header-cell.fc-day.fc-day-fri").offset();
 	    $('#calendar').animate({scrollLeft : offset.left}, 200);
 	}
      
+	$(function(){
+		$('.fc-next-button.fc-button.fc-button-primary').click(function(){
+			nextMove();
+		}); 
+	});
+	
+	$(function(){
+		$('.fc-prev-button.fc-button.fc-button-primary').click(function(){
+			preMove();
+		}); 
+	});
+	
      
 </script>
   <meta charset="utf-8">
