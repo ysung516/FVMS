@@ -43,6 +43,7 @@
 
 </head>
 <style>
+
 	@media(max-width:800px){
 		.container-fluid{
 			padding: 0;
@@ -51,6 +52,32 @@
 			padding: 0;
 		}
 }
+
+	.report_btn{
+	    font-size: 15px;
+	    border:2px solid #929ae3;
+	    background-color: rgba(0,0,0,0);
+	    color: #929ae3;
+	    border-radius: 100%;
+	    font-weight: 700;
+	    font-family: serif;
+	    margin: 5px;
+	}
+	.report_btn:hover{
+	 	background-color: #929ae385;
+	}
+	
+	.report_btn:active{
+	 	background-color: #929ae385;
+	 	 border:2px solid #505dd3;
+	 	 color:4e73df
+	 	
+	}
+	
+	button:focus {
+	outline:none;
+	}
+
 </style>
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script type="text/javascript">
@@ -221,6 +248,8 @@ function getTextByClone( tag ){
         var textContent = ( "textContent" in clone ) ? clone.textContent : clone.innerText; 
         return textContent; 
 } 
+
+
 </script>
 
 <body id="page-top">
@@ -357,11 +386,11 @@ function getTextByClone( tag ){
    <th width="73">번호</th>
    <th width="379">프로젝트</th>
    <th width="379">상태
-   		<button onclick="sortTD ( 2 )">▲</button><button onclick="reverseTD ( 2 )">▼</button></th>		
+   		<button class="report_btn" onclick="sortTD ( 2 )">▲</button><button class="report_btn" onclick="reverseTD ( 2 )">▼</button></th>		
    <th width="73">작성자
-   		<button onclick="sortTD ( 3 )">▲</button><button onclick="reverseTD ( 3 )">▼</button></th>
+   		<button class="report_btn" onclick="sortTD ( 3 )">▲</button><button class="report_btn" onclick="reverseTD ( 3 )">▼</button></th>
    <th width="164">작성일
-   		<button onclick="sortTD ( 4 )">▲</button><button onclick="reverseTD ( 4 )">▼</button></th>
+   		<button class="report_btn" onclick="sortTD ( 4 )">▲</button><button class="report_btn" onclick="reverseTD ( 4 )">▼</button></th>
   </tr>
   </thead>  
   <tbody id ="reportList" name="reportList" class="reportList">
@@ -395,7 +424,7 @@ function getTextByClone( tag ){
 <script type="text/javascript">
 	var myTable = document.getElementById( "reportTable" ); 
 	var replace = replacement( myTable ); 
-	function sortTD( index ){replace.ascending( index );} 
+	function sortTD( index ){replace.ascending( index ); } 
 	function reverseTD( index ){replace.descending( index );} 
 </script>
  
