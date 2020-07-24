@@ -153,16 +153,22 @@ document.addEventListener('DOMContentLoaded', function() {
 	function fnMove(){
 	    var offset = $(".fc .fc-col-header-cell.fc-day-today").offset();
 	    $('#calendar').animate({scrollLeft : offset.left}, 200);
-	}
+	}	
 	
-	$( "#calendar" ).scrollLeft( 300 );
-	function moveScrollLeft(){
-		var _scrollX = $('#calendar').scrollLeft();
-		$('#calendar').scrollLeft(_scrollX + 100);
+     //다음주 버튼 누르면 월요일로 가게 할 함수
+	function nextMove(){
+	    var offset = $(".fc-col-header-cell .fc-day .fc-day-mon").offset();
+	    $('#calendar').animate({scrollLeft : offset.left}, 200);
 	}
-	
+     
+	 //지난주 버튼 누르면 금요일로 가게 할 함수
+	function preMove(){
+	    var offset = $(".fc-col-header-cell .fc-day .fc-day-fri").offset();
+	    $('#calendar').animate({scrollLeft : offset.left}, 200);
+	}
+     
+     
 </script>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -180,27 +186,35 @@ document.addEventListener('DOMContentLoaded', function() {
   
 <style>
 
+.fc .fc-daygrid-event-harness{
+	margin-bottom:15px;
+}
+.fc-popover.fc-more-popover{
+	top: 10% !important;
+	left: 30% !important;
+}
+
 .layout-1{
 	border-color: red;
 }
 .layout-2{
-	top: 20px;
+	
 	border-color: orange;
 }
 .layout-3{
-	top: 40px;
+	
 	border-color: brown;
 }
 .layout-4{
-	top: 60px;
+	
 	border-color: green;
 }
 .layout-5{
-	top: 80px;
+
 	border-color: black;
 }
 .layout-6{
-	top: 100px;
+	margin-top:20px;
 	border-color: purple;
 }
 
@@ -210,12 +224,12 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .fc .fc-col-header-cell.fc-day-today {
-	background-color: rgb(153, 153, 255);
+	background-color:#b2c8f080;
 	background-color: var(- -fc-today-bg-color, rgba(120, 223, 202, 0.46));
 }
 
 .fc .fc-daygrid-day.fc-day-today {
-	background-color: rgb(153, 153, 255);
+	background-color:#b2c8f080;
 	background-color: var(- -fc-today-bg-color, rgba(120, 223, 202, 0.46));
 }
 
