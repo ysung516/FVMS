@@ -42,7 +42,6 @@ public class sheetMethod {
 	public sheetMethod() {
 	
 	}
-
 	// 연결
 	public void connect() throws GeneralSecurityException, IOException, ServiceException {
 		SpreadsheetService service;
@@ -66,7 +65,7 @@ public class sheetMethod {
 		sheet.setService(service);
 	}
 
-	// 시트 불러오기
+	// 메인 시트 불러오기
 	public void access() throws GeneralSecurityException, IOException, ServiceException {
 		SpreadsheetService service = sheet.getService();
 		List<SpreadsheetEntry> spreadsheets;
@@ -87,7 +86,7 @@ public class sheetMethod {
 		List<WorksheetEntry> worksheets = sheet.getEntry().getWorksheets(); // 시트 타이틀
 		sheet.setWorksheets(worksheets);	// 시트타이틀 저장
 	}
-
+	
 	// WorkSheet 찾기
 	public void findSheet(String sheetName) {
 		for (int k = 0; k < sheet.getWorksheets().size(); k++) {
@@ -96,6 +95,7 @@ public class sheetMethod {
     			sheet.setWorksheet(worksheet);
     			break;
     		}
+    		
     	}
 	}
 

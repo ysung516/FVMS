@@ -15,7 +15,9 @@ public class sheetBean {
 	public sheetBean() {}
 	
 	private String FileName = "SureSoft-PMS";
-	
+	private String BackupFile = "주간보고서백업";
+
+
 	private SpreadsheetService service;	//
 	private SpreadsheetFeed feed;	//
 	private SpreadsheetEntry entry;
@@ -33,7 +35,12 @@ public class sheetBean {
 		FileName = fileName;
 	}
 	
-	
+	public String getBackupFile() {
+		return BackupFile;
+	}
+	public void setBackupFile(String backupFile) {
+		BackupFile = backupFile;
+	}
 	public SpreadsheetService getService() {
 		return service;
 	}

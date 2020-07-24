@@ -384,17 +384,16 @@ function getTextByClone( tag ){
 	<table style="white-space: nowrap; overflow:auto;width:100%;" id ="reportTable">
 		<thead>
 		 <tr style= text-align:center;">
-		   <th>번호</th>
 		   <th>프로젝트</th>
 		   <th>
-		   		<div><label style="display:grid">상태</label><button class="report_btn" onclick="sortTD ( 2 )">▲</button><button class="report_btn" onclick="reverseTD ( 2 )">▼</button></div></th>	
+		   		<div><label style="display:grid">상태</label><button class="report_btn" onclick="sortTD (1)">▲</button><button class="report_btn" onclick="reverseTD (1)">▼</button></div></th>	
 		   		
 		   		
 		   <th>
-		   		<div><label style="display:grid">작성자</label><button class="report_btn" onclick="sortTD ( 3 )">▲</button><button class="report_btn" onclick="reverseTD ( 3 )">▼</button></div></th>
+		   		<div><label style="display:grid">작성자</label><button class="report_btn" onclick="sortTD (2)">▲</button><button class="report_btn" onclick="reverseTD (2)">▼</button></div></th>
 		   
 		   <th>
-		   		<div><label style="display:grid">작성일</label><button class="report_btn" onclick="sortTD ( 4 )">▲</button><button class="report_btn" onclick="reverseTD ( 4 )">▼</button></div></th>
+		   		<div><label style="display:grid">작성일</label><button class="report_btn" onclick="sortTD (3)">▲</button><button class="report_btn" onclick="reverseTD (3)">▼</button></div></th>
 		  </tr>
 		  </thead>  
 		  <tbody id ="reportList" name="reportList" class="reportList" style="white-space: initial;">
@@ -403,7 +402,7 @@ function getTextByClone( tag ){
 				for(int i=0; i < list.size(); i++){
 					%>
 					<tr style="text-align:center;">
-						<td><%=list.get(i).getNo()%></td>
+						
 						<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
 						<td>
 						<%
