@@ -73,8 +73,7 @@
   	padding: 5px;
   }
   
-  #report_div
-  {
+  .report_div{
 	  padding-left: 15px;
 	  padding-bottom: 15px;
 	  }
@@ -222,23 +221,23 @@
          <!-- 필드셋 시작 -->
           <fieldset>
           	<legend>프로젝트</legend>
-          		<div id="report_div"><%=board.getTitle()%></div>
+          		<div class="report_div"><%=board.getTitle()%></div>
           </fieldset>
          
           <fieldset>
           	<LEGEND>작성자</legend>
-          	<div id="report_div"><%=board.getName()%></div>
+          	<div class="report_div"><%=board.getName()%></div>
           	
           </fieldset>
          
           <fieldset>
           	<legend>작성일</legend>
-          	<div id="report_div"><%=board.getDate()%></div>
+          	<div class="report_div"><%=board.getDate()%></div>
           </fieldset>
           
           <fieldset>
           	<legend>금주계획</legend>
-          	<div id="report_div"><%
+          	<div class="report_div"><%
 	      	line = board.getP_weekPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -249,7 +248,7 @@
           
           <fieldset>
           	<legend>금주진행</legend>
-          	<div id="report_div"><%
+          	<div class="report_div"><%
 	      	line = board.getP_weekPro();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -260,7 +259,7 @@
           
           <fieldset>
           	<legend>차주계획</legend>
-          	<div id="report_div"><%
+          	<div class="report_div"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -271,7 +270,7 @@
           
           <fieldset>
           	<legend>특이사항</legend>
-          	<div id="report_div"><%
+          	<div class="report_div"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%
@@ -282,7 +281,7 @@
           
           <fieldset>
           	<legend>비고</legend>
-          	<div id="report_div"><%
+          	<div class="report_div"><%
 	      	line = board.getP_nextPlan();
 	      	for(String li : line){
 	      		%><p><%=li%></p><%

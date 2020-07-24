@@ -194,79 +194,64 @@
            
                  <div class="table-responsive">
                   
-    <form method = "post" action = "report_writePro.jsp">
-   <table style="width:100%">
-    <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
-     <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">프로젝트</td>
-      <td><input name="TITLE"  style=width:100%; placeholder="프로젝트 명"></td>
-      <td>&nbsp;</td>
-     </tr>
- 
-     <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td>
-     </tr>
-  
-      <tr height="1" bgcolor="#fff"><td colspan="4"></td>
-      </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">작성일</td>
-      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
-      <td>&nbsp;</td>
-     </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
-     <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">금주계획</td>
-      <td><textarea name="WeekPlan"cols="51" rows="13"style=width:100%;></textarea></td>
-      <td>&nbsp;</td>
-     </tr>
-      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">금주진행</td>
-      <td><textarea name="WeekPro"cols="51" rows="13"style=width:100%;></textarea></td>
-      <td>&nbsp;</td>
-     </tr>
-      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">차주계획</td>
-      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
-      <td>&nbsp;</td>
-     </tr>
-      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">특이사항</td>
-      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
-      <td>&nbsp;</td>
-     </tr>
-      <tr>
-      <td>&nbsp;</td>
-      <td class="m-0 text-primary" align="center">비고</td>
-      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
-      <td>&nbsp;</td>
-     </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
-     <tr height="1" bgcolor="#fff"><td colspan="4"></td></tr>
-     <tr align="center">
-      <td>&nbsp;</td>
-      <td colspan="2"> 
-      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
-       <a href="report.jsp" class="btn btn-primary">취소</a>
-      <td>&nbsp;</td>
-     </tr>
-      <tr height="1" bgcolor="#fff"><td colspan="4" height="5"></td></tr>
-    </table>
-    </form>
- </div>
-    <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-</div>
-
-    </div>
-    <!-- End of Content Wrapper -->
+		    <form method = "post" action = "report_writePro.jsp">
+		   <table style="width:100%">
+		    <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		     <tr>
+		      <td class="m-0 text-primary" align="center">프로젝트</td>
+		      <td><input name="TITLE"  style=width:100%; placeholder="프로젝트 명"></td>
+		     </tr>
+		 
+		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td>
+		     </tr>
+		  
+		      <tr height="1" bgcolor="#fff"><td colspan="2"></td>
+		      </tr>
+		    <tr>
+		      <td class="m-0 text-primary" align="center">작성일</td>
+		      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
+		     </tr>
+		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		     <tr>
+		      <td class="m-0 text-primary" align="center">금주계획</td>
+		      <td><textarea name="WeekPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		     </tr>
+		      <tr>
+		      <td class="m-0 text-primary" align="center">금주진행</td>
+		      <td><textarea name="WeekPro"cols="51" rows="13"style=width:100%;></textarea></td>
+		     </tr>
+		      <tr>
+		      <td class="m-0 text-primary" align="center">차주계획</td>
+		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		     </tr>
+		      <tr>
+		      <td class="m-0 text-primary" align="center">특이사항</td>
+		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		     </tr>
+		      <tr>
+		      <td class="m-0 text-primary" align="center">비고</td>
+		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		     </tr>
+		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
+		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
+		     <tr align="center">
+		      <td colspan="2"> 
+		      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
+		       <a href="report.jsp" class="btn btn-primary">취소</a>
+		      <td>&nbsp;</td>
+		     </tr>
+		      <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		    </table>
+		    </form>
+		 </div>
+		    <!-- /.container-fluid -->
+		
+		      </div>
+		      <!-- End of Main Content -->
+		</div>
+		
+		    </div>
+		    <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->
