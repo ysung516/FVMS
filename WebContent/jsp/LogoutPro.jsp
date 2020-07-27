@@ -13,8 +13,8 @@
 <body>
 
  <%
- session.invalidate();
- response.sendRedirect("summary.jsp");
+ 	session.invalidate();
+	response.sendRedirect("LoginPro.jsp");
  %>
 
 </body>

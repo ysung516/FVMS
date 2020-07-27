@@ -686,8 +686,8 @@
     <div class="modal-body">Select "Logout" below if you are ready  to end your current session.</div>
     <div class="modal-footer">
      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-     <form>
-     	  <input type="submit" class="btn btn-primary" value="Logout" />
+    <form method = "post" action = "../LogoutPro.jsp">
+     	  <input type="submit" class="btn btn-primary" value="Logout11" />
      </form>
    
     </div>
@@ -712,7 +712,10 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="../../html/login.html">Logout</a>
+					<form method = "post" action = "../LogoutPro.jsp">
+     				  <input type="submit" class="btn btn-primary" value="Logout" />
+    				 </form>
+					
 				</div>
 			</div>
 		</div>
