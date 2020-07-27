@@ -98,6 +98,7 @@ public class sheetMethod {
     		
     	}
 	}
+	
 
 	// 로그인 체크
 	public int loginCheck(String id, String pw) throws GeneralSecurityException, IOException, ServiceException
@@ -268,6 +269,25 @@ public class sheetMethod {
 		}
 		
 		return board;
+	}
+	
+	public WorksheetEntry backUpEntry() throws GeneralSecurityException, IOException, ServiceException{
+		connect();
+		access();
+		findSheet("주간보고서");
+		WorksheetEntry e = sheet.getWorksheet();
+		
+		return e;
+	}
+	public List<ListEntry> backUpEntry2() throws GeneralSecurityException, IOException, ServiceException{
+		connect();
+		access();
+		findSheet("주간보고서");
+
+        URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries();
+		return list;
 	}
 	
 	

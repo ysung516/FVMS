@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
           },
                   
         initialView: 'dayGridWeek',
-    	navLinks: true,
+    	navLinks: false,
       	editable: false,
       	hiddenDays: [0,6],
       	dayMaxEvents: true, // allow "more" link when too many events
@@ -161,12 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	    $('#calendar').animate({scrollLeft : offset.left}, 200);
 	}
      
-	$(function(){
-		$('.fc-next-button.fc-button.fc-button-primary').click(function(){
-			nextMove();
-		}); 
-	});
-     
 	 //지난주 버튼 누르면 금요일로 가게 할 함수
 	function preMove(){
 	    var offset = $(".fc .fc-col-header-cell.fc-day.fc-day-fri").offset();
@@ -174,11 +168,21 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
      
 	$(function(){
+		$('.fc-next-button.fc-button.fc-button-primary').click(function(){
+			nextMove();
+		}); 
+	});
+	
+	$(function(){
 		$('.fc-prev-button.fc-button.fc-button-primary').click(function(){
 			preMove();
 		}); 
 	});
-	
+	 $(function(){
+	     $('.fc-col-header-cell-cushion ').click(function(){
+	      $(location).attr('href','manager_schedule_add.jsp');
+	     }); 
+	    });
      
 </script>
   <meta charset="utf-8">
