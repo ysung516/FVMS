@@ -126,7 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
         			setAm.value = amPlace;
         			setPm.value = pmPlace;
         			document.jsvarform.submit();
-        			
+        		} else{
+        			window.location.reload()
         		}
         	}	// end if
       }	//end eventClick
