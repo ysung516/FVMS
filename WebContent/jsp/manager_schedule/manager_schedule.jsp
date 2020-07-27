@@ -32,10 +32,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script src='./lib/main.js'></script>
 <script>
-
 function formatDate(date) { 
 		var d = new Date(date), 
 		month = '' + (d.getMonth() + 1), 
@@ -211,13 +209,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 	
-	
 	window.onbeforeunload = function() { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
 	$(window).load(function() {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').remove();
+	    $('.loading').hide();
 	});
 
 </script>
+
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -235,7 +233,21 @@ document.addEventListener('DOMContentLoaded', function() {
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
   
 <style>
-
+ .loading{
+		position:fixed;
+		text-align: center;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		font-size:12px;
+		background-color: #4e73df6b;
+  	  	background-image: linear-gradient(181deg,#3d5482 16%,#6023b654 106%);
+  	  	background-size: cover;
+        z-index:1000;
+        color:#ffffffc4;
+	}
+	
 .fc .fc-daygrid-event-harness{
 	margin-bottom:15px;
 }
@@ -450,26 +462,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	top:400px;
 }
 
-.loading{
-	 	position:fixed;
-		text-align: center;
-		width:100%;
-		height:100%;
-		top:0;
-		left:0;
-		font-size:12px;
-		background-color: #4e73df6b;
-  	  	background-image: linear-gradient(181deg,#3d5482 16%,#6023b654 106%);
-  	  	background-size: cover;
-        z-index:1000;
-        color:#ffffffc4;
-	}
-	
-	.loading #load{
-		position:relative;
-		top:50%;
-		transform:translate(-50%, -50%);
-	}
 	
 	@media(max-width:800px){
 		.container-fluid{
@@ -485,9 +477,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </head>
 
 <body id="page-top">
- 	<div class="loading">
- 		<i id="load"class="fas fa-spinner fa-10x fa-spin"></i>
- 	</div>
+ 	 <div class="loading"></div>
+ 	
   <!-- Page Wrapper -->
   <div id="wrapper">
 
