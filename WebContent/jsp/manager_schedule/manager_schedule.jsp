@@ -7,6 +7,7 @@
     import = "java.util.Date"
     import = "java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -20,9 +21,11 @@
 
 	String sessionID = session.getAttribute("sessionID").toString();
 	String sessionName = session.getAttribute("sessionName").toString();
-	
+	session.setMaxInactiveInterval(15*60);
 
 %>
+
+
 <link href='./lib/main.css' rel='stylesheet' />
 <script type="text/javascript" src="./fullcalendar-2.9.1/lib/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
