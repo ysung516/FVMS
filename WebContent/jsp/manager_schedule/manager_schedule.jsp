@@ -32,6 +32,7 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script src='./lib/main.js'></script>
 <script>
 
@@ -210,15 +211,14 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 	
-</script>
-
-
-<script src="https://code.jquery.com/jquery-2.2.4.js">
+	
 	window.onbeforeunload = function() { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
 	$(window).load(function() {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').fadeOut();
+	    $('.loading').remove();
 	});
+
 </script>
+
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -452,15 +452,33 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .loading{
-	 	width:100%;
-	    height:100%;
-	    position:fixed;
-	    left:0px;
-	    top:0px;
-	    background-color: #4e73df6b;
+	 	position:fixed;
+		text-align: center;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		font-size:12px;
+		background-color: #4e73df6b;
   	  	background-image: linear-gradient(181deg,#3d5482 16%,#6023b654 106%);
   	  	background-size: cover;
-	    z-index:1000
+        z-index:1000;
+        color:#ffffffc4;
+	}
+	
+	.loading #load{
+		position:relative;
+		top:50%;
+		transform:translate(-50%, -50%);
+	}
+	
+	@media(max-width:800px){
+		.container-fluid{
+			padding: 0;
+		}
+		.card-header:first-child{
+			padding: 0;
+		}
 	}
 
 </style>
@@ -468,7 +486,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </head>
 
 <body id="page-top">
- 	<div id="loading"></div>
+ 	<div class="loading">
+ 		<i id="load"class="fas fa-spinner fa-10x fa-spin"></i>
+ 	</div>
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -600,7 +620,7 @@ document.addEventListener('DOMContentLoaded', function() {
      
     <!-- /.container-fluid -->
      <div class="card-body"style="float: right;">
-      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" >+</a>
+      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" style="font:initial;" >⟳</a>
       	</div>
       	
 		<div id='calendar'></div>
@@ -633,24 +653,28 @@ document.addEventListener('DOMContentLoaded', function() {
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="../../html/login.html">Logout</a>
-        </div>
-      </div>
+<!-- Logout Modal-->
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">×</span>
+     </button>
     </div>
+    <div class="modal-body">Select "Logout" below if you are ready  to end your current session.</div>
+    <div class="modal-footer">
+     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+    <form method = "post" action = "../LogoutPro.jsp">
+     	  <input type="submit" class="btn btn-primary" value="Logout" />
+     </form>
+   
+    </div>
+   </div>
   </div>
+ </div>
+
  
 
   <!-- Bootstrap core JavaScript-->

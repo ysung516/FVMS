@@ -40,7 +40,7 @@
 </head>
 <style>
 	.loading{
-		position:absolute;
+		position:fixed;
 		text-align: center;
 		width:100%;
 		height:100%;
@@ -54,20 +54,12 @@
         color:#ffffffc4;
 	}
 	.loading #load{
-		position:absolute;
-		top:40%;
+		position:fixed;
+		top:50%;
 		left: 50%;
 		transform:translate(-50%, -50%);
 	}
 	
-	@media(max-width:800px){
-		.container-fluid{
-			padding: 0;
-		}
-		.card-header:first-child{
-			padding: 0;
-		}
-	}
 </style>
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script type="text/javascript">
@@ -688,7 +680,7 @@
     <div class="modal-footer">
      <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
     <form method = "post" action = "../LogoutPro.jsp">
-     	  <input type="submit" class="btn btn-primary" value="Logout11" />
+     	  <input type="submit" class="btn btn-primary" value="Logout" />
      </form>
    
     </div>
