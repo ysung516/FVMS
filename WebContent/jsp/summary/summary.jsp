@@ -13,7 +13,7 @@
 <%
 	PrintWriter script =  response.getWriter();
 	if (session.getAttribute("sessionID") == null){
-		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+		script.print("<script> alert('세션의 정보가 없습니다.'); response.sendRedirect('login.html') </script>");
 	}
 	
 	String sessionID = session.getAttribute("sessionID").toString();
@@ -695,31 +695,6 @@
   </div>
  </div>
 
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">Select "Logout" below if you are ready
-					to end your current session.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancel</button>
-					<form method = "post" action = "../LogoutPro.jsp">
-     				  <input type="submit" class="btn btn-primary" value="Logout" />
-    				 </form>
-					
-				</div>
-			</div>
-		</div>
-	</div>
 
  <!-- Bootstrap core JavaScript-->
  <script src="../../vendor/jquery/jquery.min.js"></script>

@@ -14,7 +14,7 @@
 
  <%
  	session.invalidate();
-	response.sendRedirect("LoginPro.jsp");
+	response.sendRedirect("../html/login.html");
  %>
 
 </body>

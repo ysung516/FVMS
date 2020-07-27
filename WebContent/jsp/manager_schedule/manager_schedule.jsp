@@ -31,6 +31,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script src='./lib/main.js'></script>
 <script>
+
 function formatDate(date) { 
 		var d = new Date(date), 
 		month = '' + (d.getMonth() + 1), 
@@ -137,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
    
   });
+
   
   	// ui 바뀐것들
 	window.onload = function (){
@@ -205,9 +207,16 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 	
-	 
-     
 </script>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js">
+	window.onbeforeunload = function() { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	$(window).load(function() {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	    $('.loading').fadeOut();
+	});
+</script>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -439,16 +448,24 @@ document.addEventListener('DOMContentLoaded', function() {
 	top:400px;
 }
 
-
-
-
-
+.loading{
+	 	width:100%;
+	    height:100%;
+	    position:fixed;
+	    left:0px;
+	    top:0px;
+	    background-color: #4e73df6b;
+  	  	background-image: linear-gradient(181deg,#3d5482 16%,#6023b654 106%);
+  	  	background-size: cover;
+	    z-index:1000
+	}
 
 </style>
 
 </head>
 
 <body id="page-top">
+ 	<div id="loading"></div>
   <!-- Page Wrapper -->
   <div id="wrapper">
 
