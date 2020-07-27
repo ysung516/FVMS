@@ -38,6 +38,27 @@
 
 </head>
 <style>
+	.loading{
+		position:absolute;
+		text-align: center;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		font-size:12px;
+		background-color: #4e73df6b;
+  	  	background-image: linear-gradient(181deg,#3d5482 16%,#6023b654 106%);
+  	  	background-size: cover;
+        z-index:1000;
+        color:#ffffffc4;
+	}
+	.loading #load{
+		position:absolute;
+		top:40%;
+		left: 50%;
+		transform:translate(-50%, -50%);
+	}
+	
 	@media(max-width:800px){
 		.container-fluid{
 			padding: 0;
@@ -45,22 +66,33 @@
 		.card-header:first-child{
 			padding: 0;
 		}
-}
+	}
 </style>
-
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
+	<!-- 로딩화면 -->
+	window.onbeforeunload = function() { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	$(window).load(function
+() {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	    $('.loading').hide();
+	});
+</script>
 <body id="page-top">
-
+	<!--  로딩화면  시작  -->
+				  <div class="loading">
+				  <div id="load">
+				<i class="fas fa-spinner fa-10x fa-spin"></i>
+				  </div>
+				  </div>
+		<!--  로딩화면  끝  -->
  <!-- Page Wrapper -->
  <div id="wrapper">
 
   <!-- Sidebar -->
-  <ul
-   class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled"   id="accordionSidebar">
+  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
    <!-- Sidebar - Brand -->
-   <a
-    class="sidebar-brand d-flex align-items-center justify-content-center"
-    href="summary.jsp">
+   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="summary.jsp">
     <div class="sidebar-brand-icon rotate-n-15">
      <i class="fas fa-laugh-wink"></i>
     </div>
@@ -139,18 +171,15 @@
    <div id="content">
 
     <!-- Topbar -->
-    <nav
-     class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
      <!-- Sidebar Toggle (Topbar) -->
-     <button id="sidebarToggleTop"
-      class="btn btn-link d-md-none rounded-circle mr-3">
+     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
       <i class="fa fa-bars"></i>
      </button>
 
      <!-- Topbar Navbar -->
      <ul class="navbar-nav ml-auto">
-
       <div class="topbar-divider d-none d-sm-block"></div>
 
       <!-- Nav Item - User Information -->
@@ -173,7 +202,7 @@
         </nav>
     <!-- End of Topbar -->
 
-  
+  <!-- Begin Page Content -->
     <div class="container-fluid">
      
       <!-- DataTales Example -->
@@ -629,40 +658,38 @@
       </div>
      </div>
 
-    </div>
+   
     <!-- /.container-fluid -->
 
-   </div>
+
    <!-- End of Main Content -->
-  </div>
+
   <!-- End of Content Wrapper -->
 
- </div>
  <!-- End of Page Wrapper -->
 
  <!-- Scroll to Top Button-->
- <a class="scroll-to-top rounded" href="#page-top"> <i
-  class="fas fa-angle-up"></i>
+ <a class="scroll-to-top rounded" href="#page-top">
+ 	<i class="fas fa-angle-up"></i>
  </a>
 
  <!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
    <div class="modal-content">
     <div class="modal-header">
      <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-     <button class="close" type="button" data-dismiss="modal"
-      aria-label="Close">
+     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">×</span>
      </button>
     </div>
-    <div class="modal-body">Select "Logout" below if you are ready
-     to end your current session.</div>
+    <div class="modal-body">Select "Logout" below if you are ready  to end your current session.</div>
     <div class="modal-footer">
-     <button class="btn btn-secondary" type="button"
-      data-dismiss="modal">Cancel</button>
-     <a class="btn btn-primary" href="../html/login.html">Logout</a>
+     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+     <form>
+     	  <input type="submit" class="btn btn-primary" value="Logout" />
+     </form>
+   
     </div>
    </div>
   </div>
