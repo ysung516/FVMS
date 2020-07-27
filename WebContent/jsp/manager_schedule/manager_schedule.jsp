@@ -62,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		ArrayList<MSC_Bean> MSCList = new ArrayList<MSC_Bean>();
 		MSCList = method.getMSCList();
  		
-		//String [] color = {"RED", "ORANGE", "BROWN", "GREEN", "BLACK", "PURPLE", "GRAY", "#FF0099"};
-		//String [] level = {"1","2","3","4","5","6"};
 		SimpleDateFormat format = new SimpleDateFormat("HH");
 		Date time = new Date();
 		int nowTime = Integer.parseInt(format.format(time));
@@ -103,12 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
          	    		  backgroundColor: 'white',
          	    		  textColor: 'black',
          	    		  
-         	    		 <%--  <%for(int i = 0; i < level.length; i++){
-         	    			  if(li.getLevel().equals(level[i])){
-         	    				 %>borderColor: '<%=color[i]%>'<%
-         	    			  }
-         	    		  }%> 
-         	    		--%>
          	    	  },
          	    	
          	<%}%>
@@ -142,8 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
        });
     calendar.render();
-    //var event = calendar.getEvents();
-    	
+   
   });
   
   	// ui 바뀐것들
@@ -178,11 +169,42 @@ document.addEventListener('DOMContentLoaded', function() {
 			preMove();
 		}); 
 	});
-	 $(function(){
-	     $('.fc-col-header-cell-cushion ').click(function(){
-	      $(location).attr('href','manager_schedule_add.jsp');
-	     }); 
-	    });
+
+	$(function(){
+		$('.fc-day-mon').click(function(){
+		     var date = $(".fc-day-mon").attr("data-date");
+		     var day_data = document.getElementById("date");
+		     day_data.value = date;
+		     document.Dayform.submit();
+		    
+		});
+		$('.fc-day-tue').click(function(){
+		     var date = $(".fc-day-tue").attr("data-date");
+		     var day_data = document.getElementById("date");
+		     day_data.value = date;
+		     document.Dayform.submit();
+		});
+		$('.fc-day-wed').click(function(){
+		     var date = $(".fc-day-wed").attr("data-date");
+		     var day_data = document.getElementById("date");
+		     day_data.value = date;
+		     document.Dayform.submit();
+		});
+		$('.fc-day-thu').click(function(){
+		     var date = $(".fc-day-thu").attr("data-date");
+		     var day_data = document.getElementById("date");
+		     day_data.value = date;
+		     document.Dayform.submit();	
+		});
+		$('.fc-day-fri').click(function(){
+		     var date = $(".fc-day-fri").attr("data-date");
+		     var day_data = document.getElementById("date");
+		     day_data.value = date;
+		     document.Dayform.submit();
+		});
+	});
+	
+	 
      
 </script>
   <meta charset="utf-8">
@@ -557,12 +579,16 @@ document.addEventListener('DOMContentLoaded', function() {
      
     <!-- /.container-fluid -->
      <div class="card-body"style="float: right;">
-      		<a href="manager_schedule_add.jsp" class="btn btn-primary" >+</a>
+      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" >+</a>
       	</div>
       	
 		<div id='calendar'></div>
+		<form id = "Dayform" name ="Dayform" method="post" action="manager_schedule_add.jsp">
+			<input id="date" type="hidden" name = "date" value="" />
+		</form>
 		
-		<form id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
+		
+		<form method="post" id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
 			<input id="number" type="hidden" name = "num" value="" />
 			<input id="setDate" type="hidden" name = "date" value="" />
 			<input id="setAm" type="hidden" name = "amPlace" value="" />

@@ -15,6 +15,10 @@
 		
 		String sessionID = session.getAttribute("sessionID").toString();
 		String sessionName = session.getAttribute("sessionName").toString();
+		String date = request.getParameter("date");
+		System.out.println(date);
+		
+		
 	
 %>
 
@@ -182,7 +186,7 @@
    		<table style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>
       <td class="m-0 text-primary" align="center">날짜 </td>
-      <td style="padding: 15px 0;"><input type="date" id="nowDate" name="DATE" style=width:100%; maxlength="50"></td>
+      <td style="padding: 15px 0;"><input type="date" id="nowDate" name="DATE" value = <%=date%> style=width:100%; maxlength="50"></td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
       <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
@@ -262,10 +266,6 @@
     </div>
   </div>
  
- <!-- 날짜창에 오늘 날짜 추가 -->
-  <script>
-		document.getElementById('nowDate').valueAsDate = new Date();
-</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
