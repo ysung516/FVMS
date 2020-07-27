@@ -15,6 +15,7 @@
 		
 		String sessionID = session.getAttribute("sessionID").toString();
 		String sessionName = session.getAttribute("sessionName").toString();
+		session.setMaxInactiveInterval(15*60);
 		String date = request.getParameter("date");
 		System.out.println(date);
 		
@@ -39,6 +40,26 @@
 	
 </head>
 <style>
+	.loading{
+		position:fixed;
+		text-align: center;
+		width:100%;
+		height:100%;
+		top:0;
+		left:0;
+		font-size:12px;
+		background-color: #4e73df6b;
+  	  	background-image: linear-gradient(181deg,#3d5482 16%,#6023b654 106%);
+  	  	background-size: cover;
+        z-index:1000;
+        color:#ffffffc4;
+	}
+	.loading #load{
+		position:fixed;
+		top:50%;
+		left: 50%;
+		transform:translate(-50%, -50%);
+	}
 	@media(max-width:800px){
 		.container-fluid{
 			padding: 0;
@@ -48,11 +69,25 @@
 		}
 }
 </style>
-
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
+<!-- 로딩화면 -->
+	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	    $('.loading').hide();
+	});
+</script>
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
+  	 <!--  로딩화면  시작  -->
+				  <div class="loading">
+				  <div id="load">
+				<i class="fas fa-spinner fa-10x fa-spin"></i>
+				  </div>
+				  </div>
+			<!--  로딩화면  끝  -->
 
     <!-- Sidebar -->
     

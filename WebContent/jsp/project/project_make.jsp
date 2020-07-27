@@ -1,15 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "java.io.PrintWriter"
+    import = "jsp.sheet.method.*"
+    import = "jsp.Bean.model.MSC_Bean"
+    import = "java.util.ArrayList"
+    import = "java.util.Date"
+    import = "java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
+<%
+
+	PrintWriter script =  response.getWriter();
+	if (session.getAttribute("sessionID") == null){
+		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+	}
+
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
+	session.setMaxInactiveInterval(15*60);
+
+%>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+
 
   <title>Sure FVMS - Project_Make</title>
 

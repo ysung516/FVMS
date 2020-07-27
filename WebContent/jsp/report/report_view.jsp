@@ -18,6 +18,7 @@
 		
 		String sessionID = session.getAttribute("sessionID").toString();
 		String sessionName = session.getAttribute("sessionName").toString();
+		session.setMaxInactiveInterval(15*60);
 		String NO = request.getParameter("no");
 		sheetMethod method = new sheetMethod();
 		BoardBean board = method.getBoard(NO);

@@ -19,6 +19,7 @@
 		
 		String sessionID = session.getAttribute("sessionID").toString();
 		String sessionName = session.getAttribute("sessionName").toString();
+		session.setMaxInactiveInterval(15*60);
 		sheetMethod method = new sheetMethod();
 	
 		ArrayList<BoardBean> list = method.get_DayBoardList();
