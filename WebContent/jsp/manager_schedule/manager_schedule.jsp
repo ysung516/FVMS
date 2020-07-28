@@ -31,6 +31,11 @@
 	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
 	    $('.loading').css("display","none");
 	});
+	
+	
+	setTimeout(function(){
+		location.reload();
+		},60000 * 3 ); // 3000밀리초 = 3초
 </script>
 
 <link href='./lib/main.css' rel='stylesheet' />
@@ -41,6 +46,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
 <script src='./lib/main.js'></script>
 <script>
+
 function formatDate(date) { 
 		var d = new Date(date), 
 		month = '' + (d.getMonth() + 1), 

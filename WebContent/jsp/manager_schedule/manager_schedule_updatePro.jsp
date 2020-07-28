@@ -28,12 +28,12 @@
 		}
 		
 		
-		if(AmPlace.equals("기타")){
+		if(AmPlace != null && AmPlace.equals("기타")){
 			AmPlace = AMother;
 		}
 		
 		String PmPlace = request.getParameter("PMradio");
-		if(PmPlace.equals("기타")){
+		if(PmPlace != null && PmPlace.equals("기타")){
 			PmPlace = PMother;
 		}
 		String date = request.getParameter("DATE");

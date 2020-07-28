@@ -78,7 +78,15 @@
 	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
 	    $('.loading').hide();
 	});
+	
+	function AMfocus(){
+		document.getElementById('AMradio').checked=true;
+	}
+	function PMfocus(){
+		document.getElementById('PMradio').checked=true;
+	}
 </script>
+
 
 <body id="page-top">
 		 
@@ -268,11 +276,11 @@
     		<% if(setAm.equals("트랜시스(남양)")){%>checked<%}%>><label>트랜시스(남양)</label></br>
     	
     	
-    	<input type="radio" name="AMradio" value="기타" 
+    	<input id="AMradio" type="radio" name="AMradio" value="기타" 
     	<% if(!(setAm.equals("슈어소프트(본사,삼성)") || setAm.equals("슈어소프트(남양사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
     			|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("트랜시스(남양)")))
     	{%>checked<%}%>><label>기타</label>
-    	<input type="text" name="AMother" <% if(!(setAm.equals("슈어소프트(본사,삼성)") || setAm.equals("슈어소프트(남양사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
+    	<input type="text" onfocus="AMfocus()" name="AMother" <% if(!(setAm.equals("슈어소프트(본사,삼성)") || setAm.equals("슈어소프트(남양사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
     			|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("트랜시스(남양)")))
     	{%>value = "<%=setAm%>"<%}%>>
       </td>
@@ -308,11 +316,11 @@
     	
     	
     	
-    	<input type="radio" name="PMradio" value="기타"
+    	<input id="PMradio" type="radio" name="PMradio" value="기타"
     	<% if(!(setPm.equals("슈어소프트(본사,삼성)") || setPm.equals("슈어소프트(남양사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
     			|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setPm.equals("트랜시스(남양)")))
     	{%>checked<%}%>><label>기타</label>
-    	<input type="text" name="PMother" <% if(!(setPm.equals("슈어소프트(본사,삼성)") || setPm.equals("슈어소프트(남양사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
+    	<input type="text" name="PMother" onfocus="PMfocus()" <% if(!(setPm.equals("슈어소프트(본사,삼성)") || setPm.equals("슈어소프트(남양사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
     			|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setPm.equals("트랜시스(남양)")))
     	{%>value = "<%=setPm%>"<%}%>>
       </td>

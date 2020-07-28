@@ -253,7 +253,6 @@ public class sheetMethod {
 		for(int i = 0; i < list.size(); i++) {
 			ListEntry li = list.get(i);
 			if(li.getCustomElements().getValue("no").equals(NO)) {
-				
 	        	board.setNo(li.getCustomElements().getValue("no"));
 	        	board.setId(li.getCustomElements().getValue("id"));
 	        	board.setName(li.getCustomElements().getValue("이름"));

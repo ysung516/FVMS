@@ -77,6 +77,13 @@
 	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
 	    $('.loading').hide();
 	});
+	
+	function AMfocus(){
+		document.getElementById('AMradio').checked=true;
+	}
+	function PMfocus(){
+		document.getElementById('PMradio').checked=true;
+	}
 </script>
 <body id="page-top">
 
@@ -237,7 +244,8 @@
     	<input type="radio" name="AMradio" value="모비스(마북)"><label>모비스(마북)</label></br>
     	<input type="radio" name="AMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></br>
     	<input type="radio" name="AMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></br>
-    	<input type="radio" name="AMradio" value="기타"><label>기타</label><input type="text" name="AMother" placeholder="Write In">
+    	<input id="AMradio" type="radio" name="AMradio" value="기타"><label>기타</label>
+    	<input type="text" onfocus="AMfocus()" name="AMother" placeholder="Write In">
       </td>
      </tr>
       <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
@@ -253,7 +261,8 @@
     	<input type="radio" name="PMradio" value="모비스(마북)"><label>모비스(마북)</label></br>
     	<input type="radio" name="PMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></br>
     	<input type="radio" name="PMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></br>
-    	<input type="radio" name="PMradio" value="기타"><label>기타</label><input type="text" name="PMother" placeholder="Write In">
+    	<input id="PMradio" type="radio" name="PMradio" value="기타"><label>기타</label>
+    	<input type="text" onfocus="PMfocus()"name="PMother" placeholder="Write In">
       </td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>

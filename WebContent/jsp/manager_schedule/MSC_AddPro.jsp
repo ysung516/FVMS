@@ -19,6 +19,7 @@
 		
 		String AMother = "미입력";
 		String PMother = "미입력";
+		String level;
 		
 		if(!(request.getParameter("AMother") == "")){
 			AMother = request.getParameter("AMother");	
@@ -30,16 +31,16 @@
 		
 		
 		String AmPlace = request.getParameter("AMradio");
-		if(AmPlace.equals("기타")){
+		if(AmPlace != null && AmPlace.equals("기타")){
 			AmPlace = AMother;
 		}
 		
 		String PmPlace = request.getParameter("PMradio");
-		if(PmPlace.equals("기타")){
+		if(PmPlace != null && PmPlace.equals("기타")){
 			PmPlace = PMother;
 		}
 	
-		String level;
+		
 		if(sessionName.equals("유영민")){
 			level = "1";
 		} else if (sessionName.equals("송우람")){
@@ -53,7 +54,7 @@
 		} else if (sessionName.equals("이창수")){
 			level = "6";
 		} else {
-			level = "0";
+			level = "1000";
 		}
 		
 		
@@ -64,7 +65,7 @@
 		if(num.equals("")){
 			if (method.insert_MSC(sessionID, AmPlace, PmPlace, date, team, sessionName, level) == 1){
 				script.print("<script> alert('일정이 추가 됬습니다.'); location.href = 'manager_schedule.jsp'</script>");
-			} else script.print("<script> alert('빈칸을 모두 작성해주세요.'); history.back(); </script>");
+			} else script.print("<script> alert('일정을 모두 입력해주세요.'); history.back(); </script>");
 		}
 		else{ 
 			if(method.update_MSC(num, AmPlace, PmPlace, date) == 1){
