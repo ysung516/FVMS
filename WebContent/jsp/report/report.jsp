@@ -19,11 +19,12 @@
 	
 	String sessionID = session.getAttribute("sessionID").toString();
 	String sessionName = session.getAttribute("sessionName").toString();
-	
+	session.setMaxInactiveInterval(15*60);
 	sheetMethod method = new sheetMethod();
 	
 	ArrayList<BoardBean> list = method.getBoardList();
 	ArrayList<ProjectBean> pjList = method.getProjectList();
+	
  %>
 
   <meta charset="utf-8">
@@ -97,7 +98,9 @@
 	button:focus {
 	outline:none;
 	}
-
+	.projectList{
+		margin: 0;
+	}
 </style>
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script type="text/javascript">
@@ -412,21 +415,38 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 목록</h6>
+                  <details>
+                  	<summary>미등록 프로젝트</summary>
+                  	
+        			<%	ArrayList<String> pjtitle = new ArrayList<String>();
+        				for (int i=0; i<pjList.size(); i++){
+        					pjtitle.add(pjList.get(i).getPROJECT_NAME());
+        					
+        				for(int j=0; j<list.size(); j++){
+        					if(!(pjList.get(i).getPROJECT_NAME().equals(list.get(j).getTitle()))){
+        						%><p class="projectList"><%=pjList.get(i).getPROJECT_NAME()%></p><%
+        							break;
+        					}	
+        				}
+						
+					} %>          	
+                  </details>
                 </div>
-                
+	
+
+	
 	<table style="white-space: nowrap; overflow:auto;width:100%;" id ="reportTable">
 		<thead>
 		 <tr style= text-align:center;">
 		   <th>프로젝트</th>
 		   <th>
 		   		<div><label style="display:grid">상태</label><button class="report_btn" onclick="sortTD (1)">▲</button><button class="report_btn" onclick="reverseTD (1)">▼</button></div></th>	
-		   		
-		   		
+	
 		   <th>
-		   		<div><label style="display:grid">작성자</label><button class="report_btn" onclick="sortTD (2)">▲</button><button class="report_btn" onclick="reverseTD (2)">▼</button></div></th>
+		   		<div><label style="display:grid">착수</label><button class="report_btn" onclick="sortTD (2)">▲</button><button class="report_btn" onclick="reverseTD (2)">▼</button></div></th>
 		   
 		   <th>
-		   		<div><label style="display:grid">작성일</label><button class="report_btn" onclick="sortTD (3)">▲</button><button class="report_btn" onclick="reverseTD (3)">▼</button></div></th>
+		   		<div><label style="display:grid">종료</label><button class="report_btn" onclick="sortTD (3)">▲</button><button class="report_btn" onclick="reverseTD (3)">▼</button></div></th>
 		  </tr>
 		  </thead>  
 		  <tbody id ="reportList" name="reportList" class="reportList" style="white-space: initial;">
@@ -446,8 +466,24 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 							}
 						%>
 						</td>
-						<td><%=list.get(i).getName()%></td>
-						<td style="white-space:nowrap;"><%=list.get(i).getDate()%></td>
+						<td>
+							<%
+								for(int j=0; j < pjList.size(); j++){
+									if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
+										%><%=pjList.get(j).getPROJECT_START()%><%
+									}
+								}
+							%>
+						</td>
+						<td style="white-space:nowrap;">
+							<%
+								for(int j=0; j < pjList.size(); j++){
+									if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
+										%><%=pjList.get(j).getPROJECT_END()%><%
+									}
+								}
+							%>
+						</td>
 					</tr>
 					<%
 				}

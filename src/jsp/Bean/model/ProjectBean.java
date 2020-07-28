@@ -1,31 +1,31 @@
 package jsp.Bean.model;
 
 public class ProjectBean {
-	private String TEAM;
-	private String PROJECT_CODE;
-	private String PROJECT_NAME;
-	private String STATE;
-	private String PART;
-	private String CLIENT;
-	private String ClIENT_PART;
-	private String MAN_MONTH;
-	private String PROJECT_DESOPIT;
-	private String FH_ORDER;
-	private String FH_SALES_PROJECTIONS;
-	private String FH_SALES;
-	private String SH_ORDER;
-	private String SH_SALES_PROJECTIONS;
-	private String SH_SALES;
-	private String PROJECT_START;
-	private String PROJECT_END;
-	private String CLIENT_PTB;
-	private String WORK_PLACE;
-	private String WORK;
-	private String PROJECT_MANAGER;
-	private String WORKER_LIST;
-	private String ASSESSMENT_TYPE;
-	private String EMPLOY_DEMAND;
-	private String OUTSOURCE_DEMAND;
+	private String TEAM;	// 팀
+	private String PROJECT_CODE;	// 프로젝트 코드
+	private String PROJECT_NAME;	// 프로젝트 
+	private String STATE;	// 상태
+	private String PART;	// 실
+	private String CLIENT;	// 고객사
+	private String ClIENT_PART;	// 고객부서
+	private String MAN_MONTH;	// M/M
+	private String PROJECT_DESOPIT;	// 프로젝트계약금액
+	private String FH_ORDER;	// 상반기수주
+	private String FH_SALES_PROJECTIONS;	// 상반기 예상 매출
+	private String FH_SALES;	//상반기 매출
+	private String SH_ORDER;	//하반기 수주
+	private String SH_SALES_PROJECTIONS;	// 하반기 예상 매출
+	private String SH_SALES;	//하반기 매출
+	private String PROJECT_START;	// 착수
+	private String PROJECT_END;	// 종료
+	private String CLIENT_PTB;	// 고객담당자
+	private String WORK_PLACE;	//근무지
+	private String WORK;	//업무
+	private String PROJECT_MANAGER;	// PM
+	private String WORKER_LIST;	// 투입명단
+	private String ASSESSMENT_TYPE;	// 평가유형
+	private String EMPLOY_DEMAND;	//채용수요
+	private String OUTSOURCE_DEMAND;	//외주수요
 	
 	public String getTEAM() {
 		return TEAM;
