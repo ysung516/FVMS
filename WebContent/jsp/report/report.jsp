@@ -420,7 +420,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding-bottom: 50px;">
          
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -481,7 +481,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 					<tr style="text-align:center; border-bottom: 1px solid #d1d3e2;">
 						
 						<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;padding:5px;">
+						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;">
 						<%
 							for(int j=0; j < pjList.size(); j++){
 								if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
@@ -490,7 +490,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 							}
 						%>
 						</td>
-						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;padding:5px;">
+						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;font-size: 15px;">
 							<%
 								for(int j=0; j < pjList.size(); j++){
 									if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
@@ -499,7 +499,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 								}
 							%>
 						</td>
-						<td style="border-left: 1px solid #b7b9cc; padding:5px;">
+						<td style="border-left: 1px solid #b7b9cc; font-size: 15px;">
 							<%
 								for(int j=0; j < pjList.size(); j++){
 									if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
