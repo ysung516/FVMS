@@ -7,7 +7,15 @@
 <html lang="en">
 
 <head>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
 
+
+$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+    $('.loading').hide();
+});
+	
+</script>
 <%
 	PrintWriter script =  response.getWriter();
 	if (session.getAttribute("sessionID") == null){
@@ -80,21 +88,13 @@
   }
 
 </style>
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script type="text/javascript">
-	<!-- 로딩화면 -->
-	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').hide();
-	});
-</script>
 <body id="page-top">
 	 <!--  로딩화면  시작  -->
-				  <div class="loading">
-				  <div id="load">
-				<i class="fas fa-spinner fa-10x fa-spin"></i>
-				  </div>
-				  </div>
+	<div class="loading">
+		<div id="load">
+			<i class="fas fa-spinner fa-10x fa-spin"></i>
+			</div>
+		</div>
 		<!--  로딩화면  끝  -->
   <!-- Page Wrapper -->
   <div id="wrapper">
