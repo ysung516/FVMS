@@ -44,14 +44,18 @@
 
 </head>
 <style>
+	summary:focus { outline:none; }
+	
 	p:last-child{
-		border-bottom: 1px solid #2577bd !important;
+		border-bottom: 1px solid black !important;
+		border-bottom-right-radius:5px;
+		border-bottom-left-radius:5px;
 	}
 	tr:last-child{
 		border-bottom:1px solid #fff !important;
 	}
 	.loading{
-		position:absolute;
+		position:fixed;
 		text-align: center;
 		width:100%;
 		height:100%;
@@ -65,8 +69,8 @@
         color:#ffffffc4;
 	}
 	.loading #load{
-		position:absolute;
-		top:40%;
+		position:fixed;
+		top:50%;
 		left: 50%;
 		transform:translate(-50%, -50%);
 	}
@@ -420,8 +424,11 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
          
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;display:inline !important">주간보고서 목록</h6>
-                    <details style="display: inline-block;position: fixed;margin-right: 7%;right: 0;width: 18%;text-align: center;">
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left:17px;display:inline !important">주간보고서 목록</h6>
+                 
+                  </div>
+                   <div style="margin-right: 5%;right: 0;position: absolute;top:8px;background:#fff;">
+                    <details style="line-height: 1;margin:0 auto;">
                   		<%	
 	                  		ArrayList<String> pjName = new ArrayList<String>();
 	        				ArrayList<String> rpName = new ArrayList<String>();
@@ -439,11 +446,11 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	        					}
 	        				}
 	        			%>
-                  		<summary style="line-height:1; display:contents;">미등록 프로젝트 <span style="font-size: 21px;display: inline-table;background-color: #fae54abf;width: 27px;height: 25px;text-align: center;border-radius: 100%;"><%=pjName.size()%></span></summary>
+                  		<summary style="font-weight:700;border: 1px solid black;padding: 5px;box-shadow: 0px 2px 4px 0px;border-radius: 6px;">미등록 프로젝트 <span style="font-size: 21px;display: inline-table;background-color:red; color:#fff;width: 27px;height:25px;text-align: center;border-radius: 100%;"><%=pjName.size()%></span></summary>
                   	
         			<%
         				for(int z=0; z< pjName.size(); z++){
-        					%><p style="background:#4077b536;margin: 0px;color:#053ce8;display:block;border-left: 1px solid #2577bd;border-right: 1px solid #2577bd;"><%=pjName.get(z)%></p>
+        					%><p style="margin: 0;padding: 5px;border-left: 1px solid black;border-right: 1px solid black;background-color:#fff;font-weight:bold;"><%=pjName.get(z)%></p>
         			<%}%>
 					      	
                   </details>
@@ -474,7 +481,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 					<tr style="text-align:center; border-bottom: 1px solid #d1d3e2;">
 						
 						<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
-						<td>
+						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;padding:5px;">
 						<%
 							for(int j=0; j < pjList.size(); j++){
 								if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
@@ -483,7 +490,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 							}
 						%>
 						</td>
-						<td>
+						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;padding:5px;">
 							<%
 								for(int j=0; j < pjList.size(); j++){
 									if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
@@ -492,7 +499,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 								}
 							%>
 						</td>
-						<td style="white-space:nowrap;">
+						<td style="border-left: 1px solid #b7b9cc; padding:5px;">
 							<%
 								for(int j=0; j < pjList.size(); j++){
 									if(pjList.get(j).getPROJECT_NAME().equals(list.get(i).getTitle())){
@@ -517,13 +524,14 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	function reverseTD( index ){replace.descending( index );} 
 </script>
  
-			<div class="card-body" style="position: fixed;bottom: 0;width: 100%;text-align: center;">
-            
-                	 <a href="report_write.jsp" class="btn btn-primary">주간보고서 작성</a>
-              </div>
+			
                    <!-- /.container-fluid -->
 
       </div>
+      <div style="position: fixed;bottom: 0;padding: 10px;width: 100%;text-align: center;background-color: #fff;border-top: 1px solid;">
+            
+                	 <a href="report_write.jsp" class="btn btn-primary">주간보고서 작성</a>
+              </div>
       <!-- End of Main Content -->
 
     </div>

@@ -37,7 +37,7 @@
 </head>
 <style>
 	.loading{
-		position:absolute;
+		position:fixed;
 		text-align: center;
 		width:100%;
 		height:100%;
@@ -51,8 +51,8 @@
         color:#ffffffc4;
 	}
 	.loading #load{
-		position:absolute;
-		top:40%;
+		position:fixed;
+		top:50%;
 		left: 50%;
 		transform:translate(-50%, -50%);
 	}
