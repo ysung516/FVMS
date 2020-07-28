@@ -279,15 +279,14 @@ public class sheetMethod {
 		
 		return e;
 	}
-	public List<ListEntry> backUpEntry2() throws GeneralSecurityException, IOException, ServiceException{
+	public ListFeed backUpEntry2() throws GeneralSecurityException, IOException, ServiceException{
 		connect();
 		access();
 		findSheet("주간보고서");
 
         URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
         ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
-        List<ListEntry> list = listFeed.getEntries();
-		return list;
+		return listFeed;
 	}
 	
 	

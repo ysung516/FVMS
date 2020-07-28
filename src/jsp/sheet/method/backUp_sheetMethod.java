@@ -106,7 +106,7 @@ public void insertSheet () throws GeneralSecurityException, IOException, Service
 		Date currentTime = new Date();
 		String dTime = formatter.format (currentTime);
 		WorksheetEntry me = method.backUpEntry();
-		
+		ListFeed MlistFeed = method.backUpEntry2();
 		
 		// 타이틀 만들기
 		URL workFeedUrl = entry.getWorksheetFeedUrl();
@@ -116,8 +116,14 @@ public void insertSheet () throws GeneralSecurityException, IOException, Service
 	      e.setTitle(con);
 	      e.setSource(me.getSource());
 	      workFeed.insert(e);
+	     
 	      
-	      //System.out.println(method.backUpEntry2().get(index));
+		  	findSheet("2020-07-28");
+			URL listFeedUrl = bcSheet.getWorksheet().getListFeedUrl();
+			ListFeed listFeed = bcSheet.getService().getFeed(listFeedUrl, ListFeed.class);
+			listFeed.setEtag(MlistFeed.getEtag());
+			//listFeed.insert(list.get(0));
+	      
 //	      findSheet("2020-07-27");
 //	      URL listFeedUrl = bcSheet.getWorksheet().getListFeedUrl();
 //	      ListFeed listFeed = service.getFeed(listFeedUrl, ListFeed.class);
@@ -132,9 +138,9 @@ public void insertSheet () throws GeneralSecurityException, IOException, Service
 	      
 	}
 public void insertContent () throws GeneralSecurityException, IOException, ServiceException {
-	connect();
-	backUpaccess();
-	findSheet("2020-07-27");
+	insertSheet();
+
+	
 }
 
 

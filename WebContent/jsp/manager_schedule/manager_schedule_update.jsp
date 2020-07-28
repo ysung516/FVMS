@@ -90,6 +90,7 @@
 				  </div>
 			<!--  로딩화면  끝  -->
 	<%
+		request.setCharacterEncoding("UTF-8");
 		String num = request.getParameter("num");
 		String setDate = request.getParameter("date");
 		String setAm = request.getParameter("amPlace");

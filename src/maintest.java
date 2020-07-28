@@ -14,7 +14,7 @@ public class maintest {
 	public static void main(String[] args) throws GeneralSecurityException, IOException, ServiceException {
 		 //TODO Auto-generated method stub
 		 //Date to String 변환
-//		backUp_sheetMethod bcMethod = new backUp_sheetMethod();
-//		bcMethod.insertSheet();
+		backUp_sheetMethod bcMethod = new backUp_sheetMethod();
+		bcMethod.insertSheet();
 	}
 }
