@@ -416,20 +416,30 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 목록</h6>
                   <details>
-                  	<summary>미등록 프로젝트</summary>
+                  		<%	
+	                  		ArrayList<String> pjName = new ArrayList<String>();
+	        				ArrayList<String> rpName = new ArrayList<String>();
+	        				
+	        				for(int i=0; i<pjList.size(); i++){
+	        					pjName.add(pjList.get(i).getPROJECT_NAME());
+	        				}
+	        				for(int j=0; j<list.size(); j++){
+	        					rpName.add(list.get(j).getTitle());	
+	        				}
+	        				
+	        				for(String item : rpName){
+	        					if(pjName.contains(item) == true){
+	        						pjName.remove(item);
+	        					}
+	        				}
+	        			%>
+                  		<summary>미등록 프로젝트 <h4 style="display: inline;"><%=pjName.size()%></h4></summary>
                   	
-        			<%	ArrayList<String> pjtitle = new ArrayList<String>();
-        				for (int i=0; i<pjList.size(); i++){
-        					pjtitle.add(pjList.get(i).getPROJECT_NAME());
-        					
-        				for(int j=0; j<list.size(); j++){
-        					if(!(pjList.get(i).getPROJECT_NAME().equals(list.get(j).getTitle()))){
-        						%><p class="projectList"><%=pjList.get(i).getPROJECT_NAME()%></p><%
-        							break;
-        					}	
-        				}
-						
-					} %>          	
+        			<%
+        				for(int z=0; z< pjName.size(); z++){
+        					%><p style ="margin: 0px;  color: red;"><%=pjName.get(z)%></p>
+        			<%}%>
+					      	
                   </details>
                 </div>
 	
