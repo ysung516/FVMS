@@ -24,7 +24,14 @@
 	session.setMaxInactiveInterval(15*60);
 
 %>
-
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
+	<!-- 로딩화면 -->
+	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	    $('.loading').css("display","none");
+	});
+</script>
 
 <link href='./lib/main.css' rel='stylesheet' />
 <script type="text/javascript" src="./fullcalendar-2.9.1/lib/jquery.min.js"></script>
@@ -209,11 +216,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 	
-	window.onbeforeunload = function() { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-	$(window).load(function() {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').hide();
-	});
-
 </script>
 
 
@@ -231,9 +233,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+  	
+  	 <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   
 <style>
- .loading{
+.loading{
 		position:fixed;
 		text-align: center;
 		width:100%;
@@ -246,6 +251,13 @@ document.addEventListener('DOMContentLoaded', function() {
   	  	background-size: cover;
         z-index:1000;
         color:#ffffffc4;
+	}
+	
+	.loading #load{
+		position:fixed;
+		top:50%;
+		left: 50%;
+		transform:translate(-50%, -50%);
 	}
 	
 .fc .fc-daygrid-event-harness{
@@ -477,7 +489,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </head>
 
 <body id="page-top">
- 	 <div class="loading"></div>
+ 	 	<!--  로딩화면  시작  -->
+				  <div class="loading">
+				  <div id="load">
+				<i class="fas fa-spinner fa-10x fa-spin"></i>
+				  </div>
+				  </div>
+		<!--  로딩화면  끝  -->
  	
   <!-- Page Wrapper -->
   <div id="wrapper">
