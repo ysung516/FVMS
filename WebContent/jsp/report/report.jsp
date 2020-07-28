@@ -44,7 +44,9 @@
 
 </head>
 <style>
-
+	p:last-child{
+		border-bottom: 1px solid #2577bd !important;
+	}
 	tr:last-child{
 		border-bottom:1px solid #fff !important;
 	}
@@ -419,7 +421,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;display:inline !important">주간보고서 목록</h6>
-                    <details style="display: inline; float: right; margin-right: 7%;">
+                    <details style="display: inline-block;position: fixed;margin-right: 7%;right: 0;width: 18%;text-align: center;">
                   		<%	
 	                  		ArrayList<String> pjName = new ArrayList<String>();
 	        				ArrayList<String> rpName = new ArrayList<String>();
@@ -441,7 +443,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                   	
         			<%
         				for(int z=0; z< pjName.size(); z++){
-        					%><p style="background: #f8f9fc;margin: 0px;color: red; display:block;"><%=pjName.get(z)%></p>
+        					%><p style="background:#4077b536;margin: 0px;color:#053ce8;display:block;border-left: 1px solid #2577bd;border-right: 1px solid #2577bd;"><%=pjName.get(z)%></p>
         			<%}%>
 					      	
                   </details>
