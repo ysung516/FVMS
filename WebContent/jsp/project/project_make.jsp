@@ -69,6 +69,17 @@
 	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
 	    $('.loading').hide();
 	});
+	
+	//페이지 나갈때 알림창
+	 var checkUnload = true;
+	    $(window).on("beforeunload", function(){
+	        if(checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+	    });
+
+	//취소버튼 누를 때 뒤로가기
+	function goBack(){
+		window.history.back();		
+	}
 </script>
 
 <body id="page-top">
@@ -413,7 +424,7 @@
             </div>
               <div class="card-body" style="margin: 0 auto;">
                 	<input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary">
-       				 <a href="project.jsp" class="btn btn-primary">취소</a>
+       				 <input type="button" value="취소" id="cancle" onclick="goBack()" class="btn btn-primary">
               </div>
           </div>
         </div>

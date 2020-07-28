@@ -44,6 +44,10 @@
 
 </head>
 <style>
+
+	tr:last-child{
+		border-bottom:1px solid #fff !important;
+	}
 	.loading{
 		position:absolute;
 		text-align: center;
@@ -414,8 +418,8 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
          
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 목록</h6>
-                  <details>
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;display:inline !important">주간보고서 목록</h6>
+                    <details style="display: inline; float: right; margin-right: 7%;">
                   		<%	
 	                  		ArrayList<String> pjName = new ArrayList<String>();
 	        				ArrayList<String> rpName = new ArrayList<String>();
@@ -433,19 +437,20 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	        					}
 	        				}
 	        			%>
-                  		<summary>미등록 프로젝트 <h4 style="display: inline;"><%=pjName.size()%></h4></summary>
+                  		<summary style="line-height:1; display:contents;">미등록 프로젝트 <span style="font-size: 21px;display: inline-table;background-color: #fae54abf;width: 27px;height: 25px;text-align: center;border-radius: 100%;"><%=pjName.size()%></span></summary>
                   	
         			<%
         				for(int z=0; z< pjName.size(); z++){
-        					%><p style ="margin: 0px;  color: red;"><%=pjName.get(z)%></p>
+        					%><p style="background: #f8f9fc;margin: 0px;color: red; display:block;"><%=pjName.get(z)%></p>
         			<%}%>
 					      	
                   </details>
-                </div>
-	
-
-	
-	<table style="white-space: nowrap; overflow:auto;width:100%;" id ="reportTable">
+                  </div>
+                
+                
+                 
+                
+	<table style="white-space: nowrap; overflow:auto;width:100%; margin-top:10px;" id ="reportTable">
 		<thead>
 		 <tr style= text-align:center;">
 		   <th>프로젝트</th>
@@ -501,7 +506,6 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		  %>
 		  
 		  </tbody>
-		  <tfoot><tr><td colspan="6" width="752"></td></tr></tfoot>
 		 </table>
  
 <script type="text/javascript">
@@ -511,17 +515,10 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	function reverseTD( index ){replace.descending( index );} 
 </script>
  
- 
-<table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr><td colspan="4" height="5"></td></tr>
-  <tr align="center">
-   <td><div class="card-body">
+			<div class="card-body" style="position: fixed;bottom: 0;width: 100%;text-align: center;">
             
                 	 <a href="report_write.jsp" class="btn btn-primary">주간보고서 작성</a>
               </div>
-          </td>
-  </tr>
-</table>
                    <!-- /.container-fluid -->
 
       </div>

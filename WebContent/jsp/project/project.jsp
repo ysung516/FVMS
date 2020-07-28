@@ -268,7 +268,8 @@
               </div>   
               </div>     
    				<div class="card-body" style="margin: 0 auto;">
-                   	 <input id="pro_make" type="button" name="pro_make" class="btn btn-primary" value="프로젝트 생성하기">
+                   <!-- 	 <input id="pro_make" type="button" name="pro_make" class="btn btn-primary" value="프로젝트 생성하기"> -->
+                  	 <a href="project_make.jsp" class="btn btn-primary">프로젝트 생성하기</a>
                    	 <input id="pro_update" type="button" name="pro_make" class="btn btn-primary" value="프로젝트 수정하기">
              	   </div>   
              	   
