@@ -38,6 +38,40 @@
 
 </head>
 <style>
+	#holiday_body{
+		text-align: center;
+		position: absolute;
+		top: -36px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	#Delete{
+		float:right;
+		width: 50px;
+		height: 30px;
+	}
+	
+	#Update{
+		position: absolute;
+		left:42%;
+		transform: translateX(-50%);
+	}
+	
+	#cancel_btn{
+		position: absolute;
+		left:45%;
+		transform: translateX(-50%);
+		margin-left:55px;
+	}
+	
+	#holiday{
+		color:white; 
+		border:0px solid;
+		border-radius: 6px;
+		height:52px;
+		font-weight: 700;
+	}
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -73,18 +107,32 @@
 </style>
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script type="text/javascript">
-<!-- 로딩화면 -->
-	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').hide();
-	});
-	
-	function AMfocus(){
-		document.getElementById('AMradio').checked=true;
-	}
-	function PMfocus(){
-		document.getElementById('PMradio').checked=true;
-	}
+var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(to right,#8766b0eb 49%,#5d9cb1)",
+	  "linear-gradient(to right,#8766b0eb 34%,#5d9cb1","linear-gradient(to right,#8766b0,#5d9cb1)",
+	   "linear-gradient(to right,#8766b0eb -22%,#5d9cb1)","linear-gradient(to right,#8766b0eb -52%,#5d9cb1)"];
+	 var cnt=0;
+	 function ff(){
+	  if(cnt==6) cnt=0;
+	  holiday.style.background=array[cnt++];
+	  setTimeout("ff()",200);
+	 }
+
+	 
+	 function AMfocus(){
+	  document.getElementById('AMradio').checked=true;
+	 }
+	 function PMfocus(){
+	  document.getElementById('PMradio').checked=true;
+	 }
+	 
+	 
+	<!-- 로딩화면 -->
+	 window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	 $(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	     $('.loading').hide();
+	     ff();
+	 });
+
 </script>
 
 
@@ -239,11 +287,15 @@
                   <h6 class="m-0 font-weight-bold text-primary" style="display:inline-block;padding-left: 17px;vertical-align: middle;">일정수정</h6>
                   <form method="post" action="manager_schedule_deletePro.jsp" style="display: inline !important;">
 				 	<input type="hidden" name = "num" value="<%=num%>">
-				 	<input id="Delete" type="submit" name="Delete" value=삭제 class="btn btn-secondary btn-icon-split" style="float:right;width: 50px;height: 30px;">
+				 	<input id="Delete" type="submit" name="Delete" value=삭제 class="btn btn-secondary btn-icon-split">
 				 </form>
                 </div>
-               <div class="card-body">
-  		<div class="table-responsive"> 
+               <div class="card-body" style="margin-bottom:52px;">
+	  		<div class="table-responsive"> 
+	  			<div id="holiday_body">
+	  				<input id="holiday" type="button" name="holiday" value="☆휴가는 이 버튼 클릭☆" >
+	  			</div>
+	<form method = "post" action = "MSC_AddPro.jsp">
    <form method ="post" action = "manager_schedule_updatePro.jsp?" style="display: inline;"> 
    <table style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>
@@ -334,11 +386,11 @@
      </table>
      
  	<input type="hidden" name = "num" value="<%=num%>">
-   	<input id="Update" type="submit" name="COMPLETE" value="수정"  class="btn btn-primary" style="margin-left: 70px;">
+   	<input id="Update" type="submit" name="COMPLETE" value="수정" class="btn btn-primary" >
 </form>
 
 	 
-       <a href="manager_schedule.jsp" class="btn btn-primary">취소</a>
+       <a href="manager_schedule.jsp" class="btn btn-primary" id="cancel_btn">취소</a>
        </div>
         
        </div>
