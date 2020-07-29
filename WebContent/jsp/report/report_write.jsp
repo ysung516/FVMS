@@ -49,6 +49,21 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 
 </head>
 <style>
+
+	.m-0 .text-primary{
+		vertical-align:middle;
+		text-align:center;
+	}
+	select{
+		width:100%;
+	}
+	#name{
+		width:100%;
+	}
+	
+	textarea{
+		width:100%;
+	}
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -240,10 +255,9 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                  <div style="margin: 0 auto" class="card-body">
            
                  <div class="table-responsive">
-                  
 		    <form method = "post" action = "report_writePro.jsp">
-		   <table style="width:100%">
-		    <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		   <table class="table table-bordered" id="dataTable">
+		    
 		     <tr>
 		      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">프로젝트</td>
 		      <td><select name="TITLE">
@@ -254,50 +268,32 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		      		
 		      </select></td>
 		     </tr>
-		 
-		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td>
-		     </tr>
-		  
-		  	<tr height="1" bgcolor="#fff"><td colspan="2"></td>
-		      </tr>
+
 		    <tr>
-		      <td class="m-0 text-primary" align="center">작성자</td>
-		      <td><input name="NAME" style=width:100%;></td>
-		     </tr>
-		  	
-		      <tr height="1" bgcolor="#fff"><td colspan="2"></td>
-		      </tr>
-		     
-		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
-		     <tr>
-		      <td class="m-0 text-primary" align="center">금주계획</td>
-		      <td><textarea name="WeekPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td class="m-0 text-primary">작성자</td>
+		      <td><input id="name" name="NAME"></td>
+		     </tr>  
+		    <tr>
+		      <td colspan="2" class="m-0 text-primary"><h6>금주계획</h6><textarea name="WeekPlan"cols="51" rows="13"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td class="m-0 text-primary" align="center">금주진행</td>
-		      <td><textarea name="WeekPro"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>금주진행</h6><textarea name="WeekPro"cols="51" rows="13"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td class="m-0 text-primary" align="center">차주계획</td>
-		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>차주계획</h6><textarea name="NextPlan"cols="51" rows="13"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td class="m-0 text-primary" align="center">특이사항</td>
-		      <td><textarea name="specialty"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>특이사항</h6><textarea name="specialty"cols="51" rows="13"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td class="m-0 text-primary" align="center">비고</td>
-		      <td><textarea name="note"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>비고</h6><textarea name="note"cols="51" rows="13" ></textarea></td>
 		     </tr>
-		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
+		
 		     <tr align="center">
 		      <td colspan="2"> 
 		      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
 		       <a href="report.jsp" class="btn btn-primary">취소</a>
-		      <td>&nbsp;</td>
 		     </tr>
-		      <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		    </table>
 		    </form>
 		 </div>

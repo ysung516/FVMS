@@ -58,6 +58,12 @@
 	});
 </script>
 <style>
+
+	.radio_body{
+		 position: fixed;
+		 top: 100px;
+		 right:100px;
+	}
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -249,13 +255,13 @@
         <div class="card-header py-3">
          <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 조회</h6>
         </div>
-                 <div style= "position: fixed; top: 100px; right:100px">
- <input type="radio" name="chk_info" value="금일계획" onclick="fnMove('1')">금일계획 <br>
- <input type="radio" name="chk_info" value="금일진행" onclick="fnMove('2')">금일진행 <br>
- <input type="radio" name="chk_info" value="차일계획" onclick="fnMove('3')">차일계획<br>
- <input type="radio" name="chk_info" value="특이사항" onclick="fnMove('4')">특이사항<br>
- <input type="radio" name="chk_info" value="비고" onclick="fnMove('5')">비고
- </div>
+          <div class="radio_body">
+			 <input type="radio" name="chk_info" value="금일계획" onclick="fnMove('1')">금일계획 <br>
+			 <input type="radio" name="chk_info" value="금일진행" onclick="fnMove('2')">금일진행 <br>
+			 <input type="radio" name="chk_info" value="차일계획" onclick="fnMove('3')">차일계획<br>
+			 <input type="radio" name="chk_info" value="특이사항" onclick="fnMove('4')">특이사항<br>
+			 <input type="radio" name="chk_info" value="비고" onclick="fnMove('5')">비고
+			</div>
          <div class="card-body">
          
          <!-- 필드셋 시작 -->
