@@ -32,10 +32,6 @@
 	    $('.loading').css("display","none");
 	});
 	
-	
-	setTimeout(function(){
-		location.reload();
-		},60000 * 3 ); // 3000밀리초 = 3초
 </script>
 
 <link href='./lib/main.css' rel='stylesheet' />
@@ -634,7 +630,7 @@ document.addEventListener('DOMContentLoaded', function() {
      
     <!-- /.container-fluid -->
      <div class="card-body"style="float: right;">
-      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" style="font:initial;" >⟳</a>
+      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" style="background-color: white"><img src="../../img/reload.png" width="20px"></a>
       	</div>
       	
 		<div id='calendar'></div>
