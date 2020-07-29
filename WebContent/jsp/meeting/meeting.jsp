@@ -203,7 +203,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 			</li>
 			
 			<!-- Nav Item - meeting -->
-		    <li class="nav-item" active>
+		    <li class="nav-item active">
 	          <a class="nav-link" href="../meeting/meeting.jsp">
 	          <i class="fas fa-fw fa-clipboard-list"></i>
 	          <span>회의록</span></a>
