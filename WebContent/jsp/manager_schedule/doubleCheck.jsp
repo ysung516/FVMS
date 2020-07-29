@@ -39,7 +39,9 @@
 			<%	
 		} else {
 			%>
-				<script>document.GoUpdate.submit();</script>
+				<script>
+						document.GoUpdate.submit();		
+				</script>
 			<%	
 		}
 	%>

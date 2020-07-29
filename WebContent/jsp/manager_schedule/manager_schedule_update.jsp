@@ -309,10 +309,10 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
      <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
      
       	<input type="radio" name="AMradio" value="슈어(본사,삼성)" onClick="this.form.AMother.value=''"
-      		<% if(setAm.equals("슈어소프트(본사,삼성)")){%>checked<%}%>><label>슈어소프트(본사,삼성)</label></br>
+      		<% if(setAm.equals("슈어(본사,삼성)")){%>checked<%}%>><label>슈어소프트(본사,삼성)</label></br>
       		
     	<input type="radio" name="AMradio" value="슈어(남양사무실)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("슈어소프트(남양사무실)")){%>checked<%}%>><label>슈어소프트(남양사무실)</label></br>
+    		<% if(setAm.equals("슈어(남양사무실)")){%>checked<%}%>><label>슈어소프트(남양사무실)</label></br>
     		
     	<input type="radio" name="AMradio" value="HMC(남양연구소)" onClick="this.form.AMother.value=''"
     		<% if(setAm.equals("HMC(남양연구소)")){%>checked<%}%>><label>HMC(남양연구소)</label></br>
