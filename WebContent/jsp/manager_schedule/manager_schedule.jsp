@@ -249,6 +249,30 @@ document.addEventListener('DOMContentLoaded', function() {
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
   
 <style>
+#reload_btn a{
+	box-shadow: 1px 2px 0px 0px #3ba9e0;
+	background-color: white;
+	display: grid;
+	border: 1px solid #3ba9e0;
+	border-radius: 8px;
+	background-color: white;
+}
+#reload_btn{
+		float: right;
+	}
+	#reload_btn a:hover{
+	 	background-color:#3ba9e057;
+	}
+	
+	#reload_btn a:active{
+	 	background-color:#3ba9e057;
+	 	border:2px solid #1a78a7;
+	 	box-shadow: 1px 2px 0px 0px #1a78a7;	
+	}
+	
+	button:focus {
+	outline:none;
+	}
 .loading{
 		position:fixed;
 		text-align: center;
@@ -644,8 +668,8 @@ document.addEventListener('DOMContentLoaded', function() {
        
      
     <!-- /.container-fluid -->
-     <div class="card-body"style="float: right;">
-      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" style="box-shadow: 1px 2px 0px 0px #3ba9e0;background-color: white;display: grid;border: 1px solid #3ba9e0;border-radius: 8px;background-color: white;" ><img src="../../img/reload.png" width="20px"></a>
+     <div class="card-body" id="reload_btn">
+      		<a href="JavaScript:window.location.reload()" class="btn btn-primary"><img src="../../img/reload.png" width="20px"></a>
       	</div>
       	
       	
