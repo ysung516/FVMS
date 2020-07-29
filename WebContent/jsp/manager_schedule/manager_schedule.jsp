@@ -183,14 +183,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			preMove();
 		}); 
 	});
-
-	$(function(){
+	
+	 function dayEvent(){
 		$('.fc-day-mon').click(function(){
+			 alert('123');
 		     var date = $(".fc-day-mon").attr("data-date");
 		     var day_data = document.getElementById("date");
 		     day_data.value = date;
 		     document.Dayform.submit();
-		    
 		});
 		$('.fc-day-tue').click(function(){
 		     var date = $(".fc-day-tue").attr("data-date");
@@ -216,8 +216,19 @@ document.addEventListener('DOMContentLoaded', function() {
 		     day_data.value = date;
 		     document.Dayform.submit();
 		});
-	});
+	} 
 	
+	
+
+	$(function(){
+		dayEvent();
+		$('.fc-next-button').click(function(){
+			dayEvent();
+		});
+		$('.fc-prev-button').click(function(){
+			dayEvent();
+		})
+	});
 </script>
 
 
