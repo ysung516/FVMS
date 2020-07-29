@@ -630,8 +630,9 @@ document.addEventListener('DOMContentLoaded', function() {
      
     <!-- /.container-fluid -->
      <div class="card-body"style="float: right;">
-      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" style="background-color: white"><img src="../../img/reload.png" width="20px"></a>
+      		<a href="JavaScript:window.location.reload()" class="btn btn-primary" style="box-shadow: 1px 2px 0px 0px #3ba9e0;background-color: white;display: grid;border: 1px solid #3ba9e0;border-radius: 8px;background-color: white;" ><img src="../../img/reload.png" width="20px"></a>
       	</div>
+      	
       	
 		<div id='calendar'></div>
 		<form id = "Dayform" name ="Dayform" method="post" action="manager_schedule_add.jsp">
