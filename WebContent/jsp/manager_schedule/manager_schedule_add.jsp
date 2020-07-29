@@ -19,8 +19,6 @@
 		session.setMaxInactiveInterval(15*60);
 		String date = request.getParameter("date");
 		System.out.println(date);
-		
-		
 	
 %>
 
@@ -43,7 +41,14 @@
 <style>
 
 	#holiday:focus {
-	outline:#fff;
+		outline:#fff;
+	}
+	#holiday{
+		color:white;
+		border:0px solid;
+		border-radius: 6px; 
+		height:52px;
+		font-weight: 700;
 	}
 	.loading{
 		position:fixed;
@@ -76,11 +81,17 @@
 </style>
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script type="text/javascript">
-<!-- 로딩화면 -->
-	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').hide();
-	});
+
+	var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(to right,#8766b0eb 49%,#5d9cb1)",
+		"linear-gradient(to right,#8766b0eb 34%,#5d9cb1","linear-gradient(to right,#8766b0,#5d9cb1)",
+			"linear-gradient(to right,#8766b0eb -22%,#5d9cb1)","linear-gradient(to right,#8766b0eb -52%,#5d9cb1)"];
+	var cnt=0;
+	function ff(){
+		if(cnt==6) cnt=0;
+		holiday.style.background=array[cnt++];
+		setTimeout("ff()",200);
+	}
+
 	
 	function AMfocus(){
 		document.getElementById('AMradio').checked=true;
@@ -88,23 +99,16 @@
 	function PMfocus(){
 		document.getElementById('PMradio').checked=true;
 	}
-
+	
+	
+<!-- 로딩화면 -->
+	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	    $('.loading').hide();
+	    ff();
+	});
 </script>
-<script>
-var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(to right,#8766b0eb 49%,#5d9cb1)","linear-gradient(to right,#8766b0eb 34%,#5d9cb1","linear-gradient(to right,#8766b0,#5d9cb1)","linear-gradient(to right,#8766b0eb -22%,#5d9cb1)","linear-gradient(to right,#8766b0eb -52%,#5d9cb1)"];
-var cnt=0;
-window.onload=function(){
-ff();
-}
 
-function ff(){
-if(cnt==6) cnt=0;
-holiday.style.background=array[cnt++];
-setTimeout("ff()",200);
-}
-
-
-</script>
 <body id="page-top">
 
   <!-- Page Wrapper -->
@@ -245,8 +249,12 @@ setTimeout("ff()",200);
                 <div class="card-body">
   		<div class="table-responsive"> 
   
-  	<div style="text-align: center;position: absolute;top: -36px;left: 50%;transform: translateX(-50px);">
-  	<input id="holiday" type="button" name="holiday" style="color:white; border:0px solid;border-radius: 6px; height:52px;font-weight: 700;"value="☆휴가는 이 버튼 클릭☆" ></div>
+  	<form method = "post" action="holiday.jsp">
+  	  	<div style="text-align: center;position: absolute;top: -36px;left: 50%;transform: translateX(-50%);">
+	  	<input id="holiday" type="submit" name="holiday" value="☆휴가는 이 버튼 클릭☆" ></div>
+	  	<input type="hidden" name="date" value="<%=date%>">
+  	</form>	
+  	
 	<form method = "post" action = "MSC_AddPro.jsp">
    		<table style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>

@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         			setDate.value = date;
         			setAm.value = amPlace;
         			setPm.value = pmPlace;
-        			document.jsvarform.submit();
+        			document.Dayform.submit();
         		} else{
         			window.location.reload()
         		}
@@ -186,40 +186,37 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	 function dayEvent(){
 		$('.fc-day-mon').click(function(){
-			 alert('123');
 		     var date = $(".fc-day-mon").attr("data-date");
-		     var day_data = document.getElementById("date");
+		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
 		     document.Dayform.submit();
 		});
 		$('.fc-day-tue').click(function(){
 		     var date = $(".fc-day-tue").attr("data-date");
-		     var day_data = document.getElementById("date");
+		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
 		     document.Dayform.submit();
 		});
 		$('.fc-day-wed').click(function(){
 		     var date = $(".fc-day-wed").attr("data-date");
-		     var day_data = document.getElementById("date");
+		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
 		     document.Dayform.submit();
 		});
 		$('.fc-day-thu').click(function(){
 		     var date = $(".fc-day-thu").attr("data-date");
-		     var day_data = document.getElementById("date");
+		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
 		     document.Dayform.submit();	
 		});
 		$('.fc-day-fri').click(function(){
 		     var date = $(".fc-day-fri").attr("data-date");
-		     var day_data = document.getElementById("date");
+		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
 		     document.Dayform.submit();
 		});
 	} 
 	
-	
-
 	$(function(){
 		dayEvent();
 		$('.fc-next-button').click(function(){
@@ -229,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			dayEvent();
 		})
 	});
+	
 </script>
 
 
@@ -646,18 +644,14 @@ document.addEventListener('DOMContentLoaded', function() {
       	
       	
 		<div id='calendar'></div>
-		<form id = "Dayform" name ="Dayform" method="post" action="manager_schedule_add.jsp">
-			<input id="date" type="hidden" name = "date" value="" />
-		</form>
 		
 		
-		<form method="post" id="jsvarform" name ="jsvarform" action="manager_schedule_update.jsp">
+		<form id = "Dayform" name ="Dayform" method="post" action="doubleCheck.jsp">
 			<input id="number" type="hidden" name = "num" value="" />
 			<input id="setDate" type="hidden" name = "date" value="" />
 			<input id="setAm" type="hidden" name = "amPlace" value="" />
 			<input id="setPm" type="hidden" name = "pmPlace" value="" />
 		</form>
-		
  		
       </div>
      </div>
