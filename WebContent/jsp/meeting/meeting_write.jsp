@@ -261,7 +261,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		      </tr>
 		   
 		     <tr>
-			      <td class="m-0 text-primary" align="center">회의일시</td>
+			      <td class="m-0 text-primary" align="center">회의 일시</td>
 			      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
 		     </tr>
 		     
@@ -269,26 +269,26 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		     	<td colspan="2"></td>
 		      </tr>
 		      
+		       <tr>
+			      <td class="m-0 text-primary" align="center">회의 장소</td>
+			      <td><input style=width:100%;></td>
+		     </tr>
+		      
 		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		 
+		     
 		     <tr>
-		      <td class="m-0 text-primary" align="center">금주계획</td>
+			      <td class="m-0 text-primary" align="center">참석자</td>
+			      <td><input style=width:100%;></td>
+		     </tr>
+		      <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		      <tr>
+		      <td class="m-0 text-primary" align="center">회의 내용</td>
 		      <td><textarea name="WeekPlan"cols="51" rows="13"style=width:100%;></textarea></td>
 		     </tr>
 		      <tr>
-		      <td class="m-0 text-primary" align="center">금주진행</td>
+		      <td class="m-0 text-primary" align="center">향후 일정</td>
 		      <td><textarea name="WeekPro"cols="51" rows="13"style=width:100%;></textarea></td>
-		     </tr>
-		      <tr>
-		      <td class="m-0 text-primary" align="center">차주계획</td>
-		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
-		     </tr>
-		      <tr>
-		      <td class="m-0 text-primary" align="center">특이사항</td>
-		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
-		     </tr>
-		      <tr>
-		      <td class="m-0 text-primary" align="center">비고</td>
-		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
 		     </tr>
 		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
 		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
