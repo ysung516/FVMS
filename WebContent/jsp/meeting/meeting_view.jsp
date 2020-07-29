@@ -192,14 +192,14 @@
 			</li>
 			
 		  <!-- Nav Item - report -->
-			<li class="nav-item active">
+			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
       
         <!-- Nav Item - meeting -->
-			<li class="nav-item">
+			<li class="nav-item active">
 			  <a class="nav-link" href="../meeting/meeting.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>회의록</span></a>
@@ -275,24 +275,28 @@
 						<td>FVMS</td>
 					</tr>
 					<tr>
+						<td>작성자</td>
+						<td>김혜윤</td>
+					</tr>
+					<tr>
 						<td>회의일시</td>
 						<td>2020-07-29</td> 
 					</tr>
 					<tr>
 						<td>회의 장소</td>
-						<td></td>
+						<td>슈어소프트테크(삼성)</td>
 					</tr>
 					<tr>
 						<td>참석자 </td>
-						<td></td>
+						<td>5명(유땡땡,김땡땡,김땡땡,신땡땡,이땡땡)</td>
 					</tr>
 					<tr>
 						<td>회의내용</td>
-						<td></td>
+						<td>주간보고서 양식 변경 및 회의록페이지 생성</td>
 					</tr>
 					<tr>
 						<td>향후일정</td>
-						<td></td>
+						<td>관리자 일정 수정</td>
 					</tr>
 					</table>
           
@@ -300,7 +304,7 @@
 	     <tr>
 	     <td colspan="2">
 	     <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
-	       <a href="report.jsp" class="btn btn-primary">목록</a>
+	       <a href="meeting.jsp" class="btn btn-primary">목록</a>
 	       </td>
 	     </tr>
 	       </table>   

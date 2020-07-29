@@ -156,10 +156,17 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 			</li>
 		
 		  <!-- Nav Item - report -->
-			<li class="nav-item active">
+			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
+			</li>
+      		
+      		<!-- Nav Item - meeting -->
+			<li class="nav-item active">
+			  <a class="nav-link" href="../meeting/meeting.jsp">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>회의록</span></a>
 			</li>
       
 
@@ -223,33 +230,45 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 
 	   <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 작성</h6>
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">회의록 작성</h6>
                 </div>
                  <div style="margin: 0 auto" class="card-body">
            
                  <div class="table-responsive">
-                  
-		    <form method = "post" action = "report_writePro.jsp">
+                 
 		   <table style="width:100%">
 		    <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		     
 		     <tr>
-		      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">프로젝트</td>
-		      <td><input name="TITLE"  style=width:100%; placeholder="프로젝트 명"></td>
+			      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">회의명</td>
+			      <td><input name="TITLE"  style=width:100%; placeholder="회의 명"></td>
 		     </tr>
 		 
-		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td>
+		     <tr height="1" bgcolor="#fff">
+		     	<td colspan="2" height="5"></td>
 		     </tr>
 		  
-		  	<tr height="1" bgcolor="#fff"><td colspan="2"></td>
+		  	<tr height="1" bgcolor="#fff">
+		  		<td colspan="2"></td>
 		      </tr>
 		    <tr>
-		      <td class="m-0 text-primary" align="center">작성자</td>
-		      <td><input name="NAME" style=width:100%;></td>
+			      <td class="m-0 text-primary" align="center">작성자</td>
+			      <td><input name="NAME" style=width:100%;></td>
 		     </tr>
 		  	
-		      <tr height="1" bgcolor="#fff"><td colspan="2"></td>
+		      <tr height="1" bgcolor="#fff">
+		      	<td colspan="2"></td>
 		      </tr>
+		   
+		     <tr>
+			      <td class="m-0 text-primary" align="center">회의일시</td>
+			      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
+		     </tr>
 		     
+		     <tr height="1" bgcolor="#fff">
+		     	<td colspan="2"></td>
+		      </tr>
+		      
 		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		     <tr>
 		      <td class="m-0 text-primary" align="center">금주계획</td>
