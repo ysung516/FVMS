@@ -255,19 +255,15 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 			      <td class="m-0 text-primary" align="center">작성자</td>
 			      <td><input name="NAME" style=width:100%;></td>
 		     </tr>
-		  	
-		      <tr height="1" bgcolor="#fff">
-		      	<td colspan="2"></td>
-		      </tr>
-		   
+		
+		  <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		    
 		     <tr>
 			      <td class="m-0 text-primary" align="center">회의 일시</td>
 			      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
 		     </tr>
 		     
-		     <tr height="1" bgcolor="#fff">
-		     	<td colspan="2"></td>
-		      </tr>
+		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		      
 		       <tr>
 			      <td class="m-0 text-primary" align="center">회의 장소</td>
@@ -295,12 +291,11 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		     <tr align="center">
 		      <td colspan="2"> 
 		      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
-		       <a href="report.jsp" class="btn btn-primary">취소</a>
+		       <a href="meeting.jsp" class="btn btn-primary">취소</a>
 		      <td>&nbsp;</td>
 		     </tr>
 		      <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		    </table>
-		    </form>
 		 </div>
 		    <!-- /.container-fluid -->
 		

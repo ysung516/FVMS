@@ -151,6 +151,12 @@
 			  <span>주간보고서</span></a>
 			</li>
       
+      	<!-- Nav Item - meeting -->
+			<li class="nav-item">
+			  <a class="nav-link" href="../meeting/meeting.jsp">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>회의록</span></a>
+			</li>
      
 
       <!-- Divider -->
