@@ -232,69 +232,47 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">회의록 작성</h6>
                 </div>
-                 <div style="margin: 0 auto" class="card-body">
+                 <div class="card-body">
            
                  <div class="table-responsive">
                  
-		   <table style="width:100%">
-		    <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
-		     
+		  <table class="table table-bordered" id="dataTable">
+
 		     <tr>
 			      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">회의명</td>
 			      <td><input name="TITLE"  style=width:100%; placeholder="회의 명"></td>
 		     </tr>
-		 
-		     <tr height="1" bgcolor="#fff">
-		     	<td colspan="2" height="5"></td>
-		     </tr>
-		  
-		  	<tr height="1" bgcolor="#fff">
-		  		<td colspan="2"></td>
-		      </tr>
 		    <tr>
 			      <td class="m-0 text-primary" align="center">작성자</td>
 			      <td><input name="NAME" style=width:100%;></td>
 		     </tr>
 		
-		  <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
-		    
 		     <tr>
-			      <td class="m-0 text-primary" align="center">회의 일시</td>
+			      <td class="m-0 text-primary" align="center">회의일시</td>
 			      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
 		     </tr>
-		     
-		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		      
 		       <tr>
-			      <td class="m-0 text-primary" align="center">회의 장소</td>
+			      <td class="m-0 text-primary" align="center">회의장소</td>
 			      <td><input style=width:100%;></td>
 		     </tr>
-		      
-		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
-		 
 		     
 		     <tr>
 			      <td class="m-0 text-primary" align="center">참석자</td>
 			      <td><input style=width:100%;></td>
 		     </tr>
-		      <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
+		     
 		      <tr>
-		      <td class="m-0 text-primary" align="center">회의 내용</td>
-		      <td><textarea name="WeekPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td class="m-0 text-primary" colspan="2"><h6>회의내용</h6><textarea name="WeekPlan" rows="10"style=width:100%;></textarea></td>
 		     </tr>
 		      <tr>
-		      <td class="m-0 text-primary" align="center">향후 일정</td>
-		      <td><textarea name="WeekPro"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td class="m-0 text-primary" colspan="2"><h6>향후일정</h6><textarea name="WeekPro" rows="10"style=width:100%;></textarea></td>
 		     </tr>
-		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
 		     <tr align="center">
 		      <td colspan="2"> 
 		      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
 		       <a href="meeting.jsp" class="btn btn-primary">취소</a>
-		      <td>&nbsp;</td>
 		     </tr>
-		      <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		    </table>
 		 </div>
 		    <!-- /.container-fluid -->

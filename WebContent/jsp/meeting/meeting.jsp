@@ -44,6 +44,36 @@
 
 </head>
 <style>
+	
+	#meeting_btn{
+		position: fixed;
+		bottom: 0;
+		padding: 10px;
+		width: 100%;
+		text-align: center;
+		background-color: #fff;
+		border-top: 1px solid;
+	}
+
+	#meetingTable tr{
+	 	border-bottom: 1px solid #d1d3e2;
+		text-align:center;
+	}
+	
+	#meetingTable{
+		white-space: nowrap;
+		overflow:auto;
+		width:100%; 
+		margin-top:10px;
+	}
+	
+	#meetingList td{
+		border-right: 1px solid #b7b9cc;
+		padding:6px;
+	}
+	#meetingList td:last-child{
+		border:0px;
+	}
 	summary:focus { outline:none; }
 	
 	p:last-child{
@@ -83,27 +113,6 @@
 			padding: 0;
 		}
 }
-
-	.report_btn{
-	    font-size: 15px;
-	    border:2px solid #929ae3;
-	    background-color: rgba(0,0,0,0);
-	    color: #929ae3;
-	    border-radius: 100%;
-	    font-weight: 700;
-	    font-family: serif;
-	    margin: 5px;
-	}
-	.report_btn:hover{
-	 	background-color: #929ae385;
-	}
-	
-	.report_btn:active{
-	 	background-color: #929ae385;
-	 	 border:2px solid #505dd3;
-	 	 color:#4e73df;
-	 	
-	}
 	
 	button:focus {
 	outline:none;
@@ -266,9 +275,9 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left:17px;display:inline !important">회의록 목록</h6>
                   </div>
                  
-	<table style="white-space: nowrap; overflow:auto;width:100%; margin-top:10px;" id ="reportTable">
+	<table id ="meetingTable">
 		<thead>
-		 <tr style= text-align:center;">
+		 <tr>
 		   <th>회의명</th>
 		   <th>회의 일시</th>	
 		   <th>회의 장소</th>
@@ -279,18 +288,17 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 						
 						<td><a href="meeting_view.jsp">FVMS 회의</a></td>
 						
-						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;">2020-07-29</td>
+						<td>2020-07-29</td>
 			
-						<td style="border-left: 1px solid #b7b9cc; font-size: 15px;">슈어소프트테크(삼성)</td>
+						<td>슈어소프트테크(삼성)</td>
 					</tr> 
 		  </tbody>
 		 </table>	
                    <!-- /.container-fluid -->
-
       </div>
-      <div style="position: fixed;bottom: 0;padding: 10px;width: 100%;text-align: center;background-color: #fff;border-top: 1px solid;">
-            
-                	 <a href="meeting_write.jsp" class="btn btn-primary">회의록 작성</a>
+     		
+     		 <div id="meeting_btn">
+                 <a href="meeting_write.jsp" class="btn btn-primary">회의록 작성</a>
               </div>
       <!-- End of Main Content -->
 
