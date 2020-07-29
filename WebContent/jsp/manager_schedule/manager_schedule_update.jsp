@@ -159,6 +159,7 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
 		String setAm = request.getParameter("amPlace");
 		String setPm = request.getParameter("pmPlace");
 		
+		
 	%>
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -292,7 +293,7 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                 
-                  <h6 class="m-0 font-weight-bold text-primary">사람이름 일정수정</h6>
+                  <h6 class="m-0 font-weight-bold text-primary"><%=sessionName%> 일정수정</h6>
                   <form method="post" action="manager_schedule_deletePro.jsp" style="display: inline !important;">
 				 	<input type="hidden" name = "num" value="<%=num%>">
 				 	<input id="Delete" type="submit" name="Delete" value=삭제 class="btn btn-secondary btn-icon-split">

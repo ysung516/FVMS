@@ -18,10 +18,7 @@
 		String sessionID = session.getAttribute("sessionID").toString();
 		String date = request.getParameter("date");
 		String no = request.getParameter("num");
-		String amPlace = request.getParameter("amPlace");
-		String pmPlace = request.getParameter("pmPlace");
 		String num = method.doubleCheck(sessionID, date);
-		
 		%>
 		<form id="GoAdd" name="GoAdd"method="post" action="manager_schedule_add.jsp">
 			<input type="hidden" name = "date" value="<%=date%>"/>
@@ -29,8 +26,8 @@
 		<form id="GoUpdate" name="GoUpdate" method="post" action="manager_schedule_update.jsp">
 			<input type="hidden" name = "date" value="<%=date%>"/>
 			<input type="hidden" name = "num" value="<%=no%>"/>
-			<input type="hidden" name = "amPlace" value="<%=amPlace%>"/>
-			<input type="hidden" name = "pmPlace" value="<%=pmPlace%>"/>
+			<input type="hidden" name = "amPlace" value="<%=%>"/>
+			<input type="hidden" name = "pmPlace" value="<%=%>"/>
 		</form>
 		<%
 		if(num.equals("")){
@@ -40,7 +37,8 @@
 		} else {
 			%>
 				<script>
-						document.GoUpdate.submit();		
+						// 시트에서 해당날짜 아이디 검색해서 amPlace,pmPlace 가져오기
+						document.GoUpdate.submit();
 				</script>
 			<%	
 		}

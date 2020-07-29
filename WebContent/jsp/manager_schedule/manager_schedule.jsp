@@ -52,6 +52,7 @@ function formatDate(date) {
 		return [year, month, day].join('-'); 
 	}
 
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
@@ -126,6 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
     		var str2 = arg.event.title.split(' ');
     		var amPlace = str2[1];
     		var pmPlace = str2[3];
+    		
+    		amPlace2 = amPlace;
+    		pmPlace2 = pmPlace;
     		
         	if(id == '<%=sessionID%>'){
         		if(confirm("일정을 수정하시겠습니까?") == true){
