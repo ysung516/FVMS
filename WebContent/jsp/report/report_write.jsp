@@ -252,7 +252,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 작성</h6>
                 </div>
-                 <div style="margin: 0 auto" class="card-body">
+                 <div class="card-body">
            
                  <div class="table-responsive">
 		    <form method = "post" action = "report_writePro.jsp">
@@ -270,23 +270,23 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		     </tr>
 
 		    <tr>
-		      <td class="m-0 text-primary">작성자</td>
+		      <td class="m-0 text-primary" align="center">작성자</td>
 		      <td><input id="name" name="NAME"></td>
 		     </tr>  
 		    <tr>
-		      <td colspan="2" class="m-0 text-primary"><h6>금주계획</h6><textarea name="WeekPlan"cols="51" rows="13"></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>금주계획</h6><textarea name="WeekPlan" rows="10"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td colspan="2" class="m-0 text-primary"><h6>금주진행</h6><textarea name="WeekPro"cols="51" rows="13"></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>금주진행</h6><textarea name="WeekPro" rows="10"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td colspan="2" class="m-0 text-primary"><h6>차주계획</h6><textarea name="NextPlan"cols="51" rows="13"></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>차주계획</h6><textarea name="NextPlan" rows="10"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td colspan="2" class="m-0 text-primary"><h6>특이사항</h6><textarea name="specialty"cols="51" rows="13"></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>특이사항</h6><textarea name="specialty" rows="10"></textarea></td>
 		     </tr>
 		      <tr>
-		      <td colspan="2" class="m-0 text-primary"><h6>비고</h6><textarea name="note"cols="51" rows="13" ></textarea></td>
+		      <td colspan="2" class="m-0 text-primary"><h6>비고</h6><textarea name="note" rows="10" ></textarea></td>
 		     </tr>
 		
 		     <tr align="center">
