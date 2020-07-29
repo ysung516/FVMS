@@ -44,8 +44,9 @@
 
 </head>
 <style>
-
+	
 	#reportTable tr{
+	 	border-bottom: 1px solid #d1d3e2;
 		text-align:center;
 	}
 	#reportTable{
@@ -386,7 +387,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 			if(list != null){
 				for(int i=0; i < list.size(); i++){
 					%>
-					<tr style="text-align:center; border-bottom: 1px solid #d1d3e2;">
+					<tr>
 						
 						<td><a href="report_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getTitle()%></a></td>
 						<td >
