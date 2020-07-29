@@ -290,8 +290,6 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                   </div>
                 
                 
-                 
-                
 	<table style="white-space: nowrap; overflow:auto;width:100%; margin-top:10px;" id ="reportTable">
 		<thead>
 		 <tr style= text-align:center;">

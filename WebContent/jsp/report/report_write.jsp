@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
+    import = "java.util.ArrayList"
     import = "jsp.sheet.method.*"
+    import = "jsp.Bean.model.*"
     %>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +27,9 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	String sessionID = session.getAttribute("sessionID").toString();
 	String sessionName = session.getAttribute("sessionName").toString();
 	session.setMaxInactiveInterval(15*60);
+	
+	sheetMethod method = new sheetMethod();
+	ArrayList<ProjectBean> pjList = method.getProjectList();
 %>
 
   <meta charset="utf-8">
@@ -234,7 +239,13 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		    <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		     <tr>
 		      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">프로젝트</td>
-		      <td><input name="TITLE"  style=width:100%; placeholder="프로젝트 명"></td>
+		      <td><select name="TITLE">
+		      	<%for(int i=0; i<pjList.size(); i++){
+		      		%><option value="<%=pjList.get(i).getPROJECT_NAME()%>"><%=pjList.get(i).getPROJECT_NAME()%></option><%
+		      	}
+		      	%>
+		      		
+		      </select></td>
 		     </tr>
 		 
 		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td>
@@ -265,11 +276,11 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		     </tr>
 		      <tr>
 		      <td class="m-0 text-primary" align="center">특이사항</td>
-		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td><textarea name="specialty"cols="51" rows="13"style=width:100%;></textarea></td>
 		     </tr>
 		      <tr>
 		      <td class="m-0 text-primary" align="center">비고</td>
-		      <td><textarea name="NextPlan"cols="51" rows="13"style=width:100%;></textarea></td>
+		      <td><textarea name="note"cols="51" rows="13"style=width:100%;></textarea></td>
 		     </tr>
 		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
 		     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>

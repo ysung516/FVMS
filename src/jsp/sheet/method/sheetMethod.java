@@ -168,7 +168,7 @@ public class sheetMethod {
 	// 보고서 작성
 	public int saveReport (String title, String writeDate,
 			 String weekPlan, String weekPro, String nextPlan, String user_id, 
-			 String name, String rank, String team) throws GeneralSecurityException, IOException, ServiceException {
+			 String name, String specialty, String note) throws GeneralSecurityException, IOException, ServiceException {
 		connect();
 		access();
     	findSheet("주간보고서");
@@ -196,8 +196,8 @@ public class sheetMethod {
              li.getCustomElements().setValueLocal("차주계획", nextPlan);
              li.getCustomElements().setValueLocal("id", user_id);
              li.getCustomElements().setValueLocal("이름", name);
-             li.getCustomElements().setValueLocal("직급", rank);
-             li.getCustomElements().setValueLocal("팀", team);
+             li.getCustomElements().setValueLocal("특이사항", specialty);
+             li.getCustomElements().setValueLocal("비고", note);
              listFeed.insert(li);
              
              return 1;

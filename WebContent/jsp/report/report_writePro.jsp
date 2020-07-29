@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"
     import = "jsp.sheet.method.*"
     import = "jsp.Bean.model.*"
-    import = "java.io.PrintWriter"%>
+    import = "java.io.PrintWriter"
+    import = "java.util.Date"
+    import = "java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,17 +25,20 @@
 		method.saveUser_info(sessionID);
 		MemberBean member = method.getMember();
 		
+		Date nowTime = new Date();
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		
 		String title = request.getParameter("TITLE"); 
-		String writeDate = request.getParameter("WRITE_DATE").toString();
+		String writeDate = sf.format(nowTime);
 		String weekPlan = request.getParameter("WeekPlan");
 		String weekPro = request.getParameter("WeekPro");
 		String nextPlan = request.getParameter("NextPlan");
+		String note = request.getParameter("note");
+		String specialty = request.getParameter("specialty");
 		String name = member.getNAME(); 
-		String rank = member.getRANK();
-		String team = member.getTEAM();
 		String user_id = member.getID();
 		
-		if (method.saveReport(title, writeDate, weekPlan, weekPro, nextPlan, user_id, name, rank, team) == 1){
+		if (method.saveReport(title, writeDate, weekPlan, weekPro, nextPlan, user_id, name, specialty, note) == 1){
 			script.print("<script> alert('보고서 작성이 완료되었습니다.'); location.href = 'report.jsp'</script>");
 			
 		} else script.print("<script> alert('제목 혹은 작성일이 입력되지 않았습니다.'); history.back(); </script>");
