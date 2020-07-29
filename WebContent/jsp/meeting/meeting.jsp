@@ -6,27 +6,26 @@
     import = "java.util.ArrayList"
     import = "java.util.List"
     %>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<%
-		PrintWriter script =  response.getWriter();
-		if (session.getAttribute("sessionID") == null){
-			script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
-		}
-		
-		String sessionID = session.getAttribute("sessionID").toString();
-		String sessionName = session.getAttribute("sessionName").toString();
-		session.setMaxInactiveInterval(15*60);
-		String NO = request.getParameter("no");
-		sheetMethod method = new sheetMethod();
-		BoardBean board = method.getBoard(NO);
-		
-		// 출력
-		String [] line;
-		
-	%>
+<%
+	PrintWriter script =  response.getWriter();
+	if (session.getAttribute("sessionID") == null){
+		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+	}
+	
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
+	session.setMaxInactiveInterval(15*60);
+	sheetMethod method = new sheetMethod();
+	
+	ArrayList<BoardBean> list = method.getBoardList();
+	ArrayList<ProjectBean> pjList = method.getProjectList();
+	
+ %>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +33,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Report_view</title>
+  <title>Sure FVMS - meeting</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -44,20 +43,17 @@
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-
-	function fnMove(seq){
-		var offset = $("#move" + seq).offset();
-        $('html, body').animate({scrollTop : offset.top}, 400);
-	}
-	
-	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').hide();
-	});
-</script>
 <style>
+	summary:focus { outline:none; }
+	
+	p:last-child{
+		border-bottom: 1px solid black !important;
+		border-bottom-right-radius:5px;
+		border-bottom-left-radius:5px;
+	}
+	tr:last-child{
+		border-bottom:1px solid #fff !important;
+	}
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -78,7 +74,7 @@
 		left: 50%;
 		transform:translate(-50%, -50%);
 	}
-
+	
 	@media(max-width:800px){
 		.container-fluid{
 			padding: 0;
@@ -88,37 +84,57 @@
 		}
 }
 
-  fieldset{
-	  border-top: 3px inset;
-	  border-color: #5d7ace;        	
-  }
-  
-  legend{
-  	color:#1b3787!important;
-  	font-size: 18px;
-  	font-weight: 600;
-  	width: auto;
-  	padding: 5px;
-  }
-  
-  .report_div{
-	  padding-left: 15px;
-	  padding-bottom: 15px;
-	  }
-
+	.report_btn{
+	    font-size: 15px;
+	    border:2px solid #929ae3;
+	    background-color: rgba(0,0,0,0);
+	    color: #929ae3;
+	    border-radius: 100%;
+	    font-weight: 700;
+	    font-family: serif;
+	    margin: 5px;
+	}
+	.report_btn:hover{
+	 	background-color: #929ae385;
+	}
+	
+	.report_btn:active{
+	 	background-color: #929ae385;
+	 	 border:2px solid #505dd3;
+	 	 color:#4e73df;
+	 	
+	}
+	
+	button:focus {
+	outline:none;
+	}
+	.projectList{
+		margin: 0;
+	}
 </style>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
+<!-- 로딩화면 -->
+window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+    $('.loading').hide();
+});
+</script>
 
-<body id="page-top">
-	 <!--  로딩화면  시작  -->
-				  <div class="loading">
-				  <div id="load">
-				<i class="fas fa-spinner fa-10x fa-spin"></i>
-				  </div>
-				  </div>
-		<!--  로딩화면  끝  -->
+<body id="page-top" style="color:#4c5280 !important">
+
+    <!--  로딩화면  시작  -->
+		  <div class="loading">
+		  <div id="load">
+		<i class="fas fa-spinner fa-10x fa-spin"></i>
+		  </div>
+		  </div>
+	<!--  로딩화면  끝  -->
+  
+  	
   <!-- Page Wrapper -->
   <div id="wrapper">
-	
+
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
@@ -130,7 +146,11 @@
         <div class="sidebar-brand-text mx-3">Sure FVMS</div>
       </a>
 
-    <!-- Divider -->
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+	
+	<!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - summary -->
@@ -141,7 +161,7 @@
 	     	</li>
       
        		<!-- Nav Item - project -->
-      		<li class="nav-item ">
+      		<li class="nav-item">
      	     <a class="nav-link" href="../project/project.jsp">
              <i class="fas fa-fw fa-clipboard-list"></i>
              <span>프로젝트</span></a>
@@ -167,23 +187,27 @@
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
 	      </li>
-		
-		<!-- Nav Item - dayreport -->
+	      
+	      <!-- Nav Item - dayreport -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../day_report/day_report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>일간보고서</span></a>
 			</li>
-			
+		
 		  <!-- Nav Item - report -->
-			<li class="nav-item active">
+			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
-      
-     
-
+			
+			<!-- Nav Item - meeting -->
+		    <li class="nav-item" active>
+	          <a class="nav-link" href="../meeting/meeting.jsp">
+	          <i class="fas fa-fw fa-clipboard-list"></i>
+	          <span>회의록</span></a>
+	     	</li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -209,17 +233,15 @@
             <i class="fa fa-bars"></i>
           </button>
 
+        
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-
-           
             <div class="topbar-divider d-none d-sm-block"></div>
-
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span> 
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
                 <i class="fas fa-info-circle"></i>
               </a>
               <!-- Dropdown - User Information -->
@@ -237,127 +259,39 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-          
-       <div class="card shadow mb-4">
-        <div class="card-header py-3">
-         <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 조회</h6>
-        </div>
-                 <div style= "position: fixed; top: 100px; right:100px">
- <input type="radio" name="chk_info" value="금일계획" onclick="fnMove('1')">금일계획 <br>
- <input type="radio" name="chk_info" value="금일진행" onclick="fnMove('2')">금일진행 <br>
- <input type="radio" name="chk_info" value="차일계획" onclick="fnMove('3')">차일계획<br>
- <input type="radio" name="chk_info" value="특이사항" onclick="fnMove('4')">특이사항<br>
- <input type="radio" name="chk_info" value="비고" onclick="fnMove('5')">비고
- </div>
-         <div class="card-body">
+        <div class="container-fluid" style="padding-bottom: 50px;">
          
-         <!-- 필드셋 시작 -->
-          <fieldset>
-          	<legend>프로젝트</legend>
-          		<div class="report_div"><%=board.getTitle()%></div>
-          </fieldset>
-         
-          <fieldset>
-          	<LEGEND>작성자</legend>
-          	<div class="report_div"><%=board.getName()%></div>
-          	
-          </fieldset>
-         
-          <fieldset>
-          	<legend>작성일</legend>
-          	<div class="report_div"><%=board.getDate()%></div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>PM</legend>
-          		<div class="report_div">PM정보</div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>상태</legend>
-          		<div class="report_div">1~6단계</div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>착수일</legend>
-          		<div class="report_div"></div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>착수 종료일</legend>
-          		<div class="report_div"></div>
-          </fieldset>
-          
-          <fieldset>
-          	<legend>금주계획</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_weekPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	     	 %>
-	     	 </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>금주진행</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_weekPro();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-	      </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>차주계획</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-	      </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>특이사항</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-          </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>비고</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-          </div>	
-          </fieldset>
-           <!-- 필드셋 끝 -->
-          
-	     <table style="margin: 0 auto;">
-	     <tr>
-	     <td colspan="2">
-	     <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
-	       <a href="report.jsp" class="btn btn-primary">목록</a>
-	       </td>
-	     </tr>
-	       </table>   
-        </div>
-
-             <!-- /.container-fluid -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left:17px;display:inline !important">회의록 목록</h6>
+                  </div>
+                 
+	<table style="white-space: nowrap; overflow:auto;width:100%; margin-top:10px;" id ="reportTable">
+		<thead>
+		 <tr style= text-align:center;">
+		   <th>회의명</th>
+		   <th>회의 일시</th>	
+		   <th>회의 장소</th>
+		  </thead>  
+		  <tbody id ="meetingList" name="meetingList" class="meetingList" style="white-space: initial;">
+		  		
+					<tr style="text-align:center; border-bottom: 1px solid #d1d3e2;">
+						
+						<td><a href="meeting_view.jsp">FVMS 회의</a></td>
+						
+						<td style=" border-left: 1px solid #b7b9cc; border-right: 1px solid #b7b9cc;">2020-07-29</td>
+			
+						<td style="border-left: 1px solid #b7b9cc; font-size: 15px;">슈어소프트테크(삼성)</td>
+					</tr> 
+		  </tbody>
+		 </table>	
+                   <!-- /.container-fluid -->
 
       </div>
+      <div style="position: fixed;bottom: 0;padding: 10px;width: 100%;text-align: center;background-color: #fff;border-top: 1px solid;">
+            
+                	 <a href="meeting_write.jsp" class="btn btn-primary">회의록 작성</a>
+              </div>
       <!-- End of Main Content -->
 
     </div>
@@ -389,10 +323,14 @@
       </div>
     </div>
   </div>
-          
+  </div>
+  </div>
+                
+                
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
+  
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
