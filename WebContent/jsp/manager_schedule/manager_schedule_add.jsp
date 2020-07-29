@@ -41,6 +41,10 @@
 	
 </head>
 <style>
+
+	#holiday:focus {
+	outline:#fff;
+	}
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -84,6 +88,22 @@
 	function PMfocus(){
 		document.getElementById('PMradio').checked=true;
 	}
+
+</script>
+<script>
+var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(to right,#8766b0eb 49%,#5d9cb1)","linear-gradient(to right,#8766b0eb 34%,#5d9cb1","linear-gradient(to right,#8766b0,#5d9cb1)","linear-gradient(to right,#8766b0eb -22%,#5d9cb1)","linear-gradient(to right,#8766b0eb -52%,#5d9cb1)"];
+var cnt=0;
+window.onload=function(){
+ff();
+}
+
+function ff(){
+if(cnt==6) cnt=0;
+holiday.style.background=array[cnt++];
+setTimeout("ff()",200);
+}
+
+
 </script>
 <body id="page-top">
 
@@ -225,6 +245,8 @@
                 <div class="card-body">
   		<div class="table-responsive"> 
   
+  	<div style="text-align: center;position: absolute;top: -36px;left: 50%;transform: translateX(-50px);">
+  	<input id="holiday" type="button" name="holiday" style="color:white; border:0px solid;border-radius: 6px; height:52px;font-weight: 700;"value="☆휴가는 이 버튼 클릭☆" ></div>
 	<form method = "post" action = "MSC_AddPro.jsp">
    		<table style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>
