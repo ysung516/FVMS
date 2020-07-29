@@ -34,7 +34,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Report_view</title>
+  <title>Sure FVMS - Meeting_view</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -58,6 +58,22 @@
 	});
 </script>
 <style>
+	
+	#dataTable td:nth-child(odd){
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    }
+	
+	.meeting_table{
+		width:100%;
+	}
+	
+	.meeting_table td{
+    border: 1px solid black;
+    white-space: nowrap;
+	}
+	
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -182,6 +198,12 @@
 			  <span>주간보고서</span></a>
 			</li>
       
+        <!-- Nav Item - meeting -->
+			<li class="nav-item">
+			  <a class="nav-link" href="../meeting/meeting.jsp">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>회의록</span></a>
+			</li>
      
 
       <!-- Divider -->
@@ -241,109 +263,38 @@
           
        <div class="card shadow mb-4">
         <div class="card-header py-3">
-         <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">주간보고서 조회</h6>
+         <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">회의록 조회</h6>
         </div>
-                 <div style= "position: fixed; top: 100px; right:100px">
- <input type="radio" name="chk_info" value="금일계획" onclick="fnMove('1')">금일계획 <br>
- <input type="radio" name="chk_info" value="금일진행" onclick="fnMove('2')">금일진행 <br>
- <input type="radio" name="chk_info" value="차일계획" onclick="fnMove('3')">차일계획<br>
- <input type="radio" name="chk_info" value="특이사항" onclick="fnMove('4')">특이사항<br>
- <input type="radio" name="chk_info" value="비고" onclick="fnMove('5')">비고
- </div>
+          
          <div class="card-body">
+           <div class="table-responsive">
          
-         <!-- 필드셋 시작 -->
-          <fieldset>
-          	<legend>프로젝트</legend>
-          		<div class="report_div"><%=board.getTitle()%></div>
-          </fieldset>
-         
-          <fieldset>
-          	<LEGEND>작성자</legend>
-          	<div class="report_div"><%=board.getName()%></div>
-          	
-          </fieldset>
-         
-          <fieldset>
-          	<legend>작성일</legend>
-          	<div class="report_div"><%=board.getDate()%></div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>PM</legend>
-          		<div class="report_div">PM정보</div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>상태</legend>
-          		<div class="report_div">1~6단계</div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>착수일</legend>
-          		<div class="report_div"></div>
-          </fieldset>
-          
-           <fieldset>
-          	<legend>착수 종료일</legend>
-          		<div class="report_div"></div>
-          </fieldset>
-          
-          <fieldset>
-          	<legend>금주계획</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_weekPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	     	 %>
-	     	 </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>금주진행</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_weekPro();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-	      </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>차주계획</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-	      </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>특이사항</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-          </div>	
-          </fieldset>
-          
-          <fieldset>
-          	<legend>비고</legend>
-          	<div class="report_div"><%
-	      	line = board.getP_nextPlan();
-	      	for(String li : line){
-	      		%><p><%=li%></p><%
-	      	}
-	      %>
-          </div>	
-          </fieldset>
-           <!-- 필드셋 끝 -->
+					<table class="table table-bordered" id="dataTable">
+					<tr>
+						<td>회의명</td>
+						<td>FVMS</td>
+					</tr>
+					<tr>
+						<td>회의일시</td>
+						<td>2020-07-29</td> 
+					</tr>
+					<tr>
+						<td>회의 장소</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>참석자 </td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>회의내용</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>향후일정</td>
+						<td></td>
+					</tr>
+					</table>
           
 	     <table style="margin: 0 auto;">
 	     <tr>

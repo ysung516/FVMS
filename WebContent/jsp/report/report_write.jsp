@@ -233,19 +233,47 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 		   <table style="width:100%">
 		    <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		     <tr>
-		      <td class="m-0 text-primary" align="center">프로젝트</td>
+		      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">프로젝트</td>
 		      <td><input name="TITLE"  style=width:100%; placeholder="프로젝트 명"></td>
 		     </tr>
 		 
 		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td>
 		     </tr>
 		  
+		  	<tr height="1" bgcolor="#fff"><td colspan="2"></td>
+		      </tr>
+		    <tr>
+		      <td class="m-0 text-primary" align="center">작성자</td>
+		      <td><input name="NAME" style=width:100%;></td>
+		     </tr>
+		  	
 		      <tr height="1" bgcolor="#fff"><td colspan="2"></td>
 		      </tr>
 		    <tr>
 		      <td class="m-0 text-primary" align="center">작성일</td>
 		      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
 		     </tr>
+		     
+		     <tr height="1" bgcolor="#fff"><td colspan="2"></td>
+		      </tr>
+		    <tr>
+		      <td class="m-0 text-primary" align="center">PM</td>
+		      <td><input name="PM" style=width:100%;></td>
+		     </tr>
+		     
+		      <tr height="1" bgcolor="#fff"><td colspan="2"></td>
+		      </tr>
+		    <tr>
+		      <td class="m-0 text-primary" align="center">착수일</td>
+		      <td><input type="date" name="Pro_START" style=width:100%;></td>
+		     </tr>
+		      <tr height="1" bgcolor="#fff"><td colspan="2"></td>
+		      </tr>
+		    <tr>
+		      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">착수 종료일</td>
+		      <td><input type="date" name="Pro_END" style="width:100%;"></td>
+		     </tr>
+		     
 		     <tr height="1" bgcolor="#fff"><td colspan="2" height="5"></td></tr>
 		     <tr>
 		      <td class="m-0 text-primary" align="center">금주계획</td>
