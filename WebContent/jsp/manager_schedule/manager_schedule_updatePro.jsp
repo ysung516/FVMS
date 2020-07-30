@@ -14,17 +14,17 @@
 		request.setCharacterEncoding("UTF-8");
 	
 		String num = request.getParameter("num");
-		String AmPlace = request.getParameter("AMradio");
+		String AmPlace = request.getParameter("amPlaceSel");
 		
 		String AMother = "미입력";
 		String PMother = "미입력";
 		
-		if(!(request.getParameter("AMother") == "")){
-			AMother = request.getParameter("AMother");	
+		if(!(request.getParameter("amselboxDirect") == "")){
+			AMother = request.getParameter("amselboxDirect");	
 		}
 		
-		if(!(request.getParameter("PMother") == "")){
-			PMother = request.getParameter("PMother");	
+		if(!(request.getParameter("pmselboxDirect") == "")){
+			PMother = request.getParameter("pmselboxDirect");	
 		}
 		
 		
@@ -32,7 +32,7 @@
 			AmPlace = AMother;
 		}
 		
-		String PmPlace = request.getParameter("PMradio");
+		String PmPlace = request.getParameter("pmPlaceSel");
 		if(PmPlace != null && PmPlace.equals("기타")){
 			PmPlace = PMother;
 		}
