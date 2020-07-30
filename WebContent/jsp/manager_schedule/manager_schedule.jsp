@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			dayEvent();
 			placeColor();
 		});
-		$('.fc-dayGridMonth-button').click(function(){
+		$('.fc-today-button').click(function(){
 			dayEvent();
 			placeColor();
 		});
