@@ -19,9 +19,9 @@
 		String sessionID = session.getAttribute("sessionID").toString();
 		String sessionName = session.getAttribute("sessionName").toString();
 		session.setMaxInactiveInterval(15*60);
-		String NO = request.getParameter("no");
+		String no = request.getParameter("no");
 		sheetMethod method = new sheetMethod();
-		BoardBean board = method.getBoard(NO);
+		MeetBean mb = method.getMeetList(no);
 		
 		// 출력
 		String [] line;
@@ -265,31 +265,43 @@
 					<table class="table table-bordered" id="dataTable">
 					<tr>
 						<td>회의명</td>
-						<td>FVMS</td>
+						<td><%=mb.getMeetName()%></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td>김혜윤</td>
+						<td><%=mb.getWriter() %></td>
 					</tr>
 					<tr>
 						<td>회의일시</td>
-						<td>2020-07-29</td> 
+						<td><%=mb.getMeetDate() %></td> 
 					</tr>
 					<tr>
 						<td>회의 장소</td>
-						<td>슈어소프트테크(삼성)</td>
+						<td><%=mb.getMeetPlace()%></td>
 					</tr>
 					<tr>
 						<td>참석자 </td>
-						<td>5명(유땡땡,김땡땡,김땡땡,신땡땡,이땡땡)</td>
+						<td><%=mb.getAttendees()%></td>
 					</tr>
 					<tr>
 						<td>회의내용</td>
-						<td>주간보고서 양식 변경 및 회의록페이지 생성</td>
+						<td><%
+							line = mb.getMeetNote();
+							for(String li : line){
+								%><p><%=li%></p><%
+							}
+							
+						%></td>
 					</tr>
 					<tr>
 						<td>향후일정</td>
-						<td>관리자 일정 수정</td>
+						<td><%
+							line = mb.getNextPlan();
+							for(String li : line){
+								%><p><%=li%></p><%
+							}
+							
+						%></td>
 					</tr>
 					</table>
           

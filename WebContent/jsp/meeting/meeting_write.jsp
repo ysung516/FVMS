@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
+    import = "jsp.Bean.model.*"
     %>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,10 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	String sessionID = session.getAttribute("sessionID").toString();
 	String sessionName = session.getAttribute("sessionName").toString();
 	session.setMaxInactiveInterval(15*60);
+	
+	sheetMethod method = new sheetMethod();
+	
+	
 %>
 
   <meta charset="utf-8">
@@ -228,45 +233,45 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                  <div class="card-body">
            
                  <div class="table-responsive">
-                 
-		  <table class="table table-bordered" id="dataTable">
-
-		     <tr>
-			      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">회의명</td>
-			      <td><input name="TITLE"  style=width:100%; placeholder="회의 명"></td>
-		     </tr>
-		    <tr>
-			      <td class="m-0 text-primary" align="center">작성자</td>
-			      <td><input name="NAME" style=width:100%;></td>
-		     </tr>
-		
-		     <tr>
-			      <td class="m-0 text-primary" align="center">회의일시</td>
-			      <td><input type="date" name="WRITE_DATE" style=width:100%;></td>
-		     </tr>
-		      
-		       <tr>
-			      <td class="m-0 text-primary" align="center">회의장소</td>
-			      <td><input style=width:100%;></td>
-		     </tr>
-		     
-		     <tr>
-			      <td class="m-0 text-primary" align="center">참석자</td>
-			      <td><input style=width:100%;></td>
-		     </tr>
-		     
-		      <tr>
-		      <td class="m-0 text-primary" colspan="2"><h6>회의내용</h6><textarea name="WeekPlan" rows="10"style=width:100%;></textarea></td>
-		     </tr>
-		      <tr>
-		      <td class="m-0 text-primary" colspan="2"><h6>향후일정</h6><textarea name="WeekPro" rows="10"style=width:100%;></textarea></td>
-		     </tr>
-		     <tr align="center">
-		      <td colspan="2"> 
-		      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
-		       <a href="meeting.jsp" class="btn btn-primary">취소</a>
-		     </tr>
-		    </table>
+          <form method="post" action="meeting_writePro.jsp">       
+			  <table class="table table-bordered" id="dataTable">
+	
+			     <tr>
+				      <td class="m-0 text-primary" align="center" style="word-break: keep-all;">회의명</td>
+				      <td><input name="MeetName"  style=width:100%; placeholder="회의 명"></td>
+			     </tr>
+			    <tr>
+				      <td class="m-0 text-primary" align="center">작성자</td>
+				      <td><input name="NAME" style=width:100%; value="<%=sessionName%>" readonly></td>
+			     </tr>
+			     <tr>
+				      <td class="m-0 text-primary" align="center">회의일시</td>
+				      <td><input type="date" name="MeetDate" style=width:100%;></td>
+			     </tr>
+			      
+			       <tr>
+				      <td class="m-0 text-primary" align="center">회의장소</td>
+				      <td><input name="MeetPlace" style=width:100%;></td>
+			     </tr>
+			     
+			     <tr>
+				      <td class="m-0 text-primary" align="center">참석자</td>
+				      <td><input name="attendees" style=width:100%;></td>
+			     </tr>
+			     
+			      <tr>
+			      <td class="m-0 text-primary" colspan="2"><h6>회의내용</h6><textarea name="meetnote" rows="10"style=width:100%;></textarea></td>
+			     </tr>
+			      <tr>
+			      <td class="m-0 text-primary" colspan="2"><h6>향후일정</h6><textarea name="nextplan" rows="10"style=width:100%;></textarea></td>
+			     </tr>
+			     <tr align="center">
+			      <td colspan="2"> 
+			      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
+			       <a href="meeting.jsp" class="btn btn-primary">취소</a>
+			     </tr>
+			    </table>
+		    </form>
 		 </div>
 		    <!-- /.container-fluid -->
 		

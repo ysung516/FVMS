@@ -24,10 +24,7 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.util.ServiceException;
 
-import jsp.Bean.model.BoardBean;
-import jsp.Bean.model.MSC_Bean;
-import jsp.Bean.model.MemberBean;
-import jsp.Bean.model.ProjectBean;
+import jsp.Bean.model.*;
 
 public class sheetMethod {
 	sheetBean sheet = new sheetBean();
@@ -186,7 +183,7 @@ public class sheetMethod {
          	num = Integer.parseInt(no);
          }
          
-         if (title != null && writeDate != null) {
+         if (title != "" && writeDate != "") {
         	//방법2
         	 li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
              li.getCustomElements().setValueLocal("프로젝트명", title);
@@ -311,7 +308,7 @@ public class sheetMethod {
          	num = Integer.parseInt(no);
          }
          
-         if (title != null && writeDate != null) {
+         if (title != "" && writeDate != "") {
         	//방법2
         	 li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
              li.getCustomElements().setValueLocal("제목", title);
@@ -533,8 +530,7 @@ public class sheetMethod {
         	num = Integer.parseInt(no);
         }
         
-        System.out.println("test"+num);
-        if (id != null && pmPlace != null && amPlace != null && date != null) {
+        if (pmPlace != "" && amPlace != "" && date != "") {
         	li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
         	li.getCustomElements().setValueLocal("ID",id);
         	li.getCustomElements().setValueLocal("오전장소",amPlace);
@@ -544,7 +540,6 @@ public class sheetMethod {
         	li.getCustomElements().setValueLocal("이름",name);
         	li.getCustomElements().setValueLocal("level",level);
         	listFeed.insert(li);
-        	System.out.println(Integer.toString(list.size()+1));
         	return 1;
         }
         else return 0;
@@ -609,6 +604,99 @@ public class sheetMethod {
 		return num;
 	}
 	
+	// 회의록 조회
+	public ArrayList<MeetBean> getMeetBean()throws GeneralSecurityException, IOException, ServiceException{
+		ArrayList<MeetBean> MeetList = new ArrayList<MeetBean>();
+		connect();
+		access();
+    	findSheet("회의록");
+       	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        for(int i=0; i<list.size(); i++) {
+        	ListEntry li = list.get(i);
+        	MeetBean mb = new MeetBean();
+        	mb.setNo(li.getCustomElements().getValue("no"));
+        	mb.setId(li.getCustomElements().getValue("ID"));
+        	mb.setDate(li.getCustomElements().getValue("작성날짜"));
+			mb.setMeetName(li.getCustomElements().getValue("회의명"));
+			mb.setWriter(li.getCustomElements().getValue("작성자"));
+			mb.setMeetDate(li.getCustomElements().getValue("회의일시"));
+        	mb.setMeetPlace(li.getCustomElements().getValue("회의장소"));
+        	mb.setAttendees(li.getCustomElements().getValue("참석자"));
+        	mb.setP_meetnote(li.getCustomElements().getValue("회의내용"));
+        	mb.setP_nextplan(li.getCustomElements().getValue("향후일정"));
+        	MeetList.add(mb);
+        }
+        
+		return MeetList;
+	}
+	
+	// 회의록 내용 조회
+	public MeetBean getMeetList(String no)throws GeneralSecurityException, IOException, ServiceException {
+		MeetBean mb = new MeetBean();
+		connect();
+		access();
+    	findSheet("회의록");
+     	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        
+        for(int i=0; i<list.size(); i++) {
+        	ListEntry li = list.get(i);
+			if (list.get(i).getCustomElements().getValue("no").equals(no)) {
+	        	mb.setNo(li.getCustomElements().getValue("no"));
+	        	mb.setId(li.getCustomElements().getValue("ID"));
+	        	mb.setDate(li.getCustomElements().getValue("작성날짜"));
+				mb.setMeetName(li.getCustomElements().getValue("회의명"));
+				mb.setWriter(li.getCustomElements().getValue("작성자"));
+				mb.setMeetDate(li.getCustomElements().getValue("회의일시"));
+	        	mb.setMeetPlace(li.getCustomElements().getValue("회의장소"));
+	        	mb.setAttendees(li.getCustomElements().getValue("참석자"));
+	        	mb.setP_meetnote(li.getCustomElements().getValue("회의내용"));
+	        	mb.setP_nextplan(li.getCustomElements().getValue("향후일정"));
+			}
+        }
+    	return mb;
+	}
+	
+	// 회의록 작성
+	public int saveMeet(String id, String MeetName, String writer, String MeetDate, String MeetPlace,
+			String attendees, String meetnote, String nextplan, String date)throws GeneralSecurityException, IOException, ServiceException  {
+		connect();
+		access();
+    	findSheet("회의록");
+    	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        ListEntry li = new ListEntry(); //새로운 데이터 저장할  리스트
+        int num;
+        if (list.isEmpty() == true) {
+        	num = 0;
+        } else {
+        	String no = list.get(list.size()-1).getCustomElements().getValue("no");
+        	num = Integer.parseInt(no);
+        }
+        
+        
+        if (MeetName!= "" && MeetDate != "" && MeetPlace != "" && attendees != "" && meetnote != "" && nextplan != "") {
+        	 li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
+             li.getCustomElements().setValueLocal("ID", id);
+             li.getCustomElements().setValueLocal("회의명", MeetName);
+             li.getCustomElements().setValueLocal("작성자", writer);
+             li.getCustomElements().setValueLocal("작성날짜", date);
+             li.getCustomElements().setValueLocal("회의일시", MeetDate);
+             li.getCustomElements().setValueLocal("회의장소", MeetPlace);
+             li.getCustomElements().setValueLocal("참석자", attendees);
+             li.getCustomElements().setValueLocal("회의내용", meetnote);
+             li.getCustomElements().setValueLocal("향후일정", nextplan);
+             listFeed.insert(li);
+             return 1;
+
+             
+        	} else return 0;
+		}
 	
 	
 }	// end
