@@ -5,7 +5,7 @@
     import = "jsp.Bean.model.MSC_Bean"
     import = "java.util.ArrayList"
     import = "java.util.Date"
-    import = "java.text.SimpleDateFormat"s%>
+    import = "java.text.SimpleDateFormat"%>
 <!DOCTYPE html>
 <html lang="en">
 
