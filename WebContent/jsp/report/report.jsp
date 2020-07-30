@@ -57,8 +57,8 @@
 	}
 	details p{
 		margin: 0;
-		padding: 5px
-		;border-left: 1px solid black;
+		padding: 5px;
+		border-left: 1px solid black;
 		border-right: 1px solid black;
 		background-color:#fff;
 		font-weight:bold;
@@ -88,7 +88,7 @@
 		font-weight:700;
 		border: 1px solid black;
 		padding: 5px;
-		box-shadow: 0px 2px 4px 0px;
+		box-shadow: 0px 2px 1px 0px;
 		border-radius: 6px;
 	}
 	details{
