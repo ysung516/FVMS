@@ -42,7 +42,6 @@
 			script.print("<script> alert('회의록 작성이 완료되었습니다.'); location.href = 'meeting.jsp'</script>");
 		}
 			else script.print("<script> alert('빈칸을 모두 채워주세요.'); history.back();</script>");
-		
 	%>
 
 		
