@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		    	var str10 = "슈어(대전사무실)";
 		    	var regex10 = /(슈어\(대전사무실\))/g;
 		        $(this).html( $(this).text().replace(regex1, "<span style='background:#dad9d9d4'>"+str1+"</span>")
-		        		.replace(regex2, "<span style='background:#dad9d9d4'>"+str2+"</span>")
+		        		.replace(regex2, "<span style='background:#acacacd4'>"+str2+"</span>")
 		        		.replace(regex3, "<span style='background:#5fc8f2b8'>"+str3+"</span>")
 		        		.replace(regex4, "<span style='background:#FFB870'>"+str4+"</span>")
 		        		.replace(regex5, "<span style='background:#64acee'>"+str5+"</span>")
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		        		.replace(regex7, "<span style='background:#ffbc46b0'>"+str7+"</span>")
 		        		.replace(regex8, "<span style='background:#B8D6F2'>"+str8+"</span>")
 		        		.replace(regex9, "<span style='background:#cadeb5'>"+str9+"</span>")
-		        		.replace(regex10, "<span style='background:#dad9d9d4'>"+str10+"</span>")
+		        		.replace(regex10, "<span style='background:#acacacd4'>"+str10+"</span>")
 		        		);
 		    });
 		}
