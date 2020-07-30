@@ -40,6 +40,28 @@
 </head>
 <style>
 
+	summary:hover{
+	 	background-color:#e0dfdfbf;
+	 	font-weight:700;
+	 	border:2px solid black;
+	}
+	
+	summary:active{
+	 	background-color: #c0c0c4;
+	 	 border:2px solid black;
+	 	 color:black;
+	 	
+	}
+	details p{
+    padding-left:12px !important;
+    margin:3px 0px !important;
+    width:80%;
+	}
+	summary{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 6px;
+	}
 	#holiday:focus {
 		outline:#fff;
 	}
@@ -241,59 +263,68 @@
                   <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">일정추가</h6>
                 </div>
                 <div class="card-body">
-  		<div class="table-responsive"> 
+  		
   
   	
 	<form method = "post" action = "MSC_AddPro.jsp">
    		<table style="white-space: nowrap; overflow:hidden;width:100%;">
      <tr>
       <td class="m-0 text-primary" align="center">날짜 </td>
-      <td style="padding: 15px 0;"><input type="date" id="nowDate" name="DATE" value = <%=date%> style=width:100%; maxlength="50"></td>
+      <td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate" name="DATE" value = <%=date%> style=width:100%; maxlength="50"></td>
      </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
+      <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
      <tr>
-      <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오전장소 </td>
+      <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오전</td>
       <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
-      	<input type="radio" name="AMradio" value="슈어(본사,삼성)"><label>슈어소프트(본사,삼성)</label></br>
-    	<input type="radio" name="AMradio" value="슈어(남양사무실)"><label>슈어소프트(남양사무실)</label></br>
-    	<input type="radio" name="AMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></br>
-    	<input type="radio" name="AMradio" value="오트론(삼성)"><label>오트론(삼성)</label></br>
-    	<input type="radio" name="AMradio" value="모비스(의왕)"><label>모비스(의왕)</label></br>
-    	<input type="radio" name="AMradio" value="모비스(마북)"><label>모비스(마북)</label></br>
-    	<input type="radio" name="AMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></br>
-    	<input type="radio" name="AMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></br>
-    	<input type="radio" name="AMradio" value="휴가"><label>휴가</label></br>
-    	<input id="AMradio" type="radio" name="AMradio" value="기타"><label>기타</label>
-    	<input type="text" onfocus="AMfocus()" name="AMother" placeholder="Write In">
+      		<details>
+      		<summary> Click </summary>
+      		<p><input type="radio" name="AMradio" value="슈어(본사,삼성)"><label>슈어소프트(본사,삼성)</label></p>
+      		<p><input type="radio" name="AMradio" value="슈어(남양사무실)"><label>슈어소프트(남양사무실)</label></p>
+      		<p><input type="radio" name="AMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></p>
+      		<p><input type="radio" name="AMradio" value="오트론(삼성)"><label>오트론(삼성)</label></p>
+    		<p><input type="radio" name="AMradio" value="모비스(의왕)"><label>모비스(의왕)</label></p>
+	    	<p><input type="radio" name="AMradio" value="모비스(마북)"><label>모비스(마북)</label></p>
+	    	<p><input type="radio" name="AMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></p>
+	    	<p><input type="radio" name="AMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></p>
+	    	<p><input type="radio" name="AMradio" value="휴가"><label>휴가</label></p>
+	    	<p><input id="AMradio" type="radio" name="AMradio" value="기타"><label>기타</label>
+	    	<input type="text" onfocus="AMfocus()" name="AMother" placeholder="Write In"></p>
+      		
+      		</details>
+      
+
       </td>
      </tr>
-      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
-       <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
+      <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
+       <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
      <tr>
-      <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오후장소</td>
-		<td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
-	      	<input type="radio" name="PMradio" value="슈어(본사,삼성)"><label>슈어소프트(본사,삼성)</label></br>
-    	<input type="radio" name="PMradio" value="슈어(남양사무실)"><label>슈어소프트(남양사무실)</label></br>
-    	<input type="radio" name="PMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></br>
-    	<input type="radio" name="PMradio" value="오트론(삼성)"><label>오트론(삼성)</label></br>
-    	<input type="radio" name="PMradio" value="모비스(의왕)"><label>모비스(의왕)</label></br>
-    	<input type="radio" name="PMradio" value="모비스(마북)"><label>모비스(마북)</label></br>
-    	<input type="radio" name="PMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></br>
-    	<input type="radio" name="PMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></br>
-    	<input type="radio" name="PMradio" value="휴가"><label>휴가</label></br>
-    	<input id="PMradio" type="radio" name="PMradio" value="기타"><label>기타</label>
-    	<input type="text" onfocus="PMfocus()"name="PMother" placeholder="Write In">
+      <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오후</td>
+      <td style="padding-left: 10px;padding-top: 10px;padding-bottom: 10px;">
+      		<details>
+      		<summary> Click </summary>
+	      	<p><input type="radio" name="PMradio" value="슈어(본사,삼성)"><label>슈어소프트(본사,삼성)</label></p>
+	    	<p><input type="radio" name="PMradio" value="슈어(남양사무실)"><label>슈어소프트(남양사무실)</label></p>
+	    	<p><input type="radio" name="PMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></p>
+	    	<p><input type="radio" name="PMradio" value="오트론(삼성)"><label>오트론(삼성)</label></p>
+	    	<p><input type="radio" name="PMradio" value="모비스(의왕)"><label>모비스(의왕)</label></p>
+	    	<p><input type="radio" name="PMradio" value="모비스(마북)"><label>모비스(마북)</label></p>
+	    	<p><input type="radio" name="PMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></p>
+	    	<p><input type="radio" name="PMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></p>
+	    	<p><input type="radio" name="PMradio" value="휴가"><label>휴가</label></p>
+	    	<p><input id="PMradio" type="radio" name="PMradio" value="기타"><label>기타</label>
+	    	<p><input type="text" onfocus="PMfocus()"name="PMother" placeholder="Write In"></p>
+	    	</details>
       </td>
      </tr>
-     <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>
+     <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
      </table>
      <div class="card-body" style="margin: 0 auto; display:table;" >
    <input id="COMPLETE" type="submit" name="COMPLETE" value="등록"  class="btn btn-primary" style="margin-right: 5px;">
        <a href="manager_schedule.jsp" class="btn btn-primary">취소</a>
        </div>
 </form>
- 	    </div>
+ 	    
  	    </div>
 
     <!-- /.container-fluid -->
