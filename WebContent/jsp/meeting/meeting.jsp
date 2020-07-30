@@ -91,7 +91,7 @@
 		height:100%;
 		top:0;
 		left:0;
-		font-size:12px;
+		font-size:8px;
 		background-color: #4e73df6b;
   	  	background-image: linear-gradient(181deg,#3d5482 16%,#6023b654 106%);
   	  	background-size: cover;
@@ -197,13 +197,6 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	        <span>관리자 스케줄</span></a>
 	      </li>
 	      
-	      <!-- Nav Item - dayreport -->
-			<li class="nav-item">
-			  <a class="nav-link" href="../day_report/day_report.jsp">
-			  <i class="fas fa-fw fa-clipboard-list"></i> 
-			  <span>일간보고서</span></a>
-			</li>
-		
 		  <!-- Nav Item - report -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
