@@ -1,9 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "java.io.PrintWriter"
+    import = "jsp.sheet.method.*"
+    import = "jsp.Bean.model.MSC_Bean"
+    import = "java.util.ArrayList"
+    import = "java.util.Date"
+    import = "java.text.SimpleDateFormat"s%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<%
+
+	PrintWriter script =  response.getWriter();
+	if (session.getAttribute("sessionID") == null){
+		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+	}
+
+	String sessionID = session.getAttribute("sessionID").toString();
+	String sessionName = session.getAttribute("sessionName").toString();
+	session.setMaxInactiveInterval(15*60);
+
+%>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -130,6 +148,15 @@
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>회의록</span></a>
 			</li>
+			
+			<!-- Nav Item - manager page -->
+			<%if(sessionID.equals("ymyou")){ %>
+			<li class="nav-item">
+			  <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19MC9jOiCncDi06I5ZgoIEMQbt7cMSor-gU2Zehyo__c/edit#gid=607226601">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>관리자페이지</span></a>
+			</li>
+			<% }%>
 
      
       <!-- Divider -->

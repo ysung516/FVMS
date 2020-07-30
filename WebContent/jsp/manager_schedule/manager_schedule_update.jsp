@@ -324,6 +324,9 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
     	<input type="radio" name="AMradio" value="슈어(남양사무실)" onClick="this.form.AMother.value=''"
     		<% if(setAm.equals("슈어(남양사무실)")){%>checked<%}%>><label>슈어소프트(남양사무실)</label></br>
     		
+    	<input type="radio" name="AMradio" value="슈어(대전사무실)" onClick="this.form.AMother.value=''"
+    		<% if(setAm.equals("슈어(대전사무실)")){%>checked<%}%>><label>슈어소프트(대전사무실)</label></br>
+    		
     	<input type="radio" name="AMradio" value="HMC(남양연구소)" onClick="this.form.AMother.value=''"
     		<% if(setAm.equals("HMC(남양연구소)")){%>checked<%}%>><label>HMC(남양연구소)</label></br>
     		
@@ -346,10 +349,10 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
     
     	
     	<input id="AMradio" type="radio" name="AMradio" value="기타" 
-    	<% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
+    	<% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("슈어(대전사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
     			|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setAm.equals("트랜시스(남양)")))
     	{%>checked<%}%>><label>기타</label>
-    	<input type="text" onfocus="AMfocus()" name="AMother" <% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
+    	<input type="text" onfocus="AMfocus()" name="AMother" <% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("슈어(대전사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
     			|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setAm.equals("트랜시스(남양)")))
     	{%>value = "<%=setAm%>"<%}%>>
     	</details>
@@ -367,6 +370,9 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
       		
     	<input type="radio" name="PMradio" value="슈어(남양사무실)" onClick="this.form.PMother.value=''"
     		<% if(setPm.equals("슈어(남양사무실)")){%>checked<%}%>><label>슈어소프트(남양사무실)</label></br>
+    		
+    	<input type="radio" name="PMradio" value="슈어(대전사무실)" onClick="this.form.PMother.value=''"
+    		<% if(setPm.equals("슈어(대전사무실)")){%>checked<%}%>><label>슈어소프트(대전사무실)</label></br>
     		
     	<input type="radio" name="PMradio" value="HMC(남양연구소)" onClick="this.form.PMother.value=''"
     		<% if(setPm.equals("HMC(남양연구소)")){%>checked<%}%>><label>HMC(남양연구소)</label></br>
@@ -391,10 +397,10 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
     	
     	
     	<input id="PMradio" type="radio" name="PMradio" value="기타"
-    	<% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
+    	<% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("슈어(대전사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
     			|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setPm.equals("트랜시스(남양)")))
     	{%>checked<%}%>><label>기타</label>
-    	<input type="text" name="PMother" onfocus="PMfocus()" <% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
+    	<input type="text" name="PMother" onfocus="PMfocus()" <% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("슈어(대전사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
     			|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setPm.equals("트랜시스(남양)")))
     	{%>value = "<%=setPm%>"<%}%>>
     	

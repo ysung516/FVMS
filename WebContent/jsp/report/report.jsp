@@ -275,6 +275,16 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>회의록</span></a>
 			</li>
+			
+     	<!-- Nav Item - manager page -->
+			<%if(sessionID.equals("ymyou")){ %>
+			<li class="nav-item">
+			  <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19MC9jOiCncDi06I5ZgoIEMQbt7cMSor-gU2Zehyo__c/edit#gid=607226601">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>관리자페이지</span></a>
+			</li>
+			<% }%>
+			
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

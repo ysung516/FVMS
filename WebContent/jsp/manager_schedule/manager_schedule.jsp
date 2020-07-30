@@ -58,8 +58,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	headerToolbar: {
             center: 'title',
-            left: 'prev,next',
-            right: 'today,dayGridWeek,dayGridMonth'
+            left: '',
+            right: 'prev,today,next'
           },
                   
         initialView: 'dayGridWeek',
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
          	    		  <%}%>
          	    		  
          	    		  id : '<%=id%>',
-         	    		  title: '<%=li.getName()%>\n오전: <%=li.getAMplace()%> \n오후: <%=li.getPMplace()%>',
+         	    		  title: '<%=li.getName()%>\n오전: <%=li.getAMplace()%> \n오후: <%=li.getPMplace()%> ',
          	    		  start: '<%=li.getDate()%>',
          	    		  backgroundColor: 'white',
          	    		  textColor: 'black',
@@ -220,21 +220,61 @@ document.addEventListener('DOMContentLoaded', function() {
 		     document.Dayform.submit();
 		});
 	} 
-	
+
+		function placeColor() {
+		    $(".fc-event-title").text(function () {
+		    	var str1 = "슈어(본사,삼성)";
+		    	var regex1 = /(슈어\(본사\,삼성\))/g;
+		    	var str2 = "슈어(남양사무실)";
+		    	var regex2 = /(슈어\(남양사무실\))/g;
+		    	var str3 = "HMC(남양연구소)";
+		    	var regex3 = /(HMC\(남양연구소\))/g;
+		    	var str4 = "오트론(삼성)";
+		    	var regex4 = /(오트론\(삼성\))/g;
+		    	var str5 = "모비스(의왕)";
+		    	var regex5 = /(모비스\(의왕\))/g;
+		    	var str6 = "모비스(마북)";
+		    	var regex6 = /(모비스\(마북\))/g;
+		    	var str7 = "엠엔소프트(용산)";
+		    	var regex7 = /(엠엔소프트\(용산\))/g;
+		    	var str8 = "트랜시스(남양)";
+		    	var regex8 = /(트랜시스\(남양\))/g;
+		    	var str9 = "휴가";
+		    	var regex9 = /(휴가)/g;
+		    	var str10 = "슈어(대전사무실)";
+		    	var regex10 = /(슈어\(대전사무실\))/g;
+		        $(this).html( $(this).text().replace(regex1, "<span style='background:#dad9d9d4'>"+str1+"</span>")
+		        		.replace(regex2, "<span style='background:#dad9d9d4'>"+str2+"</span>")
+		        		.replace(regex3, "<span style='background:#5fc8f2b8'>"+str3+"</span>")
+		        		.replace(regex4, "<span style='background:#FFB870'>"+str4+"</span>")
+		        		.replace(regex5, "<span style='background:#64acee'>"+str5+"</span>")
+		        		.replace(regex6, "<span style='background:#94c4f0'>"+str6+"</span>")
+		        		.replace(regex7, "<span style='background:#ffbc46b0'>"+str7+"</span>")
+		        		.replace(regex8, "<span style='background:#B8D6F2'>"+str8+"</span>")
+		        		.replace(regex9, "<span style='background:#cadeb5'>"+str9+"</span>")
+		        		.replace(regex10, "<span style='background:#dad9d9d4'>"+str10+"</span>")
+		        		);
+		    });
+		}
+		
 	$(function(){
 		dayEvent();
+		placeColor();
 		$('.fc-next-button').click(function(){
 			dayEvent();
+			placeColor();
 		});
 		$('.fc-prev-button').click(function(){
 			dayEvent();
+			placeColor();
 		});
 		$('.fc-dayGridMonth-button').click(function(){
 			dayEvent();
+			placeColor();
 		});
 		
 	});
-
+	
 </script>
 
 
@@ -606,6 +646,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>회의록</span></a>
 			</li>
+			
+			<!-- Nav Item - manager page -->
+			<%if(sessionID.equals("ymyou")){ %>
+			<li class="nav-item">
+			  <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19MC9jOiCncDi06I5ZgoIEMQbt7cMSor-gU2Zehyo__c/edit#gid=607226601">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>관리자페이지</span></a>
+			</li>
+			<% }%>
 
 
       <!-- Divider -->

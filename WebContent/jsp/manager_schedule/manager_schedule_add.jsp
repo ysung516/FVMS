@@ -287,6 +287,7 @@
       		<summary> Click </summary>
       		<p><input type="radio" name="AMradio" value="슈어(본사,삼성)"><label>슈어소프트(본사,삼성)</label></p>
       		<p><input type="radio" name="AMradio" value="슈어(남양사무실)"><label>슈어소프트(남양사무실)</label></p>
+      		<p><input type="radio" name="AMradio" value="슈어(대전사무실)"><label>슈어소프트(대전사무실)</label></p>
       		<p><input type="radio" name="AMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></p>
       		<p><input type="radio" name="AMradio" value="오트론(삼성)"><label>오트론(삼성)</label></p>
     		<p><input type="radio" name="AMradio" value="모비스(의왕)"><label>모비스(의왕)</label></p>
@@ -297,8 +298,6 @@
 	    	<p><input id="AMradio" type="radio" name="AMradio" value="기타"><label>기타</label>
 	    	<input type="text" onfocus="AMfocus()" name="AMother" placeholder="Write In"></p>
       		</details>
-      
-
       </td>
      </tr>
       <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
@@ -310,6 +309,7 @@
       		<summary> Click </summary>
 	      	<p><input type="radio" name="PMradio" value="슈어(본사,삼성)"><label>슈어소프트(본사,삼성)</label></p>
 	    	<p><input type="radio" name="PMradio" value="슈어(남양사무실)"><label>슈어소프트(남양사무실)</label></p>
+      		<p><input type="radio" name="AMradio" value="슈어(대전사무실)"><label>슈어소프트(대전사무실)</label></p>
 	    	<p><input type="radio" name="PMradio" value="HMC(남양연구소)"><label>HMC(남양연구소)</label></p>
 	    	<p><input type="radio" name="PMradio" value="오트론(삼성)"><label>오트론(삼성)</label></p>
 	    	<p><input type="radio" name="PMradio" value="모비스(의왕)"><label>모비스(의왕)</label></p>
