@@ -213,21 +213,12 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Schedule</h1>
-          <p class="mb-4">스케줄</p>
-          
-       
-
-           <!-- Area Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Schedule</h6>
                 </div>
                 <div class="card-body">
-            		개인 스케줄(user_schedule) -> 달력 형식/ 전체 스케줄(all_schedule) -> 그래프(표) 형식</br>
-                	 <a href="schedule.jsp" class="btn btn-primary">개인 스케줄</a>
-                	 <a href="schedule.jsp" class="btn btn-primary">전체 스케줄</a>
+           아직 미구현
               </div>
                    
 
