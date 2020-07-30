@@ -52,7 +52,6 @@ function formatDate(date) {
 		return [year, month, day].join('-'); 
 	}
 
-
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
@@ -189,13 +188,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	});
 	
 	 function dayEvent(){
-		$('.fc-day').click(function(){
-		     var date = $(".fc-day").attr("data-date");
+		$('.fc-day-mon').click(function(){
+		     var date = $(".fc-day-mon").attr("data-date");
 		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
 		     document.Dayform.submit();
+		     
 		});
-		/*$('.fc-day-tue').click(function(){
+		$('.fc-day-tue').click(function(){
 		     var date = $(".fc-day-tue").attr("data-date");
 		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		     var day_data = document.getElementById("setDate");
 		     day_data.value = date;
 		     document.Dayform.submit();
-		});*/
+		});
 	} 
 	
 	$(function(){
