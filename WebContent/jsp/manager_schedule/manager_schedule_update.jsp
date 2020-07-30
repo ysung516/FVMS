@@ -149,6 +149,51 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
 	     ff();
 	 });
 
+		$(function(){
+			$("#amselboxDirect").hide();
+			var se = document.getElementById("amPlaceSel");
+			if(se.options[se.selectedIndex].value == "기타"){
+					$("#amselboxDirect").show();
+			}else{
+				$("#amselboxDirect").hide();
+			}
+			$("#amPlaceSel").change(function() {
+					if($("#amPlaceSel").val() == "기타") {
+						$("#amselboxDirect").show();
+					}  else {
+						$("#amselboxDirect").hide();
+					}
+			})
+		});
+		
+		$(function(){
+			var se = document.getElementById("pmPlaceSel");
+			if(se.options[se.selectedIndex].value == "기타"){
+				$("#pmselboxDirect").show();
+			}else{
+				$("#pmselboxDirect").hide();
+			}
+			$("#pmPlaceSel").change(function() {
+					if($("#pmPlaceSel").val() == "기타") {
+						$("#pmselboxDirect").show();
+					}  else {
+						$("#pmselboxDirect").hide();
+					}
+			})
+		});
+
+		function amChangeSel() {
+			var se = document.getElementById("amPlaceSel");
+			if(se.options[se.selectedIndex].value != "기타"){
+				$("#amselboxDirect").val("");
+			}
+		}
+		function pmChangeSel() {
+			var se = document.getElementById("pmPlaceSel");
+			if(se.options[se.selectedIndex].value != "기타"){
+				$("#pmselboxDirect").val("");
+			}
+		}
 </script>
 
 
@@ -316,95 +361,70 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
      <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오전장소 </td>
      <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
-     	<details>
-      		<summary> Click </summary>
-      	<input type="radio" name="AMradio" value="슈어(본사,삼성)" onClick="this.form.AMother.value=''"
-      		<% if(setAm.equals("슈어(본사,삼성)")){%>checked<%}%>><label>슈어소프트(본사,삼성)</label></br>
-      		
-    	<input type="radio" name="AMradio" value="슈어(남양사무실)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("슈어(남양사무실)")){%>checked<%}%>><label>슈어소프트(남양사무실)</label></br>
-    		
-    	<input type="radio" name="AMradio" value="슈어(대전사무실)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("슈어(대전사무실)")){%>checked<%}%>><label>슈어소프트(대전사무실)</label></br>
-    		
-    	<input type="radio" name="AMradio" value="HMC(남양연구소)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("HMC(남양연구소)")){%>checked<%}%>><label>HMC(남양연구소)</label></br>
-    		
-    	<input type="radio" name="AMradio" value="오트론(삼성)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("오트론(삼성)")){%>checked<%}%>><label>오트론(삼성)</label></br>
-    		
-    	<input type="radio" name="AMradio" value="모비스(의왕)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("모비스(의왕)")){%>checked<%}%>><label>모비스(의왕)</label></br>
-    	
-    	<input type="radio" name="AMradio" value="모비스(마북)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("모비스(마북)")){%>checked<%}%>><label>모비스(마북)</label></br>
-    		
-    	<input type="radio" name="AMradio" value="엠엔소프트(용산)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("엠엔소프트(용산)")){%>checked<%}%>><label>엠엔소프트(용산)</label></br>
-    		
-    	<input type="radio" name="AMradio" value="트랜시스(남양)" onClick="this.form.AMother.value=''"
-    		<% if(setAm.equals("트랜시스(남양)")){%>checked<%}%>><label>트랜시스(남양)</label></br>
-   		<input type="radio" name="AMradio" value="휴가" onClick="this.form.AMother.value=''"
-   		<% if(setAm.equals("휴가")){%>checked<%}%>><label>휴가</label></br>
-    
-    	
-    	<input id="AMradio" type="radio" name="AMradio" value="기타" 
-    	<% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("슈어(대전사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
-    			|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setAm.equals("트랜시스(남양)")))
-    	{%>checked<%}%>><label>기타</label>
-    	<input type="text" onfocus="AMfocus()" name="AMother" <% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("슈어(대전사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
-    			|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setAm.equals("트랜시스(남양)")))
-    	{%>value = "<%=setAm%>"<%}%>>
-    	</details>
+    	<select id="amPlaceSel" name="amPlaceSel"  onchange="amChangeSel()">
+  				<option value="슈어(본사,삼성)"
+					<% if(setAm.equals("슈어(본사,삼성)")){%>selected="selected"<%}%>>슈어(본사,삼성)</option>
+  				<option value="슈어(남양사무실)"
+					<% if(setAm.equals("슈어(남양사무실)")){%>selected="selected"<%}%>>슈어(남양사무실)</option>
+ 				<option value="슈어(대전사무실)"
+					<% if(setAm.equals("슈어(대전사무실)")){%>selected="selected"<%}%>>슈어(대전사무실)</option>
+ 				<option value="HMC(남양연구소)"
+					<% if(setAm.equals("HMC(남양연구소)")){%>selected="selected"<%}%>>HMC(남양연구소)</option>
+ 				<option value="오트론(삼성)"
+					<% if(setAm.equals("오트론(삼성)")){%>selected="selected"<%}%>>오트론(삼성)</option>
+ 				<option value="모비스(의왕)"
+					<% if(setAm.equals("모비스(의왕)")){%>selected="selected"<%}%>>모비스(의왕)</option>
+ 				<option value="모비스(마북)"
+					<% if(setAm.equals("모비스(마북)")){%>selected="selected"<%}%>>모비스(마북)</option>
+ 				<option value="엠엔소프트(용산)"
+					<% if(setAm.equals("엠엔소프트(용산)")){%>selected="selected"<%}%>>엠엔소프트(용산)</option>
+ 				<option value="트랜시스(남양)"
+					<% if(setAm.equals("트랜시스(남양)")){%>selected="selected"<%}%>>트랜시스(남양)</option>
+ 				<option value="휴가"
+					<% if(setAm.equals("휴가")){%>selected="selected"<%}%>>휴가</option>
+ 				<option value="기타" 
+					<% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("슈어(대전사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
+    					|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setAm.equals("트랜시스(남양)")))
+    					{%>selected="selected"<%}%>>기타</option>
+			</select>
+			<input type="text" id="amselboxDirect" name="amselboxDirect" <% if(!(setAm.equals("슈어(본사,삼성)") || setAm.equals("슈어(남양사무실)") || setAm.equals("슈어(대전사무실)") || setAm.equals("HMC(남양연구소)") || setAm.equals("오트론(삼성)")
+    					|| setAm.equals("모비스(의왕)") || setAm.equals("모비스(마북)") || setAm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setAm.equals("트랜시스(남양)")))
+    					{%>value = "<%=setAm%>"<%}%>/>
       </td>
      </tr>
        <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
       <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오후장소</td>
       <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
-      	<details>
-      		<summary> Click </summary>
-      
-      	<input type="radio" name="PMradio" value="슈어(본사,삼성)" onClick="this.form.PMother.value=''"
-      		<% if(setPm.equals("슈어(본사,삼성)")){%>checked<%}%>><label>슈어소프트(본사,삼성)</label></br>
-      		
-    	<input type="radio" name="PMradio" value="슈어(남양사무실)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("슈어(남양사무실)")){%>checked<%}%>><label>슈어소프트(남양사무실)</label></br>
-    		
-    	<input type="radio" name="PMradio" value="슈어(대전사무실)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("슈어(대전사무실)")){%>checked<%}%>><label>슈어소프트(대전사무실)</label></br>
-    		
-    	<input type="radio" name="PMradio" value="HMC(남양연구소)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("HMC(남양연구소)")){%>checked<%}%>><label>HMC(남양연구소)</label></br>
-    		
-    	<input type="radio" name="PMradio" value="오트론(삼성)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("오트론(삼성)")){%>checked<%}%>><label>오트론(삼성)</label></br>
-    		
-    	<input type="radio" name="PMradio" value="모비스(의왕)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("모비스(의왕)")){%>checked<%}%>><label>모비스(의왕)</label></br>
-    	
-    	<input type="radio" name="PMradio" value="모비스(마북)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("모비스(마북)")){%>checked<%}%>><label>모비스(마북)</label></br>
-    		
-    	<input type="radio" name="PMradio" value="엠엔소프트(용산)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("엠엔소프트(용산)")){%>checked<%}%>><label>엠엔소프트(용산)</label></br>
-    		
-    	<input type="radio" name="PMradio" value="트랜시스(남양)" onClick="this.form.PMother.value=''"
-    		<% if(setPm.equals("트랜시스(남양)")){%>checked<%}%>><label>트랜시스(남양)</label></br>
-    		
-    	<input type="radio" name="PMradio" value="휴가" onClick="this.form.AMother.value=''"
-   		<% if(setPm.equals("휴가")){%>checked<%}%>><label>휴가</label></br>
-    	
-    	
-    	<input id="PMradio" type="radio" name="PMradio" value="기타"
-    	<% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("슈어(대전사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
-    			|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setPm.equals("트랜시스(남양)")))
-    	{%>checked<%}%>><label>기타</label>
-    	<input type="text" name="PMother" onfocus="PMfocus()" <% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("슈어(대전사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
-    			|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setAm.equals("휴가") || setPm.equals("트랜시스(남양)")))
-    	{%>value = "<%=setPm%>"<%}%>>
-    	
-    	</details>
+      	<select id="pmPlaceSel" name="pmPlaceSel" onchange="pmChangeSel()">
+  				<option value="슈어(본사,삼성)" 
+					<% if(setPm.equals("슈어(본사,삼성)")){%>selected="selected"<%}%>>슈어(본사,삼성)</option>
+  				<option value="슈어(남양사무실)"
+					<% if(setPm.equals("슈어(남양사무실)")){%>selected="selected"<%}%>>슈어(남양사무실)</option>
+ 				<option value="슈어(대전사무실)"
+					<% if(setPm.equals("슈어(대전사무실)")){%>selected="selected"<%}%>>슈어(대전사무실)</option>
+ 				<option value="HMC(남양연구소)"
+					<% if(setPm.equals("HMC(남양연구소)")){%>selected="selected"<%}%>>HMC(남양연구소)</option>
+ 				<option value="오트론(삼성)"
+					<% if(setPm.equals("오트론(삼성)")){%>selected="selected"<%}%>>오트론(삼성)</option>
+ 				<option value="모비스(의왕)"
+					<% if(setPm.equals("모비스(의왕)")){%>selected="selected"<%}%>>모비스(의왕)</option>
+ 				<option value="모비스(마북)"
+					<% if(setPm.equals("모비스(마북)")){%>selected="selected"<%}%>>모비스(마북)</option>
+ 				<option value="엠엔소프트(용산)"
+					<% if(setPm.equals("엠엔소프트(용산)")){%>selected="selected"<%}%>>엠엔소프트(용산)</option>
+ 				<option value="트랜시스(남양)"
+					<% if(setPm.equals("트랜시스(남양)")){%>selected="selected"<%}%>>트랜시스(남양)</option>
+ 				<option value="휴가"
+					<% if(setPm.equals("휴가")){%>selected="selected"<%}%>>휴가</option>
+ 				<option value="기타" 
+					<% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("슈어(대전사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
+    					|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setPm.equals("휴가") || setPm.equals("트랜시스(남양)")))
+    					{%>selected="selected"<%}%>>기타</option>
+			</select>
+			<input type="text" id="pmselboxDirect" name="pmselboxDirect" <% if(!(setPm.equals("슈어(본사,삼성)") || setPm.equals("슈어(남양사무실)") || setPm.equals("슈어(대전사무실)") || setPm.equals("HMC(남양연구소)") || setPm.equals("오트론(삼성)")
+    					|| setPm.equals("모비스(의왕)") || setPm.equals("모비스(마북)") || setPm.equals("엠엔소프트(용산)") || setPm.equals("휴가") || setPm.equals("트랜시스(남양)")))
+    					{%>value = "<%=setPm%>"<%}%>/>
       </td>
      </tr>
      <tr height="1" bgcolor="#fff"><td colspan="2"></td></tr>

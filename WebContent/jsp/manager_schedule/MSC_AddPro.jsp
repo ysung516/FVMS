@@ -21,21 +21,21 @@
 		String PMother = "미입력";
 		String level;
 		
-		if(!(request.getParameter("AMother") == "")){
-			AMother = request.getParameter("AMother");	
+		if(!(request.getParameter("amselboxDirect") == "")){
+			AMother = request.getParameter("amselboxDirect");	
 		}
 		
-		if(!(request.getParameter("PMother") == "")){
-			PMother = request.getParameter("PMother");	
+		if(!(request.getParameter("pmselboxDirect") == "")){
+			PMother = request.getParameter("pmselboxDirect");	
 		}
 		
 		
-		String AmPlace = request.getParameter("AMradio");
+		String AmPlace = request.getParameter("amPlaceSel");
 		if(AmPlace != null && AmPlace.equals("기타")){
 			AmPlace = AMother;
 		}
 		
-		String PmPlace = request.getParameter("PMradio");
+		String PmPlace = request.getParameter("pmPlaceSel");
 		if(PmPlace != null && PmPlace.equals("기타")){
 			PmPlace = PMother;
 		}
