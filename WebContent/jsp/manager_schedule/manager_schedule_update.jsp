@@ -38,7 +38,14 @@
 
 </head>
 <style>
-
+	
+	#table_td{
+		padding-left: 10px;
+		padding-top: 10px;
+		display:grid !important;
+		padding-bottom: 10px;
+	}
+	
 	details p{
     padding-left:12px !important;
     margin:3px 0px !important;
@@ -360,7 +367,7 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
      <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
      <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오전장소 </td>
-     <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
+     <td id="table_td">
     	<select id="amPlaceSel" name="amPlaceSel"  onchange="amChangeSel()">
   				<option value="슈어(본사,삼성)"
 					<% if(setAm.equals("슈어(본사,삼성)")){%>selected="selected"<%}%>>슈어(본사,삼성)</option>
@@ -395,7 +402,7 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
        <tr height="1" bgcolor="#82B5DF"><td colspan="2"></td></tr>
       <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오후장소</td>
-      <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
+      <td id="table_td">
       	<select id="pmPlaceSel" name="pmPlaceSel" onchange="pmChangeSel()">
   				<option value="슈어(본사,삼성)" 
 					<% if(setPm.equals("슈어(본사,삼성)")){%>selected="selected"<%}%>>슈어(본사,삼성)</option>

@@ -39,7 +39,12 @@
 	
 </head>
 <style>
-
+	#table_td{
+		padding-left: 10px;
+		padding-top: 10px;
+		display:grid !important;
+		padding-bottom: 10px;
+	}
 	summary:hover{
 	 	background-color:#e0dfdfbf;
 	 	font-weight:700;
@@ -305,7 +310,7 @@
       <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
      <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오전</td>
-      <td style="padding-left: 10px;padding-top: 15px;padding-bottom: 15px;">
+      <td id="table_td">
       		<select id="amPlaceSel" name="amPlaceSel">
   				<option value="슈어(본사,삼성)" selected="selected">슈어(본사,삼성)</option>
   				<option value="슈어(남양사무실)">슈어(남양사무실)</option>
@@ -326,7 +331,7 @@
        <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
      <tr>
       <td class="m-0 text-primary" align="center" style="white-space: nowrap;">오후</td>
-      <td style="padding-left: 10px;padding-top: 10px;padding-bottom: 10px;">
+      <td id="table_td"	>
 	    	<select id="pmPlaceSel" name="pmPlaceSel">
   				<option value="슈어(본사,삼성)" selected="selected">슈어(본사,삼성)</option>
   				<option value="슈어(남양사무실)">슈어(남양사무실)</option>
