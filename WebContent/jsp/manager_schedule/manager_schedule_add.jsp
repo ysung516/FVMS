@@ -290,7 +290,6 @@
 	    	<p><input type="radio" name="AMradio" value="휴가"><label>휴가</label></p>
 	    	<p><input id="AMradio" type="radio" name="AMradio" value="기타"><label>기타</label>
 	    	<input type="text" onfocus="AMfocus()" name="AMother" placeholder="Write In"></p>
-      		
       		</details>
       
 
