@@ -365,6 +365,7 @@ public class sheetMethod {
 		
 	}
 	
+	
 	// 넘버별 일간보고서 데이터 가져오기
 	public BoardBean get_DayBoard(String NO)throws GeneralSecurityException, IOException, ServiceException{
 		connect();
@@ -466,10 +467,30 @@ public class sheetMethod {
         
 		return MSCList;
 	}
+	
+	// 아이디, 데이트로 해당 관리자 일정 데이터 no가져오기
+	public String returnNo (String id, String date)throws GeneralSecurityException, IOException, ServiceException {
+		connect();
+		access();
+    	findSheet("관리자일정");
+    	URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+    	String no = "";
+        for(int i=0; i<list.size(); i++) {
+        	ListEntry li = list.get(i);
+        	if(list.get(i).getCustomElements().getValue("ID").equals(id) 
+        			&& list.get(i).getCustomElements().getValue("날짜").equals(date)) {
+        		no = list.get(i).getCustomElements().getValue("no");
+        	}
+        }
+       return no;
+	}
+	
 
 	// 특정 관리자 일정 가져오기
 	public MSC_Bean getMSCList_set(String no)throws GeneralSecurityException, IOException, ServiceException{
-		MSC_Bean MSCList = new MSC_Bean();
+		MSC_Bean mb = new MSC_Bean();
 		connect();
 		access();
     	findSheet("관리자일정");
@@ -481,7 +502,6 @@ public class sheetMethod {
         for(int i=0; i<list.size(); i++) {
         	ListEntry li = list.get(i);
 			if (list.get(i).getCustomElements().getValue("no").equals(no)) {
-				MSC_Bean mb = new MSC_Bean();
 				mb.setNo(li.getCustomElements().getValue("no"));
 				mb.setID(li.getCustomElements().getValue("ID"));
 				mb.setAMplace(li.getCustomElements().getValue("오전장소"));
@@ -493,7 +513,7 @@ public class sheetMethod {
 			}
         }
         
-		return MSCList;
+		return mb;
 	}
 	
 	// 관리자 일정 추가

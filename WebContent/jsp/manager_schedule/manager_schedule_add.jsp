@@ -249,11 +249,6 @@
                 <div class="card-body">
   		<div class="table-responsive"> 
   
-  	<form method = "post" action="holiday.jsp">
-  	  	<div style="text-align: center;position: absolute;top: -36px;left: 50%;transform: translateX(-50%);">
-	  	<input id="holiday" type="submit" name="holiday" value="☆휴가는 이 버튼 클릭☆" ></div>
-	  	<input type="hidden" name="date" value="<%=date%>">
-  	</form>	
   	
 	<form method = "post" action = "MSC_AddPro.jsp">
    		<table style="white-space: nowrap; overflow:hidden;width:100%;">
@@ -274,6 +269,7 @@
     	<input type="radio" name="AMradio" value="모비스(마북)"><label>모비스(마북)</label></br>
     	<input type="radio" name="AMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></br>
     	<input type="radio" name="AMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></br>
+    	<input type="radio" name="AMradio" value="휴가"><label>휴가</label></br>
     	<input id="AMradio" type="radio" name="AMradio" value="기타"><label>기타</label>
     	<input type="text" onfocus="AMfocus()" name="AMother" placeholder="Write In">
       </td>
@@ -291,6 +287,7 @@
     	<input type="radio" name="PMradio" value="모비스(마북)"><label>모비스(마북)</label></br>
     	<input type="radio" name="PMradio" value="엠엔소프트(용산)"><label>엠엔소프트(용산)</label></br>
     	<input type="radio" name="PMradio" value="트랜시스(남양)"><label>트랜시스(남양)</label></br>
+    	<input type="radio" name="PMradio" value="휴가"><label>휴가</label></br>
     	<input id="PMradio" type="radio" name="PMradio" value="기타"><label>기타</label>
     	<input type="text" onfocus="PMfocus()"name="PMother" placeholder="Write In">
       </td>
