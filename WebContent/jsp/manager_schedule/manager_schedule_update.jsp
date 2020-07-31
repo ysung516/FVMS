@@ -241,6 +241,13 @@ var array=["linear-gradient(to right,#8766b0eb 100%,#5d9cb1)","linear-gradient(t
 
 			<!-- Nav Item - summary -->
 		    <li class="nav-item">
+	          <a class="nav-link" href="../mypage/mypage.jsp">
+	          <i class="fas fa-fw fa-table"></i>
+	          <span>마이페이지</span></a>
+	     	</li>
+	     	
+			<!-- Nav Item - summary -->
+		    <li class="nav-item">
 	          <a class="nav-link" href="../summary/summary.jsp">
 	          <i class="fas fa-fw fa-table"></i>
 	          <span>요약정보</span></a>
