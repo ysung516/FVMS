@@ -64,7 +64,7 @@
 		String team = method.getMember().getTEAM();
 		if(num.equals("")){
 			if (method.insert_MSC(sessionID, AmPlace, PmPlace, date, team, sessionName, level) == 1){
-				script.print("<script> alert('일정이 추가 됬습니다.'); location.href = 'manager_schedule.jsp'</script>");
+				script.print("<script> alert('일정이 추가되었습니다.'); location.href = 'manager_schedule.jsp'</script>");
 			} else script.print("<script> alert('일정을 모두 입력해주세요.'); history.back(); </script>");
 		}
 		else{ 

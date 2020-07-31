@@ -604,6 +604,92 @@ public class sheetMethod {
 		return num;
 	}
 	
+	public String week_MSC(String[] AmPlace_arr, String[] PmPlace_arr, String[] date_arr, 
+			String team, String sessionID, String sessionName, String level) throws GeneralSecurityException, IOException, ServiceException {
+		connect();
+		access();
+		findSheet("관리자일정");
+		URL listFeedUrl = sheet.getWorksheet().getListFeedUrl();
+        ListFeed listFeed = sheet.getService().getFeed(listFeedUrl, ListFeed.class);
+        List<ListEntry> list = listFeed.getEntries(); //전체 데이터 리스트로 저장
+        ListEntry li = new ListEntry();
+        
+        int num;
+        String num_dc="";
+        String print="";
+        
+        if (list.isEmpty() == true) {
+        	num = 0;
+        } else {
+        	String no = list.get(list.size()-1).getCustomElements().getValue("no");
+        	num = Integer.parseInt(no);
+        }
+		
+		String suc_add_date[] = {"","","","",""};
+		String fal_add_date[] = {"","","","",""};
+		String suc_update_date[] = {"","","","",""};
+		String fal_update_date[] = {"","","","",""};
+		
+		for(int i=0; i<5 ; i++){
+			for(int b=0; b<list.size(); b++) { //doublecheck
+	        	if(date_arr[i].equals(list.get(b).getCustomElements().getValue("날짜"))) {
+	        		if(sessionID.equals(list.get(b).getCustomElements().getValue("ID"))) {
+	        			num_dc = list.get(b).getCustomElements().getValue("no");
+	        			break;
+	        		}
+	        	}
+	        }
+			if(num_dc.equals("")){ //추가
+				if (PmPlace_arr[i] != "" && AmPlace_arr[i] != "" && date_arr[i] != "") {
+		        	li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
+		        	li.getCustomElements().setValueLocal("ID",sessionID);
+		        	li.getCustomElements().setValueLocal("오전장소",AmPlace_arr[i]);
+		        	li.getCustomElements().setValueLocal("오후장소",PmPlace_arr[i]);
+		        	li.getCustomElements().setValueLocal("날짜",date_arr[i]);
+		        	li.getCustomElements().setValueLocal("팀",team);
+		        	li.getCustomElements().setValueLocal("이름",sessionName);
+		        	li.getCustomElements().setValueLocal("level",level);
+		        	listFeed.insert(li);
+		        	suc_add_date[i] = date_arr[i];
+		        } else fal_add_date[i] = date_arr[i];
+			}
+			else{ //수정
+				if(list.get(i).getCustomElements().getValue("no").equals(num_dc)){
+					for(int a=0; a<list.size();a++) {
+			        	if(list.get(a).getCustomElements().getValue("no").equals(num_dc)) {
+			        		list.get(a).getCustomElements().setValueLocal("오전장소", AmPlace_arr[i]);
+			        		list.get(a).getCustomElements().setValueLocal("오후장소", PmPlace_arr[i]);
+			        		list.get(a).getCustomElements().setValueLocal("날짜", date_arr[i]);
+			        		list.get(a).update();
+			        		suc_update_date[i] = date_arr[i];
+			        	}
+			        }
+				 	//script.print("<script> alert('일정이 수정되었습니다.'); location.href = 'manager_schedule.jsp'; </script>");
+				} else fal_update_date[i] = date_arr[i];//script.print("<script> alert('수정되지 않았습니다.'); history.back(); </script>");
+			}
+		}
+		
+		print = "====일정 추가====";
+		for(int i=0; i>5; i++){
+			if(suc_add_date[i] != "")
+				print += suc_add_date[i] + "\n";
+		}
+		print += "\n====일정 수정====";
+		for(int i=0; i>5; i++){
+			if(suc_update_date[i] != "")
+				print += suc_update_date[i] + "\n";
+		}
+		print += "\n====일정 추가 및 수정 실패====";
+		for(int i=0; i>5; i++){
+			if(fal_add_date[i] != "")
+				print += fal_add_date[i] + "\n";
+			if(fal_update_date[i] != "")
+				print += fal_update_date[i] + "\n";
+		}
+		
+		return print;
+	}
+	
 	// 회의록 조회
 	public ArrayList<MeetBean> getMeetBean()throws GeneralSecurityException, IOException, ServiceException{
 		ArrayList<MeetBean> MeetList = new ArrayList<MeetBean>();

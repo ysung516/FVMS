@@ -729,6 +729,10 @@ document.addEventListener('DOMContentLoaded', function() {
       		<a href="JavaScript:window.location.reload()" class="btn btn-primary"><img src="../../img/reload.png" width="20px"></a>
       	</div>
       	
+      	<div class="card-body" id="week_add_btn">
+      		<a href="./manager_schedule_week_add.jsp" class="btn btn-primary">일주일추가</a>
+      	</div>
+      	
       	
 		<div id='calendar'></div>
 		
