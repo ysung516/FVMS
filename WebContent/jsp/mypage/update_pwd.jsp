@@ -249,9 +249,8 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
                  <div class="card-body">
            
                  <div class="table-responsive">
-          <form method="post" action="meeting_writePro.jsp">       
+         
 			  <table class="table table-bordered" id="dataTable">
-	
 			       <tr>
 				      <td class="m-0 text-primary" align="center">현재 비밀번호</td>
 				      <td colspan="3"><input name="now_pwd" style=width:100%;></td>
@@ -262,13 +261,12 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 				      <td colspan="3"><input name="next_pwd" style=width:100%;></td>
 			     </tr>
 			     <tr align="center">
-			      <td colspan="4"> 
-			      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
-			       <a href="mypage.jsp" class="btn btn-primary">취소</a>
-			       </td>
+				       <td colspan="4"> 
+					      <input type="submit" value="완료"  class="btn btn-primary" >
+					       <a href="mypage.jsp" class="btn btn-primary">취소</a>
+				       </td>
 			     </tr>
-			    </table>
-		    </form>
+			   </table>
 		 </div>
 		    <!-- /.container-fluid -->
 		
