@@ -17,7 +17,7 @@
 		String sessionID = session.getAttribute("sessionID").toString();
 		String sessionName = session.getAttribute("sessionName").toString();
 		session.setMaxInactiveInterval(15*60);
-		String date = request.getParameter("date");
+		//String date = request.getParameter("date");
 		//System.out.println(date);
 	
 %>
@@ -423,7 +423,7 @@
 						 <caption>월</caption>
 					     <tr>
 					    	<td class="m-0 text-primary" align="center">날짜 </td>
-					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_mon" name="DATE_mon" value = <%=date%> style=width:100%; maxlength="50"></td>
+					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_mon" name="DATE_mon" style=width:100%; maxlength="50"></td>
 					     </tr>
 					     <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
 					     <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
@@ -476,7 +476,7 @@
 						 <caption>화</caption>
 					     <tr>
 					    	<td class="m-0 text-primary" align="center">날짜 </td>
-					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_tue" name="DATE_tue" value = <%=date%> style=width:100%; maxlength="50"></td>
+					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_tue" name="DATE_tue" style=width:100%; maxlength="50"></td>
 					     </tr>
 					     <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
 					     <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
@@ -529,7 +529,7 @@
 						<caption>수</caption>
 					     <tr>
 					    	<td class="m-0 text-primary" align="center">날짜 </td>
-					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_wed" name="DATE_wed" value = <%=date%> style=width:100%; maxlength="50"></td>
+					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_wed" name="DATE_wed" style=width:100%; maxlength="50"></td>
 					     </tr>
 					     <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
 					     <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
@@ -582,7 +582,7 @@
 						<caption>목</caption>
 					     <tr>
 					    	<td class="m-0 text-primary" align="center">날짜 </td>
-					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_thu" name="DATE_thu" value = <%=date%> style=width:100%; maxlength="50"></td>
+					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_thu" name="DATE_thu" style=width:100%; maxlength="50"></td>
 					     </tr>
 					     <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
 					     <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
@@ -635,7 +635,7 @@
 						<caption>금</caption>
 					     <tr>
 					    	<td class="m-0 text-primary" align="center">날짜 </td>
-					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_fri" name="DATE_fri" value = <%=date%> style=width:100%; maxlength="50"></td>
+					      	<td colspan="2" style="padding: 15px 0;"><input type="date" id="nowDate_fri" name="DATE_fri" style=width:100%; maxlength="50"></td>
 					     </tr>
 					     <tr height="1" bgcolor="#fff"><td colspan="3"></td></tr>
 					     <tr height="1" bgcolor="#82B5DF"><td colspan="3"></td></tr>
