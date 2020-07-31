@@ -1,27 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
-    import = "jsp.sheet.method.*"
     import = "jsp.Bean.model.*"
-    import = "java.util.ArrayList"
-    import = "java.util.List"
     %>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<%
-	PrintWriter script =  response.getWriter();
-	if (session.getAttribute("sessionID") == null){
-		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
-	}
-	
-	String sessionID = session.getAttribute("sessionID").toString();
-	String sessionName = session.getAttribute("sessionName").toString();
-	session.setMaxInactiveInterval(15*60);
-	sheetMethod method = new sheetMethod();
- %>
+	<%
+		request.setCharacterEncoding("UTF-8");
+		PrintWriter script =  response.getWriter();
+		if (session.getAttribute("sessionID") == null){
+			script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+		}
+		
+		String sessionID = session.getAttribute("sessionID").toString();
+		String sessionName = session.getAttribute("sessionName").toString();
+		session.setMaxInactiveInterval(15*60);
+		String no = request.getParameter("no");
+		String MeetName = request.getParameter("MeetName");
+		String writer = request.getParameter("writer");
+		String MeetDate = request.getParameter("MeetDate");
+		String MeetPlace = request.getParameter("MeetPlace");
+		String attendees = request.getParameter("attendees");
+		String MeetNote = request.getParameter("MeetNote");
+		String nextPlan = request.getParameter("nextPlan");
+		String [] P_MeetNote = MeetNote.split("\n");
+		String [] P_nextPlan = nextPlan.split("\n");
+		// 출력
+		String [] line;
+	%>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +37,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - meeting</title>
+  <title>Sure FVMS - Meeting_view</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,47 +47,36 @@
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+	function fnMove(seq){
+		var offset = $("#move" + seq).offset();
+        $('html, body').animate({scrollTop : offset.top}, 400);
+	}
+	
+	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	    $('.loading').hide();
+	});
+</script>
 <style>
 	
-	#meeting_btn{
-		position: fixed;
-		bottom: 0;
-		padding: 10px;
-		width: 100%;
-		text-align: center;
-		background-color: #fff;
-		border-top: 1px solid;
-	}
-
-	#meetingTable tr{
-	 	border-bottom: 1px solid #d1d3e2;
-		text-align:center;
+	#dataTable td:nth-child(odd){
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    }
+	
+	.meeting_table{
+		width:100%;
 	}
 	
-	#meetingTable{
-		white-space: nowrap;
-		overflow:auto;
-		width:100%; 
-		margin-top:10px;
+	.meeting_table td{
+    border: 1px solid black;
+    white-space: nowrap;
 	}
 	
-	#meetingList td{
-		border-right: 1px solid #b7b9cc;
-		padding:6px;
-	}
-	#meetingList td:last-child{
-		border:0px;
-	}
-	summary:focus { outline:none; }
-	
-	p:last-child{
-		border-bottom: 1px solid black !important;
-		border-bottom-right-radius:5px;
-		border-bottom-left-radius:5px;
-	}
-	tr:last-child{
-		border-bottom:1px solid #fff !important;
-	}
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -100,7 +97,7 @@
 		left: 50%;
 		transform:translate(-50%, -50%);
 	}
-	
+
 	@media(max-width:800px){
 		.container-fluid{
 			padding: 0;
@@ -109,37 +106,38 @@
 			padding: 0;
 		}
 }
-	
-	button:focus {
-	outline:none;
-	}
-	.projectList{
-		margin: 0;
-	}
-</style>
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script type="text/javascript">
-<!-- 로딩화면 -->
-window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-    $('.loading').hide();
-});
-</script>
 
-<body id="page-top" style="color:#4c5280 !important">
-
-    <!--  로딩화면  시작  -->
-		  <div class="loading">
-		  <div id="load">
-		<i class="fas fa-spinner fa-10x fa-spin"></i>
-		  </div>
-		  </div>
-	<!--  로딩화면  끝  -->
+  fieldset{
+	  border-top: 3px inset;
+	  border-color: #5d7ace;        	
+  }
   
-  	
+  legend{
+  	color:#1b3787!important;
+  	font-size: 18px;
+  	font-weight: 600;
+  	width: auto;
+  	padding: 5px;
+  }
+  
+  .report_div{
+	  padding-left: 15px;
+	  padding-bottom: 15px;
+	  }
+
+</style>
+
+<body id="page-top">
+	 <!--  로딩화면  시작  -->
+				  <div class="loading">
+				  <div id="load">
+				<i class="fas fa-spinner fa-10x fa-spin"></i>
+				  </div>
+				  </div>
+		<!--  로딩화면  끝  -->
   <!-- Page Wrapper -->
   <div id="wrapper">
-
+	
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
@@ -151,11 +149,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
         <div class="sidebar-brand-text mx-3">Sure FVMS</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-	
-	<!-- Divider -->
+    <!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
 			<!-- Nav Item - summary -->
@@ -166,7 +160,7 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	     	</li>
       
        		<!-- Nav Item - project -->
-      		<li class="nav-item">
+      		<li class="nav-item ">
      	     <a class="nav-link" href="../project/project.jsp">
              <i class="fas fa-fw fa-clipboard-list"></i>
              <span>프로젝트</span></a>
@@ -192,20 +186,22 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
 	      </li>
-	      
+		
 		  <!-- Nav Item - report -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
-			
-			<!-- Nav Item - meeting -->
-		    <li class="nav-item active">
-	          <a class="nav-link" href="../meeting/meeting.jsp">
-	          <i class="fas fa-fw fa-clipboard-list"></i>
-	          <span>회의록</span></a>
-	     	</li>
+      
+        <!-- Nav Item - meeting -->
+			<li class="nav-item active">
+			  <a class="nav-link" href="../meeting/meeting.jsp">
+			  <i class="fas fa-fw fa-clipboard-list"></i> 
+			  <span>회의록</span></a>
+			</li>
+     
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -231,15 +227,17 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
             <i class="fa fa-bars"></i>
           </button>
 
-        
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
+
+           
             <div class="topbar-divider d-none d-sm-block"></div>
+
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
+               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span> 
                 <i class="fas fa-info-circle"></i>
               </a>
               <!-- Dropdown - User Information -->
@@ -257,47 +255,75 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid" style="padding-bottom: 50px;">
-         
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left:17px;display:inline !important">회의록 목록</h6>
-                  </div>
-                 
-	<table id ="meetingTable">
-		<thead>
-		 <tr>
-		   <th>회의명</th>
-		   <th>회의 일시</th>	
-		   <th>회의 장소</th>
-		  </thead>  
-		  <tbody id ="meetingList" name="meetingList" class="meetingList" style="white-space: initial;">
-	  		<%
-	  			ArrayList<MeetBean> list = method.getMeetBean();
-	  			if(list != null){
-	  				for(int i=list.size()-1; i>=0; i--){
-	  					%>
-	  						<tr style="text-align:center; border-bottom: 1px solid #d1d3e2;">
-								
-								<td><a href="meeting_view.jsp?no=<%=list.get(i).getNo()%>"><%=list.get(i).getMeetName()%></a></td>
-								<td><%=list.get(i).getMeetDate()%></td>
-								<td><%=list.get(i).getMeetPlace()%></td>
-							</tr>
+        <div class="container-fluid">
+          
+       <div class="card shadow mb-4">
+        <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">회의록 조회</h6>
+        </div>
+          
+         <div class="card-body">
+           <div class="table-responsive">
+           
+           <form method ="post" action="">
+			<table class="table table-bordered" id="dataTable">
+					<tr>
+						<td>회의명</td>
+						<td><textarea name="MeetName"><%=MeetName%></textarea></td>
+					</tr>
+					<tr>
+						<td>작성자</td>
+						<td><%=writer%></td>
+					</tr>
+					<tr>
+						<td>회의일시</td>
+						<td><input name=""><%=MeetDate%></td> 
+					</tr>
+					<tr>
+						<td>회의 장소</td>
+						<td><textarea name="MeetPlace"><%=MeetPlace%></textarea></td>
+					</tr>
+					<tr>
+						<td>참석자 </td>
+						<td><textarea name="attendees"><%=attendees%></textarea></td>
+					</tr>
+					<tr>
+						<td>회의내용</td>
+						<td><textarea name="MeetNote">
 						<%
-	  				}
-	  			}
-	  		
-	  			%>
-		  		
-					 
-		  </tbody>
-		 </table>	
-                   <!-- /.container-fluid -->
+							line = P_MeetNote;
+							for(String li : line){
+								%><%=li%><%
+							}
+							
+						%>
+						</textarea></td>
+					</tr>
+					<tr>
+						<td>향후일정</td>
+						<td><textarea name="nextPlan">
+						<%
+							line = P_nextPlan;
+							for(String li : line){
+								%><%=li%><%
+							}
+							
+						%>
+						</textarea>
+						</td>
+					</tr>
+			<tr>
+			<td colspan="2"><input  type="submit" name="complete" value="완료"  class="btn btn-primary" ></td>
+			</tr>
+				<input type="hidden" name="no" value="<%=no%>">
+				<input type="hidden" name="writer" value="<%=writer%>">
+			</table>
+	      </form>
+        </div>
+
+             <!-- /.container-fluid -->
+
       </div>
-     		
-     		 <div id="meeting_btn">
-                 <a href="meeting_write.jsp" class="btn btn-primary">회의록 작성</a>
-              </div>
       <!-- End of Main Content -->
 
     </div>
@@ -329,14 +355,10 @@ $(window).load(function () {          //페이지가 로드 되면 로딩 화면
       </div>
     </div>
   </div>
-  </div>
-  </div>
-                
-                
+          
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
-  
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

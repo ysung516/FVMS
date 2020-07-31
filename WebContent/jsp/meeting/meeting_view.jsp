@@ -261,8 +261,7 @@
           
          <div class="card-body">
            <div class="table-responsive">
-         
-					<table class="table table-bordered" id="dataTable">
+			<table class="table table-bordered" id="dataTable">
 					<tr>
 						<td>회의명</td>
 						<td><%=mb.getMeetName()%></td>
@@ -303,13 +302,27 @@
 							
 						%></td>
 					</tr>
-					</table>
-          
+					<tr>
+						<td>
+						<form method="post" action="meeting_update.jsp">
+							<input type="hidden" name="MeetName" value="<%=mb.getMeetName()%>">
+							<input type="hidden" name="no" value="<%=no%>">
+							<input type="hidden" name="writer" value="<%=mb.getMeetName()%>">
+							<input type="hidden" name="MeetDate" value="<%=mb.getMeetDate()%>">
+							<input type="hidden" name="MeetPlace" value="<%=mb.getMeetPlace()%>">
+							<input type="hidden" name="attendees" value="<%=mb.getAttendees()%>">
+							<input type="hidden" name="MeetNote" value="<%=mb.getP_meetnote()%>">
+							<input type="hidden" name="nextPlan" value="<%=mb.getP_nextplan()%>">
+							<input id="update" type="submit" name="update" value="수정"  class="btn btn-primary" >
+						</form>	
+							<a href="meeting.jsp" class="btn btn-primary">목록</a>
+						</td>
+					</tr>
+			</table>
 	     <table style="margin: 0 auto;">
 	     <tr>
 	     <td colspan="2">
 	     <input id="Delete" type="button" name="Delete" value="삭제"  class="btn btn-primary" >
-	       <a href="meeting.jsp" class="btn btn-primary">목록</a>
 	       </td>
 	     </tr>
 	       </table>   
