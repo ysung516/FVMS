@@ -99,6 +99,13 @@
 
 			<!-- Nav Item - summary -->
 		    <li class="nav-item">
+	          <a class="nav-link" href="../mypage/mypage.jsp">
+	          <i class="fas fa-fw fa-table"></i>
+	          <span>마이페이지</span></a>
+	     	</li>
+	     	
+			<!-- Nav Item - summary -->
+		    <li class="nav-item">
 	          <a class="nav-link" href="../summary/summary.jsp">
 	          <i class="fas fa-fw fa-table"></i>
 	          <span>요약정보</span></a>
@@ -115,7 +122,7 @@
 		    <li class="nav-item">
 		      <a class="nav-link" href="../rowdata/rowdata.jsp">
 		      <i class="fas fa-fw fa-chart-area"></i>
-		      <span>인력</span></a>
+		      <span>멤버</span></a>
      		</li>
      		
 	      <!-- Nav Item - schedule -->

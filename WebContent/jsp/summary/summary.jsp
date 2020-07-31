@@ -95,63 +95,72 @@
    <!-- Divider -->
    <hr class="sidebar-divider my-0">
 
-   <!-- Nav Item - summary -->
-      <li class="nav-item active">
-           <a class="nav-link" href="../summary/summary.jsp">
-           <i class="fas fa-fw fa-table"></i>
-           <span>요약정보</span></a>
-       </li>
-      
-         <!-- Nav Item - project -->
-        <li class="nav-item">
-           <a class="nav-link" href="../project/project.jsp">
-             <i class="fas fa-fw fa-clipboard-list"></i>
-             <span>프로젝트</span></a>
-          </li>
-      
-      <!-- Nav Item - rowdata -->
-      <li class="nav-item">
-        <a class="nav-link" href="../rowdata/rowdata.jsp">
-        <i class="fas fa-fw fa-chart-area"></i>
-        <span>인력</span></a>
-       </li>
-       
-       <!-- Nav Item - schedule -->
-       <li class="nav-item">
-         <a class="nav-link" href="../schedule/schedule.jsp">
-         <i class="fas fa-fw fa-calendar"></i>
-         <span>스케줄</span></a>
-       </li>
-       
-        <!-- Nav Item - manager schedule -->
-	      <li class="nav-item">
-	        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
-	        <i class="fas fa-fw fa-calendar"></i>
-	        <span>관리자 스케줄</span></a>
-	      </li>
-  
-	    <!-- Nav Item - report -->
-	   <li class="nav-item">
-	     <a class="nav-link" href="../report/report.jsp">
-	     <i class="fas fa-fw fa-clipboard-list"></i> 
-	     <span>주간보고서</span></a>
-	   </li>
+
 	
-		<!-- Nav Item - meeting -->
+			<!-- Nav Item - summary -->
 		    <li class="nav-item">
-	          <a class="nav-link" href="../meeting/meeting.jsp">
-	          <i class="fas fa-fw fa-clipboard-list"></i>
-	          <span>회의록</span></a>
-	     </li>
+	          <a class="nav-link" href="../mypage/mypage.jsp">
+	          <i class="fas fa-fw fa-table"></i>
+	          <span>마이페이지</span></a>
+	     	</li>
+	     	
+		   <!-- Nav Item - summary -->
+		      <li class="nav-item active">
+		           <a class="nav-link" href="../summary/summary.jsp">
+		           <i class="fas fa-fw fa-table"></i>
+		           <span>요약정보</span></a>
+		       </li>
+		      
+		         <!-- Nav Item - project -->
+		        <li class="nav-item">
+		           <a class="nav-link" href="../project/project.jsp">
+		             <i class="fas fa-fw fa-clipboard-list"></i>
+		             <span>프로젝트</span></a>
+		          </li>
+		      
+		      <!-- Nav Item - rowdata -->
+		      <li class="nav-item">
+		        <a class="nav-link" href="../rowdata/rowdata.jsp">
+		        <i class="fas fa-fw fa-chart-area"></i>
+		        <span>멤버</span></a>
+		       </li>
+		       
+		       <!-- Nav Item - schedule -->
+		       <li class="nav-item">
+		         <a class="nav-link" href="../schedule/schedule.jsp">
+		         <i class="fas fa-fw fa-calendar"></i>
+		         <span>스케줄</span></a>
+		       </li>
+		       
+		        <!-- Nav Item - manager schedule -->
+			      <li class="nav-item">
+			        <a class="nav-link" href="../manager_schedule/manager_schedule.jsp">
+			        <i class="fas fa-fw fa-calendar"></i>
+			        <span>관리자 스케줄</span></a>
+			      </li>
+		  
+			    <!-- Nav Item - report -->
+			   <li class="nav-item">
+			     <a class="nav-link" href="../report/report.jsp">
+			     <i class="fas fa-fw fa-clipboard-list"></i> 
+			     <span>주간보고서</span></a>
+			   </li>
 			
-		<!-- Nav Item - manager page -->
-		<%if(sessionID.equals("ymyou")){ %>
-		<li class="nav-item">
-			 <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19MC9jOiCncDi06I5ZgoIEMQbt7cMSor-gU2Zehyo__c/edit#gid=607226601">
-			 <i class="fas fa-fw fa-clipboard-list"></i> 
-			 <span>관리자페이지</span></a>
-		</li>
-		<% }%>
+				<!-- Nav Item - meeting -->
+				    <li class="nav-item">
+			          <a class="nav-link" href="../meeting/meeting.jsp">
+			          <i class="fas fa-fw fa-clipboard-list"></i>
+			          <span>회의록</span></a>
+			     </li>
+					
+				<!-- Nav Item - manager page -->
+				<%if(sessionID.equals("ymyou")){ %>
+				<li class="nav-item">
+					 <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19MC9jOiCncDi06I5ZgoIEMQbt7cMSor-gU2Zehyo__c/edit#gid=607226601">
+					 <i class="fas fa-fw fa-clipboard-list"></i> 
+					 <span>관리자페이지</span></a>
+				</li>
+				<% }%>
    
    <!-- Divider -->
    <hr class="sidebar-divider d-none d-md-block">
