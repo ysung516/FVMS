@@ -2,26 +2,31 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    import = "jsp.Bean.model.MSC_Bean"
+    import = "jsp.Bean.model.*"
     import = "java.util.ArrayList"
-    import = "java.util.Date"
-    import = "java.text.SimpleDateFormat"%>
+    import = "java.util.List"
+    %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<%
-
-	PrintWriter script =  response.getWriter();
-	if (session.getAttribute("sessionID") == null){
-		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
-	}
-
-	String sessionID = session.getAttribute("sessionID").toString();
-	String sessionName = session.getAttribute("sessionName").toString();
-	session.setMaxInactiveInterval(15*60);
-
-%>
+	<%
+		PrintWriter script =  response.getWriter();
+		if (session.getAttribute("sessionID") == null){
+			script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
+		}
+		
+		String sessionID = session.getAttribute("sessionID").toString();
+		String sessionName = session.getAttribute("sessionName").toString();
+		session.setMaxInactiveInterval(15*60);
+		String no = request.getParameter("no");
+		sheetMethod method = new sheetMethod();
+		MeetBean mb = method.getMeetList(no);
+		
+		// 출력
+		String [] line;
+		
+	%>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +34,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Schedule</title>
+  <title>Sure FVMS - Meeting_view</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,7 +44,37 @@
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+	function fnMove(seq){
+		var offset = $("#move" + seq).offset();
+        $('html, body').animate({scrollTop : offset.top}, 400);
+	}
+	
+	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
+	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+	    $('.loading').hide();
+	});
+</script>
 <style>
+	
+	#dataTable td:nth-child(odd){
+    text-align: center;
+    vertical-align: middle;
+    word-break:keep-all;
+    width:20%;
+    }
+	
+	.meeting_table{
+		width:100%;
+	}
+	
+	.meeting_table td{
+    border: 1px solid black;
+    white-space: nowrap;
+	}
+	
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -60,16 +95,35 @@
 		left: 50%;
 		transform:translate(-50%, -50%);
 	}
-</style>
 
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script type="text/javascript">
-	<!-- 로딩화면 -->
-	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').hide();
-	});
-</script>
+	@media(max-width:800px){
+		.container-fluid{
+			padding: 0;
+		}
+		.card-header:first-child{
+			padding: 0;
+		}
+}
+
+  fieldset{
+	  border-top: 3px inset;
+	  border-color: #5d7ace;        	
+  }
+  
+  legend{
+  	color:#1b3787!important;
+  	font-size: 18px;
+  	font-weight: 600;
+  	width: auto;
+  	padding: 5px;
+  }
+  
+  .report_div{
+	  padding-left: 15px;
+	  padding-bottom: 15px;
+	  }
+
+</style>
 
 <body id="page-top">
 	 <!--  로딩화면  시작  -->
@@ -81,7 +135,7 @@
 		<!--  로딩화면  끝  -->
   <!-- Page Wrapper -->
   <div id="wrapper">
-
+	
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
@@ -93,12 +147,15 @@
         <div class="sidebar-brand-text mx-3">Sure FVMS</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-     
-	<!-- Divider -->
+    <!-- Divider -->
 			<hr class="sidebar-divider my-0">
+			
+			<!-- Nav Item - summary -->
+		    <li class="nav-item active">
+	          <a class="nav-link" href="../mypage/mypage.jsp">
+	          <i class="fas fa-fw fa-table"></i>
+	          <span>마이페이지</span></a>
+	     	</li>
 
 			<!-- Nav Item - summary -->
 		    <li class="nav-item">
@@ -108,7 +165,7 @@
 	     	</li>
       
        		<!-- Nav Item - project -->
-      		<li class="nav-item">
+      		<li class="nav-item ">
      	     <a class="nav-link" href="../project/project.jsp">
              <i class="fas fa-fw fa-clipboard-list"></i>
              <span>프로젝트</span></a>
@@ -122,7 +179,7 @@
      		</li>
      		
 	      <!-- Nav Item - schedule -->
-	      <li class="nav-item active">
+	      <li class="nav-item">
 	        <a class="nav-link" href="../schedule/schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
@@ -134,31 +191,22 @@
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
 	      </li>
-
+		
 		  <!-- Nav Item - report -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
-			
-			<!-- Nav Item - meeting -->
+      
+        <!-- Nav Item - meeting -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../meeting/meeting.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>회의록</span></a>
 			</li>
-			
-			<!-- Nav Item - manager page -->
-			<%if(sessionID.equals("ymyou")){ %>
-			<li class="nav-item">
-			  <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19MC9jOiCncDi06I5ZgoIEMQbt7cMSor-gU2Zehyo__c/edit#gid=607226601">
-			  <i class="fas fa-fw fa-clipboard-list"></i> 
-			  <span>관리자페이지</span></a>
-			</li>
-			<% }%>
-
      
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -184,17 +232,18 @@
             <i class="fa fa-bars"></i>
           </button>
 
+
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
-
+           
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">홍길동</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span> 
+                <i class="fas fa-info-circle"></i>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -212,18 +261,65 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+          
+       <div class="card shadow mb-4">
+        <div class="card-header py-3">
+         <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">마이 페이지</h6>
+        </div>
+          
+         <div class="card-body">
+           <div class="table-responsive">
+         
+					<table class="table table-bordered" id="dataTable">
+					<tr>
+						<td>ID</td>
+						<td>kdhong</td>
+					</tr>
+					<tr>
+						<td>팀</td>
+						<td>미래차검증전략실</td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td>홍길동</td>
+					</tr>
+					 <tr> 
+				       <td>비밀번호</td>
+				      <td>
+				      <!-- <input type="button" value="변경"> -->
+				      <a href="update_pwd.jsp"  class="btn btn-info btn-icon-split btn-sm" >변경</a>
+				      </td>
+			     </tr>
+					<tr>
+						<td>거주지</td>
+						<td>경기도 오산</td>
+					</tr>
+					<tr>
+						<td>입사일</td>
+						<td>2019-07-31</td>
+					</tr>
+					<tr>
+						<td>연차</td>
+						<td>1년</td> 
+					</tr>
+					<tr>
+						<td>프로젝트 수행 이력</td>
+						<td>FVMS 제작</td>
+					</tr>
+					
+					</table>
+          
+	     <table style="margin: 0 auto;">
+	     <tr>
+	     <td colspan="2">
+	    	<!-- <input id="update" type="button" value="수정"  class="btn btn-primary" >  -->
+	       <a href="mypage_update.jsp" class="btn btn-primary">수정</a>
+	       </td>
+	     </tr>
+	       </table>   
+        </div>
 
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Schedule</h6>
-                </div>
-                <div class="card-body">
-           아직 미구현
-              </div>
-                   
-
-                
-                   <!-- /.container-fluid -->
+             <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->
@@ -239,33 +335,28 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-<!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-   <div class="modal-content">
-    <div class="modal-header">
-     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">×</span>
-     </button>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="../../html/login.html">Logout</a>
+        </div>
+      </div>
     </div>
-    <div class="modal-body">Select "Logout" below if you are ready  to end your current session.</div>
-    <div class="modal-footer">
-     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-    <form method = "post" action = "../LogoutPro.jsp">
-     	  <input type="submit" class="btn btn-primary" value="Logout" />
-     </form>
-   
-    </div>
-   </div>
   </div>
- </div>
-
-                
+          
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
-  
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

@@ -2,25 +2,34 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
-    import = "jsp.Bean.model.MSC_Bean"
-    import = "java.util.ArrayList"
-    import = "java.util.Date"
-    import = "java.text.SimpleDateFormat"%>
+    import = "jsp.Bean.model.*"
+    %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<%
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script type="text/javascript">
 
+
+$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
+    $('.loading').hide();
+});
+	
+</script>
+<%
 	PrintWriter script =  response.getWriter();
 	if (session.getAttribute("sessionID") == null){
 		script.print("<script> alert('세션의 정보가 없습니다.'); location.href = '../../html/login.html' </script>");
 	}
-
+	
 	String sessionID = session.getAttribute("sessionID").toString();
 	String sessionName = session.getAttribute("sessionName").toString();
 	session.setMaxInactiveInterval(15*60);
-
+	
+	sheetMethod method = new sheetMethod();
+	
+	
 %>
 
   <meta charset="utf-8">
@@ -29,7 +38,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Sure FVMS - Schedule</title>
+  <title>Sure FVMS - Report_write</title>
 
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -40,6 +49,14 @@
 
 </head>
 <style>
+
+	#dataTable td:nth-child(odd){
+    text-align: center;
+    vertical-align: middle;
+    word-break:keep-all;
+    width:20%;
+    }
+	
 	.loading{
 		position:fixed;
 		text-align: center;
@@ -60,24 +77,37 @@
 		left: 50%;
 		transform:translate(-50%, -50%);
 	}
+	@media(max-width:800px){
+		.container-fluid{
+			padding: 0;
+		}
+		.card-header:first-child{
+			padding: 0;
+		}
+}
+
+ fieldset{
+	  border: 3px inset;
+	  border-color: #5d7ace;  
+	  margin-bottom: 15px;        	
+  }
+  
+  legend{
+  	color:#1b3787!important;
+  	font-size: 18px;
+  	font-weight: 600;
+  	width: auto;
+  	padding: 5px;
+  }
+
 </style>
-
-<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
-<script type="text/javascript">
-	<!-- 로딩화면 -->
-	window.onbeforeunload = function () { $('.loading').show(); }  //현재 페이지에서 다른 페이지로 넘어갈 때 표시해주는 기능
-	$(window).load(function () {          //페이지가 로드 되면 로딩 화면을 없애주는 것
-	    $('.loading').hide();
-	});
-</script>
-
 <body id="page-top">
 	 <!--  로딩화면  시작  -->
-				  <div class="loading">
-				  <div id="load">
-				<i class="fas fa-spinner fa-10x fa-spin"></i>
-				  </div>
-				  </div>
+	<div class="loading">
+		<div id="load">
+			<i class="fas fa-spinner fa-10x fa-spin"></i>
+			</div>
+		</div>
 		<!--  로딩화면  끝  -->
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -93,13 +123,17 @@
         <div class="sidebar-brand-text mx-3">Sure FVMS</div>
       </a>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-     
-	<!-- Divider -->
+   <!-- Divider -->
 			<hr class="sidebar-divider my-0">
 
+	
+			<!-- Nav Item - summary -->
+		    <li class="nav-item active">
+	          <a class="nav-link" href="../mypage/mypage.jsp">
+	          <i class="fas fa-fw fa-table"></i>
+	          <span>마이페이지</span></a>
+	     	</li>
+	     	
 			<!-- Nav Item - summary -->
 		    <li class="nav-item">
 	          <a class="nav-link" href="../summary/summary.jsp">
@@ -122,7 +156,7 @@
      		</li>
      		
 	      <!-- Nav Item - schedule -->
-	      <li class="nav-item active">
+	      <li class="nav-item">
 	        <a class="nav-link" href="../schedule/schedule.jsp">
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>스케줄</span></a>
@@ -134,31 +168,23 @@
 	        <i class="fas fa-fw fa-calendar"></i>
 	        <span>관리자 스케줄</span></a>
 	      </li>
-
+	      
 		  <!-- Nav Item - report -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../report/report.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>주간보고서</span></a>
 			</li>
-			
-			<!-- Nav Item - meeting -->
+      		
+      		<!-- Nav Item - meeting -->
 			<li class="nav-item">
 			  <a class="nav-link" href="../meeting/meeting.jsp">
 			  <i class="fas fa-fw fa-clipboard-list"></i> 
 			  <span>회의록</span></a>
 			</li>
-			
-			<!-- Nav Item - manager page -->
-			<%if(sessionID.equals("ymyou")){ %>
-			<li class="nav-item">
-			  <a class="nav-link" href="https://docs.google.com/spreadsheets/d/19MC9jOiCncDi06I5ZgoIEMQbt7cMSor-gU2Zehyo__c/edit#gid=607226601">
-			  <i class="fas fa-fw fa-clipboard-list"></i> 
-			  <span>관리자페이지</span></a>
-			</li>
-			<% }%>
+      
 
-     
+
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -184,17 +210,20 @@
             <i class="fa fa-bars"></i>
           </button>
 
+         
+
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
 
+        
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">홍길동</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><%=sessionName%></span>
+                <i class="fas fa-info-circle"></i>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -213,23 +242,42 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-              <div class="card shadow mb-4">
+	   <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Schedule</h6>
+                  <h6 class="m-0 font-weight-bold text-primary" style="padding-left: 17px;">마이페이지 수정</h6>
                 </div>
-                <div class="card-body">
-           아직 미구현
-              </div>
-                   
-
-                
-                   <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-    </div>
-    <!-- End of Content Wrapper -->
+                 <div class="card-body">
+           
+                 <div class="table-responsive">
+          <form method="post" action="meeting_writePro.jsp">       
+			  <table class="table table-bordered" id="dataTable">
+	
+			       <tr>
+				      <td class="m-0 text-primary" align="center">현재 비밀번호</td>
+				      <td colspan="3"><input name="now_pwd" style=width:100%;></td>
+			     </tr>
+			     
+			     <tr>
+				      <td class="m-0 text-primary" align="center">바꿀 비밀번호</td>
+				      <td colspan="3"><input name="next_pwd" style=width:100%;></td>
+			     </tr>
+			     <tr align="center">
+			      <td colspan="4"> 
+			      <input id="COMPLETE" type="submit" name="COMPLETE" value="완료"  class="btn btn-primary" >
+			       <a href="mypage.jsp" class="btn btn-primary">취소</a>
+			       </td>
+			     </tr>
+			    </table>
+		    </form>
+		 </div>
+		    <!-- /.container-fluid -->
+		
+		      </div>
+		      <!-- End of Main Content -->
+		</div>
+		
+		    </div>
+		    <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->
@@ -239,33 +287,28 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-<!-- Logout Modal-->
- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-   <div class="modal-content">
-    <div class="modal-header">
-     <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-      <span aria-hidden="true">×</span>
-     </button>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="../../html/login.html">Logout</a>
+        </div>
+      </div>
     </div>
-    <div class="modal-body">Select "Logout" below if you are ready  to end your current session.</div>
-    <div class="modal-footer">
-     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-    <form method = "post" action = "../LogoutPro.jsp">
-     	  <input type="submit" class="btn btn-primary" value="Logout" />
-     </form>
-   
-    </div>
-   </div>
   </div>
- </div>
-
-                
+ 
 
   <!-- Bootstrap core JavaScript-->
   <script src="../../vendor/jquery/jquery.min.js"></script>
-  
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->

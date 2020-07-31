@@ -615,7 +615,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		    <li class="nav-item">
 		      <a class="nav-link" href="../rowdata/rowdata.jsp">
 		      <i class="fas fa-fw fa-chart-area"></i>
-		      <span>인력</span></a>
+		      <span>멤버</span></a>
      		</li>
      		
 	      <!-- Nav Item - schedule -->
