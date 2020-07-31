@@ -604,7 +604,7 @@ public class sheetMethod {
 		return num;
 	}
 	
-	public String week_MSC(String[] AmPlace_arr, String[] PmPlace_arr, String[] date_arr, 
+	public List week_MSC(String[] AmPlace_arr, String[] PmPlace_arr, String[] date_arr, 
 			String team, String sessionID, String sessionName, String level) throws GeneralSecurityException, IOException, ServiceException {
 		connect();
 		access();
@@ -616,7 +616,7 @@ public class sheetMethod {
         
         int num;
         String num_dc="";
-        String print="";
+        List<String> print= new ArrayList();
         
         if (list.isEmpty() == true) {
         	num = 0;
@@ -641,7 +641,7 @@ public class sheetMethod {
 	        }
 			if(num_dc.equals("")){ //추가
 				if (PmPlace_arr[i] != "" && AmPlace_arr[i] != "" && date_arr[i] != "") {
-		        	li.getCustomElements().setValueLocal("no",Integer.toString((num + 1)));
+		        	li.getCustomElements().setValueLocal("no",Integer.toString((num + 1 + i)));
 		        	li.getCustomElements().setValueLocal("ID",sessionID);
 		        	li.getCustomElements().setValueLocal("오전장소",AmPlace_arr[i]);
 		        	li.getCustomElements().setValueLocal("오후장소",PmPlace_arr[i]);
@@ -669,22 +669,22 @@ public class sheetMethod {
 			}
 		}
 		
-		print = "====일정 추가====";
-		for(int i=0; i>5; i++){
+		print.add("====일정 추가====");
+		for(int i=0; i<5; i++){
 			if(suc_add_date[i] != "")
-				print += suc_add_date[i] + "\n";
+				print.add(suc_add_date[i]);
 		}
-		print += "\n====일정 수정====";
-		for(int i=0; i>5; i++){
+		print.add("====일정 수정====");
+		for(int i=0; i<5; i++){
 			if(suc_update_date[i] != "")
-				print += suc_update_date[i] + "\n";
+				print.add(suc_update_date[i]);
 		}
-		print += "\n====일정 추가 및 수정 실패====";
-		for(int i=0; i>5; i++){
+		print.add("====일정 추가 및 수정 실패==== ");
+		for(int i=0; i<5; i++){
 			if(fal_add_date[i] != "")
-				print += fal_add_date[i] + "\n";
+				print.add(fal_add_date[i]);
 			if(fal_update_date[i] != "")
-				print += fal_update_date[i] + "\n";
+				print.add(fal_update_date[i]);
 		}
 		
 		return print;

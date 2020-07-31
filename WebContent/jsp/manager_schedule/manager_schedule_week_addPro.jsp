@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"
     import = "java.io.PrintWriter"
     import = "jsp.sheet.method.*"
+    import = "java.util.ArrayList"
+	import = "java.util.Arrays"
+	import = "java.util.List"
     %>
 <!DOCTYPE html>
 <html>
@@ -152,10 +155,9 @@
 		sheetMethod method = new sheetMethod();
 		method.saveUser_info(sessionID);
 		String team = method.getMember().getTEAM();
-		String print = method.week_MSC(AmPlace_arr, PmPlace_arr, date_arr, team, sessionID, sessionName, level);
+		List<String> print = method.week_MSC(AmPlace_arr, PmPlace_arr, date_arr, team, sessionID, sessionName, level);
 		if(print.isEmpty() == false){
-			script.print("<script> alert('"+print+"'); location.href = 'manager_schedule.jsp'; </script>");
-		}else script.print("<script> alert('오류'); location.href = 'manager_schedule.jsp'; </script>");
-	%>
+			%><script> alert('<%for(String value : print){out.print(value);%>'+'\n'+'<%}%>'+'\n일정이 입력되었습니다.'); location.href = 'manager_schedule.jsp'; </script><%
+		}else  %><script> alert('일정 입력이 실패되었습니다.'); location.href = 'manager_schedule.jsp'; </script>
 </body>
 </html>
